@@ -1,226 +1,248 @@
-# 🩺 Anteroom — Ambient Clinical Intake Coordinator
+# Anteroom
 
-[![Python 3.13+](https://img.shields.io/badge/python-3.13+-blue.svg)](https://www.python.org/downloads/)
-[![Strands Agents SDK](https://img.shields.io/badge/Strands%20Agents%20SDK-1.55+-orange.svg)](https://github.com/strands-ai/strands-agents)
-[![Amazon Bedrock](https://img.shields.io/badge/Amazon%20Bedrock-AgentCore-232F3E.svg)](https://aws.amazon.com/bedrock/)
-[![Tests](https://img.shields.io/badge/tests-30%2F30%20passing-brightgreen.svg)]()
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+**The room before the room.**
 
-> **"Anteroom checks tomorrow’s clinic list tonight, verifies whether scheduled appointments can actually proceed, and hands reception the exact three calls to make in the morning."**
+An intake coordinator agent for small specialist clinics. It reads the documents a clinic
+already receives — photographed referral letters, handwritten medication lists, photos of a
+computer screen — and answers one narrow question about every appointment on tomorrow's
+list:
 
-Built for the **AWS × Strands Agents SDK Hackathon ("Agents for Humans")** — **Professional Agents Track**.
+> Is the information needed to run this consultation actually present and legible?
 
----
+Then it routes what's missing to the person who can fix it, while there is still time.
 
-## 🚨 The Problem: The Burned Appointment Slot
+**Anteroom does not diagnose, prescribe, or assess clinical urgency.** It reports whether an
+intake packet is complete enough for a clinician to work from.
 
-In specialist outpatient care, consultations are not lost because electronic health records are too long. They are lost because pre-visit intake is fragmented, illegible, or incomplete:
-
-1. A patient arrives for a scheduled 30-minute cardiology consultation.
-2. The photographed referral letter gives history but omits the referral question.
-3. The handwritten medication note has a smudged blood-thinner dose.
-4. A phone photo of a hospital screen has glare obscuring renal lab values.
-5. **The Clinical Consequence:** The consultant cannot safely make a management decision. A 30-minute slot becomes an administrative re-booking, capacity is burned, and the patient waits another month.
+Built for the AWS **Agents for Humans** hackathon with the
+[Strands Agents SDK](https://strandsagents.com/), Amazon Textract, and Amazon Bedrock.
 
 ---
 
-## 💡 The Solution: Ambient Intake Coordination
+## The problem
 
-**Anteroom** runs ambiently between the clinic’s incoming documents and tomorrow's appointment calendar. It ingests messy real-world intake artifacts (angled phone photos, handwritten notes, photographed computer screens), passes them through a **hardware-confidence gate**, performs model-driven structured extraction using the **Strands Agents SDK**, deterministically audits the case against clinic policy, and routes role-specific work to the right person before the patient arrives.
+A patient arrives. The referral never said why they were sent. The medication list is a
+photo of a photo. The imaging is at another clinic. The consultation cannot happen — so a
+30-minute slot becomes a rebooking, and the patient waits another three weeks.
 
-```mermaid
-flowchart TD
-    subgraph Intake["1. Real-World Ingestion"]
-        D1["📄 Referral Letter<br/>(Angled phone photo)"]
-        D2["📝 Handwritten Note<br/>(Smudged medication dose)"]
-        D3["💻 Screen Photo<br/>(Specular glare over labs)"]
-    end
-
-    subgraph Defense["2. Structural Hallucination Defense"]
-        T["AWS Textract OCR<br/>Word-Level Confidence"]
-        G["Confidence Gate (<60%)<br/>Replaces blur with ⟪ILLEGIBLE⟫"]
-    end
-
-    subgraph Agents["3. Strands Agents SDK × Amazon Bedrock"]
-        S["Intake Coordinator<br/>(Strands Supervisor Agent)"]
-        I["Document Interpreter<br/>(Claude 3.5 Sonnet / Bedrock)"]
-        A["Deterministic Auditor<br/>(visit_requirements.yaml)"]
-        B["Brief Composer<br/>(Provable citations & bboxes)"]
-    end
-
-    subgraph Queues["4. Role-Scoped Queues & Actions"]
-        R["☎ Reception Queue<br/>Verbatim phone script for missing fields"]
-        N["💊 Nurse Review<br/>Cross-doc anticoagulant reconciliation"]
-        D["🩺 Doctor Brief<br/>30s pre-visit orientation + evidence viewer"]
-    end
-
-    D1 --> T
-    D2 --> T
-    D3 --> T
-    T --> G
-    G --> S
-    S --> I
-    I --> A
-    A --> B
-    B --> R
-    B --> N
-    B --> D
-```
+For a small practice that is revenue walking out of the door plus a patient who waited for
+nothing. The information needed to prevent it was sitting in the building the night before.
 
 ---
 
-## 🛡️ Structural Defense Against Hallucination
+## What makes this different
 
-The single greatest safety failure mode in medical document AI is an LLM "helpfully" hallucinating an illegible dose.
+Most document-AI systems summarise. Summarising is the wrong tool for this job, because the
+two failure modes that actually hurt are both invisible to a summary.
+
+### 1. A confident, plausible, wrong value
+
+Our demo medication list has an anticoagulant dose the patient wrote over. Textract reads
+that smudge as the token **`9`** with **43.08% confidence**, while every other word on the
+line reads 91–100%.
+
+Apixaban is never dosed at 9mg. Pipe that transcript into a language model and it will
+report *"Apixaban 9mg twice a day"* — fluent, formatted, and dangerous.
+
+**Anteroom deletes the token before any model sees the page.**
 
 ```
-       [ Smudged Photo: "Apixaban [blur] twice daily" ]
-                              │
-                              ▼
-                 [ AWS Textract OCR Engine ]
-                 Word: "Apixaban"  Confidence: 99.2%
-                 Word: [Blur]      Confidence: 43.1% (<60%)
-                              │
-                              ▼
-            [ Textract Confidence Gate (Threshold: 60%) ]
-                              │
-                              ▼
-            [ Sanitized Text Fed to Strands Agent ]
-            "Apixaban ⟪ILLEGIBLE⟫ twice daily"
-                              │
-                              ▼
-            [ Bedrock Model (Claude 3.5 Sonnet) ]
-            Physically impossible to invent "5mg"
-            because the model never sees raw smudge pixels!
-                              │
-                              ▼
-            [ Deterministic Clinical Policy Auditor ]
-            Flagged: High-risk anticoagulant dose unstated.
-            Escalation: Nurse queue + pharmacy verification.
+Textract      3. Apixaban 9 twice a day
+                          ↑ 43.08%
+after gate    3. Apixaban ⟪ILLEGIBLE⟫ twice a day
 ```
 
-### 🔬 The Hero Deduction: Cross-Document Clinical Reconciliation
-Single-document OCR or generic LLM summaries fail at cross-document synthesis:
-* Document A (Hospital discharge screen photo) states: *"Dose reduced on discharge"* — but specifies no number.
-* Document B (Handwritten medication list) has the dose smudged out.
-* **Anteroom's Deduction:** Holding both documents in memory, Anteroom alerts:
-  > `[CRITICAL ALERT] Apixaban was changed according to 'Discharge summary', but no document states the current dose. Two independent sources checked and neither resolves it. Clarify before consultation.`
+The model never sees the image and never sees the smudge. It cannot infer a value from
+something it was never shown. This is not a prompt instruction that usually works — it is an
+absence of input.
+
+### 2. A row that silently disappears
+
+The discharge summary in our corpus was photographed off a monitor with glare across it.
+Textract returns 14 lines, **every one at 90–100% confidence** — and the creatinine/eGFR row
+is simply *gone*. Not uncertain. Absent.
+
+A summary of that document reads as complete and reassuring. Renal function is missing and
+nobody can tell.
+
+You cannot detect a missing required field by describing what is present. You can only
+detect it by checking against a list of what should be there — which is what
+[`config/visit_requirements.yaml`](config/visit_requirements.yaml) is.
+
+### 3. The finding no single document contains
+
+| Source | What it says about the anticoagulant |
+|---|---|
+| Handwritten list | `Apixaban ⟪ILLEGIBLE⟫ twice a day` — dose destroyed |
+| Discharge summary | *"Apixaban continued. Dose reduced on discharge."* — confirms it **changed**, never says to what |
+
+Each document alone looks unremarkable. Held together they prove that **this patient's
+anticoagulant dose was changed on discharge and no document in the clinic states the current
+value.** That is a finding a per-document summariser structurally cannot produce.
 
 ---
 
-## 📊 Reliability Benchmark
+## Architecture
 
-Conducted against live Amazon Bedrock inference across repeated consecutive runs:
+```
+   documents (phone photos, scans)                 tomorrow's appointment list
+                │                                              │
+                └──────────────────────┬───────────────────────┘
+                                       ▼
+                        ┌──────────────────────────────┐
+                        │   Amazon Textract            │  per-WORD confidence
+                        │   DetectDocumentText         │  + bounding boxes
+                        └──────────────┬───────────────┘
+                                       ▼
+                        ┌──────────────────────────────┐
+                        │   Confidence gate            │  DETERMINISTIC
+                        │   < 60%  → text DELETED      │  no model involved
+                        │   60-85% → marked ⟨?⟩        │
+                        └──────────────┬───────────────┘
+                                       ▼  text only, never pixels
+                        ┌──────────────────────────────┐
+                        │   Document Interpreter       │  Strands Agent
+                        │   Bedrock · structured out   │  semantics only
+                        └──────────────┬───────────────┘
+                                       ▼
+                        ┌──────────────────────────────┐
+                        │   Normalisation layer        │  DETERMINISTIC
+                        │   aliases · dose shape ·     │  auditable config
+                        │   stoplists · null sentinels │
+                        └──────────────┬───────────────┘
+                                       ▼
+                        ┌──────────────────────────────┐
+                        │   Readiness auditor          │  DETERMINISTIC
+                        │   policy · severity · owner  │  NO MODEL
+                        └──────────────┬───────────────┘
+                                       ▼
+                        ┌──────────────────────────────┐
+                        │   Brief composer             │  Strands Agent
+                        │   prose only; doses rendered │  narrative only
+                        │   by code, never by a model  │
+                        └──────────────┬───────────────┘
+                                       ▼
+              ┌────────────────────────┼────────────────────────┐
+              ▼                        ▼                        ▼
+        RECEPTION                   NURSE                  CLINICIAN
+        call scripts          clinical clarifications      pre-visit brief
+                                       │
+                              authorisation + audit log
+```
 
-| Safety & Stability Metric | Target | Verified Live Result |
-|---|---|---|
-| **Hallucination Refusal Rate** | 0 invented doses | **100% (0 invented doses)** |
-| **High-Risk Cross-Doc Reconciliation** | 100% detected | **100% Stable Detection** |
-| **At-Risk Classification Consistency** | 100% `at_risk` | **100% Deterministic** |
+**The load-bearing decisions are the deterministic boxes.** A language model appears exactly
+twice, and in both places it handles language: what a line *means*, and how to phrase two
+sentences. Certainty, clinical risk tiering, severity, and routing are all decided by config
+a clinician can read and argue with.
+
+*Anyone can audit a YAML file. Nobody can audit a prompt.*
 
 ---
 
-## 🔒 Practice & Role-Scoped Authorization Model
+## Quick start
 
-Anteroom implements a zero-trust clinical authorization model where authentication is stubbed for the demo, but **authorization is rigorously enforced and tested**:
-
-* **Practice Scoping:** Users from Practice A cannot access appointments belonging to Practice B (raises `AccessDenied` and logs security audit trail).
-* **Role Scoping & Least Privilege:**
-  * **Reception:** Views appointment logistics, missing contact/referral questions, and verbatim telephone call scripts. Strictly denied access to consultant clinical briefs.
-  * **Nurse:** Clinical verification queue (reconciling unconfirmed medications, pharmacy contacts).
-  * **Doctor:** 30-second pre-consultation brief, blocking safety alerts, and clickable bounding-box provenance for every extracted fact.
-  * **Admin:** Practice manager view across all queues.
-
----
-
-## 🚀 Quickstart & Interactive Console
-
-### Prerequisites
-* Python 3.13+
-* AWS credentials configured (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_DEFAULT_REGION`)
-
-### Installation
 ```bash
-# Clone the repository
 git clone https://github.com/DrAhmed7887/anteroom.git
 cd anteroom
 
-# Install dependencies using uv
-uv sync
+uv venv --python 3.13 .venv
+uv pip install --python .venv/bin/python -r requirements.txt
+
+aws configure          # needs textract:DetectDocumentText and bedrock:InvokeModel
+export AWS_REGION=us-east-1
+
+.venv/bin/python scripts/make_synthetic_docs.py   # generate the demo documents
+.venv/bin/python scripts/seed_demo.py             # run the pipeline, cache results
+.venv/bin/streamlit run app.py                    # open the console
 ```
 
-### Run Tests
-```bash
-uv run env PYTHONPATH=. pytest
-# 30 passed in 0.72s
-```
+Then open <http://localhost:8501> and sign in as any of the seeded users.
 
-### Launch the Streamlit Clinic Console
-```bash
-uv run streamlit run app.py
-```
+### Try the interesting parts
 
-The console opens at `http://localhost:8501`:
-1. **Switch Roles:** Test the perspective of Receptionist, Nurse, Doctor, or Practice Manager.
-2. **Review Tomorrow's List:** Inspect `Marta Ruiz Delgado` (Cardiology New Consult, Score 32/100, At Risk) vs `Thomas Whitfield` (General Medicine, Score 100/100, Ready control case).
-3. **Inspect the Confidence Gate:** Toggle word-level Textract confidence overlays (Green = survived, Red = deleted `<60%`).
-4. **Visual Proof Viewer:** Click any clinical fact to see its exact coordinates highlighted on the source document.
+| Do this | See |
+|---|---|
+| Open **Marta Ruiz Delgado** → *Confidence gate* | `51 words · 1 deleted`, the deleted one at **43.1%** |
+| Open the *Clinician brief* | `Apixaban — DOSE NOT DOCUMENTED` |
+| Switch user to **Jo Adeyemi (reception)** | The clinical brief tab disappears entirely |
+| Switch user to **Dr Mark Ferris** *(other practice)* | Access refused and logged, not an empty page |
+| Open **Thomas Whitfield** | `READY 100/100` — the system is not just a pessimism machine |
 
 ---
 
-## 🏗️ Repository Architecture
+## Testing
+
+```bash
+.venv/bin/python -m pytest tests/ -q          # 30 tests, no AWS calls needed
+PYTHONPATH=. .venv/bin/python scripts/check_determinism.py 4   # live, costs ~$0.05
+```
+
+The test suite deliberately runs **without a model**. If the guarantee only holds when an
+LLM behaves, it is not a guarantee.
+
+### Measured behaviour
+
+Four identical runs of the full live pipeline:
+
+| | result |
+|---|---|
+| Runs that invented an apixaban dose | **0 / 4** |
+| Verdict `AT RISK` | 4 / 4 |
+| Cross-document finding fires | 4 / 4 |
+| Readiness score | 9–16 (3/4 identical) |
+
+The residual score variance is one optional field the interpreter extracts inconsistently.
+It is recorded in [`docs/determinism_run.txt`](docs/determinism_run.txt) rather than hidden.
+
+An earlier build scored 0–31 across identical runs, because the cross-document finding
+depended on the model *choosing* to extract one field. `temperature=0` did not fix it — the
+variance was in extraction recall, not sampling. The fix was to stop asking the model:
+Textract's output is deterministic, so the signal is now read from the transcript directly.
+
+**If a finding matters, don't let a model decide whether it appears.**
+
+---
+
+## Security and scope
+
+| | |
+|---|---|
+| **Authorisation** | Real, enforced on every read, 10 tests |
+| **Authentication** | **Stubbed.** Production would use Amazon Cognito mapped onto `User` |
+| **Patient data** | 100% synthetic. No real patient, clinician, or clinic appears anywhere |
+| **Outbound actions** | None. Anteroom drafts and routes; humans act |
+
+A half-built login screen looks like security without being any. The part that decides
+whether reception can open a consultant's brief is the part that got built properly.
+Cross-practice reads **raise** rather than returning empty, because a silent empty result is
+indistinguishable from "this patient has no documents" — which is how a security bug hides.
+
+**This is not a medical device.** It does not diagnose, triage, prescribe, or assess
+urgency. It reports whether an intake packet is complete, and it names a regulated process
+nowhere: clarifying a documented dose gap is not medicines reconciliation, which is
+performed by pharmacists and prescribers.
+
+---
+
+## Project layout
 
 ```
 anteroom/
-├── anteroom/
-│   ├── agents.py           # Strands Agents interpreter & Bedrock orchestrator
-│   ├── brief.py            # Clinician pre-visit brief composer
-│   ├── config.py           # Configuration loaders
-│   ├── extraction.py       # Pydantic extraction models
-│   ├── highlight.py        # Visual bounding-box & confidence gate PIL highlighter
-│   ├── mapping.py          # Deterministic clinical entity normalization
-│   ├── ocr.py              # AWS Textract client & word confidence gate
-│   ├── pipeline.py         # End-to-end assembly pipeline
-│   ├── readiness.py        # Deterministic clinical policy auditor
-│   ├── schemas.py          # Strict Pydantic contracts (Role, Severity, Gap, etc.)
-│   └── store.py            # Practice-scoped authorization & persistence
-├── app.py                  # Streamlit Clinic Console
-├── config/
-│   ├── field_aliases.yaml       # Clinical synonym dictionaries
-│   └── visit_requirements.yaml  # Deterministic clinic readiness policies
-├── data/
-│   ├── store/              # Pre-computed appointment records & audit logs
-│   └── synthetic/          # Realistic synthetic test documents (1-4)
-├── docs/
-│   ├── MVP_PRODUCT_DOCUMENT.md  # Comprehensive product specification
-│   ├── SUBMISSION.md            # Hackathon Devpost submission text
-│   └── benchmark_results.md     # Multi-run Bedrock reliability benchmark
-├── scripts/
-│   ├── benchmark_reliability.py # Automated Bedrock reliability benchmark
-│   ├── make_synthetic_docs.py   # Synthetic image generator with glare & blur
-│   └── seed_demo.py             # Practice & appointment seeder
-└── tests/
-    ├── test_authorization.py    # Zero-trust role & practice scoping tests
-    ├── test_brief.py            # Pre-visit brief & formatting tests
-    ├── test_clean_patient.py    # Clean patient control tests
-    ├── test_highlight.py        # Visual proof & bounding-box tests
-    └── test_readiness.py        # Deterministic policy & gap detection tests
+  ocr.py          Textract + the confidence gate          deterministic
+  schemas.py      the data contract; UNREADABLE is a first-class state
+  agents.py       Strands interpreter                     model
+  extraction.py   what the model may return + null-sentinel scrubbing
+  mapping.py      aliases, dose shapes, stoplists         deterministic
+  pipeline.py     assembly; certainty comes from OCR, semantics from the model
+  readiness.py    the clinical policy engine              deterministic, NO model
+  brief.py        clinician brief; prose from a model, doses from code
+  store.py        practice, users, authorisation, audit
+  highlight.py    draws the region a fact came from
+config/
+  visit_requirements.yaml   what each consultation needs; risk tiers; stoplists
+  field_aliases.yaml        clinical synonyms -> policy field names
 ```
 
----
+## Licence
 
-## ⚖️ Clinical Safety Boundary
-
-* Anteroom does **NOT** provide autonomous medical diagnoses.
-* Anteroom does **NOT** recommend treatments or alter dosages.
-* Anteroom does **NOT** perform emergency triage.
-* Anteroom is strictly an **assistive pre-visit intake and completeness coordinator**.
-
----
-
-## 👥 Authors & Acknowledgments
-
-* **Dr. Ahmed Zayed** (MBBCh, MSc Candidate in Applied Health Informatics at RWTH Aachen; Founder of doctorIQ)
-* **Gerhard**
-
-Built with ❤️ using the **Strands Agents SDK** and **Amazon Bedrock**.
+MIT — see [LICENSE](LICENSE).
