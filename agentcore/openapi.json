@@ -1,0 +1,180 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Anteroom Intake Coordinator Action Group",
+    "description": "Amazon Bedrock AgentCore action group for autonomous clinical intake auditing, pre-visit briefing, and cross-document reconciliation.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/audit": {
+      "post": {
+        "summary": "Audit an intake packet against clinic readiness policy",
+        "description": "Deterministically evaluates clinical intake documents against visit type requirements. Computes readiness score (0-100), identifies blocking/important/minor gaps, and assigns follow-up phone calls or clinical tasks to reception, nurse, or doctor.",
+        "operationId": "auditIntakePacket",
+        "requestBody": {
+          "description": "Intake packet metadata and documents to evaluate",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "patient_ref": {
+                    "type": "string",
+                    "description": "Pseudonymous patient identifier (e.g. SYN-0001)"
+                  },
+                  "appointment_at": {
+                    "type": "string",
+                    "description": "ISO 8601 appointment timestamp (e.g. 2026-09-14T14:30:00)"
+                  },
+                  "visit_type": {
+                    "type": "string",
+                    "description": "Specialty visit policy key (e.g. cardiology_new_consult, dermatology_lesion_review, general_new_patient)"
+                  },
+                  "appointment_id": {
+                    "type": "string",
+                    "description": "Optional pre-stored appointment identifier (e.g. apt-001) for cached evaluation"
+                  }
+                },
+                "required": ["patient_ref", "visit_type"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Readiness audit report with score, status, and routed actions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "patient_ref": { "type": "string" },
+                    "visit_type": { "type": "string" },
+                    "status": { "type": "string", "enum": ["ready", "needs_action", "at_risk"] },
+                    "score": { "type": "integer" },
+                    "total_gaps": { "type": "integer" },
+                    "blocking_gaps": { "type": "integer" },
+                    "gaps": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "field": { "type": "string" },
+                          "severity": { "type": "string" },
+                          "reason": { "type": "string" },
+                          "owner": { "type": "string" },
+                          "action": { "type": "string" },
+                          "call_script": { "type": "string" }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/brief": {
+      "get": {
+        "summary": "Get pre-visit clinician brief",
+        "description": "Returns the pre-visit briefing narrative and synthesized evidence for a scheduled appointment, citing bounding boxes and flagging uncertainties.",
+        "operationId": "getClinicianBrief",
+        "parameters": [
+          {
+            "name": "appointment_id",
+            "in": "query",
+            "required": true,
+            "description": "Identifier of the appointment (e.g. apt-001, apt-002, apt-003)",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Structured pre-visit clinical brief",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "patient_ref": { "type": "string" },
+                    "appointment": { "type": "string" },
+                    "headline": { "type": "string" },
+                    "medications": {
+                      "type": "array",
+                      "items": { "type": "string" }
+                    },
+                    "not_documented": {
+                      "type": "array",
+                      "items": { "type": "string" }
+                    },
+                    "flags": {
+                      "type": "array",
+                      "items": { "type": "string" }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/reconcile": {
+      "post": {
+        "summary": "Run cross-document medication reconciliation",
+        "description": "Scans multiple intake documents for unexplained medication modifications, dose changes across transitions of care, and conflicting records.",
+        "operationId": "reconcileMedications",
+        "requestBody": {
+          "description": "Appointment reference to audit cross-document reconciliation for",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "appointment_id": {
+                    "type": "string",
+                    "description": "Appointment ID (e.g. apt-001)"
+                  }
+                },
+                "required": ["appointment_id"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Medication reconciliation findings and flags",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "patient_ref": { "type": "string" },
+                    "reconciliation_flags": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "medication": { "type": "string" },
+                          "severity": { "type": "string" },
+                          "action": { "type": "string" }
+                        }
+                      }
+                    },
+                    "is_at_risk": { "type": "boolean" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

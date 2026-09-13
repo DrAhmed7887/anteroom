@@ -206,11 +206,22 @@ if selected_id == "__upload__":
     if up and st.button("Run intake check", type="primary"):
         tmp = Path(STORE_DIR) / f"upload_{up.name}"
         tmp.write_bytes(up.getbuffer())
-        with st.spinner("Textract → confidence gate → interpreter → policy audit…"):
-            from anteroom.brief import compose as compose_brief
-            from anteroom.pipeline import run as run_pipeline
-            rec, rep, ocr = run_pipeline(ref, datetime.now(), visit,
-                                         [("upload", str(tmp), up.name)])
+        try:
+            with st.spinner("Textract → confidence gate → interpreter → policy audit…"):
+                from anteroom.brief import compose as compose_brief
+                from anteroom.pipeline import run as run_pipeline
+                rec, rep, ocr = run_pipeline(ref, datetime.now(), visit,
+                                             [("upload", str(tmp), up.name)])
+        except Exception as exc:
+            st.error(f"⚠️ Live intake processing error: {exc}")
+            st.info(
+                "💡 **Hosted Demo Notice:** Live intake upload executes against AWS Textract and Bedrock. "
+                "To run live uploads on Streamlit Cloud, configure `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, "
+                "and `AWS_DEFAULT_REGION` in Streamlit App Secrets.\n\n"
+                "👉 **To view full clinical records with visual bounding boxes, access control, and readiness verdicts, "
+                "select any of tomorrow's 3 pre-processed patients from the sidebar!**"
+            )
+            st.stop()
         cls_, colour_, label_ = STATUS_STYLE[rep.status.value]
         a, b = st.columns([1, 2])
         with a:

@@ -14,6 +14,7 @@ from pathlib import Path
 from .agents import interpret
 from .extraction import DocumentExtraction
 from .mapping import (
+    LOW_CONF_MARKER,
     is_real_medication,
     is_real_referral_question,
     load_not_a_medication,
@@ -102,9 +103,15 @@ def medications_from(doc: OcrDocument, ex: DocumentExtraction,
         dose_raw, _ = strip_markers(dose_raw)
         dose, dose_note = sanitise_dose(dose_raw)
         freq, _ = strip_markers(freq)
-        conf = _confidence(doc, m.line_number, m.dose_marked_illegible)
+        is_unreadable_dose = (
+            m.dose_marked_illegible
+            or (dose is None and dose_note is not None and any(c.isdigit() for c in dose_note))
+            or (dose is None and LOW_CONF_MARKER in (m.dose or ""))
+        )
+        conf = _confidence(doc, m.line_number, is_unreadable_dose)
         note = None
-        if m.dose_marked_illegible:
+        if is_unreadable_dose:
+            conf = Confidence.UNREADABLE
             note = "Dose position was unreadable in the source document."
         elif dose is None and dose_note:
             note = f"No dose recorded; document says: {dose_note!r}"
@@ -218,16 +225,58 @@ def build_record(
 
     # A drug chart IS the current-medications field. Without this the policy
     # reports it missing while seven medications sit in the record.
-    if record.medications and "current_medications" not in record.facts:
+    if record.medications:
         named = [m for m in record.medications if m.name]
         best = max(named, key=lambda m: _RANK[m.confidence], default=None)
-        if best is not None:
-            record.facts["current_medications"] = ExtractedFact(
-                field="current_medications",
-                value=f"{len(named)} medications recorded: " + ", ".join(m.name for m in named),
-                confidence=best.confidence,
-                source=best.source,
-            )
+        if best is not None and _RANK[best.confidence] >= _RANK[Confidence.MEDIUM]:
+            cur = record.facts.get("current_medications")
+            if cur is None or _RANK[best.confidence] > _RANK[cur.confidence]:
+                record.facts["current_medications"] = ExtractedFact(
+                    field="current_medications",
+                    value=f"{len(named)} medications recorded: " + ", ".join(m.name for m in named),
+                    confidence=best.confidence,
+                    source=best.source,
+                )
+
+    # Deterministic fallback: if explicit clinical investigation lines are
+    # printed in the transcript, do not let stochastic model recall drop them.
+    for d in ocr_docs:
+        for i, ln in enumerate(d.lines, 1):
+            lowered = ln.safe_text.lower()
+            if "presenting_symptoms" not in record.facts:
+                if any(k in lowered for k in ("palpitations", "light-headedness", "chest pain", "breathlessness", "shortness of breath", "syncope", "dizziness")):
+                    record.facts["presenting_symptoms"] = ExtractedFact(
+                        field="presenting_symptoms",
+                        value=ln.safe_text,
+                        confidence=state_for(ln.confidence),
+                        source=_source(d, i),
+                    )
+            if "ecg" in lowered and any(k in lowered for k in ("sinus", "atrial", "rhythm", "performed", "rate", "normal")):
+                curr_ecg = record.facts.get("recent_ecg")
+                ln_conf = state_for(ln.confidence)
+                if curr_ecg is None or _RANK[ln_conf] > _RANK[curr_ecg.confidence]:
+                    record.facts["recent_ecg"] = ExtractedFact(
+                        field="recent_ecg",
+                        value=ln.safe_text,
+                        confidence=ln_conf,
+                        source=_source(d, i),
+                    )
+            if "anticoagulant_status" not in record.facts:
+                if "anticoagulated" in lowered or "anticoagulation" in lowered:
+                    record.facts["anticoagulant_status"] = ExtractedFact(
+                        field="anticoagulant_status",
+                        value=ln.safe_text,
+                        confidence=state_for(ln.confidence),
+                        source=_source(d, i),
+                    )
+            if "previous_echo" not in record.facts:
+                if "echocardiogram" in lowered or ("echo" in lowered and any(k in lowered for k in ("ef", "lv function", "dilated"))):
+                    record.facts["previous_echo"] = ExtractedFact(
+                        field="previous_echo",
+                        value=ln.safe_text,
+                        confidence=state_for(ln.confidence),
+                        source=_source(d, i),
+                    )
 
     return record, ocr_docs
 
