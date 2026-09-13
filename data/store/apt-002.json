@@ -9,7 +9,7 @@
         "label": "Referral letter, Dr S. Ellery",
         "kind": "referral_letter",
         "capture_quality": "good",
-        "received_at": "2026-09-13T13:09:27.397160"
+        "received_at": "2026-09-13T13:51:21.549683"
       }
     ],
     "facts": {
@@ -128,40 +128,6 @@
             "top": 0.5373164415359497,
             "width": 0.7278479337692261,
             "height": 0.01419446337968111
-          }
-        },
-        "note": null
-      },
-      "patient_age": {
-        "field": "patient_age",
-        "value": "54",
-        "confidence": "high",
-        "source": {
-          "document_id": "doc4",
-          "document_label": "Referral letter, Dr S. Ellery",
-          "location": "line 5",
-          "bbox": {
-            "left": 0.07278852164745331,
-            "top": 0.1860041320323944,
-            "width": 0.371520459651947,
-            "height": 0.011049347929656506
-          }
-        },
-        "note": null
-      },
-      "patient_sex": {
-        "field": "patient_sex",
-        "value": "Male",
-        "confidence": "high",
-        "source": {
-          "document_id": "doc4",
-          "document_label": "Referral letter, Dr S. Ellery",
-          "location": "line 5",
-          "bbox": {
-            "left": 0.07278852164745331,
-            "top": 0.1860041320323944,
-            "width": 0.371520459651947,
-            "height": 0.011049347929656506
           }
         },
         "note": null
@@ -326,40 +292,6 @@
           }
         },
         "note": null
-      },
-      {
-        "field": "patient_age",
-        "value": "54",
-        "confidence": "high",
-        "source": {
-          "document_id": "doc4",
-          "document_label": "Referral letter, Dr S. Ellery",
-          "location": "line 5",
-          "bbox": {
-            "left": 0.07278852164745331,
-            "top": 0.1860041320323944,
-            "width": 0.371520459651947,
-            "height": 0.011049347929656506
-          }
-        },
-        "note": null
-      },
-      {
-        "field": "patient_sex",
-        "value": "Male",
-        "confidence": "high",
-        "source": {
-          "document_id": "doc4",
-          "document_label": "Referral letter, Dr S. Ellery",
-          "location": "line 5",
-          "bbox": {
-            "left": 0.07278852164745331,
-            "top": 0.1860041320323944,
-            "width": 0.371520459651947,
-            "height": 0.011049347929656506
-          }
-        },
-        "note": null
       }
     ]
   },
@@ -376,12 +308,12 @@
     "patient_ref": "SYN-0002",
     "appointment": "Mon 14 Sep, 10:00",
     "narrative": {
-      "headline": "54-year-old male with persistent fatigue and weight loss",
+      "headline": "Adult male with persistent fatigue and weight loss",
       "background": [
         "Six months of progressive fatigue",
         "Unintentional weight loss of 6 kg over three months",
-        "Hypothyroidism well controlled",
-        "Father had bowel cancer"
+        "Hypothyroidism diagnosed 2016, well controlled",
+        "Father had bowel cancer diagnosed aged 71"
       ]
     },
     "medications": [
@@ -2779,5 +2711,5 @@
       ]
     }
   ],
-  "computed_at": "2026-09-13T13:09:28.890053"
+  "computed_at": "2026-09-13T13:51:23.158810"
 }

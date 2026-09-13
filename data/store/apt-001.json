@@ -9,24 +9,58 @@
         "label": "Referral letter, Dr A. Okafor",
         "kind": "referral_letter",
         "capture_quality": "good",
-        "received_at": "2026-09-13T13:09:08.558738"
+        "received_at": "2026-09-13T13:51:02.369431"
       },
       {
         "document_id": "doc2",
         "label": "Medication list (handwritten)",
         "kind": "medication_list",
         "capture_quality": "degraded",
-        "received_at": "2026-09-13T13:09:15.091381"
+        "received_at": "2026-09-13T13:51:08.697151"
       },
       {
         "document_id": "doc3",
         "label": "Discharge summary (photo of screen)",
         "kind": "discharge_summary",
         "capture_quality": "degraded",
-        "received_at": "2026-09-13T13:09:19.602853"
+        "received_at": "2026-09-13T13:51:13.074525"
       }
     ],
     "facts": {
+      "patient_age": {
+        "field": "patient_age",
+        "value": "68",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc1",
+          "document_label": "Referral letter, Dr A. Okafor",
+          "location": "line 7",
+          "bbox": {
+            "left": 0.12292426824569702,
+            "top": 0.2570887804031372,
+            "width": 0.7526800036430359,
+            "height": 0.021062683314085007
+          }
+        },
+        "note": null
+      },
+      "patient_sex": {
+        "field": "patient_sex",
+        "value": "female",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc1",
+          "document_label": "Referral letter, Dr A. Okafor",
+          "location": "line 5",
+          "bbox": {
+            "left": 0.12575776875019073,
+            "top": 0.19796445965766907,
+            "width": 0.3557111620903015,
+            "height": 0.016144711524248123
+          }
+        },
+        "note": null
+      },
       "presenting_symptoms": {
         "field": "presenting_symptoms",
         "value": "intermittent palpitations, light-headedness",
@@ -95,60 +129,9 @@
         },
         "note": null
       },
-      "patient_age": {
-        "field": "patient_age",
-        "value": "68",
-        "confidence": "high",
-        "source": {
-          "document_id": "doc1",
-          "document_label": "Referral letter, Dr A. Okafor",
-          "location": "line 7",
-          "bbox": {
-            "left": 0.12292426824569702,
-            "top": 0.2570887804031372,
-            "width": 0.7526800036430359,
-            "height": 0.021062683314085007
-          }
-        },
-        "note": null
-      },
-      "patient_sex": {
-        "field": "patient_sex",
-        "value": "female",
-        "confidence": "high",
-        "source": {
-          "document_id": "doc1",
-          "document_label": "Referral letter, Dr A. Okafor",
-          "location": "line 5",
-          "bbox": {
-            "left": 0.12575776875019073,
-            "top": 0.19796445965766907,
-            "width": 0.3557111620903015,
-            "height": 0.016144711524248123
-          }
-        },
-        "note": null
-      },
-      "recent_ecg": {
-        "field": "recent_ecg",
-        "value": "sinus rhythm",
-        "confidence": "high",
-        "source": {
-          "document_id": "doc1",
-          "document_label": "Referral letter, Dr A. Okafor",
-          "location": "line 14",
-          "bbox": {
-            "left": 0.11510532349348068,
-            "top": 0.4162256419658661,
-            "width": 0.7590369582176208,
-            "height": 0.016650235280394554
-          }
-        },
-        "note": null
-      },
       "current_medications": {
         "field": "current_medications",
-        "value": "Ramipril, Atorvastatin, Apixaban, Metformin, B\u00edsoprolol, Paracetamol",
+        "value": "6 medications recorded: Ramipril, Atorvastatin, Apixaban, Metformin, B\u00edsoprolol, Paracetamol",
         "confidence": "high",
         "source": {
           "document_id": "doc2",
@@ -163,22 +146,56 @@
         },
         "note": null
       },
+      "recent_ecg": {
+        "field": "recent_ecg",
+        "value": "An ECG was performed at the surgery in March which I understand showed sinus rhythm at that time.",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc1",
+          "document_label": "Referral letter, Dr A. Okafor",
+          "location": "line 14",
+          "bbox": {
+            "left": 0.11510532349348068,
+            "top": 0.4162256419658661,
+            "width": 0.7590369582176208,
+            "height": 0.016650235280394554
+          }
+        },
+        "note": "Located deterministically by keyword scan, not by model extraction."
+      },
       "previous_echo": {
         "field": "previous_echo",
-        "value": null,
-        "confidence": "unreadable",
+        "value": "Echocardiogram",
+        "confidence": "high",
         "source": {
           "document_id": "doc3",
           "document_label": "Discharge summary (photo of screen)",
-          "location": "line 10",
+          "location": "line 9",
           "bbox": {
-            "left": 0.3073274791240692,
-            "top": 0.43712207674980164,
-            "width": 0.4680896997451782,
-            "height": 0.02221888117492199
+            "left": 0.09501302987337112,
+            "top": 0.4380617141723633,
+            "width": 0.10545478761196136,
+            "height": 0.021898308768868446
           }
         },
-        "note": "OCR reported low confidence on part of this line."
+        "note": "Located deterministically by keyword scan, not by model extraction."
+      },
+      "renal_function": {
+        "field": "renal_function",
+        "value": "Cardiology outpatients. 6 weeks. GP to check renal function.",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc3",
+          "document_label": "Discharge summary (photo of screen)",
+          "location": "line 14",
+          "bbox": {
+            "left": 0.2954098582267761,
+            "top": 0.7627264857292175,
+            "width": 0.4944407641887665,
+            "height": 0.026605283841490746
+          }
+        },
+        "note": "Located deterministically by keyword scan, not by model extraction."
       }
     },
     "medications": [
@@ -280,7 +297,7 @@
       {
         "name": "Paracetamol",
         "dose": null,
-        "frequency": "when needed",
+        "frequency": null,
         "confidence": "high",
         "source": {
           "document_id": "doc2",
@@ -298,6 +315,40 @@
       }
     ],
     "all_facts": [
+      {
+        "field": "patient_age",
+        "value": "68",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc1",
+          "document_label": "Referral letter, Dr A. Okafor",
+          "location": "line 7",
+          "bbox": {
+            "left": 0.12292426824569702,
+            "top": 0.2570887804031372,
+            "width": 0.7526800036430359,
+            "height": 0.021062683314085007
+          }
+        },
+        "note": null
+      },
+      {
+        "field": "patient_sex",
+        "value": "female",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc1",
+          "document_label": "Referral letter, Dr A. Okafor",
+          "location": "line 5",
+          "bbox": {
+            "left": 0.12575776875019073,
+            "top": 0.19796445965766907,
+            "width": 0.3557111620903015,
+            "height": 0.016144711524248123
+          }
+        },
+        "note": null
+      },
       {
         "field": "presenting_symptoms",
         "value": "intermittent palpitations, light-headedness",
@@ -367,70 +418,14 @@
         "note": null
       },
       {
-        "field": "patient_age",
-        "value": "68",
-        "confidence": "high",
-        "source": {
-          "document_id": "doc1",
-          "document_label": "Referral letter, Dr A. Okafor",
-          "location": "line 7",
-          "bbox": {
-            "left": 0.12292426824569702,
-            "top": 0.2570887804031372,
-            "width": 0.7526800036430359,
-            "height": 0.021062683314085007
-          }
-        },
-        "note": null
-      },
-      {
-        "field": "patient_sex",
-        "value": "female",
-        "confidence": "high",
-        "source": {
-          "document_id": "doc1",
-          "document_label": "Referral letter, Dr A. Okafor",
-          "location": "line 5",
-          "bbox": {
-            "left": 0.12575776875019073,
-            "top": 0.19796445965766907,
-            "width": 0.3557111620903015,
-            "height": 0.016144711524248123
-          }
-        },
-        "note": null
-      },
-      {
-        "field": "recent_ecg",
-        "value": "sinus rhythm",
-        "confidence": "high",
-        "source": {
-          "document_id": "doc1",
-          "document_label": "Referral letter, Dr A. Okafor",
-          "location": "line 14",
-          "bbox": {
-            "left": 0.11510532349348068,
-            "top": 0.4162256419658661,
-            "width": 0.7590369582176208,
-            "height": 0.016650235280394554
-          }
-        },
-        "note": null
-      },
-      {
         "field": "current_medications",
         "value": "Ramipril, Atorvastatin, Apixaban, Metformin, B\u00edsoprolol, Paracetamol",
-        "confidence": "high",
+        "confidence": "low",
         "source": {
           "document_id": "doc2",
           "document_label": "Medication list (handwritten)",
-          "location": "line 3",
-          "bbox": {
-            "left": 0.12145465612411499,
-            "top": 0.21099163591861725,
-            "width": 0.450496643781662,
-            "height": 0.03150825947523117
-          }
+          "location": "whole document",
+          "bbox": null
         },
         "note": null
       },
@@ -453,7 +448,7 @@
       },
       {
         "field": "patient_sex",
-        "value": "Female",
+        "value": "female",
         "confidence": "high",
         "source": {
           "document_id": "doc3",
@@ -504,8 +499,8 @@
       },
       {
         "field": "recent_ecg",
-        "value": null,
-        "confidence": "unreadable",
+        "value": "Atrial fibrillation. rate 148 bpm. No acute ischaemic change.",
+        "confidence": "low",
         "source": {
           "document_id": "doc3",
           "document_label": "Discharge summary (photo of screen)",
@@ -521,8 +516,8 @@
       },
       {
         "field": "previous_echo",
-        "value": null,
-        "confidence": "unreadable",
+        "value": "LV function mildly impaired. EF 48%. Left atrium dilated.",
+        "confidence": "low",
         "source": {
           "document_id": "doc3",
           "document_label": "Discharge summary (photo of screen)",
@@ -560,7 +555,7 @@
     "appointment_at": "2026-09-14T14:30:00",
     "visit_type": "cardiology_new_consult",
     "status": "at_risk",
-    "score": 32,
+    "score": 40,
     "gaps": [
       {
         "field": "referral_question",
@@ -619,15 +614,6 @@
         }
       },
       {
-        "field": "renal_function",
-        "severity": "important",
-        "reason": "missing",
-        "owner": "reception",
-        "action": "Request renal function from the hospital laboratory before the appointment.",
-        "call_script": "Hello, calling from the clinic. We have a discharge summary where the creatinine and eGFR are not legible. Could you confirm the most recent results?",
-        "source": null
-      },
-      {
         "field": "family_history",
         "severity": "minor",
         "reason": "missing",
@@ -654,25 +640,6 @@
             "height": 0.01977364905178547
           }
         }
-      },
-      {
-        "field": "previous_echo",
-        "severity": "minor",
-        "reason": "unreadable",
-        "owner": "reception",
-        "action": "Confirm previous echo with the hospital records department -- the document is present but not legible.",
-        "call_script": null,
-        "source": {
-          "document_id": "doc3",
-          "document_label": "Discharge summary (photo of screen)",
-          "location": "line 10",
-          "bbox": {
-            "left": 0.3073274791240692,
-            "top": 0.43712207674980164,
-            "width": 0.4680896997451782,
-            "height": 0.02221888117492199
-          }
-        }
       }
     ],
     "doctor_brief": ""
@@ -694,15 +661,14 @@
       "Atorvastatin \u2014 40mg",
       "B\u00edsoprolol \u2014 2.5mg",
       "Metformin \u2014 DOSE NOT DOCUMENTED (illegible in source)",
-      "Paracetamol \u2014 DOSE NOT DOCUMENTED, when needed",
+      "Paracetamol \u2014 DOSE NOT DOCUMENTED",
       "Ramipril \u2014 5mg"
     ],
     "not_documented": [
       "referral question \u2014 not documented",
       "Apixaban \u2014 documents disagree or a change is unresolved",
       "allergies \u2014 not documented",
-      "Metformin \u2014 present in a document but not legible",
-      "renal function \u2014 not documented"
+      "Metformin \u2014 present in a document but not legible"
     ],
     "before_you_start": [
       "Request referral question from the referring practice before the appointment.",
@@ -4527,5 +4493,5 @@
       ]
     }
   ],
-  "computed_at": "2026-09-13T13:09:21.030832"
+  "computed_at": "2026-09-13T13:51:15.784064"
 }

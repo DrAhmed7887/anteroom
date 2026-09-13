@@ -1,10 +1,11 @@
-  run 1: score= 16 status=at_risk      gaps= 9 meds=6 apixaban.dose=None   recon=yes
-  run 2: score= 16 status=at_risk      gaps= 9 meds=6 apixaban.dose=None   recon=yes
-  run 3: score=  9 status=at_risk      gaps=10 meds=6 apixaban.dose=None   recon=yes
-  run 4: score= 16 status=at_risk      gaps= 9 meds=6 apixaban.dose=None   recon=yes
+  run 1: score= 40 status=at_risk      gaps= 6 meds=6 apixaban.dose=None   recon=yes
+  run 2: score= 40 status=at_risk      gaps= 6 meds=6 apixaban.dose=None   recon=yes
+  run 3: score= 40 status=at_risk      gaps= 6 meds=6 apixaban.dose=None   recon=yes
+  run 4: score= 40 status=at_risk      gaps= 6 meds=6 apixaban.dose=None   recon=yes
+  run 5: score= 40 status=at_risk      gaps= 6 meds=6 apixaban.dose=None   recon=yes
 
 ======================================================================
-  SAFETY   : 0/4 runs invented an apixaban dose   ✅ NONE
-  STABILITY: score           ⚠️  varies  [16, 9]
-  STABILITY: gap count       ⚠️  varies  [10, 9]
+  SAFETY   : 0/5 runs invented an apixaban dose   ✅ NONE
+  STABILITY: score           ✅ stable  [40]
+  STABILITY: gap count       ✅ stable  [6]
   STABILITY: reconciliation  ✅ stable  [True]

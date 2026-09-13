@@ -9,27 +9,10 @@
         "label": "Referral letter, Dr F. MacLeod (SI Units / DD/MM/YY)",
         "kind": "referral_letter",
         "capture_quality": "degraded",
-        "received_at": "2026-09-13T13:16:05.433613"
+        "received_at": "2026-09-13T13:51:28.902553"
       }
     ],
     "facts": {
-      "referral_question": {
-        "field": "referral_question",
-        "value": "Assessment of exertional dyspnoea (NYHA II) and advice regarding further cardiac workup or echocardiography.",
-        "confidence": "high",
-        "source": {
-          "document_id": "doc5",
-          "document_label": "Referral letter, Dr F. MacLeod (SI Units / DD/MM/YY)",
-          "location": "line 9",
-          "bbox": {
-            "left": 0.07237853854894638,
-            "top": 0.24992559850215912,
-            "width": 0.8001889586448669,
-            "height": 0.014339283108711243
-          }
-        },
-        "note": null
-      },
       "presenting_symptoms": {
         "field": "presenting_symptoms",
         "value": "Gradual onset shortness of breath climbing stairs over 4 months. No chest pain, no syncope, no ankle swelling.",
@@ -81,6 +64,23 @@
         },
         "note": null
       },
+      "current_medications": {
+        "field": "current_medications",
+        "value": "Amlodipine 5 mg once daily mane. Atorvastatin 20 mg once daily nocte.",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc5",
+          "document_label": "Referral letter, Dr F. MacLeod (SI Units / DD/MM/YY)",
+          "location": "line 19",
+          "bbox": {
+            "left": 0.0733388215303421,
+            "top": 0.48038479685783386,
+            "width": 0.8387224674224854,
+            "height": 0.014128318056464195
+          }
+        },
+        "note": null
+      },
       "renal_function": {
         "field": "renal_function",
         "value": "88 \u00b5mol/L (eGFR > 60 mL/min/1.73m2)",
@@ -115,22 +115,22 @@
         },
         "note": null
       },
-      "current_medications": {
-        "field": "current_medications",
-        "value": "2 medications recorded: Amlodipine, Atorvastatin",
+      "referral_question": {
+        "field": "referral_question",
+        "value": "Assessment of exertional dyspnoea (NYHA II) and advice regarding",
         "confidence": "high",
         "source": {
           "document_id": "doc5",
           "document_label": "Referral letter, Dr F. MacLeod (SI Units / DD/MM/YY)",
-          "location": "line 19",
+          "location": "line 9",
           "bbox": {
-            "left": 0.0733388215303421,
-            "top": 0.48038479685783386,
-            "width": 0.8387224674224854,
-            "height": 0.014128318056464195
+            "left": 0.07237853854894638,
+            "top": 0.24992559850215912,
+            "width": 0.8001889586448669,
+            "height": 0.014339283108711243
           }
         },
-        "note": null
+        "note": "Located deterministically by heading scan, not by model extraction."
       }
     },
     "medications": [
@@ -174,23 +174,6 @@
       }
     ],
     "all_facts": [
-      {
-        "field": "referral_question",
-        "value": "Assessment of exertional dyspnoea (NYHA II) and advice regarding further cardiac workup or echocardiography.",
-        "confidence": "high",
-        "source": {
-          "document_id": "doc5",
-          "document_label": "Referral letter, Dr F. MacLeod (SI Units / DD/MM/YY)",
-          "location": "line 9",
-          "bbox": {
-            "left": 0.07237853854894638,
-            "top": 0.24992559850215912,
-            "width": 0.8001889586448669,
-            "height": 0.014339283108711243
-          }
-        },
-        "note": null
-      },
       {
         "field": "presenting_symptoms",
         "value": "Gradual onset shortness of breath climbing stairs over 4 months. No chest pain, no syncope, no ankle swelling.",
@@ -238,6 +221,23 @@
             "top": 0.5088114142417908,
             "width": 0.4159279465675354,
             "height": 0.013995731249451637
+          }
+        },
+        "note": null
+      },
+      {
+        "field": "current_medications",
+        "value": "Amlodipine 5 mg once daily mane. Atorvastatin 20 mg once daily nocte.",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc5",
+          "document_label": "Referral letter, Dr F. MacLeod (SI Units / DD/MM/YY)",
+          "location": "line 19",
+          "bbox": {
+            "left": 0.0733388215303421,
+            "top": 0.48038479685783386,
+            "width": 0.8387224674224854,
+            "height": 0.014128318056464195
           }
         },
         "note": null
@@ -2362,5 +2362,5 @@
       ]
     }
   ],
-  "computed_at": "2026-09-13T13:16:06.938441"
+  "computed_at": "2026-09-13T13:51:30.294006"
 }
