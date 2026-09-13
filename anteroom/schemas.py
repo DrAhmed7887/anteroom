@@ -119,6 +119,15 @@ class IntakeRecord(BaseModel):
         description="Keyed by requirement field name so the auditor can check presence directly.",
     )
     medications: list[Medication] = Field(default_factory=list)
+    all_facts: list[ExtractedFact] = Field(
+        default_factory=list,
+        description=(
+            "Every fact from every document, before one-per-field collapsing. "
+            "Reconciliation needs the discarded ones: the discharge note saying a "
+            "dose was reduced is less confidently read than the referral saying "
+            "'she is anticoagulated', but far more clinically important."
+        ),
+    )
 
 
 class Gap(BaseModel):

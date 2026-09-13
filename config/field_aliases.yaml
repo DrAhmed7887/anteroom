@@ -1,0 +1,103 @@
+# Clinical synonym map: what documents call things -> what the policy calls them.
+#
+# Documents from different institutions name the same clinical fact differently.
+# A discharge summary says "Creatinine / eGFR"; the policy asks for
+# "renal_function". Rather than hoping a model guesses our vocabulary, the
+# mapping is written down where a clinician can read and correct it.
+#
+# Left side is lowercased and matched as a substring, so "ecg on admission"
+# and "admission ecg" both resolve.
+
+recent_ecg:
+  - ecg
+  - electrocardiogram
+  - ekg
+  - rhythm strip
+
+renal_function:
+  - creatinine
+  - egfr
+  - gfr
+  - renal
+  - kidney function
+  - u&e
+  - urea and electrolytes
+
+anticoagulant_status:
+  - anticoagulation
+  - anticoagulant
+  - blood thinner
+  - doac
+  - warfarin status
+
+current_medications:
+  - medication
+  - medications
+  - drug history
+  - current drugs
+  - tto
+  - discharge medication
+  - repeat prescription
+
+allergies:
+  - allergy
+  - adverse drug reaction
+  - adr
+  - drug allergies
+
+presenting_symptoms:
+  - presenting complaint
+  - reason for admission
+  - reason for referral
+  - history of presenting complaint
+  - symptoms
+  - chief complaint
+
+past_medical_history:
+  - past medical history
+  - pmh
+  - background
+  - comorbidities
+  - medical history
+
+previous_echo:
+  - echo
+  - echocardiogram
+  - transthoracic echo
+  - tte
+
+referral_question:
+  - referral question
+  - clinical question
+  - reason for referral request
+  - advice sought
+
+bp_diary:
+  - blood pressure
+  - bp readings
+  - home bp
+
+family_history:
+  - family history
+  - fh
+
+immunosuppression_status:
+  - immunosuppression
+  - immunosuppressed
+  - transplant
+  - biologic therapy
+
+previous_biopsy_result:
+  - biopsy
+  - histology
+  - pathology report
+
+lesion_site:
+  - lesion site
+  - site of lesion
+  - location of lesion
+
+lesion_duration:
+  - lesion duration
+  - duration of lesion
+  - how long

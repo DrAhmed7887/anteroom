@@ -47,6 +47,26 @@ _global:
     sotalol: antiarrhythmic
     digoxin: digoxin
 
+  # Words that name a CLASS or a state, not a specific medicine. A referral
+  # saying "she is anticoagulated" is a fact about the patient, not an entry on
+  # a drug chart. Admitting it as a medication would create a phantom drug with
+  # no dose, and a phantom gap chasing a dose that never existed.
+  not_a_medication:
+    - anticoagulant
+    - anticoagulation
+    - antiplatelet
+    - blood thinner
+    - medication
+    - medications
+    - tablets
+    - drugs
+    - unspecified
+    - unknown
+    - various
+    - inhaler
+    - analgesia
+    - antibiotics
+
   # Never chase these by phone; they are the clinician's job in the room.
   never_delegate_to_reception:
     - clinical_examination_findings

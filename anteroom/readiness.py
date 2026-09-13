@@ -29,7 +29,7 @@ POLICY_PATH = Path(__file__).resolve().parent.parent / "config" / "visit_require
 
 # Score weights. Blocking gaps dominate: one of them means the slot is at risk,
 # and no number of satisfied "nice to have" fields should mask that.
-WEIGHTS = {Severity.BLOCKING: 25, Severity.IMPORTANT: 8, Severity.MINOR: 2}
+WEIGHTS = {Severity.BLOCKING: 22, Severity.IMPORTANT: 7, Severity.MINOR: 1}
 
 # Fields reception can reasonably resolve with one phone call to the patient.
 PATIENT_ANSWERABLE = {
@@ -211,7 +211,7 @@ def _reconciliation_gaps(record: IntakeRecord, high_risk_map: dict[str, str]) ->
     shows that the current dose of a high-risk drug is unknown to anyone here.
     """
     gaps: list[Gap] = []
-    for fact_obj in record.facts.values():
+    for fact_obj in (record.all_facts or list(record.facts.values())):
         if not fact_obj.value:
             continue
         lowered = fact_obj.value.lower()
