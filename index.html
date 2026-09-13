@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anteroom — Ambient Clinical Intake Coordinator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #0b0f19; color: #f1f5f9; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .card-glass { background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(12px); border: 1px solid rgba(51, 65, 85, 0.6); }
+    .badge-red { background: #450a0a; color: #f87171; border: 1px solid #7f1d1d; }
+    .badge-amber { background: #451a03; color: #fbbf24; border: 1px solid #78350f; }
+    .badge-green { background: #022c22; color: #34d399; border: 1px solid #064e3b; }
+    .bbox-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; border-color: #ef4444; } 50% { opacity: .4; border-color: #f87171; } }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- Top Navigation Bar -->
+  <header class="h-16 border-b border-slate-800 bg-slate-950/80 backdrop-blur px-6 flex items-center justify-between sticky top-0 z-50">
+    <div class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-lg bg-indigo-600 flex items-center justify-center text-lg shadow-lg shadow-indigo-500/30">🩺</div>
+      <div>
+        <div class="font-bold tracking-tight text-white flex items-center gap-2">
+          Anteroom <span class="text-xs px-2 py-0.5 rounded font-mono font-medium bg-indigo-950 text-indigo-300 border border-indigo-800">Strands Agents + AWS</span>
+        </div>
+        <div class="text-xs text-slate-400">Ambient Pre-Visit Intake Coordinator · Riverside Practice</div>
+      </div>
+    </div>
+
+    <!-- Role Switcher -->
+    <div class="flex items-center gap-1 bg-slate-900 border border-slate-800 rounded-lg p-1 text-xs font-medium">
+      <button onclick="switchRole('reception')" id="btn-role-reception" class="px-3 py-1.5 rounded-md transition text-slate-400 hover:text-white">☎ Reception</button>
+      <button onclick="switchRole('nurse')" id="btn-role-nurse" class="px-3 py-1.5 rounded-md transition text-slate-400 hover:text-white">💊 Clinic Nurse</button>
+      <button onclick="switchRole('doctor')" id="btn-role-doctor" class="px-3 py-1.5 rounded-md transition bg-indigo-600 text-white shadow-sm font-semibold">🩺 Consulting Doctor</button>
+      <button onclick="switchRole('admin')" id="btn-role-admin" class="px-3 py-1.5 rounded-md transition text-slate-400 hover:text-white">🛡 Practice Manager</button>
+    </div>
+
+    <div class="flex items-center gap-4 text-xs">
+      <span class="inline-flex items-center gap-1.5 text-emerald-400 font-mono">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> Live Audit Active
+      </span>
+      <div class="h-4 w-px bg-slate-800"></div>
+      <span class="text-slate-400 font-mono">93 Tests Verified</span>
+    </div>
+  </header>
+
+  <div class="flex-1 flex overflow-hidden">
+
+    <!-- Left Sidebar: Tomorrow's Patient List -->
+    <aside class="w-80 border-r border-slate-800 bg-slate-950 flex flex-col p-4">
+      <div class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3 px-1">Tomorrow's Clinic List</div>
+      <div class="space-y-2">
+        <!-- Marta (Selected) -->
+        <div onclick="selectPatient('marta')" id="card-marta" class="p-3.5 rounded-xl border border-red-900/50 bg-red-950/20 cursor-pointer transition hover:border-red-600/70">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-sm text-slate-100">Marta Ruiz Delgado</span>
+            <span class="text-xs font-mono font-bold badge-red px-2 py-0.5 rounded-full">33/100 AT RISK</span>
+          </div>
+          <div class="text-xs text-slate-400 mt-1">14:30 · Cardiology Consult</div>
+          <div class="flex items-center gap-2 mt-2.5 text-[11px] font-mono text-red-300">
+            <span>⚠️ 2 Blocking Gaps</span>
+            <span>·</span>
+            <span>7 Gaps Total</span>
+          </div>
+        </div>
+
+        <!-- Tariq -->
+        <div onclick="selectPatient('tariq')" id="card-tariq" class="p-3.5 rounded-xl border border-slate-800 bg-slate-900/50 cursor-pointer transition hover:border-amber-600/70">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-sm text-slate-300">Tariq Al-Mansoor</span>
+            <span class="text-xs font-mono font-bold badge-amber px-2 py-0.5 rounded-full">88/100 ACTION</span>
+          </div>
+          <div class="text-xs text-slate-400 mt-1">15:00 · SI Units (88 µmol/L)</div>
+          <div class="flex items-center gap-2 mt-2.5 text-[11px] font-mono text-amber-300">
+            <span>4 Gaps (No Biopsy)</span>
+          </div>
+        </div>
+
+        <!-- Thomas -->
+        <div onclick="selectPatient('thomas')" id="card-thomas" class="p-3.5 rounded-xl border border-slate-800 bg-slate-900/50 cursor-pointer transition hover:border-emerald-600/70">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-sm text-slate-300">Thomas Whitfield</span>
+            <span class="text-xs font-mono font-bold badge-green px-2 py-0.5 rounded-full">100/100 READY</span>
+          </div>
+          <div class="text-xs text-slate-400 mt-1">15:30 · Flatbed Scan Control</div>
+          <div class="flex items-center gap-2 mt-2.5 text-[11px] font-mono text-emerald-300">
+            <span>0 Gaps · Verified Complete</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trust & Privacy Banner -->
+      <div class="mt-auto pt-4 border-t border-slate-800/80 text-[11px] text-slate-400 leading-relaxed">
+        🔒 <strong class="text-slate-300">Assistive Completeness Only:</strong> Strictly no diagnostic claims, triage urgency labels, or dosage fabrication. All patient records synthetic.
+      </div>
+    </aside>
+
+    <!-- Main Content Workstation -->
+    <main class="flex-1 overflow-y-auto p-6 flex flex-col gap-6">
+
+      <!-- Patient Header Banner -->
+      <div class="card-glass rounded-2xl p-5 flex items-center justify-between">
+        <div>
+          <div class="flex items-center gap-3">
+            <h1 class="text-xl font-extrabold text-white" id="patient-title">Marta Ruiz Delgado</h1>
+            <span class="text-xs font-mono px-2.5 py-0.5 rounded-full badge-red" id="patient-status-badge">AT RISK · 33/100</span>
+            <span class="text-xs font-mono text-slate-400">Ref: SYN-0001 · 68y Female</span>
+          </div>
+          <div class="text-sm text-slate-300 mt-1">Scheduled for tomorrow at 14:30 · New Cardiology Consultation</div>
+        </div>
+
+        <div class="flex items-center gap-6 text-right">
+          <div>
+            <div class="text-3xl font-extrabold text-red-400 font-mono tracking-tight" id="patient-score">33<span class="text-base font-normal text-slate-500">/100</span></div>
+            <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Readiness Score</div>
+          </div>
+          <div class="h-10 w-px bg-slate-800"></div>
+          <div>
+            <div class="text-2xl font-bold text-white font-mono" id="patient-gaps-count">7</div>
+            <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Identified Gaps</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Two-Column Workspace -->
+      <div class="grid grid-cols-12 gap-6 flex-1">
+
+        <!-- Left Column: Visual Document Evidence with Bounding Boxes -->
+        <div class="col-span-6 flex flex-col gap-4">
+          <div class="card-glass rounded-2xl p-5 flex-1 flex flex-col">
+            <div class="flex items-center justify-between mb-3">
+              <div class="text-sm font-bold text-white flex items-center gap-2">
+                <span>📄 Source Evidence & Textract Confidence Gate</span>
+              </div>
+              <span class="text-xs font-mono text-red-400 bg-red-950/60 px-2 py-0.5 rounded border border-red-800">
+                1 Smudged Token Discarded (<60%)
+              </span>
+            </div>
+
+            <!-- Interactive Document Viewer Frame -->
+            <div class="relative bg-slate-950 rounded-xl border border-slate-800 p-4 font-mono text-xs overflow-hidden flex-1 min-h-[360px] flex flex-col justify-between">
+              <!-- Document Transcript Lines -->
+              <div class="space-y-2.5 text-slate-300">
+                <div class="text-slate-400 text-[11px] pb-1 border-b border-slate-800 flex justify-between">
+                  <span>TRANSCRIPT: doc2 (Handwritten Medication List)</span>
+                  <span class="text-emerald-400">Gate Filtered</span>
+                </div>
+
+                <div class="p-2 rounded bg-slate-900/60 border border-slate-800 flex justify-between items-center">
+                  <span>[L03] 1. Ramipril 5mg — morning</span>
+                  <span class="text-[10px] text-emerald-400 bg-emerald-950 px-1.5 py-0.5 rounded border border-emerald-800">99.2% Conf High</span>
+                </div>
+
+                <div class="p-2 rounded bg-slate-900/60 border border-slate-800 flex justify-between items-center">
+                  <span>[L04] 2. Atorvastatin 40mg — at night</span>
+                  <span class="text-[10px] text-emerald-400 bg-emerald-950 px-1.5 py-0.5 rounded border border-emerald-800">98.8% Conf High</span>
+                </div>
+
+                <!-- The Smudged Gate Line -->
+                <div class="p-3 rounded-lg bg-red-950/40 border-2 border-red-600 bbox-pulse relative">
+                  <div class="flex justify-between items-center">
+                    <span class="text-white font-bold">[L05] 3. Apixaban <span class="bg-red-600 text-white px-2 py-0.5 rounded font-black tracking-wider text-[11px]">⟪ILLEGIBLE⟫</span> twice a day</span>
+                    <span class="text-[10px] text-red-300 bg-red-900 px-1.5 py-0.5 rounded border border-red-700">43.08% UNREADABLE</span>
+                  </div>
+                  <div class="text-[11px] text-red-300 mt-2 font-sans font-medium">
+                    🛡 <strong>Textract Confidence Gate:</strong> Token read as "9" with 43.08% confidence. Below 60% floor → <strong>Text discarded before Bedrock sees it.</strong> Guessing prevented.
+                  </div>
+                </div>
+
+                <div class="p-2 rounded bg-slate-900/60 border border-slate-800 flex justify-between items-center">
+                  <span>[L06] 4. Metformin 19⟨?⟩ twice a day</span>
+                  <span class="text-[10px] text-amber-400 bg-amber-950 px-1.5 py-0.5 rounded border border-amber-800">72.5% Conf Low</span>
+                </div>
+
+                <div class="p-2 rounded bg-slate-900/60 border border-slate-800 flex justify-between items-center">
+                  <span>[L07] 5. Bísoprolol 2.5mg — morning</span>
+                  <span class="text-[10px] text-emerald-400 bg-emerald-950 px-1.5 py-0.5 rounded border border-emerald-800">99.6% Conf High</span>
+                </div>
+              </div>
+
+              <!-- Second Document Citation: Screen Photo -->
+              <div class="mt-4 p-3 rounded-lg bg-indigo-950/30 border border-indigo-800/60">
+                <div class="text-[11px] text-indigo-300 font-bold mb-1">⚡ Cross-Document Reconciliation Finding (doc3 vs doc2):</div>
+                <div class="text-slate-300 text-[11px] font-sans">
+                  Discharge summary photo states: <em>"Apixaban continued. Dose reduced on discharge - see TTO."</em> Medication chart dose is smudged. Two independent sources checked — dose unknown.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Role-Specific Action Queues -->
+        <div class="col-span-6 flex flex-col gap-4">
+
+          <!-- Role Content Panel -->
+          <div class="card-glass rounded-2xl p-5 flex-1 flex flex-col">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-4">
+              <div class="text-sm font-bold text-white flex items-center gap-2" id="role-panel-title">
+                <span>🩺 Consulting Doctor: 30-Second Pre-Visit Brief</span>
+              </div>
+              <span class="text-xs font-mono text-slate-400">Zero Trust Enforced</span>
+            </div>
+
+            <!-- Doctor View (Default) -->
+            <div id="view-doctor" class="space-y-4">
+              <div class="p-4 rounded-xl bg-slate-900/70 border border-slate-800">
+                <div class="text-xs font-bold uppercase tracking-wider text-indigo-400 mb-1">Headline Narrative</div>
+                <div class="text-sm text-slate-100 font-medium leading-relaxed">
+                  68-year-old female with intermittent palpitations and light-headedness. Background of hypertension, type 2 diabetes, and paroxysmal atrial fibrillation on anticoagulation.
+                </div>
+              </div>
+
+              <div>
+                <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Active Medications (Verified Only)</div>
+                <div class="space-y-1.5 font-mono text-xs">
+                  <div class="p-2 rounded bg-red-950/30 border border-red-800 text-red-300 flex justify-between font-bold">
+                    <span>Apixaban — DOSE NOT DOCUMENTED (High Risk)</span>
+                    <span>⚠️ Escalated to Nurse</span>
+                  </div>
+                  <div class="p-2 rounded bg-slate-900 border border-slate-800 text-slate-300">Ramipril — 5mg once daily</div>
+                  <div class="p-2 rounded bg-slate-900 border border-slate-800 text-slate-300">Atorvastatin — 40mg at night</div>
+                  <div class="p-2 rounded bg-slate-900 border border-slate-800 text-slate-300">Bísoprolol — 2.5mg morning</div>
+                  <div class="p-2 rounded bg-amber-950/20 border border-amber-800/60 text-amber-300">Metformin — DOSE NOT DOCUMENTED (illegible in source)</div>
+                </div>
+              </div>
+
+              <div class="p-3.5 rounded-xl bg-red-950/30 border border-red-800">
+                <div class="text-xs font-bold text-red-400 mb-1">⚠️ Consultation Blocked — 2 Critical Items Missing:</div>
+                <ul class="text-xs text-slate-300 list-disc list-inside space-y-1">
+                  <li><strong>Referral Question:</strong> GP letter is a courtesy ("grateful for your opinion"), not a specific clinical question.</li>
+                  <li><strong>Anticoagulant Dose:</strong> Changed on discharge; current dose unconfirmed across 2 sources.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Reception View -->
+            <div id="view-reception" class="hidden space-y-4">
+              <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Morning Phone Call Queue (2 Calls)</div>
+
+              <!-- Call 1 -->
+              <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold text-red-400 font-mono">CALL 1 · REFERRING GP (Dr Okafor)</span>
+                  <span class="text-[10px] bg-red-950 text-red-300 px-2 py-0.5 rounded font-mono">BLOCKING GAP</span>
+                </div>
+                <div class="text-xs text-slate-300">Target: Riverside Family Practice · Tel: 0141 555 0182</div>
+                <div class="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-emerald-300 leading-relaxed">
+                  ☎ <em>"Hello, calling from cardiology about a referral for Marta Ruiz Delgado. The letter describes her history but does not specify what you would like us to advise on. Could you confirm the specific referral question?"</em>
+                </div>
+              </div>
+
+              <!-- Call 2 -->
+              <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold text-amber-400 font-mono">CALL 2 · PATIENT (Marta Ruiz Delgado)</span>
+                  <span class="text-[10px] bg-amber-950 text-amber-300 px-2 py-0.5 rounded font-mono">IMPORTANT GAP</span>
+                </div>
+                <div class="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-emerald-300 leading-relaxed">
+                  ☎ <em>"Hello Marta, calling from the clinic before your appointment. Can I check whether you have any drug allergies, and what happens when you take them?"</em>
+                </div>
+              </div>
+            </div>
+
+            <!-- Nurse View -->
+            <div id="view-nurse" class="hidden space-y-4">
+              <div class="p-4 rounded-xl bg-red-950/40 border border-red-800 space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold text-red-400 font-mono">CLINICAL RECONCILIATION DISCREPANCY</span>
+                  <span class="text-[10px] bg-red-900 text-white px-2 py-0.5 rounded font-mono">HIGH RISK</span>
+                </div>
+                <div class="text-sm font-bold text-white">Unreconciled Medication Change: Apixaban (Anticoagulant)</div>
+                <div class="text-xs text-slate-300 leading-relaxed font-sans">
+                  Document 3 asserts: <em>"Apixaban continued. Dose reduced on discharge - see TTO."</em> Document 2 handwritten dose is smudged. Two independent sources checked — current dose is unknown.
+                </div>
+                <div class="mt-3 p-3 bg-slate-950 rounded border border-red-900/60 text-xs font-mono text-slate-300">
+                  <strong>Action Required:</strong> Confirm current dose against community dispensing pharmacy or hospital discharge prescription before consultation proceeds.
+                </div>
+              </div>
+            </div>
+
+            <!-- Admin View -->
+            <div id="view-admin" class="hidden space-y-4">
+              <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3">
+                <div class="text-xs font-bold uppercase tracking-wider text-indigo-400">Zero-Trust Access Audit Log</div>
+                <div class="font-mono text-xs space-y-1.5 text-slate-300">
+                  <div class="text-emerald-400">✔ 14:38:12 · doctor.zayed · apt-001 brief read · ALLOWED</div>
+                  <div class="text-emerald-400">✔ 14:38:15 · nurse.sarah · apt-001 reconciliation read · ALLOWED</div>
+                  <div class="text-red-400 font-bold">⛔ 14:38:22 · reception.anna · apt-001 brief read · REJECTED (AccessDenied)</div>
+                  <div class="text-red-400 font-bold">⛔ 14:38:40 · doctor.other_practice · apt-001 · REJECTED (Cross-Practice Violation)</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Benchmark Banner -->
+      <div class="card-glass rounded-xl p-4 flex items-center justify-between text-xs font-mono">
+        <div class="flex items-center gap-6">
+          <span class="text-slate-400">BENCHMARK (20 BEDROCK RUNS):</span>
+          <span class="text-emerald-400">✔ 20/20 Dose Guesses Refused (100%)</span>
+          <span class="text-emerald-400">✔ 20/20 Reconciliations Detected (100%)</span>
+          <span class="text-emerald-400">✔ 20/20 AT RISK Status Stable (100%)</span>
+          <span class="text-indigo-400">✔ 19/20 Score 33/100 (95% Determinism)</span>
+        </div>
+        <span class="text-slate-400">Bedrock: Amazon Nova Pro · Strands SDK</span>
+      </div>
+
+    </main>
+  </div>
+
+  <script>
+    function switchRole(role) {
+      ['reception', 'nurse', 'doctor', 'admin'].forEach(r => {
+        document.getElementById(`view-${r}`).classList.add('hidden');
+        const btn = document.getElementById(`btn-role-${r}`);
+        btn.classList.remove('bg-indigo-600', 'text-white', 'font-semibold');
+        btn.classList.add('text-slate-400');
+      });
+
+      document.getElementById(`view-${role}`).classList.remove('hidden');
+      const activeBtn = document.getElementById(`btn-role-${role}`);
+      activeBtn.classList.add('bg-indigo-600', 'text-white', 'font-semibold');
+      activeBtn.classList.remove('text-slate-400');
+
+      const titles = {
+        reception: '☎ Receptionist Action Queue: 2 Calls to Make',
+        nurse: '💊 Clinic Nurse: Clinical Clarifications Queue',
+        doctor: '🩺 Consulting Doctor: 30-Second Pre-Visit Brief',
+        admin: '🛡 Practice Manager: Zero-Trust Security & Audit Log'
+      };
+      document.getElementById('role-panel-title').innerText = titles[role];
+    }
+
+    function selectPatient(id) {
+      ['marta', 'tariq', 'thomas'].forEach(p => {
+        document.getElementById(`card-${p}`).classList.remove('border-indigo-500', 'bg-indigo-950/30');
+      });
+      document.getElementById(`card-${id}`).classList.add('border-indigo-500', 'bg-indigo-950/30');
+
+      if (id === 'marta') {
+        document.getElementById('patient-title').innerText = 'Marta Ruiz Delgado';
+        document.getElementById('patient-status-badge').innerText = 'AT RISK · 33/100';
+        document.getElementById('patient-status-badge').className = 'text-xs font-mono px-2.5 py-0.5 rounded-full badge-red';
+        document.getElementById('patient-score').innerHTML = '33<span class="text-base font-normal text-slate-500">/100</span>';
+        document.getElementById('patient-gaps-count').innerText = '6';
+      } else if (id === 'tariq') {
+        document.getElementById('patient-title').innerText = 'Tariq Al-Mansoor';
+        document.getElementById('patient-status-badge').innerText = 'NEEDS ACTION · 88/100';
+        document.getElementById('patient-status-badge').className = 'text-xs font-mono px-2.5 py-0.5 rounded-full badge-amber';
+        document.getElementById('patient-score').innerHTML = '88<span class="text-base font-normal text-slate-500">/100</span>';
+        document.getElementById('patient-gaps-count').innerText = '1';
+      } else if (id === 'thomas') {
+        document.getElementById('patient-title').innerText = 'Thomas Whitfield';
+        document.getElementById('patient-status-badge').innerText = 'READY · 100/100';
+        document.getElementById('patient-status-badge').className = 'text-xs font-mono px-2.5 py-0.5 rounded-full badge-green';
+        document.getElementById('patient-score').innerHTML = '100<span class="text-base font-normal text-slate-500">/100</span>';
+        document.getElementById('patient-gaps-count').innerText = '0';
+      }
+    }
+  </script>
+</body>
+</html>
