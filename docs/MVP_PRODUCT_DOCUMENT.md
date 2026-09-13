@@ -209,7 +209,7 @@ Instead of a consumer messaging bot (which introduces HIPAA/GDPR concerns for cl
 │  ANTEROOM │ Ambulatory Intake Coordinator            [Tomorrow's List: Mon 14 Sep 2026] │
 ├─────────────────────────────────────────────────────────────────────────────────────────┤
 │  Patient: MARTA RUIZ DELGADO (SYN-0001)   Visit: Cardiology Consult    Status: AT RISK  │
-│  Readiness Score: [ 28 / 100 ] ▓▓▓░░░░░░░  (2 Blocking Gaps, 5 Important Gaps)           │
+│  Readiness Score: [ 33 / 100 ] ▓▓▓░░░░░░░  (2 Blocking Gaps, 5 Other Gaps)               │
 ├──────────────────────────┬─────────────────────────────┬────────────────────────────────┤
 │ 📋 RECEPTIONIST QUEUE    │ 🩺 NURSE CLARIFICATION      │ 👨‍⚕️ CLINICIAN PRE-VISIT BRIEF   │
 │                          │                             │                                │
@@ -286,7 +286,7 @@ Sun 14:30 ── Phase 1: Textract Confidence Gate & Bounding Box Extractor
 Sun 17:00 ── Phase 2: Strands Agent Orchestrator & Bedrock Tooling
 Sun 18:00 ── Phase 3: Brief Composer with Visual Bounding Box Citations
 Sun 21:00 ── Phase 4: Streamlit 3-Role Console Complete & Tested
-Mon 09:00 ── Phase 5: Generalization Test (Case 2 Carlos + Case 3 Kwame)
+Mon 09:00 ── Phase 5: Generalization Test (Case 2 Thomas + Case 3 Tariq)
 Mon 11:00 ── Phase 6: Run 20x Reliability Benchmark & Log Metrics
 Mon 13:00 ── HARD FEATURE FREEZE (Code complete, no new features)
 Mon 15:00 ── Phase 7: Video Recording & Editing (Gerhard)
