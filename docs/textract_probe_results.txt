@@ -1,0 +1,63 @@
+
+==============================================================================
+01_referral_letter.jpg   19 lines, 149 words
+  confidence  min 93.2  p5 98.9  p25 99.9  median 100.0  max 100.0
+  words < 90%: 0
+
+  ★ LINE: '2019. She is anticoagulated. Blood pressure in clinic last week was 148/86. She remains independent'  (line conf 99.6)
+      2019.                   99.77  █████████
+      She                     99.99  █████████
+      is                      99.93  █████████
+      anticoagulated.         96.08  █████████
+      Blood                  100.00  ██████████
+      pressure               100.00  ██████████
+      in                      99.89  █████████
+      clinic                  99.80  █████████
+      last                   100.00  ██████████
+      week                   100.00  ██████████
+      was                     99.97  █████████
+      148/86.                 98.93  █████████
+      She                     99.99  █████████
+      remains                 99.95  █████████
+      independent             99.64  █████████
+
+  ★ LINE: 'I would be grateful for your opinion.'  (line conf 99.9)
+      I                       99.65  █████████
+      would                   99.99  █████████
+      be                     100.00  ██████████
+      grateful               100.00  ██████████
+      for                    100.00  ██████████
+      your                    99.99  █████████
+      opinion.                99.60  █████████
+
+==============================================================================
+02_medication_list.jpg   10 lines, 51 words
+  confidence  min 43.1  p5 72.5  p25 93.6  median 99.6  max 100.0
+  words < 90%: 7  →  [('Sept', 75.1), ('night', 79.7), ('9', 43.1), ('19', 72.5), ('Bísoprolol', 69.1), ('1', 79.0), ('-', 88.3)]
+
+  ★ LINE: '3. Apixaban 9 twice a day'  (line conf 89.0)
+      3.                      99.96  █████████
+      Apixaban                99.32  █████████
+      9                       43.08  ████
+      twice                   91.68  █████████
+      a                       99.84  █████████
+      day                     99.99  █████████
+
+==============================================================================
+03_screen_photo.jpg   14 lines, 69 words
+  confidence  min 45.6  p5 85.7  p25 99.8  median 100.0  max 100.0
+  words < 90%: 4  →  [('.', 45.6), ('fibrillation.', 69.1), ('impaired.', 62.6), ('outpatients.', 85.7)]
+
+  ★ LINE: 'Anticoagulation'  (line conf 99.6)
+      Anticoagulation         99.55  █████████
+
+  ★ LINE: 'Apixaban continued. Dose reduced on discharge - see TTO.'  (line conf 97.6)
+      Apixaban               100.00  ██████████
+      continued.              99.56  █████████
+      Dose                    99.99  █████████
+      reduced                100.00  ██████████
+      on                      99.91  █████████
+      discharge               91.48  █████████
+      -                       90.49  █████████
+      see                     99.92  █████████
+      TTO.                    96.89  █████████
