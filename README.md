@@ -170,6 +170,26 @@ Then open <http://localhost:8501> and sign in as any of the seeded users.
 
 ---
 
+## Live demo
+
+The three seeded cases are **pre-computed from real Amazon Textract output**, so the
+hosted console is fully explorable — confidence gate, bounding boxes, role scoping,
+clinician brief — with no AWS credentials.
+
+Only *New intake* (upload your own document) needs live Textract and Bedrock. It is
+disabled in the hosted build and available when you run locally.
+
+### Deploying it yourself
+
+1. Fork or clone this repo (public, MIT).
+2. Go to [share.streamlit.io](https://share.streamlit.io) and sign in with GitHub.
+3. **New app** → pick this repo → branch `main` → main file `app.py`.
+4. Deploy. No secrets required.
+
+To enable live intake on a hosted instance, add AWS credentials under *Settings →
+Secrets* and grant only `textract:DetectDocumentText` and `bedrock:InvokeModel`. Set a
+billing alarm first: the upload path calls both services per document.
+
 ## Testing
 
 ```bash

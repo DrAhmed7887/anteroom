@@ -103,6 +103,18 @@ SEV_CLASS = {Severity.BLOCKING: "g-block", Severity.IMPORTANT: "g-imp", Severity
 
 # ------------------------------------------------------------------ data load
 
+@st.cache_resource(show_spinner=False)
+def aws_available() -> bool:
+    """Live intake needs Textract and Bedrock. The three seeded cases do not --
+    they are pre-computed -- so a hosted demo stays fully explorable with no
+    credentials at all, and only the upload path is withheld."""
+    try:
+        import boto3
+        return boto3.Session().get_credentials() is not None
+    except Exception:
+        return False
+
+
 @st.cache_data(show_spinner=False)
 def load_case(appointment_id: str) -> dict | None:
     p = STORE_DIR / f"{appointment_id}.json"
@@ -192,6 +204,19 @@ if selected_id == "__upload__":
                 'interpreter, and the policy auditor. Nothing here is tuned to our sample '
                 'files.</div>', unsafe_allow_html=True)
     st.markdown("")
+
+    if not aws_available():
+        st.markdown(
+            '<div class="card" style="border-color:#fde68a;background:#fffbeb">'
+            '<span class="pill p-amber">live intake unavailable</span>'
+            '<div style="margin-top:10px">This hosted demo has no AWS credentials, so '
+            'documents cannot be sent to Amazon Textract from here.</div>'
+            '<div class="muted" style="margin-top:10px">The three cases in the sidebar are '
+            'pre-computed from real Textract output and are fully explorable — including '
+            'the confidence gate, the bounding boxes, and the clinician brief. To run your '
+            'own document, clone the repo and follow the README; the pipeline is the same '
+            'code.</div></div>', unsafe_allow_html=True)
+        st.stop()
 
     up = st.file_uploader("Document (JPG or PNG)", type=["jpg", "jpeg", "png"])
     c1, c2 = st.columns(2)
