@@ -172,7 +172,7 @@ def build_record(
 ) -> tuple[IntakeRecord, list[OcrDocument]]:
     """documents: list of (document_id, path, human label)."""
     policy = load_policy()
-    allowed = {
+    allowed = set(policy["_global"].get("demographic_fields", [])) | {
         f
         for key, rules in policy.items()
         if not key.startswith("_") and isinstance(rules, dict)

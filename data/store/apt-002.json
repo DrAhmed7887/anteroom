@@ -1,0 +1,2783 @@
+{
+  "record": {
+    "patient_ref": "SYN-0002",
+    "appointment_at": "2026-09-14T10:00:00",
+    "visit_type": "general_new_patient",
+    "documents": [
+      {
+        "document_id": "doc4",
+        "label": "Referral letter, Dr S. Ellery",
+        "kind": "referral_letter",
+        "capture_quality": "good",
+        "received_at": "2026-09-13T13:09:27.397160"
+      }
+    ],
+    "facts": {
+      "referral_question": {
+        "field": "referral_question",
+        "value": "persistent fatigue and unintentional weight loss of 6 kg over three months warrants further investigation for an underlying cause.",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc4",
+          "document_label": "Referral letter, Dr S. Ellery",
+          "location": "line 8",
+          "bbox": {
+            "left": 0.07246807962656021,
+            "top": 0.26920652389526367,
+            "width": 0.8451865911483765,
+            "height": 0.014463639818131924
+          }
+        },
+        "note": null
+      },
+      "presenting_symptoms": {
+        "field": "presenting_symptoms",
+        "value": "Six months of progressive fatigue, worse in the afternoons. Unintentional weight loss as above. No night sweats, no fever.",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc4",
+          "document_label": "Referral letter, Dr S. Ellery",
+          "location": "line 10",
+          "bbox": {
+            "left": 0.07243035733699799,
+            "top": 0.3171848654747009,
+            "width": 0.8526962399482727,
+            "height": 0.014330613426864147
+          }
+        },
+        "note": null
+      },
+      "past_medical_history": {
+        "field": "past_medical_history",
+        "value": "Hypothyroidism diagnosed 2016, well controlled. Appendicectomy 1998. No other significant history.",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc4",
+          "document_label": "Referral letter, Dr S. Ellery",
+          "location": "line 12",
+          "bbox": {
+            "left": 0.07265984266996384,
+            "top": 0.3651672303676605,
+            "width": 0.8505449891090393,
+            "height": 0.014167244546115398
+          }
+        },
+        "note": null
+      },
+      "current_medications": {
+        "field": "current_medications",
+        "value": "Levothyroxine 100 micrograms once daily. Vitamin D 1000 units once daily. No other regular medication.",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc4",
+          "document_label": "Referral letter, Dr S. Ellery",
+          "location": "line 14",
+          "bbox": {
+            "left": 0.07315774261951447,
+            "top": 0.4130686819553375,
+            "width": 0.8257326483726501,
+            "height": 0.014139791950583458
+          }
+        },
+        "note": null
+      },
+      "allergies": {
+        "field": "allergies",
+        "value": "Penicillin - widespread rash, documented 2004. No other known drug allergies.",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc4",
+          "document_label": "Referral letter, Dr S. Ellery",
+          "location": "line 16",
+          "bbox": {
+            "left": 0.07300031930208206,
+            "top": 0.4607795774936676,
+            "width": 0.7643905878067017,
+            "height": 0.014173038303852081
+          }
+        },
+        "note": null
+      },
+      "social_history": {
+        "field": "social_history",
+        "value": "Non-smoker. Alcohol approximately 6 units per week. Works as a secondary school teacher. Lives with his wife and two children.",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc4",
+          "document_label": "Referral letter, Dr S. Ellery",
+          "location": "line 17",
+          "bbox": {
+            "left": 0.0734916478395462,
+            "top": 0.48929938673973083,
+            "width": 0.8010157942771912,
+            "height": 0.014379056170582771
+          }
+        },
+        "note": null
+      },
+      "family_history": {
+        "field": "family_history",
+        "value": "Father had bowel cancer diagnosed aged 71. Mother alive and well.",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc4",
+          "document_label": "Referral letter, Dr S. Ellery",
+          "location": "line 19",
+          "bbox": {
+            "left": 0.07238826900720596,
+            "top": 0.5373164415359497,
+            "width": 0.7278479337692261,
+            "height": 0.01419446337968111
+          }
+        },
+        "note": null
+      },
+      "patient_age": {
+        "field": "patient_age",
+        "value": "54",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc4",
+          "document_label": "Referral letter, Dr S. Ellery",
+          "location": "line 5",
+          "bbox": {
+            "left": 0.07278852164745331,
+            "top": 0.1860041320323944,
+            "width": 0.371520459651947,
+            "height": 0.011049347929656506
+          }
+        },
+        "note": null
+      },
+      "patient_sex": {
+        "field": "patient_sex",
+        "value": "Male",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc4",
+          "document_label": "Referral letter, Dr S. Ellery",
+          "location": "line 5",
+          "bbox": {
+            "left": 0.07278852164745331,
+            "top": 0.1860041320323944,
+            "width": 0.371520459651947,
+            "height": 0.011049347929656506
+          }
+        },
+        "note": null
+      }
+    },
+    "medications": [
+      {
+        "name": "Levothyroxine",
+        "dose": "100 micrograms",
+        "frequency": null,
+        "confidence": "high",
+        "source": {
+          "document_id": "doc4",
+          "document_label": "Referral letter, Dr S. Ellery",
+          "location": "line 14",
+          "bbox": {
+            "left": 0.07315774261951447,
+            "top": 0.4130686819553375,
+            "width": 0.8257326483726501,
+            "height": 0.014139791950583458
+          }
+        },
+        "note": null,
+        "is_high_risk": false
+      },
+      {
+        "name": "Vitamin D",
+        "dose": "1000 units",
+        "frequency": null,
+        "confidence": "high",
+        "source": {
+          "document_id": "doc4",
+          "document_label": "Referral letter, Dr S. Ellery",
+          "location": "line 15",
+          "bbox": {
+            "left": 0.07305695861577988,
+            "top": 0.4323248267173767,
+            "width": 0.28394749760627747,
+            "height": 0.014266202226281166
+          }
+        },
+        "note": null,
+        "is_high_risk": false
+      }
+    ],
+    "all_facts": [
+      {
+        "field": "referral_question",
+        "value": "persistent fatigue and unintentional weight loss of 6 kg over three months warrants further investigation for an underlying cause.",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc4",
+          "document_label": "Referral letter, Dr S. Ellery",
+          "location": "line 8",
+          "bbox": {
+            "left": 0.07246807962656021,
+            "top": 0.26920652389526367,
+            "width": 0.8451865911483765,
+            "height": 0.014463639818131924
+          }
+        },
+        "note": null
+      },
+      {
+        "field": "presenting_symptoms",
+        "value": "Six months of progressive fatigue, worse in the afternoons. Unintentional weight loss as above. No night sweats, no fever.",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc4",
+          "document_label": "Referral letter, Dr S. Ellery",
+          "location": "line 10",
+          "bbox": {
+            "left": 0.07243035733699799,
+            "top": 0.3171848654747009,
+            "width": 0.8526962399482727,
+            "height": 0.014330613426864147
+          }
+        },
+        "note": null
+      },
+      {
+        "field": "past_medical_history",
+        "value": "Hypothyroidism diagnosed 2016, well controlled. Appendicectomy 1998. No other significant history.",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc4",
+          "document_label": "Referral letter, Dr S. Ellery",
+          "location": "line 12",
+          "bbox": {
+            "left": 0.07265984266996384,
+            "top": 0.3651672303676605,
+            "width": 0.8505449891090393,
+            "height": 0.014167244546115398
+          }
+        },
+        "note": null
+      },
+      {
+        "field": "current_medications",
+        "value": "Levothyroxine 100 micrograms once daily. Vitamin D 1000 units once daily. No other regular medication.",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc4",
+          "document_label": "Referral letter, Dr S. Ellery",
+          "location": "line 14",
+          "bbox": {
+            "left": 0.07315774261951447,
+            "top": 0.4130686819553375,
+            "width": 0.8257326483726501,
+            "height": 0.014139791950583458
+          }
+        },
+        "note": null
+      },
+      {
+        "field": "allergies",
+        "value": "Penicillin - widespread rash, documented 2004. No other known drug allergies.",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc4",
+          "document_label": "Referral letter, Dr S. Ellery",
+          "location": "line 16",
+          "bbox": {
+            "left": 0.07300031930208206,
+            "top": 0.4607795774936676,
+            "width": 0.7643905878067017,
+            "height": 0.014173038303852081
+          }
+        },
+        "note": null
+      },
+      {
+        "field": "social_history",
+        "value": "Non-smoker. Alcohol approximately 6 units per week. Works as a secondary school teacher. Lives with his wife and two children.",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc4",
+          "document_label": "Referral letter, Dr S. Ellery",
+          "location": "line 17",
+          "bbox": {
+            "left": 0.0734916478395462,
+            "top": 0.48929938673973083,
+            "width": 0.8010157942771912,
+            "height": 0.014379056170582771
+          }
+        },
+        "note": null
+      },
+      {
+        "field": "family_history",
+        "value": "Father had bowel cancer diagnosed aged 71. Mother alive and well.",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc4",
+          "document_label": "Referral letter, Dr S. Ellery",
+          "location": "line 19",
+          "bbox": {
+            "left": 0.07238826900720596,
+            "top": 0.5373164415359497,
+            "width": 0.7278479337692261,
+            "height": 0.01419446337968111
+          }
+        },
+        "note": null
+      },
+      {
+        "field": "patient_age",
+        "value": "54",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc4",
+          "document_label": "Referral letter, Dr S. Ellery",
+          "location": "line 5",
+          "bbox": {
+            "left": 0.07278852164745331,
+            "top": 0.1860041320323944,
+            "width": 0.371520459651947,
+            "height": 0.011049347929656506
+          }
+        },
+        "note": null
+      },
+      {
+        "field": "patient_sex",
+        "value": "Male",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc4",
+          "document_label": "Referral letter, Dr S. Ellery",
+          "location": "line 5",
+          "bbox": {
+            "left": 0.07278852164745331,
+            "top": 0.1860041320323944,
+            "width": 0.371520459651947,
+            "height": 0.011049347929656506
+          }
+        },
+        "note": null
+      }
+    ]
+  },
+  "report": {
+    "patient_ref": "SYN-0002",
+    "appointment_at": "2026-09-14T10:00:00",
+    "visit_type": "general_new_patient",
+    "status": "ready",
+    "score": 100,
+    "gaps": [],
+    "doctor_brief": ""
+  },
+  "brief": {
+    "patient_ref": "SYN-0002",
+    "appointment": "Mon 14 Sep, 10:00",
+    "narrative": {
+      "headline": "54-year-old male with persistent fatigue and weight loss",
+      "background": [
+        "Six months of progressive fatigue",
+        "Unintentional weight loss of 6 kg over three months",
+        "Hypothyroidism well controlled",
+        "Father had bowel cancer"
+      ]
+    },
+    "medications": [
+      "Levothyroxine \u2014 100 micrograms",
+      "Vitamin D \u2014 1000 units"
+    ],
+    "not_documented": [],
+    "before_you_start": [],
+    "sources": [
+      "Referral letter, Dr S. Ellery"
+    ]
+  },
+  "documents": [
+    {
+      "document_id": "doc4",
+      "label": "Referral letter, Dr S. Ellery",
+      "path": "data/synthetic/04_clean_referral.jpg",
+      "illegible_count": 0,
+      "lines": [
+        {
+          "text": "NORTHGATE MEDICAL CENTRE",
+          "raw": "NORTHGATE MEDICAL CENTRE",
+          "confidence": 99.99349212646484,
+          "bbox": {
+            "left": 0.07246661931276321,
+            "top": 0.05899281054735184,
+            "width": 0.44298598170280457,
+            "height": 0.014453144744038582
+          },
+          "words": [
+            {
+              "text": "NORTHGATE",
+              "safe": "NORTHGATE",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.07246661931276321,
+                "top": 0.05899374559521675,
+                "width": 0.17889052629470825,
+                "height": 0.014452210627496243
+              }
+            },
+            {
+              "text": "MEDICAL",
+              "safe": "MEDICAL",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.2590283453464508,
+                "top": 0.059058282524347305,
+                "width": 0.13396213948726654,
+                "height": 0.014306185767054558
+              }
+            },
+            {
+              "text": "CENTRE",
+              "safe": "CENTRE",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.40085670351982117,
+                "top": 0.05904185399413109,
+                "width": 0.1145959123969078,
+                "height": 0.014227719977498055
+              }
+            }
+          ]
+        },
+        {
+          "text": "8 Northgate Road Tel 0161 555 0447",
+          "raw": "8 Northgate Road Tel 0161 555 0447",
+          "confidence": 97.4650650024414,
+          "bbox": {
+            "left": 0.07327578961849213,
+            "top": 0.08202094584703445,
+            "width": 0.28750377893447876,
+            "height": 0.01248588040471077
+          },
+          "words": [
+            {
+              "text": "8",
+              "safe": "8",
+              "confidence": 99.736328125,
+              "state": "high",
+              "bbox": {
+                "left": 0.07327578961849213,
+                "top": 0.08246780186891556,
+                "width": 0.008360916748642921,
+                "height": 0.00953695923089981
+              }
+            },
+            {
+              "text": "Northgate",
+              "safe": "Northgate",
+              "confidence": 99.91051483154297,
+              "state": "high",
+              "bbox": {
+                "left": 0.08617949485778809,
+                "top": 0.08215665817260742,
+                "width": 0.07135745137929916,
+                "height": 0.01235012523829937
+              }
+            },
+            {
+              "text": "Road",
+              "safe": "Road",
+              "confidence": 99.765625,
+              "state": "high",
+              "bbox": {
+                "left": 0.162044957280159,
+                "top": 0.08207972347736359,
+                "width": 0.03869568929076195,
+                "height": 0.009923146106302738
+              }
+            },
+            {
+              "text": "Tel",
+              "safe": "Tel",
+              "confidence": 98.88871002197266,
+              "state": "high",
+              "bbox": {
+                "left": 0.22499080002307892,
+                "top": 0.0820213183760643,
+                "width": 0.0240203645080328,
+                "height": 0.009991353377699852
+              }
+            },
+            {
+              "text": "0161",
+              "safe": "0161",
+              "confidence": 95.3125,
+              "state": "high",
+              "bbox": {
+                "left": 0.25358203053474426,
+                "top": 0.0823536366224289,
+                "width": 0.03408783674240112,
+                "height": 0.009739795699715614
+              }
+            },
+            {
+              "text": "555",
+              "safe": "555",
+              "confidence": 96.05389404296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.29439663887023926,
+                "top": 0.08249522000551224,
+                "width": 0.02552427537739277,
+                "height": 0.009464682079851627
+              }
+            },
+            {
+              "text": "0447",
+              "safe": "0447",
+              "confidence": 92.587890625,
+              "state": "medium",
+              "bbox": {
+                "left": 0.32523226737976074,
+                "top": 0.08227918297052383,
+                "width": 0.03554730489850044,
+                "height": 0.009695987217128277
+              }
+            }
+          ]
+        },
+        {
+          "text": "General Medicine Clinic",
+          "raw": "General Medicine Clinic",
+          "confidence": 99.90373992919922,
+          "bbox": {
+            "left": 0.07307291030883789,
+            "top": 0.12915419042110443,
+            "width": 0.1939677596092224,
+            "height": 0.010778970085084438
+          },
+          "words": [
+            {
+              "text": "General",
+              "safe": "General",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.07307291030883789,
+                "top": 0.12942540645599365,
+                "width": 0.06173158437013626,
+                "height": 0.010507764294743538
+              }
+            },
+            {
+              "text": "Medicine",
+              "safe": "Medicine",
+              "confidence": 99.7608413696289,
+              "state": "high",
+              "bbox": {
+                "left": 0.13922446966171265,
+                "top": 0.12915587425231934,
+                "width": 0.07471971958875656,
+                "height": 0.010716663673520088
+              }
+            },
+            {
+              "text": "Clinic",
+              "safe": "Clinic",
+              "confidence": 99.95037078857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.21890728175640106,
+                "top": 0.12915419042110443,
+                "width": 0.048133380711078644,
+                "height": 0.010648297145962715
+              }
+            }
+          ]
+        },
+        {
+          "text": "Date: 12 September 2026",
+          "raw": "Date: 12 September 2026",
+          "confidence": 99.8989028930664,
+          "bbox": {
+            "left": 0.07266514748334885,
+            "top": 0.14878886938095093,
+            "width": 0.19975845515727997,
+            "height": 0.013255307450890541
+          },
+          "words": [
+            {
+              "text": "Date:",
+              "safe": "Date:",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.07266514748334885,
+                "top": 0.14905433356761932,
+                "width": 0.042098019272089005,
+                "height": 0.010377729311585426
+              }
+            },
+            {
+              "text": "12",
+              "safe": "12",
+              "confidence": 99.76403045654297,
+              "state": "high",
+              "bbox": {
+                "left": 0.12204327434301376,
+                "top": 0.14919090270996094,
+                "width": 0.017437823116779327,
+                "height": 0.009988888166844845
+              }
+            },
+            {
+              "text": "September",
+              "safe": "September",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.14537611603736877,
+                "top": 0.14878898859024048,
+                "width": 0.08377454429864883,
+                "height": 0.013254989869892597
+              }
+            },
+            {
+              "text": "2026",
+              "safe": "2026",
+              "confidence": 99.84135437011719,
+              "state": "high",
+              "bbox": {
+                "left": 0.2332218736410141,
+                "top": 0.14914551377296448,
+                "width": 0.039201702922582626,
+                "height": 0.010144402272999287
+              }
+            }
+          ]
+        },
+        {
+          "text": "RE: Thomas Whitfield DOB 02/11/1971",
+          "raw": "RE: Thomas Whitfield DOB 02/11/1971",
+          "confidence": 99.89811706542969,
+          "bbox": {
+            "left": 0.07278852164745331,
+            "top": 0.1860041320323944,
+            "width": 0.371520459651947,
+            "height": 0.011049347929656506
+          },
+          "words": [
+            {
+              "text": "RE:",
+              "safe": "RE:",
+              "confidence": 99.89098358154297,
+              "state": "high",
+              "bbox": {
+                "left": 0.0727885290980339,
+                "top": 0.18612924218177795,
+                "width": 0.03491254895925522,
+                "height": 0.010924242436885834
+              }
+            },
+            {
+              "text": "Thomas",
+              "safe": "Thomas",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.11466313898563385,
+                "top": 0.18606212735176086,
+                "width": 0.07200498133897781,
+                "height": 0.010938405059278011
+              }
+            },
+            {
+              "text": "Whitfield",
+              "safe": "Whitfield",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.19185031950473785,
+                "top": 0.18600454926490784,
+                "width": 0.08541911840438843,
+                "height": 0.010893095284700394
+              }
+            },
+            {
+              "text": "DOB",
+              "safe": "DOB",
+              "confidence": 99.716796875,
+              "state": "high",
+              "bbox": {
+                "left": 0.29948145151138306,
+                "top": 0.18614915013313293,
+                "width": 0.045497771352529526,
+                "height": 0.010897166095674038
+              }
+            },
+            {
+              "text": "02/11/1971",
+              "safe": "02/11/1971",
+              "confidence": 99.892578125,
+              "state": "high",
+              "bbox": {
+                "left": 0.3505474627017975,
+                "top": 0.18617677688598633,
+                "width": 0.09376154839992523,
+                "height": 0.010870028287172318
+              }
+            }
+          ]
+        },
+        {
+          "text": "Dear Colleague,",
+          "raw": "Dear Colleague,",
+          "confidence": 99.90035247802734,
+          "bbox": {
+            "left": 0.07269059866666794,
+            "top": 0.22173357009887695,
+            "width": 0.13172796368598938,
+            "height": 0.013894567266106606
+          },
+          "words": [
+            {
+              "text": "Dear",
+              "safe": "Dear",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.07269059866666794,
+                "top": 0.2222086489200592,
+                "width": 0.03961817920207977,
+                "height": 0.01070923451334238
+              }
+            },
+            {
+              "text": "Colleague,",
+              "safe": "Colleague,",
+              "confidence": 99.80069732666016,
+              "state": "high",
+              "bbox": {
+                "left": 0.1164860650897026,
+                "top": 0.22173357009887695,
+                "width": 0.08793249726295471,
+                "height": 0.013894475996494293
+              }
+            }
+          ]
+        },
+        {
+          "text": "REASON FOR REFERRAL: I would be grateful for your assessment of whether this gentleman's",
+          "raw": "REASON FOR REFERRAL: I would be grateful for your assessment of whether this gentleman's",
+          "confidence": 99.95333862304688,
+          "bbox": {
+            "left": 0.07239782810211182,
+            "top": 0.24986854195594788,
+            "width": 0.7928963303565979,
+            "height": 0.014350536279380322
+          },
+          "words": [
+            {
+              "text": "REASON",
+              "safe": "REASON",
+              "confidence": 99.95037078857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.07239783555269241,
+                "top": 0.25062796473503113,
+                "width": 0.08105049282312393,
+                "height": 0.010845820419490337
+              }
+            },
+            {
+              "text": "FOR",
+              "safe": "FOR",
+              "confidence": 99.970703125,
+              "state": "high",
+              "bbox": {
+                "left": 0.1580781489610672,
+                "top": 0.250617116689682,
+                "width": 0.04018378257751465,
+                "height": 0.010778967291116714
+              }
+            },
+            {
+              "text": "REFERRAL:",
+              "safe": "REFERRAL:",
+              "confidence": 99.7608413696289,
+              "state": "high",
+              "bbox": {
+                "left": 0.20225445926189423,
+                "top": 0.25055548548698425,
+                "width": 0.10820788145065308,
+                "height": 0.010976312682032585
+              }
+            },
+            {
+              "text": "I",
+              "safe": "I",
+              "confidence": 99.75426483154297,
+              "state": "high",
+              "bbox": {
+                "left": 0.31613218784332275,
+                "top": 0.2505263686180115,
+                "width": 0.007231506053358316,
+                "height": 0.010973391123116016
+              }
+            },
+            {
+              "text": "would",
+              "safe": "would",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.327629417181015,
+                "top": 0.2500622868537903,
+                "width": 0.0521673783659935,
+                "height": 0.011328640393912792
+              }
+            },
+            {
+              "text": "be",
+              "safe": "be",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.3839723765850067,
+                "top": 0.25006091594696045,
+                "width": 0.019809138029813766,
+                "height": 0.011165947653353214
+              }
+            },
+            {
+              "text": "grateful",
+              "safe": "grateful",
+              "confidence": 99.96014404296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.40862002968788147,
+                "top": 0.2500300407409668,
+                "width": 0.0625397264957428,
+                "height": 0.01412696111947298
+              }
+            },
+            {
+              "text": "for",
+              "safe": "for",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.4761975109577179,
+                "top": 0.2500336468219757,
+                "width": 0.02416214533150196,
+                "height": 0.011182206682860851
+              }
+            },
+            {
+              "text": "your",
+              "safe": "your",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.5038581490516663,
+                "top": 0.25341618061065674,
+                "width": 0.0395565927028656,
+                "height": 0.01076525915414095
+              }
+            },
+            {
+              "text": "assessment",
+              "safe": "assessment",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.5472224950790405,
+                "top": 0.2516835033893585,
+                "width": 0.09082330018281937,
+                "height": 0.009755558334290981
+              }
+            },
+            {
+              "text": "of",
+              "safe": "of",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.6423319578170776,
+                "top": 0.24993671476840973,
+                "width": 0.01943461038172245,
+                "height": 0.011380831710994244
+              }
+            },
+            {
+              "text": "whether",
+              "safe": "whether",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.6642533540725708,
+                "top": 0.2501157224178314,
+                "width": 0.06608010083436966,
+                "height": 0.011283418163657188
+              }
+            },
+            {
+              "text": "this",
+              "safe": "this",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.7342004179954529,
+                "top": 0.2498687356710434,
+                "width": 0.029252516105771065,
+                "height": 0.011402028612792492
+              }
+            },
+            {
+              "text": "gentleman's",
+              "safe": "gentleman's",
+              "confidence": 99.96014404296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.7689582109451294,
+                "top": 0.25027209520339966,
+                "width": 0.09633596241474152,
+                "height": 0.013945684768259525
+              }
+            }
+          ]
+        },
+        {
+          "text": "persistent fatigue and unintentional weight loss of 6 kg over three months warrants further investigation",
+          "raw": "persistent fatigue and unintentional weight loss of 6 kg over three months warrants further investigation",
+          "confidence": 99.90546417236328,
+          "bbox": {
+            "left": 0.07246807962656021,
+            "top": 0.26920652389526367,
+            "width": 0.8451865911483765,
+            "height": 0.014463639818131924
+          },
+          "words": [
+            {
+              "text": "persistent",
+              "safe": "persistent",
+              "confidence": 99.68112182617188,
+              "state": "high",
+              "bbox": {
+                "left": 0.07246807962656021,
+                "top": 0.269624263048172,
+                "width": 0.07916950434446335,
+                "height": 0.013941618613898754
+              }
+            },
+            {
+              "text": "fatigue",
+              "safe": "fatigue",
+              "confidence": 99.7608413696289,
+              "state": "high",
+              "bbox": {
+                "left": 0.15606719255447388,
+                "top": 0.2693968117237091,
+                "width": 0.05642947927117348,
+                "height": 0.014062822796404362
+              }
+            },
+            {
+              "text": "and",
+              "safe": "and",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.2172333300113678,
+                "top": 0.26943427324295044,
+                "width": 0.029795747250318527,
+                "height": 0.011118032969534397
+              }
+            },
+            {
+              "text": "unintentional",
+              "safe": "unintentional",
+              "confidence": 99.92028045654297,
+              "state": "high",
+              "bbox": {
+                "left": 0.2514166235923767,
+                "top": 0.26939383149147034,
+                "width": 0.10907484591007233,
+                "height": 0.011258983053267002
+              }
+            },
+            {
+              "text": "weight",
+              "safe": "weight",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.3654329776763916,
+                "top": 0.26929065585136414,
+                "width": 0.056476663798093796,
+                "height": 0.014271615073084831
+              }
+            },
+            {
+              "text": "loss",
+              "safe": "loss",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.4260837733745575,
+                "top": 0.26945042610168457,
+                "width": 0.032035570591688156,
+                "height": 0.01117186713963747
+              }
+            },
+            {
+              "text": "of",
+              "safe": "of",
+              "confidence": 99.970703125,
+              "state": "high",
+              "bbox": {
+                "left": 0.4630896747112274,
+                "top": 0.2694055736064911,
+                "width": 0.01965229958295822,
+                "height": 0.011189030483365059
+              }
+            },
+            {
+              "text": "6",
+              "safe": "6",
+              "confidence": 99.67534637451172,
+              "state": "high",
+              "bbox": {
+                "left": 0.4852379262447357,
+                "top": 0.26981836557388306,
+                "width": 0.00994931347668171,
+                "height": 0.010740909725427628
+              }
+            },
+            {
+              "text": "kg",
+              "safe": "kg",
+              "confidence": 99.93083953857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.4999934732913971,
+                "top": 0.26950526237487793,
+                "width": 0.02116233855485916,
+                "height": 0.014164170250296593
+              }
+            },
+            {
+              "text": "over",
+              "safe": "over",
+              "confidence": 99.931640625,
+              "state": "high",
+              "bbox": {
+                "left": 0.5262371301651001,
+                "top": 0.27272555232048035,
+                "width": 0.03706737980246544,
+                "height": 0.007919355295598507
+              }
+            },
+            {
+              "text": "three",
+              "safe": "three",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.5669843554496765,
+                "top": 0.26948243379592896,
+                "width": 0.04064614698290825,
+                "height": 0.01098838821053505
+              }
+            },
+            {
+              "text": "months",
+              "safe": "months",
+              "confidence": 99.96014404296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.6118184924125671,
+                "top": 0.2694647014141083,
+                "width": 0.06087622046470642,
+                "height": 0.01116976048797369
+              }
+            },
+            {
+              "text": "warrants",
+              "safe": "warrants",
+              "confidence": 99.92028045654297,
+              "state": "high",
+              "bbox": {
+                "left": 0.6771115660667419,
+                "top": 0.27107664942741394,
+                "width": 0.06960855424404144,
+                "height": 0.009737650863826275
+              }
+            },
+            {
+              "text": "further",
+              "safe": "further",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.7522112727165222,
+                "top": 0.2692067325115204,
+                "width": 0.055498167872428894,
+                "height": 0.01140203420072794
+              }
+            },
+            {
+              "text": "investigation",
+              "safe": "investigation",
+              "confidence": 99.84056091308594,
+              "state": "high",
+              "bbox": {
+                "left": 0.8114281892776489,
+                "top": 0.2694549560546875,
+                "width": 0.10622646659612656,
+                "height": 0.014156109653413296
+              }
+            }
+          ]
+        },
+        {
+          "text": "for an underlying cause.",
+          "raw": "for an underlying cause.",
+          "confidence": 99.9306411743164,
+          "bbox": {
+            "left": 0.07307560741901398,
+            "top": 0.28876298666000366,
+            "width": 0.19563473761081696,
+            "height": 0.01419887039810419
+          },
+          "words": [
+            {
+              "text": "for",
+              "safe": "for",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.07307560741901398,
+                "top": 0.28876328468322754,
+                "width": 0.024119332432746887,
+                "height": 0.011127976700663567
+              }
+            },
+            {
+              "text": "an",
+              "safe": "an",
+              "confidence": 99.91131591796875,
+              "state": "high",
+              "bbox": {
+                "left": 0.10137574374675751,
+                "top": 0.29226312041282654,
+                "width": 0.019195234403014183,
+                "height": 0.007776989601552486
+              }
+            },
+            {
+              "text": "underlying",
+              "safe": "underlying",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.12508636713027954,
+                "top": 0.2888626456260681,
+                "width": 0.08977694064378738,
+                "height": 0.014099139720201492
+              }
+            },
+            {
+              "text": "cause.",
+              "safe": "cause.",
+              "confidence": 99.81126403808594,
+              "state": "high",
+              "bbox": {
+                "left": 0.21976900100708008,
+                "top": 0.292186439037323,
+                "width": 0.04894132912158966,
+                "height": 0.007875475101172924
+              }
+            }
+          ]
+        },
+        {
+          "text": "PRESENTING COMPLAINT: Six months of progressive fatigue, worse in the afternoons. Unintentional",
+          "raw": "PRESENTING COMPLAINT: Six months of progressive fatigue, worse in the afternoons. Unintentional",
+          "confidence": 99.7486343383789,
+          "bbox": {
+            "left": 0.07243035733699799,
+            "top": 0.3171848654747009,
+            "width": 0.8526962399482727,
+            "height": 0.014330613426864147
+          },
+          "words": [
+            {
+              "text": "PRESENTING",
+              "safe": "PRESENTING",
+              "confidence": 99.92028045654297,
+              "state": "high",
+              "bbox": {
+                "left": 0.07243036478757858,
+                "top": 0.3178729712963104,
+                "width": 0.12293866276741028,
+                "height": 0.010856195352971554
+              }
+            },
+            {
+              "text": "COMPLAINT:",
+              "safe": "COMPLAINT:",
+              "confidence": 99.72098541259766,
+              "state": "high",
+              "bbox": {
+                "left": 0.20042145252227783,
+                "top": 0.31768685579299927,
+                "width": 0.12170612812042236,
+                "height": 0.011038510128855705
+              }
+            },
+            {
+              "text": "Six",
+              "safe": "Six",
+              "confidence": 99.79093933105469,
+              "state": "high",
+              "bbox": {
+                "left": 0.32812756299972534,
+                "top": 0.3174479305744171,
+                "width": 0.026726314797997475,
+                "height": 0.011195137165486813
+              }
+            },
+            {
+              "text": "months",
+              "safe": "months",
+              "confidence": 99.96014404296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.3596596121788025,
+                "top": 0.3174179494380951,
+                "width": 0.060505978763103485,
+                "height": 0.011142787523567677
+              }
+            },
+            {
+              "text": "of",
+              "safe": "of",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.4253568649291992,
+                "top": 0.31718555092811584,
+                "width": 0.01975356601178646,
+                "height": 0.011425142176449299
+              }
+            },
+            {
+              "text": "progressive",
+              "safe": "progressive",
+              "confidence": 99.95037078857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.44676473736763,
+                "top": 0.3173571228981018,
+                "width": 0.09471730887889862,
+                "height": 0.014157856814563274
+              }
+            },
+            {
+              "text": "fatigue,",
+              "safe": "fatigue,",
+              "confidence": 99.80069732666016,
+              "state": "high",
+              "bbox": {
+                "left": 0.5463796257972717,
+                "top": 0.3172808289527893,
+                "width": 0.06107395887374878,
+                "height": 0.014041424728929996
+              }
+            },
+            {
+              "text": "worse",
+              "safe": "worse",
+              "confidence": 99.951171875,
+              "state": "high",
+              "bbox": {
+                "left": 0.6118215322494507,
+                "top": 0.3206097185611725,
+                "width": 0.04896647483110428,
+                "height": 0.008093583397567272
+              }
+            },
+            {
+              "text": "in",
+              "safe": "in",
+              "confidence": 99.931640625,
+              "state": "high",
+              "bbox": {
+                "left": 0.6655868291854858,
+                "top": 0.3172328472137451,
+                "width": 0.016085077077150345,
+                "height": 0.011362627148628235
+              }
+            },
+            {
+              "text": "the",
+              "safe": "the",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.6862680315971375,
+                "top": 0.31739887595176697,
+                "width": 0.025315089151263237,
+                "height": 0.011150148697197437
+              }
+            },
+            {
+              "text": "afternoons.",
+              "safe": "afternoons.",
+              "confidence": 98.046875,
+              "state": "high",
+              "bbox": {
+                "left": 0.71663498878479,
+                "top": 0.31735754013061523,
+                "width": 0.0897933766245842,
+                "height": 0.011316080577671528
+              }
+            },
+            {
+              "text": "Unintentional",
+              "safe": "Unintentional",
+              "confidence": 99.92028045654297,
+              "state": "high",
+              "bbox": {
+                "left": 0.8115923404693604,
+                "top": 0.3174194395542145,
+                "width": 0.11353427171707153,
+                "height": 0.01130525954067707
+              }
+            }
+          ]
+        },
+        {
+          "text": "weight loss as above. No night sweats, no fever.",
+          "raw": "weight loss as above. No night sweats, no fever.",
+          "confidence": 99.90184020996094,
+          "bbox": {
+            "left": 0.07275405526161194,
+            "top": 0.33658504486083984,
+            "width": 0.390757292509079,
+            "height": 0.014108029194176197
+          },
+          "words": [
+            {
+              "text": "weight",
+              "safe": "weight",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.07275405526161194,
+                "top": 0.3366306722164154,
+                "width": 0.05639887601137161,
+                "height": 0.014052246697247028
+              }
+            },
+            {
+              "text": "loss",
+              "safe": "loss",
+              "confidence": 99.88042449951172,
+              "state": "high",
+              "bbox": {
+                "left": 0.13350845873355865,
+                "top": 0.3368782699108124,
+                "width": 0.031797073781490326,
+                "height": 0.01108300406485796
+              }
+            },
+            {
+              "text": "as",
+              "safe": "as",
+              "confidence": 99.951171875,
+              "state": "high",
+              "bbox": {
+                "left": 0.17066575586795807,
+                "top": 0.3400832712650299,
+                "width": 0.016532639041543007,
+                "height": 0.00801290012896061
+              }
+            },
+            {
+              "text": "above.",
+              "safe": "above.",
+              "confidence": 99.72098541259766,
+              "state": "high",
+              "bbox": {
+                "left": 0.192313551902771,
+                "top": 0.33690309524536133,
+                "width": 0.05336941406130791,
+                "height": 0.011240899562835693
+              }
+            },
+            {
+              "text": "No",
+              "safe": "No",
+              "confidence": 99.970703125,
+              "state": "high",
+              "bbox": {
+                "left": 0.25049856305122375,
+                "top": 0.3372270464897156,
+                "width": 0.025105224922299385,
+                "height": 0.010818425565958023
+              }
+            },
+            {
+              "text": "night",
+              "safe": "night",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.2805703282356262,
+                "top": 0.33658522367477417,
+                "width": 0.04357626289129257,
+                "height": 0.014107614755630493
+              }
+            },
+            {
+              "text": "sweats,",
+              "safe": "sweats,",
+              "confidence": 99.96014404296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.3289628326892853,
+                "top": 0.3384173512458801,
+                "width": 0.05825890600681305,
+                "height": 0.011465039104223251
+              }
+            },
+            {
+              "text": "no",
+              "safe": "no",
+              "confidence": 99.87224578857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.3917709290981293,
+                "top": 0.33992239832878113,
+                "width": 0.02126719243824482,
+                "height": 0.008190943859517574
+              }
+            },
+            {
+              "text": "fever.",
+              "safe": "fever.",
+              "confidence": 99.7608413696289,
+              "state": "high",
+              "bbox": {
+                "left": 0.418058305978775,
+                "top": 0.33678343892097473,
+                "width": 0.045453015714883804,
+                "height": 0.011423355899751186
+              }
+            }
+          ]
+        },
+        {
+          "text": "PAST MEDICAL HISTORY: Hypothyroidism diagnosed 2016, well controlled. Appendicectomy 1998.",
+          "raw": "PAST MEDICAL HISTORY: Hypothyroidism diagnosed 2016, well controlled. Appendicectomy 1998.",
+          "confidence": 99.79808807373047,
+          "bbox": {
+            "left": 0.07265984266996384,
+            "top": 0.3651672303676605,
+            "width": 0.8505449891090393,
+            "height": 0.014167244546115398
+          },
+          "words": [
+            {
+              "text": "PAST",
+              "safe": "PAST",
+              "confidence": 99.93083953857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.07265985012054443,
+                "top": 0.36562085151672363,
+                "width": 0.049876365810632706,
+                "height": 0.010915285907685757
+              }
+            },
+            {
+              "text": "MEDICAL",
+              "safe": "MEDICAL",
+              "confidence": 99.951171875,
+              "state": "high",
+              "bbox": {
+                "left": 0.1265530288219452,
+                "top": 0.3655867278575897,
+                "width": 0.09164705127477646,
+                "height": 0.011011534370481968
+              }
+            },
+            {
+              "text": "HISTORY:",
+              "safe": "HISTORY:",
+              "confidence": 99.84215545654297,
+              "state": "high",
+              "bbox": {
+                "left": 0.22292959690093994,
+                "top": 0.36568209528923035,
+                "width": 0.09152933210134506,
+                "height": 0.010946189984679222
+              }
+            },
+            {
+              "text": "Hypothyroidism",
+              "safe": "Hypothyroidism",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.3199033737182617,
+                "top": 0.36519014835357666,
+                "width": 0.1359897404909134,
+                "height": 0.014144079759716988
+              }
+            },
+            {
+              "text": "diagnosed",
+              "safe": "diagnosed",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.46013036370277405,
+                "top": 0.3653354048728943,
+                "width": 0.08368318527936935,
+                "height": 0.01376870647072792
+              }
+            },
+            {
+              "text": "2016,",
+              "safe": "2016,",
+              "confidence": 99.89098358154297,
+              "state": "high",
+              "bbox": {
+                "left": 0.5484738349914551,
+                "top": 0.36571434140205383,
+                "width": 0.046895675361156464,
+                "height": 0.01320936530828476
+              }
+            },
+            {
+              "text": "well",
+              "safe": "well",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.5997756123542786,
+                "top": 0.36539021134376526,
+                "width": 0.034964680671691895,
+                "height": 0.011073634028434753
+              }
+            },
+            {
+              "text": "controlled.",
+              "safe": "controlled.",
+              "confidence": 99.04336547851562,
+              "state": "high",
+              "bbox": {
+                "left": 0.639837384223938,
+                "top": 0.36523687839508057,
+                "width": 0.08708226680755615,
+                "height": 0.011411947198212147
+              }
+            },
+            {
+              "text": "Appendicectomy",
+              "safe": "Appendicectomy",
+              "confidence": 99.36224365234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.7325642704963684,
+                "top": 0.3651672601699829,
+                "width": 0.1394742876291275,
+                "height": 0.014063075184822083
+              }
+            },
+            {
+              "text": "1998.",
+              "safe": "1998.",
+              "confidence": 99.96014404296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.8786552548408508,
+                "top": 0.36583608388900757,
+                "width": 0.04454959183931351,
+                "height": 0.010684962384402752
+              }
+            }
+          ]
+        },
+        {
+          "text": "No other significant history.",
+          "raw": "No other significant history.",
+          "confidence": 99.92047882080078,
+          "bbox": {
+            "left": 0.07253523170948029,
+            "top": 0.38439005613327026,
+            "width": 0.22943398356437683,
+            "height": 0.01440544705837965
+          },
+          "words": [
+            {
+              "text": "No",
+              "safe": "No",
+              "confidence": 99.95037078857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.07253523916006088,
+                "top": 0.38502582907676697,
+                "width": 0.02487301453948021,
+                "height": 0.010842343792319298
+              }
+            },
+            {
+              "text": "other",
+              "safe": "other",
+              "confidence": 99.96014404296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.10277637094259262,
+                "top": 0.3846627175807953,
+                "width": 0.04267346113920212,
+                "height": 0.011111154220998287
+              }
+            },
+            {
+              "text": "significant",
+              "safe": "significant",
+              "confidence": 99.96014404296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.1497970074415207,
+                "top": 0.38439011573791504,
+                "width": 0.08644517511129379,
+                "height": 0.014239181764423847
+              }
+            },
+            {
+              "text": "history.",
+              "safe": "history.",
+              "confidence": 99.81126403808594,
+              "state": "high",
+              "bbox": {
+                "left": 0.23999091982841492,
+                "top": 0.38439756631851196,
+                "width": 0.0619782991707325,
+                "height": 0.014397834427654743
+              }
+            }
+          ]
+        },
+        {
+          "text": "CURRENT MEDICATIONS: Levothyroxine 100 micrograms once daily. Vitamin D 1000 units once",
+          "raw": "CURRENT MEDICATIONS: Levothyroxine 100 micrograms once daily. Vitamin D 1000 units once",
+          "confidence": 99.86058807373047,
+          "bbox": {
+            "left": 0.07315774261951447,
+            "top": 0.4130686819553375,
+            "width": 0.8257326483726501,
+            "height": 0.014139791950583458
+          },
+          "words": [
+            {
+              "text": "CURRENT",
+              "safe": "CURRENT",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.07315774261951447,
+                "top": 0.4135240614414215,
+                "width": 0.09449274837970734,
+                "height": 0.010893000289797783
+              }
+            },
+            {
+              "text": "MEDICATIONS:",
+              "safe": "MEDICATIONS:",
+              "confidence": 99.60299682617188,
+              "state": "high",
+              "bbox": {
+                "left": 0.1723688393831253,
+                "top": 0.4135131239891052,
+                "width": 0.14221227169036865,
+                "height": 0.01095699891448021
+              }
+            },
+            {
+              "text": "Levothyroxine",
+              "safe": "Levothyroxine",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.3196835219860077,
+                "top": 0.4130951166152954,
+                "width": 0.12171173095703125,
+                "height": 0.014108001254498959
+              }
+            },
+            {
+              "text": "100",
+              "safe": "100",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.4482458531856537,
+                "top": 0.41354554891586304,
+                "width": 0.029084492474794388,
+                "height": 0.01066542323678732
+              }
+            },
+            {
+              "text": "micrograms",
+              "safe": "micrograms",
+              "confidence": 99.88042449951172,
+              "state": "high",
+              "bbox": {
+                "left": 0.4820128381252289,
+                "top": 0.41306889057159424,
+                "width": 0.0961325615644455,
+                "height": 0.01413937471807003
+              }
+            },
+            {
+              "text": "once",
+              "safe": "once",
+              "confidence": 99.9609375,
+              "state": "high",
+              "bbox": {
+                "left": 0.5835180878639221,
+                "top": 0.41633477807044983,
+                "width": 0.03882625699043274,
+                "height": 0.008051530458033085
+              }
+            },
+            {
+              "text": "daily.",
+              "safe": "daily.",
+              "confidence": 99.92028045654297,
+              "state": "high",
+              "bbox": {
+                "left": 0.6269856095314026,
+                "top": 0.4130704402923584,
+                "width": 0.04549883306026459,
+                "height": 0.013912556692957878
+              }
+            },
+            {
+              "text": "Vitamin",
+              "safe": "Vitamin",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.6773779988288879,
+                "top": 0.4131532609462738,
+                "width": 0.06599424034357071,
+                "height": 0.011336615309119225
+              }
+            },
+            {
+              "text": "D",
+              "safe": "D",
+              "confidence": 99.14958953857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.7480453252792358,
+                "top": 0.4136008322238922,
+                "width": 0.015055118128657341,
+                "height": 0.010837475769221783
+              }
+            },
+            {
+              "text": "1000",
+              "safe": "1000",
+              "confidence": 99.970703125,
+              "state": "high",
+              "bbox": {
+                "left": 0.7694434523582458,
+                "top": 0.4134843647480011,
+                "width": 0.040001098066568375,
+                "height": 0.010789130814373493
+              }
+            },
+            {
+              "text": "units",
+              "safe": "units",
+              "confidence": 99.92028045654297,
+              "state": "high",
+              "bbox": {
+                "left": 0.8144890069961548,
+                "top": 0.4131914973258972,
+                "width": 0.040112171322107315,
+                "height": 0.011167118325829506
+              }
+            },
+            {
+              "text": "once",
+              "safe": "once",
+              "confidence": 99.9609375,
+              "state": "high",
+              "bbox": {
+                "left": 0.8600475788116455,
+                "top": 0.41639357805252075,
+                "width": 0.038842808455228806,
+                "height": 0.007936997339129448
+              }
+            }
+          ]
+        },
+        {
+          "text": "daily. No other regular medication.",
+          "raw": "daily. No other regular medication.",
+          "confidence": 99.45415496826172,
+          "bbox": {
+            "left": 0.07305695861577988,
+            "top": 0.4323248267173767,
+            "width": 0.28394749760627747,
+            "height": 0.014266202226281166
+          },
+          "words": [
+            {
+              "text": "daily.",
+              "safe": "daily.",
+              "confidence": 99.84056091308594,
+              "state": "high",
+              "bbox": {
+                "left": 0.07305695861577988,
+                "top": 0.43232494592666626,
+                "width": 0.04496552422642708,
+                "height": 0.014165777713060379
+              }
+            },
+            {
+              "text": "No",
+              "safe": "No",
+              "confidence": 99.93083953857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.12311013787984848,
+                "top": 0.4328521490097046,
+                "width": 0.02509479410946369,
+                "height": 0.011056211777031422
+              }
+            },
+            {
+              "text": "other",
+              "safe": "other",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.15362747013568878,
+                "top": 0.43270328640937805,
+                "width": 0.04274045675992966,
+                "height": 0.011079376563429832
+              }
+            },
+            {
+              "text": "regular",
+              "safe": "regular",
+              "confidence": 99.96014404296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.20014069974422455,
+                "top": 0.4324345886707306,
+                "width": 0.058160681277513504,
+                "height": 0.014156398363411427
+              }
+            },
+            {
+              "text": "medication.",
+              "safe": "medication.",
+              "confidence": 97.53926086425781,
+              "state": "high",
+              "bbox": {
+                "left": 0.2623670697212219,
+                "top": 0.43252116441726685,
+                "width": 0.09463739395141602,
+                "height": 0.011358962394297123
+              }
+            }
+          ]
+        },
+        {
+          "text": "ALLERGIES: Penicillin - widespread rash, documented 2004. No other known drug allergies.",
+          "raw": "ALLERGIES: Penicillin - widespread rash, documented 2004. No other known drug allergies.",
+          "confidence": 99.37226104736328,
+          "bbox": {
+            "left": 0.07300031930208206,
+            "top": 0.4607795774936676,
+            "width": 0.7643905878067017,
+            "height": 0.014173038303852081
+          },
+          "words": [
+            {
+              "text": "ALLERGIES:",
+              "safe": "ALLERGIES:",
+              "confidence": 99.84056091308594,
+              "state": "high",
+              "bbox": {
+                "left": 0.07300032675266266,
+                "top": 0.46152716875076294,
+                "width": 0.1131889596581459,
+                "height": 0.011034106835722923
+              }
+            },
+            {
+              "text": "Penicillin",
+              "safe": "Penicillin",
+              "confidence": 99.83159637451172,
+              "state": "high",
+              "bbox": {
+                "left": 0.19209864735603333,
+                "top": 0.46120262145996094,
+                "width": 0.0787447914481163,
+                "height": 0.011122790165245533
+              }
+            },
+            {
+              "text": "-",
+              "safe": "-",
+              "confidence": 93.39046478271484,
+              "state": "medium",
+              "bbox": {
+                "left": 0.2754307985305786,
+                "top": 0.4672338664531708,
+                "width": 0.006572631187736988,
+                "height": 0.0022006509825587273
+              }
+            },
+            {
+              "text": "widespread",
+              "safe": "widespread",
+              "confidence": 99.970703125,
+              "state": "high",
+              "bbox": {
+                "left": 0.28617238998413086,
+                "top": 0.46077969670295715,
+                "width": 0.09319519251585007,
+                "height": 0.014172898605465889
+              }
+            },
+            {
+              "text": "rash,",
+              "safe": "rash,",
+              "confidence": 99.84135437011719,
+              "state": "high",
+              "bbox": {
+                "left": 0.38376590609550476,
+                "top": 0.4612211585044861,
+                "width": 0.038892712444067,
+                "height": 0.013197200372815132
+              }
+            },
+            {
+              "text": "documented",
+              "safe": "documented",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.4275215268135071,
+                "top": 0.46121546626091003,
+                "width": 0.10037107020616531,
+                "height": 0.011149800382554531
+              }
+            },
+            {
+              "text": "2004.",
+              "safe": "2004.",
+              "confidence": 99.91051483154297,
+              "state": "high",
+              "bbox": {
+                "left": 0.532423198223114,
+                "top": 0.461656779050827,
+                "width": 0.04627087339758873,
+                "height": 0.01084441039711237
+              }
+            },
+            {
+              "text": "No",
+              "safe": "No",
+              "confidence": 99.93083953857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.5835352540016174,
+                "top": 0.46150991320610046,
+                "width": 0.025294752791523933,
+                "height": 0.01100662536919117
+              }
+            },
+            {
+              "text": "other",
+              "safe": "other",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.6141228675842285,
+                "top": 0.4612599313259125,
+                "width": 0.04264667630195618,
+                "height": 0.010952734388411045
+              }
+            },
+            {
+              "text": "known",
+              "safe": "known",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.6602787375450134,
+                "top": 0.46113112568855286,
+                "width": 0.05663482844829559,
+                "height": 0.011174810118973255
+              }
+            },
+            {
+              "text": "drug",
+              "safe": "drug",
+              "confidence": 99.95037078857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.7220707535743713,
+                "top": 0.4609975814819336,
+                "width": 0.03755192831158638,
+                "height": 0.013912219554185867
+              }
+            },
+            {
+              "text": "allergies.",
+              "safe": "allergies.",
+              "confidence": 99.80069732666016,
+              "state": "high",
+              "bbox": {
+                "left": 0.7646108865737915,
+                "top": 0.46088993549346924,
+                "width": 0.07278002798557281,
+                "height": 0.013998476788401604
+              }
+            }
+          ]
+        },
+        {
+          "text": "SOCIAL HISTORY: Non-smoker. Alcohol approximately 6 units per week. Works as a secondary",
+          "raw": "SOCIAL HISTORY: Non-smoker. Alcohol approximately 6 units per week. Works as a secondary",
+          "confidence": 99.46566772460938,
+          "bbox": {
+            "left": 0.0734916478395462,
+            "top": 0.48929938673973083,
+            "width": 0.8010157942771912,
+            "height": 0.014379056170582771
+          },
+          "words": [
+            {
+              "text": "SOCIAL",
+              "safe": "SOCIAL",
+              "confidence": 99.95037078857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.0734916552901268,
+                "top": 0.4898943603038788,
+                "width": 0.07184042781591415,
+                "height": 0.010734508745372295
+              }
+            },
+            {
+              "text": "HISTORY:",
+              "safe": "HISTORY:",
+              "confidence": 99.81205749511719,
+              "state": "high",
+              "bbox": {
+                "left": 0.1499095857143402,
+                "top": 0.48986151814460754,
+                "width": 0.09188102930784225,
+                "height": 0.0108336778357625
+              }
+            },
+            {
+              "text": "Non-smoker.",
+              "safe": "Non-smoker.",
+              "confidence": 93.81278228759766,
+              "state": "medium",
+              "bbox": {
+                "left": 0.24786782264709473,
+                "top": 0.4897093176841736,
+                "width": 0.10629991441965103,
+                "height": 0.01097689289599657
+              }
+            },
+            {
+              "text": "Alcohol",
+              "safe": "Alcohol",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.35905423760414124,
+                "top": 0.48954159021377563,
+                "width": 0.06625839322805405,
+                "height": 0.011095697060227394
+              }
+            },
+            {
+              "text": "approximately",
+              "safe": "approximately",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.4301528036594391,
+                "top": 0.4892994165420532,
+                "width": 0.11730305850505829,
+                "height": 0.014379017986357212
+              }
+            },
+            {
+              "text": "6",
+              "safe": "6",
+              "confidence": 99.84295654296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.5529493689537048,
+                "top": 0.48984113335609436,
+                "width": 0.010040280409157276,
+                "height": 0.01076434925198555
+              }
+            },
+            {
+              "text": "units",
+              "safe": "units",
+              "confidence": 99.96014404296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.5676961541175842,
+                "top": 0.4897501468658447,
+                "width": 0.040175650268793106,
+                "height": 0.011021795682609081
+              }
+            },
+            {
+              "text": "per",
+              "safe": "per",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.6127192378044128,
+                "top": 0.4927544593811035,
+                "width": 0.027073655277490616,
+                "height": 0.010802725329995155
+              }
+            },
+            {
+              "text": "week.",
+              "safe": "week.",
+              "confidence": 99.88042449951172,
+              "state": "high",
+              "bbox": {
+                "left": 0.6437502503395081,
+                "top": 0.48950061202049255,
+                "width": 0.04688011854887009,
+                "height": 0.011360370554029942
+              }
+            },
+            {
+              "text": "Works",
+              "safe": "Works",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.6961528658866882,
+                "top": 0.48967763781547546,
+                "width": 0.05458584055304527,
+                "height": 0.011096492409706116
+              }
+            },
+            {
+              "text": "as",
+              "safe": "as",
+              "confidence": 99.9609375,
+              "state": "high",
+              "bbox": {
+                "left": 0.7561876773834229,
+                "top": 0.4928187429904938,
+                "width": 0.016128722578287125,
+                "height": 0.007855342701077461
+              }
+            },
+            {
+              "text": "a",
+              "safe": "a",
+              "confidence": 99.853515625,
+              "state": "high",
+              "bbox": {
+                "left": 0.7776046395301819,
+                "top": 0.49281173944473267,
+                "width": 0.009167547337710857,
+                "height": 0.007944338023662567
+              }
+            },
+            {
+              "text": "secondary",
+              "safe": "secondary",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.7913762927055359,
+                "top": 0.48955562710762024,
+                "width": 0.08313116431236267,
+                "height": 0.01396141666918993
+              }
+            }
+          ]
+        },
+        {
+          "text": "school teacher. Lives with his wife and two children.",
+          "raw": "school teacher. Lives with his wife and two children.",
+          "confidence": 99.84391021728516,
+          "bbox": {
+            "left": 0.07302409410476685,
+            "top": 0.5087452530860901,
+            "width": 0.42825064063072205,
+            "height": 0.011538399383425713
+          },
+          "words": [
+            {
+              "text": "school",
+              "safe": "school",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.07302409410476685,
+                "top": 0.5088872909545898,
+                "width": 0.0539407953619957,
+                "height": 0.011113221757113934
+              }
+            },
+            {
+              "text": "teacher.",
+              "safe": "teacher.",
+              "confidence": 99.56153869628906,
+              "state": "high",
+              "bbox": {
+                "left": 0.1316138356924057,
+                "top": 0.5090124011039734,
+                "width": 0.062372028827667236,
+                "height": 0.01109783910214901
+              }
+            },
+            {
+              "text": "Lives",
+              "safe": "Lives",
+              "confidence": 99.88042449951172,
+              "state": "high",
+              "bbox": {
+                "left": 0.19916291534900665,
+                "top": 0.5089251399040222,
+                "width": 0.04522067680954933,
+                "height": 0.011172316037118435
+              }
+            },
+            {
+              "text": "with",
+              "safe": "with",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.24913857877254486,
+                "top": 0.5087561011314392,
+                "width": 0.03639950975775719,
+                "height": 0.011242476291954517
+              }
+            },
+            {
+              "text": "his",
+              "safe": "his",
+              "confidence": 99.96014404296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.2902716100215912,
+                "top": 0.5088591575622559,
+                "width": 0.02428973838686943,
+                "height": 0.011008433066308498
+              }
+            },
+            {
+              "text": "wife",
+              "safe": "wife",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.3192637860774994,
+                "top": 0.5087453126907349,
+                "width": 0.036140475422143936,
+                "height": 0.011238060891628265
+              }
+            },
+            {
+              "text": "and",
+              "safe": "and",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.3598580062389374,
+                "top": 0.5088968873023987,
+                "width": 0.02994072623550892,
+                "height": 0.011169054545462132
+              }
+            },
+            {
+              "text": "two",
+              "safe": "two",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.3945632874965668,
+                "top": 0.510387122631073,
+                "width": 0.030319903045892715,
+                "height": 0.009710406884551048
+              }
+            },
+            {
+              "text": "children.",
+              "safe": "children.",
+              "confidence": 99.20280456542969,
+              "state": "high",
+              "bbox": {
+                "left": 0.4300977885723114,
+                "top": 0.5088875889778137,
+                "width": 0.07117694616317749,
+                "height": 0.011396082118153572
+              }
+            }
+          ]
+        },
+        {
+          "text": "FAMILY HISTORY: Father had bowel cancer diagnosed aged 71. Mother alive and well.",
+          "raw": "FAMILY HISTORY: Father had bowel cancer diagnosed aged 71. Mother alive and well.",
+          "confidence": 99.92696380615234,
+          "bbox": {
+            "left": 0.07238826900720596,
+            "top": 0.5373164415359497,
+            "width": 0.7278479337692261,
+            "height": 0.01419446337968111
+          },
+          "words": [
+            {
+              "text": "FAMILY",
+              "safe": "FAMILY",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.07238826900720596,
+                "top": 0.5376763939857483,
+                "width": 0.0771055519580841,
+                "height": 0.01109172124415636
+              }
+            },
+            {
+              "text": "HISTORY:",
+              "safe": "HISTORY:",
+              "confidence": 99.52327728271484,
+              "state": "high",
+              "bbox": {
+                "left": 0.15375381708145142,
+                "top": 0.5379204750061035,
+                "width": 0.0919622927904129,
+                "height": 0.010821202769875526
+              }
+            },
+            {
+              "text": "Father",
+              "safe": "Father",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.2515581250190735,
+                "top": 0.5376054048538208,
+                "width": 0.05268743634223938,
+                "height": 0.010936752893030643
+              }
+            },
+            {
+              "text": "had",
+              "safe": "had",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.3079780042171478,
+                "top": 0.5373953580856323,
+                "width": 0.030152227729558945,
+                "height": 0.011277228593826294
+              }
+            },
+            {
+              "text": "bowel",
+              "safe": "bowel",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.3426368832588196,
+                "top": 0.5373622179031372,
+                "width": 0.05059947073459625,
+                "height": 0.011300116777420044
+              }
+            },
+            {
+              "text": "cancer",
+              "safe": "cancer",
+              "confidence": 99.9609375,
+              "state": "high",
+              "bbox": {
+                "left": 0.39789193868637085,
+                "top": 0.5406554341316223,
+                "width": 0.053325749933719635,
+                "height": 0.008069533854722977
+              }
+            },
+            {
+              "text": "diagnosed",
+              "safe": "diagnosed",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.4552762508392334,
+                "top": 0.537316620349884,
+                "width": 0.08372405916452408,
+                "height": 0.01419418677687645
+              }
+            },
+            {
+              "text": "aged",
+              "safe": "aged",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.5437876582145691,
+                "top": 0.5373819470405579,
+                "width": 0.03855302557349205,
+                "height": 0.013993137516081333
+              }
+            },
+            {
+              "text": "71.",
+              "safe": "71.",
+              "confidence": 99.77458953857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.5876598954200745,
+                "top": 0.537923276424408,
+                "width": 0.024985861033201218,
+                "height": 0.010846034623682499
+              }
+            },
+            {
+              "text": "Mother",
+              "safe": "Mother",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.6175956726074219,
+                "top": 0.5376856327056885,
+                "width": 0.06074688583612442,
+                "height": 0.011046047322452068
+              }
+            },
+            {
+              "text": "alive",
+              "safe": "alive",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.6825780272483826,
+                "top": 0.537319004535675,
+                "width": 0.03955412283539772,
+                "height": 0.011210591532289982
+              }
+            },
+            {
+              "text": "and",
+              "safe": "and",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.7267724275588989,
+                "top": 0.5374850034713745,
+                "width": 0.03020746447145939,
+                "height": 0.011044719256460667
+              }
+            },
+            {
+              "text": "well.",
+              "safe": "well.",
+              "confidence": 99.84056091308594,
+              "state": "high",
+              "bbox": {
+                "left": 0.7613843679428101,
+                "top": 0.5376134514808655,
+                "width": 0.03885180503129959,
+                "height": 0.011000368744134903
+              }
+            }
+          ]
+        },
+        {
+          "text": "Thyroid function checked last month and was within normal limits.",
+          "raw": "Thyroid function checked last month and was within normal limits.",
+          "confidence": 99.93638610839844,
+          "bbox": {
+            "left": 0.072960264980793,
+            "top": 0.5658646821975708,
+            "width": 0.5467586517333984,
+            "height": 0.013751507736742496
+          },
+          "words": [
+            {
+              "text": "Thyroid",
+              "safe": "Thyroid",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.072960264980793,
+                "top": 0.5660383701324463,
+                "width": 0.06614896655082703,
+                "height": 0.01357748731970787
+              }
+            },
+            {
+              "text": "function",
+              "safe": "function",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.14434002339839935,
+                "top": 0.5658737421035767,
+                "width": 0.06792367994785309,
+                "height": 0.011390257626771927
+              }
+            },
+            {
+              "text": "checked",
+              "safe": "checked",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.2171916961669922,
+                "top": 0.5659338235855103,
+                "width": 0.06704018265008926,
+                "height": 0.011258688755333424
+              }
+            },
+            {
+              "text": "last",
+              "safe": "last",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.28896281123161316,
+                "top": 0.5660238265991211,
+                "width": 0.028268737718462944,
+                "height": 0.011226356960833073
+              }
+            },
+            {
+              "text": "month",
+              "safe": "month",
+              "confidence": 99.96014404296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.3217844069004059,
+                "top": 0.5661224126815796,
+                "width": 0.05250532925128937,
+                "height": 0.011114890687167645
+              }
+            },
+            {
+              "text": "and",
+              "safe": "and",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.3793744742870331,
+                "top": 0.5659997463226318,
+                "width": 0.0296010784804821,
+                "height": 0.01118966843932867
+              }
+            },
+            {
+              "text": "was",
+              "safe": "was",
+              "confidence": 99.931640625,
+              "state": "high",
+              "bbox": {
+                "left": 0.41387856006622314,
+                "top": 0.5688555240631104,
+                "width": 0.03139037266373634,
+                "height": 0.008281809277832508
+              }
+            },
+            {
+              "text": "within",
+              "safe": "within",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.4498389661312103,
+                "top": 0.5659955143928528,
+                "width": 0.052668552845716476,
+                "height": 0.011034265160560608
+              }
+            },
+            {
+              "text": "normal",
+              "safe": "normal",
+              "confidence": 99.96014404296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.5070482492446899,
+                "top": 0.5660530924797058,
+                "width": 0.057644493877887726,
+                "height": 0.011227964423596859
+              }
+            },
+            {
+              "text": "limits.",
+              "safe": "limits.",
+              "confidence": 99.52168273925781,
+              "state": "high",
+              "bbox": {
+                "left": 0.5698491334915161,
+                "top": 0.5658649802207947,
+                "width": 0.04986977577209473,
+                "height": 0.011457622051239014
+              }
+            }
+          ]
+        },
+        {
+          "text": "Kind regards,",
+          "raw": "Kind regards,",
+          "confidence": 99.89098358154297,
+          "bbox": {
+            "left": 0.07251420617103577,
+            "top": 0.5943573117256165,
+            "width": 0.1106400340795517,
+            "height": 0.014142277650535107
+          },
+          "words": [
+            {
+              "text": "Kind",
+              "safe": "Kind",
+              "confidence": 99.89098358154297,
+              "state": "high",
+              "bbox": {
+                "left": 0.07251420617103577,
+                "top": 0.5943887233734131,
+                "width": 0.04166244715452194,
+                "height": 0.011500397697091103
+              }
+            },
+            {
+              "text": "regards,",
+              "safe": "regards,",
+              "confidence": 99.89098358154297,
+              "state": "high",
+              "bbox": {
+                "left": 0.11831454932689667,
+                "top": 0.5943573713302612,
+                "width": 0.06483969837427139,
+                "height": 0.014142238534986973
+              }
+            }
+          ]
+        },
+        {
+          "text": "Dr S. Ellery",
+          "raw": "Dr S. Ellery",
+          "confidence": 98.27327728271484,
+          "bbox": {
+            "left": 0.07273254543542862,
+            "top": 0.6230347156524658,
+            "width": 0.09602644294500351,
+            "height": 0.013675513677299023
+          },
+          "words": [
+            {
+              "text": "Dr",
+              "safe": "Dr",
+              "confidence": 97.01371002197266,
+              "state": "high",
+              "bbox": {
+                "left": 0.07273254543542862,
+                "top": 0.6233116984367371,
+                "width": 0.021818868815898895,
+                "height": 0.010961541905999184
+              }
+            },
+            {
+              "text": "S.",
+              "safe": "S.",
+              "confidence": 97.83541870117188,
+              "state": "high",
+              "bbox": {
+                "left": 0.09907958656549454,
+                "top": 0.6234840750694275,
+                "width": 0.01500391960144043,
+                "height": 0.010807225480675697
+              }
+            },
+            {
+              "text": "Ellery",
+              "safe": "Ellery",
+              "confidence": 99.970703125,
+              "state": "high",
+              "bbox": {
+                "left": 0.11960805952548981,
+                "top": 0.6230347156524658,
+                "width": 0.04915092885494232,
+                "height": 0.013675462454557419
+              }
+            }
+          ]
+        },
+        {
+          "text": "General Practitioner",
+          "raw": "General Practitioner",
+          "confidence": 99.92028045654297,
+          "bbox": {
+            "left": 0.07313112914562225,
+            "top": 0.6423421502113342,
+            "width": 0.16328930854797363,
+            "height": 0.011254405602812767
+          },
+          "words": [
+            {
+              "text": "General",
+              "safe": "General",
+              "confidence": 99.96014404296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.07313112914562225,
+                "top": 0.6425424218177795,
+                "width": 0.06372396647930145,
+                "height": 0.011054002679884434
+              }
+            },
+            {
+              "text": "Practitioner",
+              "safe": "Practitioner",
+              "confidence": 99.88042449951172,
+              "state": "high",
+              "bbox": {
+                "left": 0.1412339061498642,
+                "top": 0.6423422694206238,
+                "width": 0.09518653154373169,
+                "height": 0.0112204784527421
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "computed_at": "2026-09-13T13:09:28.890053"
+}
