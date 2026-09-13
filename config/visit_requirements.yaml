@@ -67,6 +67,23 @@ _global:
     - analgesia
     - antibiotics
 
+  # Phrases that LOOK like a referral question and are not one. Every specialist
+  # knows "grateful for your opinion" as the empty referral: it is a courtesy,
+  # not a question, and it leaves the consultant guessing what is actually being
+  # asked. A model reads it as a request and accepts it. A clinician does not.
+  vague_referral_phrases:
+    - grateful for your opinion
+    - grateful for your advice
+    - grateful for your assessment
+    - please see and advise
+    - please assess
+    - for your kind attention
+    - for your opinion
+    - your opinion would be appreciated
+    - please review
+    - thank you for seeing this patient
+    - over to you
+
   # Never chase these by phone; they are the clinician's job in the room.
   never_delegate_to_reception:
     - clinical_examination_findings

@@ -15,7 +15,9 @@ from .agents import interpret
 from .extraction import DocumentExtraction
 from .mapping import (
     is_real_medication,
+    is_real_referral_question,
     load_not_a_medication,
+    load_vague_referral_phrases,
     canonical_doc_kind,
     canonical_field,
     load_aliases,
@@ -24,7 +26,7 @@ from .mapping import (
     strip_markers,
 )
 from .ocr import OcrDocument, OcrLine, read_document, state_for
-from .readiness import audit, load_policy
+from .readiness import CHANGE_LANGUAGE, audit, load_policy
 from .schemas import (
     Confidence,
     DocumentMeta,
@@ -65,12 +67,15 @@ def _confidence(doc: OcrDocument, line_no: int, marked_illegible: bool) -> Confi
 
 
 def facts_from(doc: OcrDocument, ex: DocumentExtraction, allowed: set[str],
-               aliases: dict[str, str]) -> dict[str, ExtractedFact]:
+               aliases: dict[str, str], vague: list[str] | None = None) -> dict[str, ExtractedFact]:
     out: dict[str, ExtractedFact] = {}
+    vague = vague or []
     for f in ex.fields:
         canon = canonical_field(f.field, aliases, allowed)
         if canon is None:
             continue  # not something the policy asks about; notes keep the rest
+        if canon == "referral_question" and not is_real_referral_question(f.value, vague):
+            continue  # a courtesy is not a question
         value, had_marker = strip_markers(f.value)
         conf = _confidence(doc, f.line_number, f.marked_illegible or value is None)
         if had_marker and _RANK[conf] > _RANK[Confidence.LOW]:
@@ -112,6 +117,33 @@ def medications_from(doc: OcrDocument, ex: DocumentExtraction,
     return meds
 
 
+def document_signals(doc: OcrDocument) -> list[ExtractedFact]:
+    """Scan the OCR transcript itself for statements that a medication was changed.
+
+    This exists because the reconciliation finding -- the best thing this system
+    does -- was previously reachable only if the interpreter happened to extract
+    the right field. Across repeated runs it did so about half the time. A
+    clinical finding must not depend on a model's discretion, so the signal is
+    now read off the transcript, which is deterministic: the same image yields
+    the same words every time.
+    """
+    out: list[ExtractedFact] = []
+    for i, ln in enumerate(doc.lines, 1):
+        text = ln.safe_text
+        lowered = text.lower()
+        if any(phrase in lowered for phrase in CHANGE_LANGUAGE):
+            out.append(
+                ExtractedFact(
+                    field="_document_signal",
+                    value=text,
+                    confidence=state_for(ln.confidence),
+                    source=_source(doc, i),
+                    note="Read directly from the document text, not inferred.",
+                )
+            )
+    return out
+
+
 def _merge_medications(existing: list[Medication], incoming: list[Medication]) -> list[Medication]:
     """Same drug from two documents: keep the entry that actually has a dose,
     and prefer the better-read one. Never fabricate agreement."""
@@ -149,6 +181,7 @@ def build_record(
     }
     aliases = load_aliases()
     stoplist = load_not_a_medication(policy)
+    vague = load_vague_referral_phrases(policy)
 
     record = IntakeRecord(
         patient_ref=patient_ref, appointment_at=appointment_at, visit_type=visit_type
@@ -170,13 +203,15 @@ def build_record(
             )
         )
 
-        for field, fact in facts_from(doc, ex, allowed, aliases).items():
+        doc_facts = facts_from(doc, ex, allowed, aliases, vague)
+        record.all_facts.extend(doc_facts.values())
+        record.all_facts.extend(document_signals(doc))
+
+        for field, fact in doc_facts.items():
             current = record.facts.get(field)
             if current is None or _RANK[fact.confidence] > _RANK[current.confidence]:
                 record.facts[field] = fact
 
-        doc_facts = facts_from(doc, ex, allowed, aliases)
-        record.all_facts.extend(doc_facts.values())
         record.medications = _merge_medications(
             record.medications, medications_from(doc, ex, stoplist)
         )
