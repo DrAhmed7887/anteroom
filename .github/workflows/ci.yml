@@ -34,7 +34,12 @@ jobs:
         id: run_tests
         run: |
           source .venv/bin/activate
-          PYTHONPATH=. pytest tests/ -v --tb=short
+          PYTHONPATH=. pytest tests/ -v --tb=short | tee /tmp/pytest.out
+          # Read the count from the run rather than hardcoding it. A pinned
+          # number goes stale the moment anyone adds a test, and a report that
+          # states a stale number is worse than one that states none.
+          COUNT=$(grep -oE '[0-9]+ passed' /tmp/pytest.out | tail -1 | grep -oE '[0-9]+')
+          echo "TEST_COUNT=${COUNT:-unknown}" >> "$GITHUB_ENV"
 
       - name: Post Automated Review on Pull Request
         if: github.event_name == 'pull_request'
@@ -44,7 +49,7 @@ jobs:
         run: |
           gh pr comment "$PR_URL" --body "### 🩺 Anteroom Automated Safety & Verification Report
 
-          ✅ **Test Suite:** 35/35 automated unit and regression tests passing.
+          ✅ **Test Suite:** ${{ env.TEST_COUNT }} automated unit and regression tests passing.
           ✅ **Zero-Trust Authorization:** Practice scoping and role scoping policies verified.
           ✅ **Hallucination Defense:** Confidence gate (<60% threshold) active and validated.
           ✅ **Zero Network Dependency:** Core policy engine operates deterministically with zero model hallucination.

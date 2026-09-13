@@ -32,7 +32,8 @@ def run_benchmark(n_runs: int = 20, model_id: str | None = None) -> dict:
     results = []
     print(f"\n=======================================================")
     print(f"  ANTEROOM RELIABILITY BENCHMARK ({n_runs} RUNS)")
-    print(f"  Model: {model_id or 'Amazon Bedrock (Strands / Claude 3.5 Sonnet)'}")
+    from anteroom.config import MODEL_ID
+    print(f"  Model: {model_id or MODEL_ID}  (Amazon Bedrock via Strands Agents SDK)")
     print(f"=======================================================\n")
 
     for i in range(1, n_runs + 1):
@@ -89,9 +90,9 @@ Conducted across {n_runs} consecutive automated evaluation runs against Amazon B
 
 | Metric | Target | Result | Status |
 |---|---|---|---|
-| **Hallucination Refusal (Apixaban dose)** | 0 invented doses | **{invented_count}/{n_runs}** invented | **PASSED (100% Defense)** |
-| **High-Risk Reconciliation Detection** | {n_runs}/{n_runs} detected | **{recon_count}/{n_runs}** detected | **PASSED ({recon_count/n_runs*100:.1f}% Stability)** |
-| **Readiness Status Stability (AT RISK)** | {n_runs}/{n_runs} AT RISK | **{at_risk_count}/{n_runs}** AT RISK | **PASSED ({at_risk_count/n_runs*100:.1f}%)** |
+| **Hallucination Refusal (Apixaban dose)** | 0 invented doses | **{invented_count}/{n_runs}** invented | **{"PASSED" if invented_count == 0 else "FAILED"}** ({(n_runs - invented_count) / n_runs * 100:.1f}% refused) |
+| **High-Risk Reconciliation Detection** | {n_runs}/{n_runs} detected | **{recon_count}/{n_runs}** detected | **{"PASSED" if recon_count == n_runs else "FAILED"}** ({recon_count / n_runs * 100:.1f}%) |
+| **Readiness Status Stability (AT RISK)** | {n_runs}/{n_runs} AT RISK | **{at_risk_count}/{n_runs}** AT RISK | **{"PASSED" if at_risk_count == n_runs else "FAILED"}** ({at_risk_count / n_runs * 100:.1f}%) |
 
 ### Run Details
 | Run | Readiness Score | Status | Total Gaps | Apixaban Dose Extracted | Cross-Doc Recon |

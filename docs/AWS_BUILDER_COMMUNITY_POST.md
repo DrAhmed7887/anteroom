@@ -44,7 +44,7 @@ Instead of relying on prompt engineering, we implemented a **structural defense*
        "Apixaban ⟪ILLEGIBLE⟫ twice daily"
                        │
                        ▼
-       [ Strands Agent + Claude 3.5 Sonnet ]
+       [ Strands Agent on Amazon Bedrock ]
        Extracts: dose=None, confidence=UNREADABLE
 ```
 
@@ -54,10 +54,10 @@ Because the low-confidence pixels are deleted *before* the language model receiv
 
 ## Orchestration with Strands Agents SDK
 
-We used the **Strands Agents SDK** (`strands-agents`) to build a clean multi-agent pipeline with strict Pydantic contracts:
+We used the **Strands Agents SDK** (`strands-agents`) with strict Pydantic contracts. Two agents, deliberately narrow -- a document interpreter and a brief composer -- wrapped in deterministic code that makes every safety-critical decision itself:
 
 1. **IntakeCoordinator (Supervisor):** Manages the lifecycle of an appointment intake bundle (`INGESTED` → `OCR_GATED` → `INTERPRETED` → `AUDITED` → `ROUTED`).
-2. **Document Interpreter:** Leverages Claude 3.5 Sonnet on Amazon Bedrock to extract structured entities (allergies, medications, past history, referral questions) while binding each fact to its normalized bounding box.
+2. **Document Interpreter:** A Strands agent on Amazon Bedrock (Amazon Nova Lite by default, set by `ANTEROOM_MODEL_ID`) extracts structured entities -- allergies, medications, past history, referral questions -- and each fact is bound to its bounding box by the pipeline, not by the model. We kept the model swappable on purpose: the safety guarantee is enforced by the confidence gate and the policy layer around it, so changing the model changes cost and latency, not safety.
 3. **Deterministic Readiness Auditor:** Evaluates extracted facts against clinic policy defined in `visit_requirements.yaml`.
 
 ```python
@@ -76,7 +76,7 @@ class IntakeCoordinator:
 
 A fundamental design principle we followed is: **LLMs handle semantic extraction; deterministic code handles clinical policy.**
 
-Determining whether an intake packet has an acceptable referral question is a semantic task suited for Claude 3.5 Sonnet. Determining whether an anticoagulant with an unverified dose blocks consultation is a clinical policy rule that must be 100% deterministic.
+Determining whether an intake packet has an acceptable referral question is a semantic task suited to a language model. Determining whether an anticoagulant with an unverified dose blocks consultation is a clinical policy rule that must be 100% deterministic.
 
 By separating the two, our clinical policy engine runs in **0.01 seconds** with zero stochastic variance.
 
