@@ -23,7 +23,7 @@ As a physician and health informatics researcher, I asked: **Why are doctors tri
 
 ## 🩺 What It Does
 
-**Anteroom** is an ambient pre-visit intake coordinator built with the **Strands Agents SDK** and deployed on **Amazon Bedrock AgentCore**. It runs the night before clinic, ingesting whatever messy artifacts exist (angled phone photos, handwritten notes, photographed screens), deterministically auditing readiness against clinic policy, and routing actionable work to three role-specific queues before the patient ever arrives:
+**Anteroom** is an ambient pre-visit intake coordinator built with the **Strands Agents SDK** on **Amazon Bedrock**, with an **Amazon Bedrock AgentCore** action group packaged and dry-run validated. It runs the night before clinic, ingesting whatever messy artifacts exist (angled phone photos, handwritten notes, photographed screens), deterministically auditing readiness against clinic policy, and routing actionable work to three role-specific queues before the patient ever arrives:
 
 1. **☎ Receptionist Action Queue:** Identifies missing administrative prerequisites (e.g. missing referral question, missing contact info) and generates **verbatim telephone call scripts** so front-desk staff can resolve gaps with one quick phone call.
 2. **💊 Nurse Review Queue:** Handles clinical reconciliation gaps (e.g., verifying an altered high-risk anticoagulant with the prescribing pharmacy).
@@ -45,13 +45,56 @@ We designed Anteroom as a multi-tier agent architecture combining AWS serverless
 The fatal danger in clinical LLM applications is a model "helpfully" hallucinating an illegible dose. We built a structural defense:
 * Every document passes through **Amazon Textract**, which computes word-level confidence scores.
 * Any word scoring below the 60% threshold is stripped and replaced with an explicit `⟪ILLEGIBLE⟫` token before any language model sees the text.
-* The **Amazon Bedrock** model (Claude 3.5 Sonnet) is fed the sanitized transcript—it never sees raw blur pixels. It is **physically and structurally incapable** of guessing a dose.
+* The **Amazon Bedrock** model is fed the sanitized transcript — it never sees raw blur pixels. It is **structurally incapable** of guessing a dose, because the token was deleted before it arrived.
+* The model is set by one variable (`ANTEROOM_MODEL_ID`, default Amazon Nova Lite) precisely *because* the guarantee does not depend on it. Swapping the model changes cost and latency, not safety.
 
-### 2. Strands Agents SDK Orchestration
-Using the **Strands Agents SDK**, we implemented an `IntakeCoordinatorAgent` supervisor that manages state transitions:
-* Ingests multi-format document bundles.
-* Coordinates specialized agents for entity interpretation and deterministic policy auditing.
-* Enforces strict Pydantic schemas (`ExtractedFact`, `SourceRef`, `Medication`, `Gap`, `ReadinessReport`).
+### 2. Strands Agents SDK — deliberately two agents, deliberately narrow
+
+The Strands Agents SDK runs **two** agents, both using structured output against strict
+Pydantic contracts:
+
+| Agent | File | What it decides |
+|---|---|---|
+| **Document Interpreter** | `anteroom/agents.py` | What a transcript line *means* — which line holds the allergies, which token is a drug name |
+| **Brief Composer** | `anteroom/brief.py` | Two sentences of clinical prose for the consultant |
+
+**There is no supervisor agent, and that is the design, not a shortcut.** Every
+safety-critical decision is made by deterministic code *around* the agents:
+
+* deleting an unreadable token — `anteroom/ocr.py`, a confidence threshold
+* tiering a drug as high risk — `config/visit_requirements.yaml`, a lookup table
+* deciding severity and which human owns a gap — `anteroom/readiness.py`, **no model**
+* rendering every medication dose — `anteroom/brief.py`, string concatenation
+
+A model writing *"she takes apixaban 5mg twice daily"* in fluent prose is the exact
+failure this system exists to prevent, and no prompt makes that impossible. So the model
+is never given the opportunity. Contracts enforced: `ExtractedFact`, `SourceRef`,
+`Medication`, `Gap`, `ReadinessReport`, `DocumentExtraction`, `BriefNarrative`.
+
+Anyone can audit a YAML file. Nobody can audit a prompt.
+
+### 2b. What "deterministic" does and does not mean here
+
+Worth stating precisely, because the distinction is the whole design and an imprecise
+claim is easy to disprove:
+
+| | |
+|---|---|
+| ✅ **Deterministic** | the confidence gate, the normalisation layer, the readiness auditor, the role routing, every rendered dose |
+| ⚠️ **Not deterministic** | the interpreter's extraction *recall* — it is a language model |
+
+Measured over 20 consecutive live runs on the same three documents:
+
+| | |
+|---|---|
+| Never invented an unreadable dose | **20/20** |
+| Verdict `AT RISK` | **20/20** |
+| Cross-document finding flagged | **20/20** |
+| Readiness score | `33/100` in **19 of 20**; one run at 26 |
+
+We do not claim the pipeline is deterministic, because it is not. We claim the safety
+layer is, and we publish the runs that show where the remaining movement is. A benchmark
+a judge can re-run has to survive being re-run.
 
 ### 3. Cross-Document Clinical Deduction
 Generic document summarizers look at one document at a time. Anteroom maintains multi-document context:
@@ -96,7 +139,7 @@ Anteroom enforces strict practice and role scoping:
 ## 🛠️ Built With
 
 * **Strands Agents SDK** (`strands-agents`)
-* **Amazon Bedrock** (Claude 3.5 Sonnet)
+* **Amazon Bedrock** (Amazon Nova Lite by default; model set by `ANTEROOM_MODEL_ID`)
 * **Amazon Textract** (Word-level confidence extraction)
 * **Python 3.13**
 * **Streamlit** (Clinic Console UI)

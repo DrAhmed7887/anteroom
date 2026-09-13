@@ -90,12 +90,32 @@ The system is deliberately engineered to showcase deep, authentic implementation
 
 ### 2.1 Strands Agents SDK Implementation Details
 
-1. **Orchestrator Pattern (`IntakeCoordinatorAgent`):**
-   - Implemented as a model-driven Strands Supervisor.
-   - Manages case state transitions: `INGESTED` → `OCR_GATED` → `FACTS_EXTRACTED` → `AUDITED` → `ACTION_ROUTED`.
-   - Halts on ambiguous or high-risk cases using Strands **Human-in-the-Loop Interrupts** (`interrupt_before=["dispatch_tasks"]`).
+1. **Two agents, deliberately narrow — no supervisor.**
+   - `anteroom/agents.py` — **Document Interpreter**: turns a gated OCR transcript into
+     structured fields. Reports semantics only. Never reports certainty, never rates
+     clinical risk, never sees an image.
+   - `anteroom/brief.py` — **Brief Composer**: writes two sentences of orientation for
+     the consultant from facts that already passed the confidence gate.
+   - Both use Strands structured output against strict Pydantic contracts.
 
-2. **Specialized Tools & Strict Pydantic Contracts:**
+   There is deliberately **no orchestrator agent and no model-driven state machine.**
+   Sequencing an intake packet is not a judgement call, so it is ordinary code in
+   `anteroom/pipeline.py`. Every safety-critical decision sits outside the agents:
+
+   | decision | where | model involved |
+   |---|---|---|
+   | delete an unreadable token | `anteroom/ocr.py` | no |
+   | classify a drug as high risk | `config/visit_requirements.yaml` | no |
+   | severity and which human owns a gap | `anteroom/readiness.py` | no |
+   | render a medication dose | `anteroom/brief.py` | no |
+   | what a transcript line means | `anteroom/agents.py` | **yes** |
+   | phrasing of the consultant brief | `anteroom/brief.py` | **yes** |
+
+   A model writing *"she takes apixaban 5mg twice daily"* in fluent prose is the exact
+   failure this system exists to prevent, and no prompt makes that impossible. So the
+   model is never given the opportunity.
+
+2. **Strict Pydantic Contracts:**
    - Every tool call adheres to immutable Pydantic schemas:
      - `Confidence` enum: `HIGH`, `MEDIUM`, `LOW`, `UNREADABLE`.
      - `SourceRef`: Strict citation linking (`document_id`, `document_label`, `bounding_box`, `location`).
