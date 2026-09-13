@@ -24,5 +24,17 @@
     "document_ids": [
       "doc4"
     ]
+  },
+  {
+    "appointment_id": "apt-003",
+    "practice_id": "northgate",
+    "patient_ref": "SYN-0003",
+    "patient_display": "Tariq Al-Mansoor",
+    "appointment_at": "2026-09-14T11:30:00",
+    "visit_type": "cardiology_new_consult",
+    "clinician": "Dr Amara Hale",
+    "document_ids": [
+      "doc5"
+    ]
   }
 ]
