@@ -84,6 +84,12 @@ _global:
     - thank you for seeing this patient
     - over to you
 
+  # Extracted for orientation, never scored. A brief opening "Adult, sex
+  # unknown" wastes the three seconds it exists to save.
+  demographic_fields:
+    - patient_age
+    - patient_sex
+
   # Never chase these by phone; they are the clinician's job in the room.
   never_delegate_to_reception:
     - clinical_examination_findings

@@ -1,0 +1,4531 @@
+{
+  "record": {
+    "patient_ref": "SYN-0001",
+    "appointment_at": "2026-09-14T14:30:00",
+    "visit_type": "cardiology_new_consult",
+    "documents": [
+      {
+        "document_id": "doc1",
+        "label": "Referral letter, Dr A. Okafor",
+        "kind": "referral_letter",
+        "capture_quality": "good",
+        "received_at": "2026-09-13T13:09:08.558738"
+      },
+      {
+        "document_id": "doc2",
+        "label": "Medication list (handwritten)",
+        "kind": "medication_list",
+        "capture_quality": "degraded",
+        "received_at": "2026-09-13T13:09:15.091381"
+      },
+      {
+        "document_id": "doc3",
+        "label": "Discharge summary (photo of screen)",
+        "kind": "discharge_summary",
+        "capture_quality": "degraded",
+        "received_at": "2026-09-13T13:09:19.602853"
+      }
+    ],
+    "facts": {
+      "presenting_symptoms": {
+        "field": "presenting_symptoms",
+        "value": "intermittent palpitations, light-headedness",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc1",
+          "document_label": "Referral letter, Dr A. Okafor",
+          "location": "line 8",
+          "bbox": {
+            "left": 0.12170390784740448,
+            "top": 0.27719607949256897,
+            "width": 0.7575119733810425,
+            "height": 0.019175082445144653
+          }
+        },
+        "note": null
+      },
+      "past_medical_history": {
+        "field": "past_medical_history",
+        "value": "hypertension, type 2 diabetes, paroxysmal atrial fibrillation",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc1",
+          "document_label": "Referral letter, Dr A. Okafor",
+          "location": "line 11",
+          "bbox": {
+            "left": 0.118453249335289,
+            "top": 0.34622710943222046,
+            "width": 0.7613121867179871,
+            "height": 0.018732281401753426
+          }
+        },
+        "note": null
+      },
+      "anticoagulant_status": {
+        "field": "anticoagulant_status",
+        "value": "on anticoagulant",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc1",
+          "document_label": "Referral letter, Dr A. Okafor",
+          "location": "line 11",
+          "bbox": {
+            "left": 0.118453249335289,
+            "top": 0.34622710943222046,
+            "width": 0.7613121867179871,
+            "height": 0.018732281401753426
+          }
+        },
+        "note": null
+      },
+      "bp_diary": {
+        "field": "bp_diary",
+        "value": "148/86",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc1",
+          "document_label": "Referral letter, Dr A. Okafor",
+          "location": "line 12",
+          "bbox": {
+            "left": 0.11779994517564774,
+            "top": 0.36662566661834717,
+            "width": 0.7540293335914612,
+            "height": 0.01718829572200775
+          }
+        },
+        "note": null
+      },
+      "patient_age": {
+        "field": "patient_age",
+        "value": "68",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc1",
+          "document_label": "Referral letter, Dr A. Okafor",
+          "location": "line 7",
+          "bbox": {
+            "left": 0.12292426824569702,
+            "top": 0.2570887804031372,
+            "width": 0.7526800036430359,
+            "height": 0.021062683314085007
+          }
+        },
+        "note": null
+      },
+      "patient_sex": {
+        "field": "patient_sex",
+        "value": "female",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc1",
+          "document_label": "Referral letter, Dr A. Okafor",
+          "location": "line 5",
+          "bbox": {
+            "left": 0.12575776875019073,
+            "top": 0.19796445965766907,
+            "width": 0.3557111620903015,
+            "height": 0.016144711524248123
+          }
+        },
+        "note": null
+      },
+      "recent_ecg": {
+        "field": "recent_ecg",
+        "value": "sinus rhythm",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc1",
+          "document_label": "Referral letter, Dr A. Okafor",
+          "location": "line 14",
+          "bbox": {
+            "left": 0.11510532349348068,
+            "top": 0.4162256419658661,
+            "width": 0.7590369582176208,
+            "height": 0.016650235280394554
+          }
+        },
+        "note": null
+      },
+      "current_medications": {
+        "field": "current_medications",
+        "value": "Ramipril, Atorvastatin, Apixaban, Metformin, B\u00edsoprolol, Paracetamol",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc2",
+          "document_label": "Medication list (handwritten)",
+          "location": "line 3",
+          "bbox": {
+            "left": 0.12145465612411499,
+            "top": 0.21099163591861725,
+            "width": 0.450496643781662,
+            "height": 0.03150825947523117
+          }
+        },
+        "note": null
+      },
+      "previous_echo": {
+        "field": "previous_echo",
+        "value": null,
+        "confidence": "unreadable",
+        "source": {
+          "document_id": "doc3",
+          "document_label": "Discharge summary (photo of screen)",
+          "location": "line 10",
+          "bbox": {
+            "left": 0.3073274791240692,
+            "top": 0.43712207674980164,
+            "width": 0.4680896997451782,
+            "height": 0.02221888117492199
+          }
+        },
+        "note": "OCR reported low confidence on part of this line."
+      }
+    },
+    "medications": [
+      {
+        "name": "Ramipril",
+        "dose": "5mg",
+        "frequency": null,
+        "confidence": "high",
+        "source": {
+          "document_id": "doc2",
+          "document_label": "Medication list (handwritten)",
+          "location": "line 3",
+          "bbox": {
+            "left": 0.12145465612411499,
+            "top": 0.21099163591861725,
+            "width": 0.450496643781662,
+            "height": 0.03150825947523117
+          }
+        },
+        "note": null,
+        "is_high_risk": false
+      },
+      {
+        "name": "Atorvastatin",
+        "dose": "40mg",
+        "frequency": null,
+        "confidence": "medium",
+        "source": {
+          "document_id": "doc2",
+          "document_label": "Medication list (handwritten)",
+          "location": "line 4",
+          "bbox": {
+            "left": 0.11793205887079239,
+            "top": 0.3043310344219208,
+            "width": 0.5173978209495544,
+            "height": 0.02868518978357315
+          }
+        },
+        "note": null,
+        "is_high_risk": false
+      },
+      {
+        "name": "Apixaban",
+        "dose": null,
+        "frequency": null,
+        "confidence": "high",
+        "source": {
+          "document_id": "doc3",
+          "document_label": "Discharge summary (photo of screen)",
+          "location": "line 12",
+          "bbox": {
+            "left": 0.29758718609809875,
+            "top": 0.6813207864761353,
+            "width": 0.46172159910202026,
+            "height": 0.024836450815200806
+          }
+        },
+        "note": "No dose recorded; document says: 'Dose reduced on discharge - see TTO.'",
+        "is_high_risk": false
+      },
+      {
+        "name": "Metformin",
+        "dose": null,
+        "frequency": null,
+        "confidence": "unreadable",
+        "source": {
+          "document_id": "doc2",
+          "document_label": "Medication list (handwritten)",
+          "location": "line 6",
+          "bbox": {
+            "left": 0.1124269962310791,
+            "top": 0.4947529733181,
+            "width": 0.4475695788860321,
+            "height": 0.031203005462884903
+          }
+        },
+        "note": "Dose position was unreadable in the source document.",
+        "is_high_risk": false
+      },
+      {
+        "name": "B\u00edsoprolol",
+        "dose": "2.5mg",
+        "frequency": null,
+        "confidence": "medium",
+        "source": {
+          "document_id": "doc2",
+          "document_label": "Medication list (handwritten)",
+          "location": "line 7",
+          "bbox": {
+            "left": 0.10894725471735,
+            "top": 0.5905665159225464,
+            "width": 0.4929112493991852,
+            "height": 0.029050294309854507
+          }
+        },
+        "note": null,
+        "is_high_risk": false
+      },
+      {
+        "name": "Paracetamol",
+        "dose": null,
+        "frequency": "when needed",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc2",
+          "document_label": "Medication list (handwritten)",
+          "location": "line 8",
+          "bbox": {
+            "left": 0.10720109939575195,
+            "top": 0.693351149559021,
+            "width": 0.43008214235305786,
+            "height": 0.01977364905178547
+          }
+        },
+        "note": null,
+        "is_high_risk": false
+      }
+    ],
+    "all_facts": [
+      {
+        "field": "presenting_symptoms",
+        "value": "intermittent palpitations, light-headedness",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc1",
+          "document_label": "Referral letter, Dr A. Okafor",
+          "location": "line 8",
+          "bbox": {
+            "left": 0.12170390784740448,
+            "top": 0.27719607949256897,
+            "width": 0.7575119733810425,
+            "height": 0.019175082445144653
+          }
+        },
+        "note": null
+      },
+      {
+        "field": "past_medical_history",
+        "value": "hypertension, type 2 diabetes, paroxysmal atrial fibrillation",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc1",
+          "document_label": "Referral letter, Dr A. Okafor",
+          "location": "line 11",
+          "bbox": {
+            "left": 0.118453249335289,
+            "top": 0.34622710943222046,
+            "width": 0.7613121867179871,
+            "height": 0.018732281401753426
+          }
+        },
+        "note": null
+      },
+      {
+        "field": "anticoagulant_status",
+        "value": "on anticoagulant",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc1",
+          "document_label": "Referral letter, Dr A. Okafor",
+          "location": "line 11",
+          "bbox": {
+            "left": 0.118453249335289,
+            "top": 0.34622710943222046,
+            "width": 0.7613121867179871,
+            "height": 0.018732281401753426
+          }
+        },
+        "note": null
+      },
+      {
+        "field": "bp_diary",
+        "value": "148/86",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc1",
+          "document_label": "Referral letter, Dr A. Okafor",
+          "location": "line 12",
+          "bbox": {
+            "left": 0.11779994517564774,
+            "top": 0.36662566661834717,
+            "width": 0.7540293335914612,
+            "height": 0.01718829572200775
+          }
+        },
+        "note": null
+      },
+      {
+        "field": "patient_age",
+        "value": "68",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc1",
+          "document_label": "Referral letter, Dr A. Okafor",
+          "location": "line 7",
+          "bbox": {
+            "left": 0.12292426824569702,
+            "top": 0.2570887804031372,
+            "width": 0.7526800036430359,
+            "height": 0.021062683314085007
+          }
+        },
+        "note": null
+      },
+      {
+        "field": "patient_sex",
+        "value": "female",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc1",
+          "document_label": "Referral letter, Dr A. Okafor",
+          "location": "line 5",
+          "bbox": {
+            "left": 0.12575776875019073,
+            "top": 0.19796445965766907,
+            "width": 0.3557111620903015,
+            "height": 0.016144711524248123
+          }
+        },
+        "note": null
+      },
+      {
+        "field": "recent_ecg",
+        "value": "sinus rhythm",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc1",
+          "document_label": "Referral letter, Dr A. Okafor",
+          "location": "line 14",
+          "bbox": {
+            "left": 0.11510532349348068,
+            "top": 0.4162256419658661,
+            "width": 0.7590369582176208,
+            "height": 0.016650235280394554
+          }
+        },
+        "note": null
+      },
+      {
+        "field": "current_medications",
+        "value": "Ramipril, Atorvastatin, Apixaban, Metformin, B\u00edsoprolol, Paracetamol",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc2",
+          "document_label": "Medication list (handwritten)",
+          "location": "line 3",
+          "bbox": {
+            "left": 0.12145465612411499,
+            "top": 0.21099163591861725,
+            "width": 0.450496643781662,
+            "height": 0.03150825947523117
+          }
+        },
+        "note": null
+      },
+      {
+        "field": "patient_age",
+        "value": "68",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc3",
+          "document_label": "Discharge summary (photo of screen)",
+          "location": "line 4",
+          "bbox": {
+            "left": 0.10312730818986893,
+            "top": 0.21077758073806763,
+            "width": 0.40532922744750977,
+            "height": 0.024391863495111465
+          }
+        },
+        "note": null
+      },
+      {
+        "field": "patient_sex",
+        "value": "Female",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc3",
+          "document_label": "Discharge summary (photo of screen)",
+          "location": "line 3",
+          "bbox": {
+            "left": 0.10423010587692261,
+            "top": 0.1830102950334549,
+            "width": 0.18770767748355865,
+            "height": 0.027493543922901154
+          }
+        },
+        "note": null
+      },
+      {
+        "field": "presenting_symptoms",
+        "value": "Fast atrial fibrillation with rapid ventricular response",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc3",
+          "document_label": "Discharge summary (photo of screen)",
+          "location": "line 6",
+          "bbox": {
+            "left": 0.31281471252441406,
+            "top": 0.27333682775497437,
+            "width": 0.46154215931892395,
+            "height": 0.023235559463500977
+          }
+        },
+        "note": null
+      },
+      {
+        "field": "anticoagulant_status",
+        "value": "Apixaban continued. Dose reduced on discharge - see TTO.",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc3",
+          "document_label": "Discharge summary (photo of screen)",
+          "location": "line 12",
+          "bbox": {
+            "left": 0.29758718609809875,
+            "top": 0.6813207864761353,
+            "width": 0.46172159910202026,
+            "height": 0.024836450815200806
+          }
+        },
+        "note": null
+      },
+      {
+        "field": "recent_ecg",
+        "value": null,
+        "confidence": "unreadable",
+        "source": {
+          "document_id": "doc3",
+          "document_label": "Discharge summary (photo of screen)",
+          "location": "line 8",
+          "bbox": {
+            "left": 0.3091822862625122,
+            "top": 0.35504618287086487,
+            "width": 0.5025108456611633,
+            "height": 0.02265361323952675
+          }
+        },
+        "note": "OCR reported low confidence on part of this line."
+      },
+      {
+        "field": "previous_echo",
+        "value": null,
+        "confidence": "unreadable",
+        "source": {
+          "document_id": "doc3",
+          "document_label": "Discharge summary (photo of screen)",
+          "location": "line 10",
+          "bbox": {
+            "left": 0.3073274791240692,
+            "top": 0.43712207674980164,
+            "width": 0.4680896997451782,
+            "height": 0.02221888117492199
+          }
+        },
+        "note": "OCR reported low confidence on part of this line."
+      },
+      {
+        "field": "_document_signal",
+        "value": "Apixaban continued. Dose reduced on discharge - see TTO.",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc3",
+          "document_label": "Discharge summary (photo of screen)",
+          "location": "line 12",
+          "bbox": {
+            "left": 0.29758718609809875,
+            "top": 0.6813207864761353,
+            "width": 0.46172159910202026,
+            "height": 0.024836450815200806
+          }
+        },
+        "note": "Read directly from the document text, not inferred."
+      }
+    ]
+  },
+  "report": {
+    "patient_ref": "SYN-0001",
+    "appointment_at": "2026-09-14T14:30:00",
+    "visit_type": "cardiology_new_consult",
+    "status": "at_risk",
+    "score": 32,
+    "gaps": [
+      {
+        "field": "referral_question",
+        "severity": "blocking",
+        "reason": "missing",
+        "owner": "reception",
+        "action": "Request referral question from the referring practice before the appointment.",
+        "call_script": "Hello, calling from cardiology about a referral for a patient seen with you. The letter describes the history but does not say what you would like us to advise on. Could you tell me the specific question?",
+        "source": null
+      },
+      {
+        "field": "unreconciled_change:Apixaban",
+        "severity": "blocking",
+        "reason": "conflicting",
+        "owner": "nurse",
+        "action": "Apixaban was changed according to 'Discharge summary (photo of screen)', but no document states the current dose. Two independent sources were checked and neither resolves it. The intake packet is incomplete for clinical review -- clarify before the consultation.",
+        "call_script": null,
+        "source": {
+          "document_id": "doc3",
+          "document_label": "Discharge summary (photo of screen)",
+          "location": "line 12",
+          "bbox": {
+            "left": 0.29758718609809875,
+            "top": 0.6813207864761353,
+            "width": 0.46172159910202026,
+            "height": 0.024836450815200806
+          }
+        }
+      },
+      {
+        "field": "allergies",
+        "severity": "important",
+        "reason": "missing",
+        "owner": "reception",
+        "action": "Ask the patient for allergies when confirming the appointment.",
+        "call_script": "Hello, calling from the clinic before your appointment. Can I check whether you have any drug allergies, and what happens when you take them?",
+        "source": null
+      },
+      {
+        "field": "medication_dose:Metformin",
+        "severity": "important",
+        "reason": "unreadable",
+        "owner": "reception",
+        "action": "Confirm the dose of Metformin with the patient before the appointment.",
+        "call_script": "Hello, this is the clinic calling before your appointment. I can see Metformin on your list but the dose isn't clear on the copy we have. Could you read me exactly what it says on the box?",
+        "source": {
+          "document_id": "doc2",
+          "document_label": "Medication list (handwritten)",
+          "location": "line 6",
+          "bbox": {
+            "left": 0.1124269962310791,
+            "top": 0.4947529733181,
+            "width": 0.4475695788860321,
+            "height": 0.031203005462884903
+          }
+        }
+      },
+      {
+        "field": "renal_function",
+        "severity": "important",
+        "reason": "missing",
+        "owner": "reception",
+        "action": "Request renal function from the hospital laboratory before the appointment.",
+        "call_script": "Hello, calling from the clinic. We have a discharge summary where the creatinine and eGFR are not legible. Could you confirm the most recent results?",
+        "source": null
+      },
+      {
+        "field": "family_history",
+        "severity": "minor",
+        "reason": "missing",
+        "owner": "reception",
+        "action": "Ask the patient for family history when confirming the appointment.",
+        "call_script": null,
+        "source": null
+      },
+      {
+        "field": "medication_dose:Paracetamol",
+        "severity": "minor",
+        "reason": "not_stated",
+        "owner": "reception",
+        "action": "No dose recorded for Paracetamol (likely as-needed). Confirm at check-in.",
+        "call_script": null,
+        "source": {
+          "document_id": "doc2",
+          "document_label": "Medication list (handwritten)",
+          "location": "line 8",
+          "bbox": {
+            "left": 0.10720109939575195,
+            "top": 0.693351149559021,
+            "width": 0.43008214235305786,
+            "height": 0.01977364905178547
+          }
+        }
+      },
+      {
+        "field": "previous_echo",
+        "severity": "minor",
+        "reason": "unreadable",
+        "owner": "reception",
+        "action": "Confirm previous echo with the hospital records department -- the document is present but not legible.",
+        "call_script": null,
+        "source": {
+          "document_id": "doc3",
+          "document_label": "Discharge summary (photo of screen)",
+          "location": "line 10",
+          "bbox": {
+            "left": 0.3073274791240692,
+            "top": 0.43712207674980164,
+            "width": 0.4680896997451782,
+            "height": 0.02221888117492199
+          }
+        }
+      }
+    ],
+    "doctor_brief": ""
+  },
+  "brief": {
+    "patient_ref": "SYN-0001",
+    "appointment": "Mon 14 Sep, 14:30",
+    "narrative": {
+      "headline": "68-year-old female with intermittent palpitations and light-headedness",
+      "background": [
+        "hypertension",
+        "type 2 diabetes",
+        "paroxysmal atrial fibrillation",
+        "on anticoagulant"
+      ]
+    },
+    "medications": [
+      "Apixaban \u2014 DOSE NOT DOCUMENTED",
+      "Atorvastatin \u2014 40mg",
+      "B\u00edsoprolol \u2014 2.5mg",
+      "Metformin \u2014 DOSE NOT DOCUMENTED (illegible in source)",
+      "Paracetamol \u2014 DOSE NOT DOCUMENTED, when needed",
+      "Ramipril \u2014 5mg"
+    ],
+    "not_documented": [
+      "referral question \u2014 not documented",
+      "Apixaban \u2014 documents disagree or a change is unresolved",
+      "allergies \u2014 not documented",
+      "Metformin \u2014 present in a document but not legible",
+      "renal function \u2014 not documented"
+    ],
+    "before_you_start": [
+      "Request referral question from the referring practice before the appointment.",
+      "Apixaban was changed according to 'Discharge summary (photo of screen)', but no document states the current dose. Two independent sources were checked and neither resolves it. The intake packet is incomplete for clinical review -- clarify before the consultation."
+    ],
+    "sources": [
+      "Discharge summary (photo of screen)",
+      "Medication list (handwritten)",
+      "Referral letter, Dr A. Okafor"
+    ]
+  },
+  "documents": [
+    {
+      "document_id": "doc1",
+      "label": "Referral letter, Dr A. Okafor",
+      "path": "data/synthetic/01_referral_letter.jpg",
+      "illegible_count": 0,
+      "lines": [
+        {
+          "text": "RIVERSIDE FAMILY PRACTICE",
+          "raw": "RIVERSIDE FAMILY PRACTICE",
+          "confidence": 99.9411392211914,
+          "bbox": {
+            "left": 0.1312503218650818,
+            "top": 0.07641468942165375,
+            "width": 0.3824041485786438,
+            "height": 0.020992685109376907
+          },
+          "words": [
+            {
+              "text": "RIVERSIDE",
+              "safe": "RIVERSIDE",
+              "confidence": 99.93083953857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.1312503218650818,
+                "top": 0.08108002692461014,
+                "width": 0.1364593356847763,
+                "height": 0.01632734388113022
+              }
+            },
+            {
+              "text": "FAMILY",
+              "safe": "FAMILY",
+              "confidence": 99.9609375,
+              "state": "high",
+              "bbox": {
+                "left": 0.2745630145072937,
+                "top": 0.07916399091482162,
+                "width": 0.1019212007522583,
+                "height": 0.015435210429131985
+              }
+            },
+            {
+              "text": "PRACTICE",
+              "safe": "PRACTICE",
+              "confidence": 99.931640625,
+              "state": "high",
+              "bbox": {
+                "left": 0.3830024302005768,
+                "top": 0.07641468942165375,
+                "width": 0.13065205514431,
+                "height": 0.01636487804353237
+              }
+            }
+          ]
+        },
+        {
+          "text": "14 Mill Lane Tel 0141 555 0182",
+          "raw": "14 Mill Lane Tel 0141 555 0182",
+          "confidence": 97.41276550292969,
+          "bbox": {
+            "left": 0.13168931007385254,
+            "top": 0.1019720584154129,
+            "width": 0.2254779040813446,
+            "height": 0.012834809720516205
+          },
+          "words": [
+            {
+              "text": "14",
+              "safe": "14",
+              "confidence": 98.83230590820312,
+              "state": "high",
+              "bbox": {
+                "left": 0.13168931007385254,
+                "top": 0.10547571629285812,
+                "width": 0.014446436427533627,
+                "height": 0.009331154637038708
+              }
+            },
+            {
+              "text": "Mill",
+              "safe": "Mill",
+              "confidence": 99.71520233154297,
+              "state": "high",
+              "bbox": {
+                "left": 0.15013451874256134,
+                "top": 0.10472671687602997,
+                "width": 0.027685485780239105,
+                "height": 0.009699305519461632
+              }
+            },
+            {
+              "text": "Lane",
+              "safe": "Lane",
+              "confidence": 99.736328125,
+              "state": "high",
+              "bbox": {
+                "left": 0.18198853731155396,
+                "top": 0.10462112724781036,
+                "width": 0.03143477067351341,
+                "height": 0.00921814888715744
+              }
+            },
+            {
+              "text": "Tel",
+              "safe": "Tel",
+              "confidence": 99.11810302734375,
+              "state": "high",
+              "bbox": {
+                "left": 0.2358217090368271,
+                "top": 0.10317978262901306,
+                "width": 0.021053921431303024,
+                "height": 0.009834112599492073
+              }
+            },
+            {
+              "text": "0141",
+              "safe": "0141",
+              "confidence": 93.85502624511719,
+              "state": "medium",
+              "bbox": {
+                "left": 0.26097479462623596,
+                "top": 0.10307551175355911,
+                "width": 0.03019685670733452,
+                "height": 0.009530923329293728
+              }
+            },
+            {
+              "text": "555",
+              "safe": "555",
+              "confidence": 97.44877624511719,
+              "state": "high",
+              "bbox": {
+                "left": 0.2973860800266266,
+                "top": 0.1025029793381691,
+                "width": 0.02318117395043373,
+                "height": 0.009473245590925217
+              }
+            },
+            {
+              "text": "0182",
+              "safe": "0182",
+              "confidence": 93.18359375,
+              "state": "medium",
+              "bbox": {
+                "left": 0.32541516423225403,
+                "top": 0.1019720584154129,
+                "width": 0.03175206109881401,
+                "height": 0.009313338436186314
+              }
+            }
+          ]
+        },
+        {
+          "text": "Cardiology Department",
+          "raw": "Cardiology Department",
+          "confidence": 99.9951171875,
+          "bbox": {
+            "left": 0.1283096820116043,
+            "top": 0.14831160008907318,
+            "width": 0.16542282700538635,
+            "height": 0.013272675685584545
+          },
+          "words": [
+            {
+              "text": "Cardiology",
+              "safe": "Cardiology",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.1283096820116043,
+                "top": 0.14892178773880005,
+                "width": 0.07818595319986343,
+                "height": 0.01266248244792223
+              }
+            },
+            {
+              "text": "Department",
+              "safe": "Department",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.21054604649543762,
+                "top": 0.14831160008907318,
+                "width": 0.08318646997213364,
+                "height": 0.012572008185088634
+              }
+            }
+          ]
+        },
+        {
+          "text": "Date: 11 September 2026",
+          "raw": "Date: 11 September 2026",
+          "confidence": 99.8547592163086,
+          "bbox": {
+            "left": 0.12719537317752838,
+            "top": 0.16557204723358154,
+            "width": 0.17818187177181244,
+            "height": 0.013802892528474331
+          },
+          "words": [
+            {
+              "text": "Date:",
+              "safe": "Date:",
+              "confidence": 99.95037078857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.1271960586309433,
+                "top": 0.16797326505184174,
+                "width": 0.037215203046798706,
+                "height": 0.010003664530813694
+              }
+            },
+            {
+              "text": "11",
+              "safe": "11",
+              "confidence": 99.57688903808594,
+              "state": "high",
+              "bbox": {
+                "left": 0.17130032181739807,
+                "top": 0.16758115589618683,
+                "width": 0.013995305635035038,
+                "height": 0.00975734181702137
+              }
+            },
+            {
+              "text": "September",
+              "safe": "September",
+              "confidence": 99.970703125,
+              "state": "high",
+              "bbox": {
+                "left": 0.19152036309242249,
+                "top": 0.16618607938289642,
+                "width": 0.07524800300598145,
+                "height": 0.013175197876989841
+              }
+            },
+            {
+              "text": "2026",
+              "safe": "2026",
+              "confidence": 99.92107391357422,
+              "state": "high",
+              "bbox": {
+                "left": 0.27037879824638367,
+                "top": 0.16557204723358154,
+                "width": 0.03499845787882805,
+                "height": 0.010202606208622456
+              }
+            }
+          ]
+        },
+        {
+          "text": "RE: Marta Ruiz Delgado DOB 14/03/1958",
+          "raw": "RE: Marta Ruiz Delgado DOB 14/03/1958",
+          "confidence": 99.94589233398438,
+          "bbox": {
+            "left": 0.12575776875019073,
+            "top": 0.19796445965766907,
+            "width": 0.3557111620903015,
+            "height": 0.016144711524248123
+          },
+          "words": [
+            {
+              "text": "RE:",
+              "safe": "RE:",
+              "confidence": 99.89098358154297,
+              "state": "high",
+              "bbox": {
+                "left": 0.12575814127922058,
+                "top": 0.20267178118228912,
+                "width": 0.03083288110792637,
+                "height": 0.01067359372973442
+              }
+            },
+            {
+              "text": "Marta",
+              "safe": "Marta",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.16283008456230164,
+                "top": 0.20227496325969696,
+                "width": 0.051751188933849335,
+                "height": 0.010348038747906685
+              }
+            },
+            {
+              "text": "Ruiz",
+              "safe": "Ruiz",
+              "confidence": 99.93083953857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.2197135090827942,
+                "top": 0.20141789317131042,
+                "width": 0.03757470101118088,
+                "height": 0.010366467759013176
+              }
+            },
+            {
+              "text": "Delgado",
+              "safe": "Delgado",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.26209592819213867,
+                "top": 0.20048974454402924,
+                "width": 0.06630418449640274,
+                "height": 0.013599060475826263
+              }
+            },
+            {
+              "text": "DOB",
+              "safe": "DOB",
+              "confidence": 99.951171875,
+              "state": "high",
+              "bbox": {
+                "left": 0.34844970703125,
+                "top": 0.19948507845401764,
+                "width": 0.041351448744535446,
+                "height": 0.010774094611406326
+              }
+            },
+            {
+              "text": "14/03/1958",
+              "safe": "14/03/1958",
+              "confidence": 99.921875,
+              "state": "high",
+              "bbox": {
+                "left": 0.3950105905532837,
+                "top": 0.19796445965766907,
+                "width": 0.08645834773778915,
+                "height": 0.011792900040745735
+              }
+            }
+          ]
+        },
+        {
+          "text": "Dear Colleague,",
+          "raw": "Dear Colleague,",
+          "confidence": 99.81575012207031,
+          "bbox": {
+            "left": 0.12412813305854797,
+            "top": 0.23553277552127838,
+            "width": 0.11654329299926758,
+            "height": 0.013080877251923084
+          },
+          "words": [
+            {
+              "text": "Dear",
+              "safe": "Dear",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.12412893027067184,
+                "top": 0.23654484748840332,
+                "width": 0.03500565513968468,
+                "height": 0.010381280444562435
+              }
+            },
+            {
+              "text": "Colleague,",
+              "safe": "Colleague,",
+              "confidence": 99.64126586914062,
+              "state": "high",
+              "bbox": {
+                "left": 0.16306771337985992,
+                "top": 0.23553277552127838,
+                "width": 0.07760372012853622,
+                "height": 0.013077501207590103
+              }
+            }
+          ]
+        },
+        {
+          "text": "Thank you for seeing this pleasant 68-year-old lady who has been under our care for some years. She",
+          "raw": "Thank you for seeing this pleasant 68-year-old lady who has been under our care for some years. She",
+          "confidence": 99.97811889648438,
+          "bbox": {
+            "left": 0.12292426824569702,
+            "top": 0.2570887804031372,
+            "width": 0.7526800036430359,
+            "height": 0.021062683314085007
+          },
+          "words": [
+            {
+              "text": "Thank",
+              "safe": "Thank",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.12292532622814178,
+                "top": 0.26495131850242615,
+                "width": 0.04637307673692703,
+                "height": 0.010918721556663513
+              }
+            },
+            {
+              "text": "you",
+              "safe": "you",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.1729433834552765,
+                "top": 0.26754283905029297,
+                "width": 0.028911907225847244,
+                "height": 0.010606960393488407
+              }
+            },
+            {
+              "text": "for",
+              "safe": "for",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.20609016716480255,
+                "top": 0.2642211318016052,
+                "width": 0.02162044495344162,
+                "height": 0.010825089178979397
+              }
+            },
+            {
+              "text": "seeing",
+              "safe": "seeing",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.23103252053260803,
+                "top": 0.2637491822242737,
+                "width": 0.04698461294174194,
+                "height": 0.013302182778716087
+              }
+            },
+            {
+              "text": "this",
+              "safe": "this",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.28228193521499634,
+                "top": 0.26313653588294983,
+                "width": 0.026766611263155937,
+                "height": 0.010977678000926971
+              }
+            },
+            {
+              "text": "pleasant",
+              "safe": "pleasant",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.3130212426185608,
+                "top": 0.2630917429924011,
+                "width": 0.06124335154891014,
+                "height": 0.013570118695497513
+              }
+            },
+            {
+              "text": "68-year-old",
+              "safe": "68-year-old",
+              "confidence": 99.8828125,
+              "state": "high",
+              "bbox": {
+                "left": 0.37860164046287537,
+                "top": 0.26130783557891846,
+                "width": 0.08629876375198364,
+                "height": 0.014324923977255821
+              }
+            },
+            {
+              "text": "lady",
+              "safe": "lady",
+              "confidence": 99.970703125,
+              "state": "high",
+              "bbox": {
+                "left": 0.4692411422729492,
+                "top": 0.2610805332660675,
+                "width": 0.032456208020448685,
+                "height": 0.013801171444356441
+              }
+            },
+            {
+              "text": "who",
+              "safe": "who",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.5057887434959412,
+                "top": 0.26081135869026184,
+                "width": 0.03263689577579498,
+                "height": 0.010795732028782368
+              }
+            },
+            {
+              "text": "has",
+              "safe": "has",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.5428891181945801,
+                "top": 0.2605714201927185,
+                "width": 0.02550114132463932,
+                "height": 0.010863931849598885
+              }
+            },
+            {
+              "text": "been",
+              "safe": "been",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.5724560618400574,
+                "top": 0.2601237893104553,
+                "width": 0.03614546358585358,
+                "height": 0.010926509276032448
+              }
+            },
+            {
+              "text": "under",
+              "safe": "under",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.6124269962310791,
+                "top": 0.25942906737327576,
+                "width": 0.04454047977924347,
+                "height": 0.011100382544100285
+              }
+            },
+            {
+              "text": "our",
+              "safe": "our",
+              "confidence": 99.89098358154297,
+              "state": "high",
+              "bbox": {
+                "left": 0.6608988642692566,
+                "top": 0.26215776801109314,
+                "width": 0.02618538774549961,
+                "height": 0.007980506867170334
+              }
+            },
+            {
+              "text": "care",
+              "safe": "care",
+              "confidence": 99.9609375,
+              "state": "high",
+              "bbox": {
+                "left": 0.6904821991920471,
+                "top": 0.26176509261131287,
+                "width": 0.03143692389130592,
+                "height": 0.007896002382040024
+              }
+            },
+            {
+              "text": "for",
+              "safe": "for",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.7264485955238342,
+                "top": 0.25840339064598083,
+                "width": 0.022449824959039688,
+                "height": 0.010997745208442211
+              }
+            },
+            {
+              "text": "some",
+              "safe": "some",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.7523963451385498,
+                "top": 0.26101991534233093,
+                "width": 0.040217719972133636,
+                "height": 0.008154734037816525
+              }
+            },
+            {
+              "text": "years.",
+              "safe": "years.",
+              "confidence": 99.92028045654297,
+              "state": "high",
+              "bbox": {
+                "left": 0.7963729500770569,
+                "top": 0.2605755627155304,
+                "width": 0.04442637786269188,
+                "height": 0.010880003683269024
+              }
+            },
+            {
+              "text": "She",
+              "safe": "She",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.8467684388160706,
+                "top": 0.2570887804031372,
+                "width": 0.028835836797952652,
+                "height": 0.010972299613058567
+              }
+            }
+          ]
+        },
+        {
+          "text": "describes intermittent palpitations over the past four months, occurring perhaps two or three times per",
+          "raw": "describes intermittent palpitations over the past four months, occurring perhaps two or three times per",
+          "confidence": 99.96295928955078,
+          "bbox": {
+            "left": 0.12170390784740448,
+            "top": 0.27719607949256897,
+            "width": 0.7575119733810425,
+            "height": 0.019175082445144653
+          },
+          "words": [
+            {
+              "text": "describes",
+              "safe": "describes",
+              "confidence": 99.92028045654297,
+              "state": "high",
+              "bbox": {
+                "left": 0.12170453369617462,
+                "top": 0.2840560972690582,
+                "width": 0.06733173877000809,
+                "height": 0.010928943753242493
+              }
+            },
+            {
+              "text": "intermittent",
+              "safe": "intermittent",
+              "confidence": 99.88042449951172,
+              "state": "high",
+              "bbox": {
+                "left": 0.19366587698459625,
+                "top": 0.2832813858985901,
+                "width": 0.0844130888581276,
+                "height": 0.01108497753739357
+              }
+            },
+            {
+              "text": "palpitations",
+              "safe": "palpitations",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.28169283270835876,
+                "top": 0.28226396441459656,
+                "width": 0.08686131238937378,
+                "height": 0.014107170514762402
+              }
+            },
+            {
+              "text": "over",
+              "safe": "over",
+              "confidence": 99.9609375,
+              "state": "high",
+              "bbox": {
+                "left": 0.37321215867996216,
+                "top": 0.2846378684043884,
+                "width": 0.03387464955449104,
+                "height": 0.008015312254428864
+              }
+            },
+            {
+              "text": "the",
+              "safe": "the",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.410433292388916,
+                "top": 0.28147047758102417,
+                "width": 0.023120127618312836,
+                "height": 0.010857696644961834
+              }
+            },
+            {
+              "text": "past",
+              "safe": "past",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.4370780885219574,
+                "top": 0.2826373875141144,
+                "width": 0.031418707221746445,
+                "height": 0.012278210371732712
+              }
+            },
+            {
+              "text": "four",
+              "safe": "four",
+              "confidence": 99.96014404296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.47235193848609924,
+                "top": 0.280691921710968,
+                "width": 0.03128967061638832,
+                "height": 0.011047777719795704
+              }
+            },
+            {
+              "text": "months,",
+              "safe": "months,",
+              "confidence": 99.88042449951172,
+              "state": "high",
+              "bbox": {
+                "left": 0.5071783065795898,
+                "top": 0.28004205226898193,
+                "width": 0.06026493385434151,
+                "height": 0.012964427471160889
+              }
+            },
+            {
+              "text": "occurring",
+              "safe": "occurring",
+              "confidence": 99.92028045654297,
+              "state": "high",
+              "bbox": {
+                "left": 0.5717544555664062,
+                "top": 0.27925291657447815,
+                "width": 0.07237152010202408,
+                "height": 0.013859950006008148
+              }
+            },
+            {
+              "text": "perhaps",
+              "safe": "perhaps",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.6479541659355164,
+                "top": 0.27880859375,
+                "width": 0.0597546324133873,
+                "height": 0.014022811315953732
+              }
+            },
+            {
+              "text": "two",
+              "safe": "two",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.7120279669761658,
+                "top": 0.27963656187057495,
+                "width": 0.028852635994553566,
+                "height": 0.009722203947603703
+              }
+            },
+            {
+              "text": "or",
+              "safe": "or",
+              "confidence": 99.931640625,
+              "state": "high",
+              "bbox": {
+                "left": 0.7452878355979919,
+                "top": 0.28113803267478943,
+                "width": 0.017296331003308296,
+                "height": 0.007917584851384163
+              }
+            },
+            {
+              "text": "three",
+              "safe": "three",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.7655208110809326,
+                "top": 0.2777255177497864,
+                "width": 0.038368262350559235,
+                "height": 0.011044139973819256
+              }
+            },
+            {
+              "text": "times",
+              "safe": "times",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.8078832030296326,
+                "top": 0.27719712257385254,
+                "width": 0.04120961204171181,
+                "height": 0.011166499927639961
+              }
+            },
+            {
+              "text": "per",
+              "safe": "per",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.8531760573387146,
+                "top": 0.279837965965271,
+                "width": 0.026023397222161293,
+                "height": 0.010988753288984299
+              }
+            }
+          ]
+        },
+        {
+          "text": "week, lasting several minutes and occasionally associated with light-headedness. There has been no",
+          "raw": "week, lasting several minutes and occasionally associated with light-headedness. There has been no",
+          "confidence": 99.90161895751953,
+          "bbox": {
+            "left": 0.12065032869577408,
+            "top": 0.29720672965049744,
+            "width": 0.7418453693389893,
+            "height": 0.0192253515124321
+          },
+          "words": [
+            {
+              "text": "week,",
+              "safe": "week,",
+              "confidence": 99.84056091308594,
+              "state": "high",
+              "bbox": {
+                "left": 0.1206505075097084,
+                "top": 0.3034493923187256,
+                "width": 0.04238598048686981,
+                "height": 0.012558688409626484
+              }
+            },
+            {
+              "text": "lasting",
+              "safe": "lasting",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.16746099293231964,
+                "top": 0.3029768764972687,
+                "width": 0.0489012785255909,
+                "height": 0.013431612402200699
+              }
+            },
+            {
+              "text": "several",
+              "safe": "several",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.22063706815242767,
+                "top": 0.30245092511177063,
+                "width": 0.051158417016267776,
+                "height": 0.01104219164699316
+              }
+            },
+            {
+              "text": "minutes",
+              "safe": "minutes",
+              "confidence": 99.92028045654297,
+              "state": "high",
+              "bbox": {
+                "left": 0.27589818835258484,
+                "top": 0.30211418867111206,
+                "width": 0.05859602987766266,
+                "height": 0.010936346836388111
+              }
+            },
+            {
+              "text": "and",
+              "safe": "and",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.33848127722740173,
+                "top": 0.3015924394130707,
+                "width": 0.027422580868005753,
+                "height": 0.010927391238510609
+              }
+            },
+            {
+              "text": "occasionally",
+              "safe": "occasionally",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.3700142800807953,
+                "top": 0.300724595785141,
+                "width": 0.0933966115117073,
+                "height": 0.013653689064085484
+              }
+            },
+            {
+              "text": "associated",
+              "safe": "associated",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.46779435873031616,
+                "top": 0.29972419142723083,
+                "width": 0.07654336839914322,
+                "height": 0.011484901420772076
+              }
+            },
+            {
+              "text": "with",
+              "safe": "with",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.5487021207809448,
+                "top": 0.29928818345069885,
+                "width": 0.0335063636302948,
+                "height": 0.011189976707100868
+              }
+            },
+            {
+              "text": "light-headedness.",
+              "safe": "light-headedness.",
+              "confidence": 99.19622802734375,
+              "state": "high",
+              "bbox": {
+                "left": 0.5866540670394897,
+                "top": 0.2986108660697937,
+                "width": 0.13208156824111938,
+                "height": 0.014401907101273537
+              }
+            },
+            {
+              "text": "There",
+              "safe": "There",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.7232887148857117,
+                "top": 0.2979763150215149,
+                "width": 0.04406840726733208,
+                "height": 0.011091119609773159
+              }
+            },
+            {
+              "text": "has",
+              "safe": "has",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.7715814113616943,
+                "top": 0.29746097326278687,
+                "width": 0.02559209242463112,
+                "height": 0.011013572104275227
+              }
+            },
+            {
+              "text": "been",
+              "safe": "been",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.8016597628593445,
+                "top": 0.2972078323364258,
+                "width": 0.03696306794881821,
+                "height": 0.011034626513719559
+              }
+            },
+            {
+              "text": "no",
+              "safe": "no",
+              "confidence": 99.77379608154297,
+              "state": "high",
+              "bbox": {
+                "left": 0.8427444696426392,
+                "top": 0.2998270094394684,
+                "width": 0.019735276699066162,
+                "height": 0.008118961937725544
+              }
+            }
+          ]
+        },
+        {
+          "text": "frank syncope.",
+          "raw": "frank syncope.",
+          "confidence": 99.87554168701172,
+          "bbox": {
+            "left": 0.1203027293086052,
+            "top": 0.32264772057533264,
+            "width": 0.10595668852329254,
+            "height": 0.013258453458547592
+          },
+          "words": [
+            {
+              "text": "frank",
+              "safe": "frank",
+              "confidence": 99.95037078857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.12030370533466339,
+                "top": 0.32264772057533264,
+                "width": 0.03786003589630127,
+                "height": 0.011056932620704174
+              }
+            },
+            {
+              "text": "syncope.",
+              "safe": "syncope.",
+              "confidence": 99.80069732666016,
+              "state": "high",
+              "bbox": {
+                "left": 0.16214406490325928,
+                "top": 0.32522130012512207,
+                "width": 0.06411213427782059,
+                "height": 0.010684863664209843
+              }
+            }
+          ]
+        },
+        {
+          "text": "Her background includes hypertension, type 2 diabetes and paroxysmal atrial fibrillation diagnosed in",
+          "raw": "Her background includes hypertension, type 2 diabetes and paroxysmal atrial fibrillation diagnosed in",
+          "confidence": 99.86551666259766,
+          "bbox": {
+            "left": 0.118453249335289,
+            "top": 0.34622710943222046,
+            "width": 0.7613121867179871,
+            "height": 0.018732281401753426
+          },
+          "words": [
+            {
+              "text": "Her",
+              "safe": "Her",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.11845414340496063,
+                "top": 0.35214269161224365,
+                "width": 0.027556780725717545,
+                "height": 0.01065770536661148
+              }
+            },
+            {
+              "text": "background",
+              "safe": "background",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.14922286570072174,
+                "top": 0.35130077600479126,
+                "width": 0.08727775514125824,
+                "height": 0.013578474521636963
+              }
+            },
+            {
+              "text": "includes",
+              "safe": "includes",
+              "confidence": 99.96014404296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.24076786637306213,
+                "top": 0.35081160068511963,
+                "width": 0.06140456721186638,
+                "height": 0.01096394658088684
+              }
+            },
+            {
+              "text": "hypertension,",
+              "safe": "hypertension,",
+              "confidence": 99.0832290649414,
+              "state": "high",
+              "bbox": {
+                "left": 0.3067156672477722,
+                "top": 0.3501163721084595,
+                "width": 0.10031348466873169,
+                "height": 0.013828112743794918
+              }
+            },
+            {
+              "text": "type",
+              "safe": "type",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.41145434975624084,
+                "top": 0.3515038788318634,
+                "width": 0.03297726809978485,
+                "height": 0.012193757109344006
+              }
+            },
+            {
+              "text": "2",
+              "safe": "2",
+              "confidence": 99.73473358154297,
+              "state": "high",
+              "bbox": {
+                "left": 0.44836750626564026,
+                "top": 0.3500373065471649,
+                "width": 0.009198752231895924,
+                "height": 0.010517871007323265
+              }
+            },
+            {
+              "text": "diabetes",
+              "safe": "diabetes",
+              "confidence": 99.92028045654297,
+              "state": "high",
+              "bbox": {
+                "left": 0.4621835947036743,
+                "top": 0.3493604362010956,
+                "width": 0.06139327213168144,
+                "height": 0.010894279927015305
+              }
+            },
+            {
+              "text": "and",
+              "safe": "and",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.5278452038764954,
+                "top": 0.34890586137771606,
+                "width": 0.0277666337788105,
+                "height": 0.011026754043996334
+              }
+            },
+            {
+              "text": "paroxysmal",
+              "safe": "paroxysmal",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.5592968463897705,
+                "top": 0.3482224941253662,
+                "width": 0.0887213945388794,
+                "height": 0.014100350439548492
+              }
+            },
+            {
+              "text": "atrial",
+              "safe": "atrial",
+              "confidence": 99.91051483154297,
+              "state": "high",
+              "bbox": {
+                "left": 0.652327299118042,
+                "top": 0.3477104902267456,
+                "width": 0.038639456033706665,
+                "height": 0.011369130574166775
+              }
+            },
+            {
+              "text": "fibrillation",
+              "safe": "fibrillation",
+              "confidence": 99.7608413696289,
+              "state": "high",
+              "bbox": {
+                "left": 0.6949238777160645,
+                "top": 0.34742727875709534,
+                "width": 0.08142634481191635,
+                "height": 0.01137042511254549
+              }
+            },
+            {
+              "text": "diagnosed",
+              "safe": "diagnosed",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.780989944934845,
+                "top": 0.34677842259407043,
+                "width": 0.07926598936319351,
+                "height": 0.013894539326429367
+              }
+            },
+            {
+              "text": "in",
+              "safe": "in",
+              "confidence": 99.91131591796875,
+              "state": "high",
+              "bbox": {
+                "left": 0.8647010326385498,
+                "top": 0.3462947905063629,
+                "width": 0.015064389444887638,
+                "height": 0.011305132880806923
+              }
+            }
+          ]
+        },
+        {
+          "text": "2019. She is anticoagulated. Blood pressure in clinic last week was 148/86. She remains independent",
+          "raw": "2019. She is anticoagulated. Blood pressure in clinic last week was 148/86. She remains independent",
+          "confidence": 99.59700775146484,
+          "bbox": {
+            "left": 0.11779994517564774,
+            "top": 0.36662566661834717,
+            "width": 0.7540293335914612,
+            "height": 0.01718829572200775
+          },
+          "words": [
+            {
+              "text": "2019.",
+              "safe": "2019.",
+              "confidence": 99.77140808105469,
+              "state": "high",
+              "bbox": {
+                "left": 0.11780064553022385,
+                "top": 0.37154480814933777,
+                "width": 0.04092080146074295,
+                "height": 0.010511296801269054
+              }
+            },
+            {
+              "text": "She",
+              "safe": "She",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.16371478140354156,
+                "top": 0.3709169030189514,
+                "width": 0.02742304466664791,
+                "height": 0.010760493576526642
+              }
+            },
+            {
+              "text": "is",
+              "safe": "is",
+              "confidence": 99.93083953857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.19530485570430756,
+                "top": 0.3705469071865082,
+                "width": 0.01209030207246542,
+                "height": 0.010947671718895435
+              }
+            },
+            {
+              "text": "anticoagulated.",
+              "safe": "anticoagulated.",
+              "confidence": 96.083984375,
+              "state": "high",
+              "bbox": {
+                "left": 0.21178942918777466,
+                "top": 0.37002089619636536,
+                "width": 0.11051465570926666,
+                "height": 0.013705846853554249
+              }
+            },
+            {
+              "text": "Blood",
+              "safe": "Blood",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.32745686173439026,
+                "top": 0.36977291107177734,
+                "width": 0.04602132365107536,
+                "height": 0.011052471585571766
+              }
+            },
+            {
+              "text": "pressure",
+              "safe": "pressure",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.37728673219680786,
+                "top": 0.37250298261642456,
+                "width": 0.06252297759056091,
+                "height": 0.01081570889800787
+              }
+            },
+            {
+              "text": "in",
+              "safe": "in",
+              "confidence": 99.89098358154297,
+              "state": "high",
+              "bbox": {
+                "left": 0.44401153922080994,
+                "top": 0.3689298629760742,
+                "width": 0.014559799805283546,
+                "height": 0.011099305003881454
+              }
+            },
+            {
+              "text": "clinic",
+              "safe": "clinic",
+              "confidence": 99.80069732666016,
+              "state": "high",
+              "bbox": {
+                "left": 0.4631096124649048,
+                "top": 0.36887863278388977,
+                "width": 0.04165751487016678,
+                "height": 0.010864462703466415
+              }
+            },
+            {
+              "text": "last",
+              "safe": "last",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.5089051723480225,
+                "top": 0.36874234676361084,
+                "width": 0.026462238281965256,
+                "height": 0.011134960688650608
+              }
+            },
+            {
+              "text": "week",
+              "safe": "week",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.538813054561615,
+                "top": 0.36832159757614136,
+                "width": 0.03994219750165939,
+                "height": 0.011142426170408726
+              }
+            },
+            {
+              "text": "was",
+              "safe": "was",
+              "confidence": 99.970703125,
+              "state": "high",
+              "bbox": {
+                "left": 0.5826185345649719,
+                "top": 0.371279239654541,
+                "width": 0.02958666905760765,
+                "height": 0.007892608642578125
+              }
+            },
+            {
+              "text": "148/86.",
+              "safe": "148/86.",
+              "confidence": 98.9343490600586,
+              "state": "high",
+              "bbox": {
+                "left": 0.6177405714988708,
+                "top": 0.368172287940979,
+                "width": 0.05620824173092842,
+                "height": 0.010905839502811432
+              }
+            },
+            {
+              "text": "She",
+              "safe": "She",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.6795375943183899,
+                "top": 0.36767327785491943,
+                "width": 0.02846960723400116,
+                "height": 0.01097058691084385
+              }
+            },
+            {
+              "text": "remains",
+              "safe": "remains",
+              "confidence": 99.95037078857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.7118715047836304,
+                "top": 0.36711958050727844,
+                "width": 0.05973853915929794,
+                "height": 0.011181586422026157
+              }
+            },
+            {
+              "text": "independent",
+              "safe": "independent",
+              "confidence": 99.64126586914062,
+              "state": "high",
+              "bbox": {
+                "left": 0.7758748531341553,
+                "top": 0.36670976877212524,
+                "width": 0.09595446288585663,
+                "height": 0.01394517533481121
+              }
+            }
+          ]
+        },
+        {
+          "text": "and continues to walk her dog daily without limitation.",
+          "raw": "and continues to walk her dog daily without limitation.",
+          "confidence": 99.57726287841797,
+          "bbox": {
+            "left": 0.11680708825588226,
+            "top": 0.3885095715522766,
+            "width": 0.4038594365119934,
+            "height": 0.014394691213965416
+          },
+          "words": [
+            {
+              "text": "and",
+              "safe": "and",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.11680770665407181,
+                "top": 0.3904419243335724,
+                "width": 0.026348881423473358,
+                "height": 0.010905884206295013
+              }
+            },
+            {
+              "text": "continues",
+              "safe": "continues",
+              "confidence": 99.88042449951172,
+              "state": "high",
+              "bbox": {
+                "left": 0.1474941521883011,
+                "top": 0.39041024446487427,
+                "width": 0.07050764560699463,
+                "height": 0.010642865672707558
+              }
+            },
+            {
+              "text": "to",
+              "safe": "to",
+              "confidence": 99.951171875,
+              "state": "high",
+              "bbox": {
+                "left": 0.222153440117836,
+                "top": 0.39150169491767883,
+                "width": 0.014586214907467365,
+                "height": 0.009240822866559029
+              }
+            },
+            {
+              "text": "walk",
+              "safe": "walk",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.2409014105796814,
+                "top": 0.3896312117576599,
+                "width": 0.03572039678692818,
+                "height": 0.011147367767989635
+              }
+            },
+            {
+              "text": "her",
+              "safe": "her",
+              "confidence": 99.970703125,
+              "state": "high",
+              "bbox": {
+                "left": 0.28068774938583374,
+                "top": 0.38965508341789246,
+                "width": 0.024436140432953835,
+                "height": 0.01090722344815731
+              }
+            },
+            {
+              "text": "dog",
+              "safe": "dog",
+              "confidence": 99.91051483154297,
+              "state": "high",
+              "bbox": {
+                "left": 0.30839502811431885,
+                "top": 0.389480859041214,
+                "width": 0.028473373502492905,
+                "height": 0.013387857005000114
+              }
+            },
+            {
+              "text": "daily",
+              "safe": "daily",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.3411678373813629,
+                "top": 0.3890392482280731,
+                "width": 0.03740386292338371,
+                "height": 0.013585664331912994
+              }
+            },
+            {
+              "text": "without",
+              "safe": "without",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.38281330466270447,
+                "top": 0.3888069987297058,
+                "width": 0.05765066295862198,
+                "height": 0.011173577047884464
+              }
+            },
+            {
+              "text": "limitation.",
+              "safe": "limitation.",
+              "confidence": 96.49234771728516,
+              "state": "high",
+              "bbox": {
+                "left": 0.4445129334926605,
+                "top": 0.38856449723243713,
+                "width": 0.07615359127521515,
+                "height": 0.011127659119665623
+              }
+            }
+          ]
+        },
+        {
+          "text": "An ECG was performed at the surgery in March which I understand showed sinus rhythm at that time.",
+          "raw": "An ECG was performed at the surgery in March which I understand showed sinus rhythm at that time.",
+          "confidence": 99.93694305419922,
+          "bbox": {
+            "left": 0.11510532349348068,
+            "top": 0.4162256419658661,
+            "width": 0.7590369582176208,
+            "height": 0.016650235280394554
+          },
+          "words": [
+            {
+              "text": "An",
+              "safe": "An",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.1151062548160553,
+                "top": 0.42035719752311707,
+                "width": 0.02256891503930092,
+                "height": 0.010054017417132854
+              }
+            },
+            {
+              "text": "ECG",
+              "safe": "ECG",
+              "confidence": 99.91051483154297,
+              "state": "high",
+              "bbox": {
+                "left": 0.14189237356185913,
+                "top": 0.4196808338165283,
+                "width": 0.03608456626534462,
+                "height": 0.010616897605359554
+              }
+            },
+            {
+              "text": "was",
+              "safe": "was",
+              "confidence": 99.951171875,
+              "state": "high",
+              "bbox": {
+                "left": 0.18173249065876007,
+                "top": 0.4220040738582611,
+                "width": 0.028499353677034378,
+                "height": 0.008148744702339172
+              }
+            },
+            {
+              "text": "performed",
+              "safe": "performed",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.2139054536819458,
+                "top": 0.4188763499259949,
+                "width": 0.0757017731666565,
+                "height": 0.013854706659913063
+              }
+            },
+            {
+              "text": "at",
+              "safe": "at",
+              "confidence": 99.91131591796875,
+              "state": "high",
+              "bbox": {
+                "left": 0.2939016819000244,
+                "top": 0.42031756043434143,
+                "width": 0.013714810833334923,
+                "height": 0.00952596589922905
+              }
+            },
+            {
+              "text": "the",
+              "safe": "the",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.311491459608078,
+                "top": 0.41875749826431274,
+                "width": 0.02293385937809944,
+                "height": 0.010830547660589218
+              }
+            },
+            {
+              "text": "surgery",
+              "safe": "surgery",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.3386934995651245,
+                "top": 0.4214385747909546,
+                "width": 0.055345140397548676,
+                "height": 0.010618165135383606
+              }
+            },
+            {
+              "text": "in",
+              "safe": "in",
+              "confidence": 99.89098358154297,
+              "state": "high",
+              "bbox": {
+                "left": 0.398320734500885,
+                "top": 0.4182649552822113,
+                "width": 0.014642031863331795,
+                "height": 0.010938008315861225
+              }
+            },
+            {
+              "text": "March",
+              "safe": "March",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.41730210185050964,
+                "top": 0.4181958734989166,
+                "width": 0.04767682030797005,
+                "height": 0.010834550485014915
+              }
+            },
+            {
+              "text": "which",
+              "safe": "which",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.46931058168411255,
+                "top": 0.4177226126194,
+                "width": 0.04636344686150551,
+                "height": 0.011066287755966187
+              }
+            },
+            {
+              "text": "I",
+              "safe": "I",
+              "confidence": 99.59721374511719,
+              "state": "high",
+              "bbox": {
+                "left": 0.519696831703186,
+                "top": 0.41827380657196045,
+                "width": 0.00664460239931941,
+                "height": 0.010384343564510345
+              }
+            },
+            {
+              "text": "understand",
+              "safe": "understand",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.5297206044197083,
+                "top": 0.41738802194595337,
+                "width": 0.08403372019529343,
+                "height": 0.01123504713177681
+              }
+            },
+            {
+              "text": "showed",
+              "safe": "showed",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.6180259585380554,
+                "top": 0.41706836223602295,
+                "width": 0.0586010105907917,
+                "height": 0.011311781592667103
+              }
+            },
+            {
+              "text": "sinus",
+              "safe": "sinus",
+              "confidence": 99.92028045654297,
+              "state": "high",
+              "bbox": {
+                "left": 0.6810033917427063,
+                "top": 0.41708919405937195,
+                "width": 0.039817795157432556,
+                "height": 0.010955692268908024
+              }
+            },
+            {
+              "text": "rhythm",
+              "safe": "rhythm",
+              "confidence": 99.93083953857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.7246831655502319,
+                "top": 0.4165409207344055,
+                "width": 0.05630974844098091,
+                "height": 0.013944266363978386
+              }
+            },
+            {
+              "text": "at",
+              "safe": "at",
+              "confidence": 99.88201141357422,
+              "state": "high",
+              "bbox": {
+                "left": 0.7848121523857117,
+                "top": 0.4182182848453522,
+                "width": 0.014093181118369102,
+                "height": 0.009486609138548374
+              }
+            },
+            {
+              "text": "that",
+              "safe": "that",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.8028553128242493,
+                "top": 0.41651639342308044,
+                "width": 0.029408622533082962,
+                "height": 0.011089738458395004
+              }
+            },
+            {
+              "text": "time.",
+              "safe": "time.",
+              "confidence": 99.87065887451172,
+              "state": "high",
+              "bbox": {
+                "left": 0.8361159563064575,
+                "top": 0.416382759809494,
+                "width": 0.03802630677819252,
+                "height": 0.01117475051432848
+              }
+            }
+          ]
+        },
+        {
+          "text": "Bloods were checked recently at the hospital.",
+          "raw": "Bloods were checked recently at the hospital.",
+          "confidence": 99.94038391113281,
+          "bbox": {
+            "left": 0.11444169282913208,
+            "top": 0.4376058876514435,
+            "width": 0.3308054208755493,
+            "height": 0.013951879926025867
+          },
+          "words": [
+            {
+              "text": "Bloods",
+              "safe": "Bloods",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.11444245278835297,
+                "top": 0.43887028098106384,
+                "width": 0.052307773381471634,
+                "height": 0.010706684552133083
+              }
+            },
+            {
+              "text": "were",
+              "safe": "were",
+              "confidence": 99.970703125,
+              "state": "high",
+              "bbox": {
+                "left": 0.1706760823726654,
+                "top": 0.44150224328041077,
+                "width": 0.035357117652893066,
+                "height": 0.008004897274076939
+              }
+            },
+            {
+              "text": "checked",
+              "safe": "checked",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.20996339619159698,
+                "top": 0.43837589025497437,
+                "width": 0.06020529940724373,
+                "height": 0.011056208983063698
+              }
+            },
+            {
+              "text": "recently",
+              "safe": "recently",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.2739790081977844,
+                "top": 0.4381217062473297,
+                "width": 0.05951732397079468,
+                "height": 0.013404534198343754
+              }
+            },
+            {
+              "text": "at",
+              "safe": "at",
+              "confidence": 99.93083953857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.3374974727630615,
+                "top": 0.439761221408844,
+                "width": 0.013712470419704914,
+                "height": 0.009220479056239128
+              }
+            },
+            {
+              "text": "the",
+              "safe": "the",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.3550839126110077,
+                "top": 0.4379730820655823,
+                "width": 0.022828789427876472,
+                "height": 0.010933949612081051
+              }
+            },
+            {
+              "text": "hospital.",
+              "safe": "hospital.",
+              "confidence": 99.68112182617188,
+              "state": "high",
+              "bbox": {
+                "left": 0.38175469636917114,
+                "top": 0.43767452239990234,
+                "width": 0.06349242478609085,
+                "height": 0.013659978285431862
+              }
+            }
+          ]
+        },
+        {
+          "text": "I would be grateful for your opinion.",
+          "raw": "I would be grateful for your opinion.",
+          "confidence": 99.88970184326172,
+          "bbox": {
+            "left": 0.11302351951599121,
+            "top": 0.4671609699726105,
+            "width": 0.2680181860923767,
+            "height": 0.014112105593085289
+          },
+          "words": [
+            {
+              "text": "I",
+              "safe": "I",
+              "confidence": 99.64604187011719,
+              "state": "high",
+              "bbox": {
+                "left": 0.11302444338798523,
+                "top": 0.46828898787498474,
+                "width": 0.006516983732581139,
+                "height": 0.010531770996749401
+              }
+            },
+            {
+              "text": "would",
+              "safe": "would",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.12301696091890335,
+                "top": 0.467838853597641,
+                "width": 0.0460076667368412,
+                "height": 0.010847858153283596
+              }
+            },
+            {
+              "text": "be",
+              "safe": "be",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.17311140894889832,
+                "top": 0.46771636605262756,
+                "width": 0.018002761527895927,
+                "height": 0.010871506296098232
+              }
+            },
+            {
+              "text": "grateful",
+              "safe": "grateful",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.1949230432510376,
+                "top": 0.4674387276172638,
+                "width": 0.056548308581113815,
+                "height": 0.013790827244520187
+              }
+            },
+            {
+              "text": "for",
+              "safe": "for",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.2557552456855774,
+                "top": 0.4675210118293762,
+                "width": 0.02177153341472149,
+                "height": 0.01099270861595869
+              }
+            },
+            {
+              "text": "your",
+              "safe": "your",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.2805461287498474,
+                "top": 0.4702836573123932,
+                "width": 0.03567447140812874,
+                "height": 0.010891810990869999
+              }
+            },
+            {
+              "text": "opinion.",
+              "safe": "opinion.",
+              "confidence": 99.60140228271484,
+              "state": "high",
+              "bbox": {
+                "left": 0.3194943368434906,
+                "top": 0.4672250747680664,
+                "width": 0.06154736131429672,
+                "height": 0.013818252831697464
+              }
+            }
+          ]
+        },
+        {
+          "text": "With many thanks,",
+          "raw": "With many thanks,",
+          "confidence": 99.94033813476562,
+          "bbox": {
+            "left": 0.11174943298101425,
+            "top": 0.4965490400791168,
+            "width": 0.13798438012599945,
+            "height": 0.014022660441696644
+          },
+          "words": [
+            {
+              "text": "With",
+              "safe": "With",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.11175048351287842,
+                "top": 0.4969560503959656,
+                "width": 0.03655822202563286,
+                "height": 0.010816958732903004
+              }
+            },
+            {
+              "text": "many",
+              "safe": "many",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.15226209163665771,
+                "top": 0.4995920956134796,
+                "width": 0.0408712662756443,
+                "height": 0.01095759216696024
+              }
+            },
+            {
+              "text": "thanks,",
+              "safe": "thanks,",
+              "confidence": 99.84056091308594,
+              "state": "high",
+              "bbox": {
+                "left": 0.196982741355896,
+                "top": 0.4965800642967224,
+                "width": 0.0527510792016983,
+                "height": 0.013063312508165836
+              }
+            }
+          ]
+        },
+        {
+          "text": "Dr A. Okafor",
+          "raw": "Dr A. Okafor",
+          "confidence": 98.28324127197266,
+          "bbox": {
+            "left": 0.11018458008766174,
+            "top": 0.5258572101593018,
+            "width": 0.09684036672115326,
+            "height": 0.011035358533263206
+          },
+          "words": [
+            {
+              "text": "Dr",
+              "safe": "Dr",
+              "confidence": 99.11571502685547,
+              "state": "high",
+              "bbox": {
+                "left": 0.11018459498882294,
+                "top": 0.5262220501899719,
+                "width": 0.019820336252450943,
+                "height": 0.010595116764307022
+              }
+            },
+            {
+              "text": "A.",
+              "safe": "A.",
+              "confidence": 95.78363800048828,
+              "state": "high",
+              "bbox": {
+                "left": 0.132982075214386,
+                "top": 0.5267341136932373,
+                "width": 0.01706073060631752,
+                "height": 0.010133570991456509
+              }
+            },
+            {
+              "text": "Okafor",
+              "safe": "Okafor",
+              "confidence": 99.95037078857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.15460580587387085,
+                "top": 0.5258757472038269,
+                "width": 0.052419137209653854,
+                "height": 0.010918976739048958
+              }
+            }
+          ]
+        },
+        {
+          "text": "General Practitioner",
+          "raw": "General Practitioner",
+          "confidence": 99.97518920898438,
+          "bbox": {
+            "left": 0.10947250574827194,
+            "top": 0.5452736020088196,
+            "width": 0.14641207456588745,
+            "height": 0.01118058804422617
+          },
+          "words": [
+            {
+              "text": "General",
+              "safe": "General",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.10947257280349731,
+                "top": 0.5452736020088196,
+                "width": 0.05692310631275177,
+                "height": 0.010958299972116947
+              }
+            },
+            {
+              "text": "Practitioner",
+              "safe": "Practitioner",
+              "confidence": 99.95037078857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.17015697062015533,
+                "top": 0.545431911945343,
+                "width": 0.08572741597890854,
+                "height": 0.011022294871509075
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "document_id": "doc2",
+      "label": "Medication list (handwritten)",
+      "path": "data/synthetic/02_medication_list.jpg",
+      "illegible_count": 1,
+      "lines": [
+        {
+          "text": "My tablets",
+          "raw": "My tablets",
+          "confidence": 98.81477355957031,
+          "bbox": {
+            "left": 0.11692638695240021,
+            "top": 0.08318477123975754,
+            "width": 0.24121196568012238,
+            "height": 0.04536823555827141
+          },
+          "words": [
+            {
+              "text": "My",
+              "safe": "My",
+              "confidence": 97.6783676147461,
+              "state": "high",
+              "bbox": {
+                "left": 0.11692638695240021,
+                "top": 0.09074287861585617,
+                "width": 0.07592422515153885,
+                "height": 0.0377470925450325
+              }
+            },
+            {
+              "text": "tablets",
+              "safe": "tablets",
+              "confidence": 99.951171875,
+              "state": "high",
+              "bbox": {
+                "left": 0.20714034140110016,
+                "top": 0.08321749418973923,
+                "width": 0.15099801123142242,
+                "height": 0.03053843416273594
+              }
+            }
+          ]
+        },
+        {
+          "text": "Marta - Sept 2026",
+          "raw": "Marta - Sept 2026",
+          "confidence": 91.97549438476562,
+          "bbox": {
+            "left": 0.11456433683633804,
+            "top": 0.13575558364391327,
+            "width": 0.2506107687950134,
+            "height": 0.021632030606269836
+          },
+          "words": [
+            {
+              "text": "Marta",
+              "safe": "Marta",
+              "confidence": 99.44176483154297,
+              "state": "high",
+              "bbox": {
+                "left": 0.11457666009664536,
+                "top": 0.13727326691150665,
+                "width": 0.0758766233921051,
+                "height": 0.015307920053601265
+              }
+            },
+            {
+              "text": "-",
+              "safe": "-",
+              "confidence": 93.57540893554688,
+              "state": "medium",
+              "bbox": {
+                "left": 0.20662377774715424,
+                "top": 0.14341329038143158,
+                "width": 0.010440783575177193,
+                "height": 0.003998213913291693
+              }
+            },
+            {
+              "text": "Sept",
+              "safe": "Sept",
+              "confidence": 75.07035064697266,
+              "state": "low",
+              "bbox": {
+                "left": 0.23031120002269745,
+                "top": 0.1358000785112381,
+                "width": 0.0586128793656826,
+                "height": 0.021557558327913284
+              }
+            },
+            {
+              "text": "2026",
+              "safe": "2026",
+              "confidence": 99.814453125,
+              "state": "high",
+              "bbox": {
+                "left": 0.29388025403022766,
+                "top": 0.13617834448814392,
+                "width": 0.07129403948783875,
+                "height": 0.014250014908611774
+              }
+            }
+          ]
+        },
+        {
+          "text": "1. Ramipril 5mg - morning",
+          "raw": "1. Ramipril 5mg - morning",
+          "confidence": 96.56919860839844,
+          "bbox": {
+            "left": 0.12145465612411499,
+            "top": 0.21099163591861725,
+            "width": 0.450496643781662,
+            "height": 0.03150825947523117
+          },
+          "words": [
+            {
+              "text": "1.",
+              "safe": "1.",
+              "confidence": 99.921875,
+              "state": "high",
+              "bbox": {
+                "left": 0.12147270143032074,
+                "top": 0.22043311595916748,
+                "width": 0.026133975014090538,
+                "height": 0.014920649118721485
+              }
+            },
+            {
+              "text": "Ramipril",
+              "safe": "Ramipril",
+              "confidence": 90.43367767333984,
+              "state": "medium",
+              "bbox": {
+                "left": 0.1650286167860031,
+                "top": 0.2129753977060318,
+                "width": 0.13798737525939941,
+                "height": 0.029409393668174744
+              }
+            },
+            {
+              "text": "5mg",
+              "safe": "5mg",
+              "confidence": 99.150390625,
+              "state": "high",
+              "bbox": {
+                "left": 0.31715649366378784,
+                "top": 0.2172449231147766,
+                "width": 0.07263940572738647,
+                "height": 0.022584129124879837
+              }
+            },
+            {
+              "text": "-",
+              "safe": "-",
+              "confidence": 93.45722961425781,
+              "state": "medium",
+              "bbox": {
+                "left": 0.406639963388443,
+                "top": 0.22401374578475952,
+                "width": 0.012797356583178043,
+                "height": 0.004219312220811844
+              }
+            },
+            {
+              "text": "morning",
+              "safe": "morning",
+              "confidence": 99.8828125,
+              "state": "high",
+              "bbox": {
+                "left": 0.43677815794944763,
+                "top": 0.2111225426197052,
+                "width": 0.13517312705516815,
+                "height": 0.027160007506608963
+              }
+            }
+          ]
+        },
+        {
+          "text": "2. Atorvastatin 40mg - at night",
+          "raw": "2. Atorvastatin 40mg - at night",
+          "confidence": 94.09378814697266,
+          "bbox": {
+            "left": 0.11793205887079239,
+            "top": 0.3043310344219208,
+            "width": 0.5173978209495544,
+            "height": 0.02868518978357315
+          },
+          "words": [
+            {
+              "text": "2.",
+              "safe": "2.",
+              "confidence": 99.92107391357422,
+              "state": "high",
+              "bbox": {
+                "left": 0.11794348806142807,
+                "top": 0.31233471632003784,
+                "width": 0.030168794095516205,
+                "height": 0.016051841899752617
+              }
+            },
+            {
+              "text": "Atorvastatin",
+              "safe": "Atorvastatin",
+              "confidence": 91.90848541259766,
+              "state": "medium",
+              "bbox": {
+                "left": 0.16343379020690918,
+                "top": 0.30579105019569397,
+                "width": 0.19392669200897217,
+                "height": 0.022362636402249336
+              }
+            },
+            {
+              "text": "40mg",
+              "safe": "40mg",
+              "confidence": 98.837890625,
+              "state": "high",
+              "bbox": {
+                "left": 0.3717499375343323,
+                "top": 0.3107079267501831,
+                "width": 0.09111388027667999,
+                "height": 0.02222810871899128
+              }
+            },
+            {
+              "text": "-",
+              "safe": "-",
+              "confidence": 94.61276245117188,
+              "state": "medium",
+              "bbox": {
+                "left": 0.48059582710266113,
+                "top": 0.3169287145137787,
+                "width": 0.01280662789940834,
+                "height": 0.004351545125246048
+              }
+            },
+            {
+              "text": "at",
+              "safe": "at",
+              "confidence": 99.560546875,
+              "state": "high",
+              "bbox": {
+                "left": 0.5100778937339783,
+                "top": 0.3088728189468384,
+                "width": 0.03139343112707138,
+                "height": 0.01696673035621643
+              }
+            },
+            {
+              "text": "night",
+              "safe": "night",
+              "confidence": 79.72198486328125,
+              "state": "low",
+              "bbox": {
+                "left": 0.5491332411766052,
+                "top": 0.30452653765678406,
+                "width": 0.0861966609954834,
+                "height": 0.027282429859042168
+              }
+            }
+          ]
+        },
+        {
+          "text": "3. Apixaban \u27eaILLEGIBLE\u27eb twice a day",
+          "raw": "3. Apixaban 9 twice a day",
+          "confidence": 88.97981262207031,
+          "bbox": {
+            "left": 0.11515234410762787,
+            "top": 0.4030759334564209,
+            "width": 0.4761553406715393,
+            "height": 0.0307428278028965
+          },
+          "words": [
+            {
+              "text": "3.",
+              "safe": "3.",
+              "confidence": 99.96014404296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.11517484486103058,
+                "top": 0.4105212986469269,
+                "width": 0.02909582480788231,
+                "height": 0.014413578435778618
+              }
+            },
+            {
+              "text": "Apixaban",
+              "safe": "Apixaban",
+              "confidence": 99.3223876953125,
+              "state": "high",
+              "bbox": {
+                "left": 0.15977634489536285,
+                "top": 0.40364816784858704,
+                "width": 0.1466185599565506,
+                "height": 0.029387515038251877
+              }
+            },
+            {
+              "text": "9",
+              "safe": "\u27eaILLEGIBLE\u27eb",
+              "confidence": 43.0816535949707,
+              "state": "unreadable",
+              "bbox": {
+                "left": 0.39168480038642883,
+                "top": 0.41029730439186096,
+                "width": 0.013589047826826572,
+                "height": 0.02065156027674675
+              }
+            },
+            {
+              "text": "twice",
+              "safe": "twice",
+              "confidence": 91.68067932128906,
+              "state": "medium",
+              "bbox": {
+                "left": 0.4218277633190155,
+                "top": 0.4032273292541504,
+                "width": 0.07580579072237015,
+                "height": 0.02151285856962204
+              }
+            },
+            {
+              "text": "a",
+              "safe": "a",
+              "confidence": 99.84375,
+              "state": "high",
+              "bbox": {
+                "left": 0.50519198179245,
+                "top": 0.40876972675323486,
+                "width": 0.016754217445850372,
+                "height": 0.015435797162353992
+              }
+            },
+            {
+              "text": "day",
+              "safe": "day",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.5316526293754578,
+                "top": 0.4043617248535156,
+                "width": 0.059652913361787796,
+                "height": 0.029457027092576027
+              }
+            }
+          ]
+        },
+        {
+          "text": "4. Metformin 19 twice a day",
+          "raw": "4. Metformin 19 twice a day",
+          "confidence": 93.17542266845703,
+          "bbox": {
+            "left": 0.1124269962310791,
+            "top": 0.4947529733181,
+            "width": 0.4475695788860321,
+            "height": 0.031203005462884903
+          },
+          "words": [
+            {
+              "text": "4.",
+              "safe": "4.",
+              "confidence": 99.93083953857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.11244843155145645,
+                "top": 0.500681459903717,
+                "width": 0.029710916802287102,
+                "height": 0.016809573397040367
+              }
+            },
+            {
+              "text": "Metformin",
+              "safe": "Metformin",
+              "confidence": 95.49585723876953,
+              "state": "high",
+              "bbox": {
+                "left": 0.15931302309036255,
+                "top": 0.4947778880596161,
+                "width": 0.16214151680469513,
+                "height": 0.02793204039335251
+              }
+            },
+            {
+              "text": "19",
+              "safe": "19",
+              "confidence": 72.50896453857422,
+              "state": "low",
+              "bbox": {
+                "left": 0.3356477618217468,
+                "top": 0.5008428692817688,
+                "width": 0.039032090455293655,
+                "height": 0.021749818697571754
+              }
+            },
+            {
+              "text": "twice",
+              "safe": "twice",
+              "confidence": 91.34147644042969,
+              "state": "medium",
+              "bbox": {
+                "left": 0.3903445303440094,
+                "top": 0.4949970245361328,
+                "width": 0.07610902190208435,
+                "height": 0.02157486416399479
+              }
+            },
+            {
+              "text": "a",
+              "safe": "a",
+              "confidence": 99.775390625,
+              "state": "high",
+              "bbox": {
+                "left": 0.4741259813308716,
+                "top": 0.5008571147918701,
+                "width": 0.016577212139964104,
+                "height": 0.015320898033678532
+              }
+            },
+            {
+              "text": "day",
+              "safe": "day",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.5004649758338928,
+                "top": 0.4963531494140625,
+                "width": 0.059528838843107224,
+                "height": 0.02960284613072872
+              }
+            }
+          ]
+        },
+        {
+          "text": "5. B\u00edsoprolol 2.5mg - morning",
+          "raw": "5. B\u00edsoprolol 2.5mg - morning",
+          "confidence": 92.46891021728516,
+          "bbox": {
+            "left": 0.10894725471735,
+            "top": 0.5905665159225464,
+            "width": 0.4929112493991852,
+            "height": 0.029050294309854507
+          },
+          "words": [
+            {
+              "text": "5.",
+              "safe": "5.",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.10896661877632141,
+                "top": 0.5955161452293396,
+                "width": 0.029689239338040352,
+                "height": 0.016401102766394615
+              }
+            },
+            {
+              "text": "B\u00edsoprolol",
+              "safe": "B\u00edsoprolol",
+              "confidence": 69.06887817382812,
+              "state": "low",
+              "bbox": {
+                "left": 0.1548282504081726,
+                "top": 0.5905926823616028,
+                "width": 0.14696547389030457,
+                "height": 0.02878539450466633
+              }
+            },
+            {
+              "text": "2.5mg",
+              "safe": "2.5mg",
+              "confidence": 99.619140625,
+              "state": "high",
+              "bbox": {
+                "left": 0.31544995307922363,
+                "top": 0.5957613587379456,
+                "width": 0.10265828669071198,
+                "height": 0.02308657579123974
+              }
+            },
+            {
+              "text": "-",
+              "safe": "-",
+              "confidence": 93.73464965820312,
+              "state": "medium",
+              "bbox": {
+                "left": 0.43580272793769836,
+                "top": 0.6033715009689331,
+                "width": 0.012921379879117012,
+                "height": 0.004252169746905565
+              }
+            },
+            {
+              "text": "morning",
+              "safe": "morning",
+              "confidence": 99.931640625,
+              "state": "high",
+              "bbox": {
+                "left": 0.4655444025993347,
+                "top": 0.5915048122406006,
+                "width": 0.13631266355514526,
+                "height": 0.028111988678574562
+              }
+            }
+          ]
+        },
+        {
+          "text": "6. Paracetamol when needed",
+          "raw": "6. Paracetamol when needed",
+          "confidence": 99.59407806396484,
+          "bbox": {
+            "left": 0.10720109939575195,
+            "top": 0.693351149559021,
+            "width": 0.43008214235305786,
+            "height": 0.01977364905178547
+          },
+          "words": [
+            {
+              "text": "6.",
+              "safe": "6.",
+              "confidence": 99.69168090820312,
+              "state": "high",
+              "bbox": {
+                "left": 0.1072060614824295,
+                "top": 0.6956091523170471,
+                "width": 0.02876214310526848,
+                "height": 0.015364603139460087
+              }
+            },
+            {
+              "text": "Paracetamol",
+              "safe": "Paracetamol",
+              "confidence": 98.7244873046875,
+              "state": "high",
+              "bbox": {
+                "left": 0.15346886217594147,
+                "top": 0.6935060620307922,
+                "width": 0.1825886368751526,
+                "height": 0.018601933494210243
+              }
+            },
+            {
+              "text": "when",
+              "safe": "when",
+              "confidence": 99.96014404296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.35052233934402466,
+                "top": 0.6935001611709595,
+                "width": 0.0798114687204361,
+                "height": 0.019313056021928787
+              }
+            },
+            {
+              "text": "needed",
+              "safe": "needed",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.4378107786178589,
+                "top": 0.6936004161834717,
+                "width": 0.09947237372398376,
+                "height": 0.019524356350302696
+              }
+            }
+          ]
+        },
+        {
+          "text": "(the pharmacy changed one of them",
+          "raw": "(the pharmacy changed one of them",
+          "confidence": 99.95565795898438,
+          "bbox": {
+            "left": 0.10691741853952408,
+            "top": 0.8030092120170593,
+            "width": 0.4167550206184387,
+            "height": 0.024949058890342712
+          },
+          "words": [
+            {
+              "text": "(the",
+              "safe": "(the",
+              "confidence": 99.85192108154297,
+              "state": "high",
+              "bbox": {
+                "left": 0.10693487524986267,
+                "top": 0.8030092120170593,
+                "width": 0.04204161465167999,
+                "height": 0.018006132915616035
+              }
+            },
+            {
+              "text": "pharmacy",
+              "safe": "pharmacy",
+              "confidence": 99.96014404296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.15315431356430054,
+                "top": 0.8037573099136353,
+                "width": 0.1198548898100853,
+                "height": 0.024033622816205025
+              }
+            },
+            {
+              "text": "changed",
+              "safe": "changed",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.2799625098705292,
+                "top": 0.8043754696846008,
+                "width": 0.10027728974819183,
+                "height": 0.021820757538080215
+              }
+            },
+            {
+              "text": "one",
+              "safe": "one",
+              "confidence": 99.970703125,
+              "state": "high",
+              "bbox": {
+                "left": 0.38583970069885254,
+                "top": 0.8088382482528687,
+                "width": 0.0422220416367054,
+                "height": 0.012962790206074715
+              }
+            },
+            {
+              "text": "of",
+              "safe": "of",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.43338754773139954,
+                "top": 0.804654598236084,
+                "width": 0.027615070343017578,
+                "height": 0.021945565938949585
+              }
+            },
+            {
+              "text": "them",
+              "safe": "them",
+              "confidence": 99.951171875,
+              "state": "high",
+              "bbox": {
+                "left": 0.46233561635017395,
+                "top": 0.8062078356742859,
+                "width": 0.06133075803518295,
+                "height": 0.01566404104232788
+              }
+            }
+          ]
+        },
+        {
+          "text": "but 1 wrote over it - sorry!)",
+          "raw": "but 1 wrote over it - sorry!)",
+          "confidence": 94.77076721191406,
+          "bbox": {
+            "left": 0.10982519388198853,
+            "top": 0.8315139412879944,
+            "width": 0.30498841404914856,
+            "height": 0.02732168883085251
+          },
+          "words": [
+            {
+              "text": "but",
+              "safe": "but",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.10985162109136581,
+                "top": 0.8315139412879944,
+                "width": 0.04032358527183533,
+                "height": 0.01699374057352543
+              }
+            },
+            {
+              "text": "1",
+              "safe": "1",
+              "confidence": 79.03958129882812,
+              "state": "low",
+              "bbox": {
+                "left": 0.15655411779880524,
+                "top": 0.8356446027755737,
+                "width": 0.005976971238851547,
+                "height": 0.01300955843180418
+              }
+            },
+            {
+              "text": "wrote",
+              "safe": "wrote",
+              "confidence": 99.96014404296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.16858935356140137,
+                "top": 0.834581196308136,
+                "width": 0.06301335990428925,
+                "height": 0.014950470998883247
+              }
+            },
+            {
+              "text": "over",
+              "safe": "over",
+              "confidence": 99.92107391357422,
+              "state": "high",
+              "bbox": {
+                "left": 0.23675450682640076,
+                "top": 0.8369801044464111,
+                "width": 0.04892554134130478,
+                "height": 0.013086222112178802
+              }
+            },
+            {
+              "text": "it",
+              "safe": "it",
+              "confidence": 96.806640625,
+              "state": "high",
+              "bbox": {
+                "left": 0.29063880443573,
+                "top": 0.8325220942497253,
+                "width": 0.020065922290086746,
+                "height": 0.017574289813637733
+              }
+            },
+            {
+              "text": "-",
+              "safe": "-",
+              "confidence": 88.29370880126953,
+              "state": "medium",
+              "bbox": {
+                "left": 0.3157520592212677,
+                "top": 0.8422793745994568,
+                "width": 0.010023001581430435,
+                "height": 0.003940056078135967
+              }
+            },
+            {
+              "text": "sorry!)",
+              "safe": "sorry!)",
+              "confidence": 99.38396453857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.33156871795654297,
+                "top": 0.8343818187713623,
+                "width": 0.08323891460895538,
+                "height": 0.02445376291871071
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "document_id": "doc3",
+      "label": "Discharge summary (photo of screen)",
+      "path": "data/synthetic/03_screen_photo.jpg",
+      "illegible_count": 1,
+      "lines": [
+        {
+          "text": "ST BRENDAN'S HOSPITAL \u27eaILLEGIBLE\u27eb Discharge Summary",
+          "raw": "ST BRENDAN'S HOSPITAL . Discharge Summary",
+          "confidence": 90.91781616210938,
+          "bbox": {
+            "left": 0.09599945694208145,
+            "top": 0.08529604226350784,
+            "width": 0.426540732383728,
+            "height": 0.03153039515018463
+          },
+          "words": [
+            {
+              "text": "ST",
+              "safe": "ST",
+              "confidence": 99.970703125,
+              "state": "high",
+              "bbox": {
+                "left": 0.09615045040845871,
+                "top": 0.09068335592746735,
+                "width": 0.022880105301737785,
+                "height": 0.021743929013609886
+              }
+            },
+            {
+              "text": "BRENDAN'S",
+              "safe": "BRENDAN'S",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.12256715446710587,
+                "top": 0.08904270827770233,
+                "width": 0.10337371379137039,
+                "height": 0.023269938305020332
+              }
+            },
+            {
+              "text": "HOSPITAL",
+              "safe": "HOSPITAL",
+              "confidence": 99.9609375,
+              "state": "high",
+              "bbox": {
+                "left": 0.2300906479358673,
+                "top": 0.08767051994800568,
+                "width": 0.0886814221739769,
+                "height": 0.023078542202711105
+              }
+            },
+            {
+              "text": ".",
+              "safe": "\u27eaILLEGIBLE\u27eb",
+              "confidence": 45.59480667114258,
+              "state": "unreadable",
+              "bbox": {
+                "left": 0.33232033252716064,
+                "top": 0.09624502807855606,
+                "width": 0.004640878643840551,
+                "height": 0.0064025274477899075
+              }
+            },
+            {
+              "text": "Discharge",
+              "safe": "Discharge",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.3510775566101074,
+                "top": 0.08613499253988266,
+                "width": 0.08575139194726944,
+                "height": 0.02838975004851818
+              }
+            },
+            {
+              "text": "Summary",
+              "safe": "Summary",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.44071877002716064,
+                "top": 0.0853709802031517,
+                "width": 0.08181926608085632,
+                "height": 0.02791620045900345
+              }
+            }
+          ]
+        },
+        {
+          "text": "Record 4471-B",
+          "raw": "Record 4471-B",
+          "confidence": 99.91171264648438,
+          "bbox": {
+            "left": 0.8075690865516663,
+            "top": 0.08071562647819519,
+            "width": 0.09655052423477173,
+            "height": 0.018975652754306793
+          },
+          "words": [
+            {
+              "text": "Record",
+              "safe": "Record",
+              "confidence": 99.951171875,
+              "state": "high",
+              "bbox": {
+                "left": 0.8075690865516663,
+                "top": 0.08138792961835861,
+                "width": 0.046548034995794296,
+                "height": 0.01830335333943367
+              }
+            },
+            {
+              "text": "4471-B",
+              "safe": "4471-B",
+              "confidence": 99.87224578857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.856873095035553,
+                "top": 0.08071562647819519,
+                "width": 0.0472465418279171,
+                "height": 0.01851065643131733
+              }
+            }
+          ]
+        },
+        {
+          "text": "RUIZ DELGADO, Marta",
+          "raw": "RUIZ DELGADO, Marta",
+          "confidence": 99.96366119384766,
+          "bbox": {
+            "left": 0.10423010587692261,
+            "top": 0.1830102950334549,
+            "width": 0.18770767748355865,
+            "height": 0.027493543922901154
+          },
+          "words": [
+            {
+              "text": "RUIZ",
+              "safe": "RUIZ",
+              "confidence": 99.970703125,
+              "state": "high",
+              "bbox": {
+                "left": 0.10436548292636871,
+                "top": 0.18445509672164917,
+                "width": 0.04109642282128334,
+                "height": 0.022087406367063522
+              }
+            },
+            {
+              "text": "DELGADO,",
+              "safe": "DELGADO,",
+              "confidence": 99.92028045654297,
+              "state": "high",
+              "bbox": {
+                "left": 0.14892253279685974,
+                "top": 0.1834646463394165,
+                "width": 0.09189432114362717,
+                "height": 0.026753004640340805
+              }
+            },
+            {
+              "text": "Marta",
+              "safe": "Marta",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.24498365819454193,
+                "top": 0.1830102950334549,
+                "width": 0.04695412144064903,
+                "height": 0.022226976230740547
+              }
+            }
+          ]
+        },
+        {
+          "text": "DOB 14/03/1958 Admitted 02/08/2026 Discharged 05/08/2026",
+          "raw": "DOB 14/03/1958 Admitted 02/08/2026 Discharged 05/08/2026",
+          "confidence": 99.96907806396484,
+          "bbox": {
+            "left": 0.10312730818986893,
+            "top": 0.21077758073806763,
+            "width": 0.40532922744750977,
+            "height": 0.024391863495111465
+          },
+          "words": [
+            {
+              "text": "DOB",
+              "safe": "DOB",
+              "confidence": 99.970703125,
+              "state": "high",
+              "bbox": {
+                "left": 0.10323169827461243,
+                "top": 0.21420420706272125,
+                "width": 0.02938683331012726,
+                "height": 0.0179109089076519
+              }
+            },
+            {
+              "text": "14/03/1958",
+              "safe": "14/03/1958",
+              "confidence": 99.951171875,
+              "state": "high",
+              "bbox": {
+                "left": 0.13559891283512115,
+                "top": 0.21350829303264618,
+                "width": 0.06708435714244843,
+                "height": 0.018094059079885483
+              }
+            },
+            {
+              "text": "Admitted",
+              "safe": "Admitted",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.2223280668258667,
+                "top": 0.21297717094421387,
+                "width": 0.053120728582143784,
+                "height": 0.017838362604379654
+              }
+            },
+            {
+              "text": "02/08/2026",
+              "safe": "02/08/2026",
+              "confidence": 99.970703125,
+              "state": "high",
+              "bbox": {
+                "left": 0.2782013714313507,
+                "top": 0.21240738034248352,
+                "width": 0.06818920373916626,
+                "height": 0.017877263948321342
+              }
+            },
+            {
+              "text": "Discharged",
+              "safe": "Discharged",
+              "confidence": 99.9609375,
+              "state": "high",
+              "bbox": {
+                "left": 0.3666834235191345,
+                "top": 0.21126793324947357,
+                "width": 0.0699680745601654,
+                "height": 0.022395402193069458
+              }
+            },
+            {
+              "text": "05/08/2026",
+              "safe": "05/08/2026",
+              "confidence": 99.970703125,
+              "state": "high",
+              "bbox": {
+                "left": 0.4395810067653656,
+                "top": 0.21077758073806763,
+                "width": 0.0688755139708519,
+                "height": 0.01814850978553295
+              }
+            }
+          ]
+        },
+        {
+          "text": "Reason for admission",
+          "raw": "Reason for admission",
+          "confidence": 100.0,
+          "bbox": {
+            "left": 0.10117312520742416,
+            "top": 0.2765187621116638,
+            "width": 0.13865987956523895,
+            "height": 0.018201136961579323
+          },
+          "words": [
+            {
+              "text": "Reason",
+              "safe": "Reason",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.10117312520742416,
+                "top": 0.2773202657699585,
+                "width": 0.04849010333418846,
+                "height": 0.017399629577994347
+              }
+            },
+            {
+              "text": "for",
+              "safe": "for",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.15213529765605927,
+                "top": 0.2768283784389496,
+                "width": 0.01952778920531273,
+                "height": 0.01765911467373371
+              }
+            },
+            {
+              "text": "admission",
+              "safe": "admission",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.17385976016521454,
+                "top": 0.2765670418739319,
+                "width": 0.06597166508436203,
+                "height": 0.017830418422818184
+              }
+            }
+          ]
+        },
+        {
+          "text": "Fast atrial fibrillation with rapid ventricular response",
+          "raw": "Fast atrial fibrillation with rapid ventricular response",
+          "confidence": 99.89900970458984,
+          "bbox": {
+            "left": 0.31281471252441406,
+            "top": 0.27333682775497437,
+            "width": 0.46154215931892395,
+            "height": 0.023235559463500977
+          },
+          "words": [
+            {
+              "text": "Fast",
+              "safe": "Fast",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.31291663646698,
+                "top": 0.2763810157775879,
+                "width": 0.03173143416643143,
+                "height": 0.016948729753494263
+              }
+            },
+            {
+              "text": "atrial",
+              "safe": "atrial",
+              "confidence": 99.89098358154297,
+              "state": "high",
+              "bbox": {
+                "left": 0.35364407300949097,
+                "top": 0.27576711773872375,
+                "width": 0.04774607717990875,
+                "height": 0.017396364361047745
+              }
+            },
+            {
+              "text": "fibrillation",
+              "safe": "fibrillation",
+              "confidence": 99.7608413696289,
+              "state": "high",
+              "bbox": {
+                "left": 0.410891056060791,
+                "top": 0.2749229073524475,
+                "width": 0.09787951409816742,
+                "height": 0.017696024850010872
+              }
+            },
+            {
+              "text": "with",
+              "safe": "with",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.5165606141090393,
+                "top": 0.27475297451019287,
+                "width": 0.03349674120545387,
+                "height": 0.017322756350040436
+              }
+            },
+            {
+              "text": "rapid",
+              "safe": "rapid",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.5589045882225037,
+                "top": 0.27420574426651,
+                "width": 0.040591586381196976,
+                "height": 0.021388331428170204
+              }
+            },
+            {
+              "text": "ventricular",
+              "safe": "ventricular",
+              "confidence": 99.64126586914062,
+              "state": "high",
+              "bbox": {
+                "left": 0.6078996658325195,
+                "top": 0.273680716753006,
+                "width": 0.09108126163482666,
+                "height": 0.01757088489830494
+              }
+            },
+            {
+              "text": "response",
+              "safe": "response",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.7084615230560303,
+                "top": 0.2765676975250244,
+                "width": 0.0658130794763565,
+                "height": 0.01800474338233471
+              }
+            }
+          ]
+        },
+        {
+          "text": "ECG on admission",
+          "raw": "ECG on admission",
+          "confidence": 99.99674224853516,
+          "bbox": {
+            "left": 0.09820742160081863,
+            "top": 0.35747143626213074,
+            "width": 0.11742454767227173,
+            "height": 0.017763987183570862
+          },
+          "words": [
+            {
+              "text": "ECG",
+              "safe": "ECG",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.09820947051048279,
+                "top": 0.3578653037548065,
+                "width": 0.02901354618370533,
+                "height": 0.017310120165348053
+              }
+            },
+            {
+              "text": "on",
+              "safe": "on",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.13025332987308502,
+                "top": 0.3620337247848511,
+                "width": 0.016396373510360718,
+                "height": 0.012944230809807777
+              }
+            },
+            {
+              "text": "admission",
+              "safe": "admission",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.14958517253398895,
+                "top": 0.35747143626213074,
+                "width": 0.06604679673910141,
+                "height": 0.017671478912234306
+              }
+            }
+          ]
+        },
+        {
+          "text": "Atrial fibrillation. rate 148 bpm. No acute ischaemic change.",
+          "raw": "Atrial fibrillation. rate 148 bpm. No acute ischaemic change.",
+          "confidence": 96.4060287475586,
+          "bbox": {
+            "left": 0.3091822862625122,
+            "top": 0.35504618287086487,
+            "width": 0.5025108456611633,
+            "height": 0.02265361323952675
+          },
+          "words": [
+            {
+              "text": "Atrial",
+              "safe": "Atrial",
+              "confidence": 99.91051483154297,
+              "state": "high",
+              "bbox": {
+                "left": 0.30929309129714966,
+                "top": 0.35722073912620544,
+                "width": 0.04846538230776787,
+                "height": 0.01695581153035164
+              }
+            },
+            {
+              "text": "fibrillation.",
+              "safe": "fibrillation.",
+              "confidence": 69.06887817382812,
+              "state": "low",
+              "bbox": {
+                "left": 0.3671744167804718,
+                "top": 0.356700599193573,
+                "width": 0.10397879034280777,
+                "height": 0.018263433128595352
+              }
+            },
+            {
+              "text": "rate",
+              "safe": "rate",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.4822543263435364,
+                "top": 0.35780853033065796,
+                "width": 0.03171418979763985,
+                "height": 0.01569303311407566
+              }
+            },
+            {
+              "text": "148",
+              "safe": "148",
+              "confidence": 99.96014404296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.5232821702957153,
+                "top": 0.356468141078949,
+                "width": 0.02413005195558071,
+                "height": 0.016826307401061058
+              }
+            },
+            {
+              "text": "bpm.",
+              "safe": "bpm.",
+              "confidence": 99.7608413696289,
+              "state": "high",
+              "bbox": {
+                "left": 0.5557010769844055,
+                "top": 0.3564075827598572,
+                "width": 0.030910180881619453,
+                "height": 0.020867815241217613
+              }
+            },
+            {
+              "text": "No",
+              "safe": "No",
+              "confidence": 99.91051483154297,
+              "state": "high",
+              "bbox": {
+                "left": 0.5968191027641296,
+                "top": 0.35608357191085815,
+                "width": 0.016731245443224907,
+                "height": 0.017061864957213402
+              }
+            },
+            {
+              "text": "acute",
+              "safe": "acute",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.6222413182258606,
+                "top": 0.35683465003967285,
+                "width": 0.04074111953377724,
+                "height": 0.016190404072403908
+              }
+            },
+            {
+              "text": "ischaemic",
+              "safe": "ischaemic",
+              "confidence": 99.96014404296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.6726917028427124,
+                "top": 0.35534578561782837,
+                "width": 0.07378951460123062,
+                "height": 0.017334625124931335
+              }
+            },
+            {
+              "text": "change.",
+              "safe": "change.",
+              "confidence": 99.0832290649414,
+              "state": "high",
+              "bbox": {
+                "left": 0.7552098035812378,
+                "top": 0.35504618287086487,
+                "width": 0.05648330599069595,
+                "height": 0.02156691439449787
+              }
+            }
+          ]
+        },
+        {
+          "text": "Echocardiogram",
+          "raw": "Echocardiogram",
+          "confidence": 99.970703125,
+          "bbox": {
+            "left": 0.09501302987337112,
+            "top": 0.4380617141723633,
+            "width": 0.10545478761196136,
+            "height": 0.021898308768868446
+          },
+          "words": [
+            {
+              "text": "Echocardiogram",
+              "safe": "Echocardiogram",
+              "confidence": 99.970703125,
+              "state": "high",
+              "bbox": {
+                "left": 0.09501302987337112,
+                "top": 0.4380617141723633,
+                "width": 0.10545478761196136,
+                "height": 0.021898308768868446
+              }
+            }
+          ]
+        },
+        {
+          "text": "LV function mildly impaired. EF 48%. Left atrium dilated.",
+          "raw": "LV function mildly impaired. EF 48%. Left atrium dilated.",
+          "confidence": 93.81423950195312,
+          "bbox": {
+            "left": 0.3073274791240692,
+            "top": 0.43712207674980164,
+            "width": 0.4680896997451782,
+            "height": 0.02221888117492199
+          },
+          "words": [
+            {
+              "text": "LV",
+              "safe": "LV",
+              "confidence": 99.951171875,
+              "state": "high",
+              "bbox": {
+                "left": 0.3074527382850647,
+                "top": 0.438900351524353,
+                "width": 0.016337769106030464,
+                "height": 0.016210326924920082
+              }
+            },
+            {
+              "text": "function",
+              "safe": "function",
+              "confidence": 99.96014404296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.33155643939971924,
+                "top": 0.4381978213787079,
+                "width": 0.06524141132831573,
+                "height": 0.016990745440125465
+              }
+            },
+            {
+              "text": "mildly",
+              "safe": "mildly",
+              "confidence": 99.92028045654297,
+              "state": "high",
+              "bbox": {
+                "left": 0.40392932295799255,
+                "top": 0.437833309173584,
+                "width": 0.05021166056394577,
+                "height": 0.021334128454327583
+              }
+            },
+            {
+              "text": "impaired.",
+              "safe": "impaired.",
+              "confidence": 62.611610412597656,
+              "state": "low",
+              "bbox": {
+                "left": 0.46290889382362366,
+                "top": 0.4381423592567444,
+                "width": 0.0711408331990242,
+                "height": 0.02059331163764
+              }
+            },
+            {
+              "text": "EF",
+              "safe": "EF",
+              "confidence": 99.79173278808594,
+              "state": "high",
+              "bbox": {
+                "left": 0.545125424861908,
+                "top": 0.4379846453666687,
+                "width": 0.0156187042593956,
+                "height": 0.01649833470582962
+              }
+            },
+            {
+              "text": "48%.",
+              "safe": "48%.",
+              "confidence": 91.35044860839844,
+              "state": "medium",
+              "bbox": {
+                "left": 0.5693613290786743,
+                "top": 0.4377868175506592,
+                "width": 0.03105691261589527,
+                "height": 0.016859019175171852
+              }
+            },
+            {
+              "text": "Left",
+              "safe": "Left",
+              "confidence": 99.96014404296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.6112573742866516,
+                "top": 0.43762555718421936,
+                "width": 0.032491933554410934,
+                "height": 0.01693827658891678
+              }
+            },
+            {
+              "text": "atrium",
+              "safe": "atrium",
+              "confidence": 99.84056091308594,
+              "state": "high",
+              "bbox": {
+                "left": 0.6526206135749817,
+                "top": 0.4379882216453552,
+                "width": 0.049980901181697845,
+                "height": 0.01643003523349762
+              }
+            },
+            {
+              "text": "dilated.",
+              "safe": "dilated.",
+              "confidence": 90.94208526611328,
+              "state": "medium",
+              "bbox": {
+                "left": 0.7104388475418091,
+                "top": 0.43712207674980164,
+                "width": 0.06497833877801895,
+                "height": 0.01726934127509594
+              }
+            }
+          ]
+        },
+        {
+          "text": "Anticoagulation",
+          "raw": "Anticoagulation",
+          "confidence": 99.5517807006836,
+          "bbox": {
+            "left": 0.08592051267623901,
+            "top": 0.6800532341003418,
+            "width": 0.10177117586135864,
+            "height": 0.022568460553884506
+          },
+          "words": [
+            {
+              "text": "Anticoagulation",
+              "safe": "Anticoagulation",
+              "confidence": 99.5517807006836,
+              "state": "high",
+              "bbox": {
+                "left": 0.08592051267623901,
+                "top": 0.6800532341003418,
+                "width": 0.10177117586135864,
+                "height": 0.022568460553884506
+              }
+            }
+          ]
+        },
+        {
+          "text": "Apixaban continued. Dose reduced on discharge - see TTO.",
+          "raw": "Apixaban continued. Dose reduced on discharge - see TTO.",
+          "confidence": 97.58277893066406,
+          "bbox": {
+            "left": 0.29758718609809875,
+            "top": 0.6813207864761353,
+            "width": 0.46172159910202026,
+            "height": 0.024836450815200806
+          },
+          "words": [
+            {
+              "text": "Apixaban",
+              "safe": "Apixaban",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.29758718609809875,
+                "top": 0.6819339394569397,
+                "width": 0.06605616956949234,
+                "height": 0.0213289987295866
+              }
+            },
+            {
+              "text": "continued.",
+              "safe": "continued.",
+              "confidence": 99.56153869628906,
+              "state": "high",
+              "bbox": {
+                "left": 0.3717900216579437,
+                "top": 0.6823239922523499,
+                "width": 0.0799759104847908,
+                "height": 0.017426667734980583
+              }
+            },
+            {
+              "text": "Dose",
+              "safe": "Dose",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.46222248673439026,
+                "top": 0.6831756830215454,
+                "width": 0.032766472548246384,
+                "height": 0.01677858829498291
+              }
+            },
+            {
+              "text": "reduced",
+              "safe": "reduced",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.5042340159416199,
+                "top": 0.6832581162452698,
+                "width": 0.057349301874637604,
+                "height": 0.01728319190442562
+              }
+            },
+            {
+              "text": "on",
+              "safe": "on",
+              "confidence": 99.91131591796875,
+              "state": "high",
+              "bbox": {
+                "left": 0.5696466565132141,
+                "top": 0.6869958639144897,
+                "width": 0.016331728547811508,
+                "height": 0.013345290906727314
+              }
+            },
+            {
+              "text": "discharge",
+              "safe": "discharge",
+              "confidence": 91.4805908203125,
+              "state": "medium",
+              "bbox": {
+                "left": 0.5942243933677673,
+                "top": 0.6833126544952393,
+                "width": 0.08084437251091003,
+                "height": 0.021969903260469437
+              }
+            },
+            {
+              "text": "-",
+              "safe": "-",
+              "confidence": 90.48847961425781,
+              "state": "medium",
+              "bbox": {
+                "left": 0.6788933277130127,
+                "top": 0.692004919052124,
+                "width": 0.005780356470495462,
+                "height": 0.003619235008955002
+              }
+            },
+            {
+              "text": "see",
+              "safe": "see",
+              "confidence": 99.921875,
+              "state": "high",
+              "bbox": {
+                "left": 0.6952478289604187,
+                "top": 0.687775731086731,
+                "width": 0.024318445473909378,
+                "height": 0.0133530767634511
+              }
+            },
+            {
+              "text": "TTO.",
+              "safe": "TTO.",
+              "confidence": 96.89094543457031,
+              "state": "high",
+              "bbox": {
+                "left": 0.7275311350822449,
+                "top": 0.6844160556793213,
+                "width": 0.03177230805158615,
+                "height": 0.01710478588938713
+              }
+            }
+          ]
+        },
+        {
+          "text": "Follow-up",
+          "raw": "Follow-up",
+          "confidence": 99.970703125,
+          "bbox": {
+            "left": 0.08383055776357651,
+            "top": 0.7606417536735535,
+            "width": 0.06285348534584045,
+            "height": 0.022589949890971184
+          },
+          "words": [
+            {
+              "text": "Follow-up",
+              "safe": "Follow-up",
+              "confidence": 99.970703125,
+              "state": "high",
+              "bbox": {
+                "left": 0.08383055776357651,
+                "top": 0.7606417536735535,
+                "width": 0.06285348534584045,
+                "height": 0.022589949890971184
+              }
+            }
+          ]
+        },
+        {
+          "text": "Cardiology outpatients. 6 weeks. GP to check renal function.",
+          "raw": "Cardiology outpatients. 6 weeks. GP to check renal function.",
+          "confidence": 97.98114776611328,
+          "bbox": {
+            "left": 0.2954098582267761,
+            "top": 0.7627264857292175,
+            "width": 0.4944407641887665,
+            "height": 0.026605283841490746
+          },
+          "words": [
+            {
+              "text": "Cardiology",
+              "safe": "Cardiology",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.2954098582267761,
+                "top": 0.7627264857292175,
+                "width": 0.08163296431303024,
+                "height": 0.02264624647796154
+              }
+            },
+            {
+              "text": "outpatients.",
+              "safe": "outpatients.",
+              "confidence": 85.73023223876953,
+              "state": "medium",
+              "bbox": {
+                "left": 0.38531315326690674,
+                "top": 0.764193058013916,
+                "width": 0.09679806232452393,
+                "height": 0.021403634920716286
+              }
+            },
+            {
+              "text": "6",
+              "safe": "6",
+              "confidence": 99.59721374511719,
+              "state": "high",
+              "bbox": {
+                "left": 0.4925006926059723,
+                "top": 0.7649855613708496,
+                "width": 0.008312343619763851,
+                "height": 0.0163899976760149
+              }
+            },
+            {
+              "text": "weeks.",
+              "safe": "weeks.",
+              "confidence": 97.84757232666016,
+              "state": "high",
+              "bbox": {
+                "left": 0.5087013840675354,
+                "top": 0.7651881575584412,
+                "width": 0.047854822129011154,
+                "height": 0.01718907244503498
+              }
+            },
+            {
+              "text": "GP",
+              "safe": "GP",
+              "confidence": 99.970703125,
+              "state": "high",
+              "bbox": {
+                "left": 0.5666816830635071,
+                "top": 0.7656110525131226,
+                "width": 0.016612675040960312,
+                "height": 0.01655891165137291
+              }
+            },
+            {
+              "text": "to",
+              "safe": "to",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.5924455523490906,
+                "top": 0.766762375831604,
+                "width": 0.016147226095199585,
+                "height": 0.01582597754895687
+              }
+            },
+            {
+              "text": "check",
+              "safe": "check",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.6168929934501648,
+                "top": 0.765816330909729,
+                "width": 0.0413866825401783,
+                "height": 0.017455149441957474
+              }
+            },
+            {
+              "text": "renal",
+              "safe": "renal",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.6676167845726013,
+                "top": 0.7663880586624146,
+                "width": 0.039982009679079056,
+                "height": 0.017124654725193977
+              }
+            },
+            {
+              "text": "function.",
+              "safe": "function.",
+              "confidence": 98.68463134765625,
+              "state": "high",
+              "bbox": {
+                "left": 0.7173035144805908,
+                "top": 0.7666375041007996,
+                "width": 0.07254398614168167,
+                "height": 0.017656834796071053
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "computed_at": "2026-09-13T13:09:21.030832"
+}

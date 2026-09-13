@@ -92,8 +92,13 @@ def canonical_doc_kind(kind: str | None) -> str:
 # discharge" -- true, informative, and not a dose. Accepting it would have made
 # a drug with no recorded dose look fully documented.
 _DOSE_SHAPE = re.compile(
-    r"(\d+(?:[.,]\d+)?\s*(?:mg|mcg|µg|ug|g|ml|l|units?|iu|%)\b"
-    r"|\d+\s*/\s*\d+\s*(?:mg|mcg)\b"
+    r"(\d+(?:[.,]\d+)?\s*(?:"
+    r"mg/kg|mcg/kg|mg|mcg|µg|ug|g|kg|ml|l|"
+    r"micrograms?|milligrams?|millilitres?|milliliters?|grams?|"
+    r"units?|iu|international units?|puffs?|drops?|tablets?|caps?|capsules?|sprays?|patch(?:es)?|"
+    r"mmol|%"
+    r")\b"
+    r"|\d+\s*/\s*\d+\s*(?:mg|mcg|micrograms?)\b"
     r"|as directed|prn only)",
     re.I,
 )

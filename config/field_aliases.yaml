@@ -48,7 +48,6 @@ allergies:
 presenting_symptoms:
   - presenting complaint
   - reason for admission
-  - reason for referral
   - history of presenting complaint
   - symptoms
   - chief complaint
@@ -68,9 +67,12 @@ previous_echo:
 
 referral_question:
   - referral question
+  - reason for referral
+  - reason for the referral
   - clinical question
-  - reason for referral request
+  - question for the clinic
   - advice sought
+  - purpose of referral
 
 bp_diary:
   - blood pressure

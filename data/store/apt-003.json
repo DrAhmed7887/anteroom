@@ -1,0 +1,2366 @@
+{
+  "record": {
+    "patient_ref": "SYN-0003",
+    "appointment_at": "2026-09-14T11:30:00",
+    "visit_type": "cardiology_new_consult",
+    "documents": [
+      {
+        "document_id": "doc5",
+        "label": "Referral letter, Dr F. MacLeod (SI Units / DD/MM/YY)",
+        "kind": "referral_letter",
+        "capture_quality": "degraded",
+        "received_at": "2026-09-13T13:16:05.433613"
+      }
+    ],
+    "facts": {
+      "referral_question": {
+        "field": "referral_question",
+        "value": "Assessment of exertional dyspnoea (NYHA II) and advice regarding further cardiac workup or echocardiography.",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc5",
+          "document_label": "Referral letter, Dr F. MacLeod (SI Units / DD/MM/YY)",
+          "location": "line 9",
+          "bbox": {
+            "left": 0.07237853854894638,
+            "top": 0.24992559850215912,
+            "width": 0.8001889586448669,
+            "height": 0.014339283108711243
+          }
+        },
+        "note": null
+      },
+      "presenting_symptoms": {
+        "field": "presenting_symptoms",
+        "value": "Gradual onset shortness of breath climbing stairs over 4 months. No chest pain, no syncope, no ankle swelling.",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc5",
+          "document_label": "Referral letter, Dr F. MacLeod (SI Units / DD/MM/YY)",
+          "location": "line 11",
+          "bbox": {
+            "left": 0.07246968895196915,
+            "top": 0.2978076934814453,
+            "width": 0.850027322769165,
+            "height": 0.014258595183491707
+          }
+        },
+        "note": null
+      },
+      "past_medical_history": {
+        "field": "past_medical_history",
+        "value": "Essential hypertension diagnosed 2018. Hypercholesterolaemia.",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc5",
+          "document_label": "Referral letter, Dr F. MacLeod (SI Units / DD/MM/YY)",
+          "location": "line 13",
+          "bbox": {
+            "left": 0.07276773452758789,
+            "top": 0.34585559368133545,
+            "width": 0.7690533995628357,
+            "height": 0.013922106474637985
+          }
+        },
+        "note": null
+      },
+      "allergies": {
+        "field": "allergies",
+        "value": "NKDA (No Known Drug Allergies).",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc5",
+          "document_label": "Referral letter, Dr F. MacLeod (SI Units / DD/MM/YY)",
+          "location": "line 20",
+          "bbox": {
+            "left": 0.072993203997612,
+            "top": 0.5088114142417908,
+            "width": 0.4159279465675354,
+            "height": 0.013995731249451637
+          }
+        },
+        "note": null
+      },
+      "renal_function": {
+        "field": "renal_function",
+        "value": "88 \u00b5mol/L (eGFR > 60 mL/min/1.73m2)",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc5",
+          "document_label": "Referral letter, Dr F. MacLeod (SI Units / DD/MM/YY)",
+          "location": "line 15",
+          "bbox": {
+            "left": 0.07334484905004501,
+            "top": 0.39358511567115784,
+            "width": 0.4836777448654175,
+            "height": 0.013885611668229103
+          }
+        },
+        "note": null
+      },
+      "recent_ecg": {
+        "field": "recent_ecg",
+        "value": "Normal sinus rhythm, rate 68 bpm, no ischaemic changes.",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc5",
+          "document_label": "Referral letter, Dr F. MacLeod (SI Units / DD/MM/YY)",
+          "location": "line 18",
+          "bbox": {
+            "left": 0.07498612254858017,
+            "top": 0.4518910050392151,
+            "width": 0.5915188193321228,
+            "height": 0.014283367432653904
+          }
+        },
+        "note": null
+      },
+      "current_medications": {
+        "field": "current_medications",
+        "value": "2 medications recorded: Amlodipine, Atorvastatin",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc5",
+          "document_label": "Referral letter, Dr F. MacLeod (SI Units / DD/MM/YY)",
+          "location": "line 19",
+          "bbox": {
+            "left": 0.0733388215303421,
+            "top": 0.48038479685783386,
+            "width": 0.8387224674224854,
+            "height": 0.014128318056464195
+          }
+        },
+        "note": null
+      }
+    },
+    "medications": [
+      {
+        "name": "Amlodipine",
+        "dose": "5 mg",
+        "frequency": null,
+        "confidence": "high",
+        "source": {
+          "document_id": "doc5",
+          "document_label": "Referral letter, Dr F. MacLeod (SI Units / DD/MM/YY)",
+          "location": "line 19",
+          "bbox": {
+            "left": 0.0733388215303421,
+            "top": 0.48038479685783386,
+            "width": 0.8387224674224854,
+            "height": 0.014128318056464195
+          }
+        },
+        "note": null,
+        "is_high_risk": false
+      },
+      {
+        "name": "Atorvastatin",
+        "dose": "20 mg",
+        "frequency": null,
+        "confidence": "high",
+        "source": {
+          "document_id": "doc5",
+          "document_label": "Referral letter, Dr F. MacLeod (SI Units / DD/MM/YY)",
+          "location": "line 19",
+          "bbox": {
+            "left": 0.0733388215303421,
+            "top": 0.48038479685783386,
+            "width": 0.8387224674224854,
+            "height": 0.014128318056464195
+          }
+        },
+        "note": null,
+        "is_high_risk": false
+      }
+    ],
+    "all_facts": [
+      {
+        "field": "referral_question",
+        "value": "Assessment of exertional dyspnoea (NYHA II) and advice regarding further cardiac workup or echocardiography.",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc5",
+          "document_label": "Referral letter, Dr F. MacLeod (SI Units / DD/MM/YY)",
+          "location": "line 9",
+          "bbox": {
+            "left": 0.07237853854894638,
+            "top": 0.24992559850215912,
+            "width": 0.8001889586448669,
+            "height": 0.014339283108711243
+          }
+        },
+        "note": null
+      },
+      {
+        "field": "presenting_symptoms",
+        "value": "Gradual onset shortness of breath climbing stairs over 4 months. No chest pain, no syncope, no ankle swelling.",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc5",
+          "document_label": "Referral letter, Dr F. MacLeod (SI Units / DD/MM/YY)",
+          "location": "line 11",
+          "bbox": {
+            "left": 0.07246968895196915,
+            "top": 0.2978076934814453,
+            "width": 0.850027322769165,
+            "height": 0.014258595183491707
+          }
+        },
+        "note": null
+      },
+      {
+        "field": "past_medical_history",
+        "value": "Essential hypertension diagnosed 2018. Hypercholesterolaemia.",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc5",
+          "document_label": "Referral letter, Dr F. MacLeod (SI Units / DD/MM/YY)",
+          "location": "line 13",
+          "bbox": {
+            "left": 0.07276773452758789,
+            "top": 0.34585559368133545,
+            "width": 0.7690533995628357,
+            "height": 0.013922106474637985
+          }
+        },
+        "note": null
+      },
+      {
+        "field": "allergies",
+        "value": "NKDA (No Known Drug Allergies).",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc5",
+          "document_label": "Referral letter, Dr F. MacLeod (SI Units / DD/MM/YY)",
+          "location": "line 20",
+          "bbox": {
+            "left": 0.072993203997612,
+            "top": 0.5088114142417908,
+            "width": 0.4159279465675354,
+            "height": 0.013995731249451637
+          }
+        },
+        "note": null
+      },
+      {
+        "field": "renal_function",
+        "value": "88 \u00b5mol/L (eGFR > 60 mL/min/1.73m2)",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc5",
+          "document_label": "Referral letter, Dr F. MacLeod (SI Units / DD/MM/YY)",
+          "location": "line 15",
+          "bbox": {
+            "left": 0.07334484905004501,
+            "top": 0.39358511567115784,
+            "width": 0.4836777448654175,
+            "height": 0.013885611668229103
+          }
+        },
+        "note": null
+      },
+      {
+        "field": "recent_ecg",
+        "value": "Normal sinus rhythm, rate 68 bpm, no ischaemic changes.",
+        "confidence": "high",
+        "source": {
+          "document_id": "doc5",
+          "document_label": "Referral letter, Dr F. MacLeod (SI Units / DD/MM/YY)",
+          "location": "line 18",
+          "bbox": {
+            "left": 0.07498612254858017,
+            "top": 0.4518910050392151,
+            "width": 0.5915188193321228,
+            "height": 0.014283367432653904
+          }
+        },
+        "note": null
+      }
+    ]
+  },
+  "report": {
+    "patient_ref": "SYN-0003",
+    "appointment_at": "2026-09-14T11:30:00",
+    "visit_type": "cardiology_new_consult",
+    "status": "needs_action",
+    "score": 90,
+    "gaps": [
+      {
+        "field": "anticoagulant_status",
+        "severity": "important",
+        "reason": "missing",
+        "owner": "nurse",
+        "action": "Ask the patient for anticoagulant status when confirming the appointment.",
+        "call_script": null,
+        "source": null
+      },
+      {
+        "field": "bp_diary",
+        "severity": "minor",
+        "reason": "missing",
+        "owner": "reception",
+        "action": "Ask the patient for bp diary when confirming the appointment.",
+        "call_script": null,
+        "source": null
+      },
+      {
+        "field": "family_history",
+        "severity": "minor",
+        "reason": "missing",
+        "owner": "reception",
+        "action": "Ask the patient for family history when confirming the appointment.",
+        "call_script": null,
+        "source": null
+      },
+      {
+        "field": "previous_echo",
+        "severity": "minor",
+        "reason": "missing",
+        "owner": "reception",
+        "action": "Request previous echo from the hospital records department before the appointment.",
+        "call_script": null,
+        "source": null
+      }
+    ],
+    "doctor_brief": ""
+  },
+  "brief": {
+    "patient_ref": "SYN-0003",
+    "appointment": "Mon 14 Sep, 11:30",
+    "narrative": {
+      "headline": "Adult with exertional dyspnoea and hypertension",
+      "background": [
+        "Gradual onset shortness of breath climbing stairs",
+        "No chest pain, no syncope, no ankle swelling",
+        "Essential hypertension diagnosed 2018",
+        "Hypercholesterolaemia"
+      ]
+    },
+    "medications": [
+      "Amlodipine \u2014 5 mg",
+      "Atorvastatin \u2014 20 mg"
+    ],
+    "not_documented": [
+      "anticoagulant status \u2014 not documented"
+    ],
+    "before_you_start": [],
+    "sources": [
+      "Referral letter, Dr F. MacLeod (SI Units / DD/MM/YY)"
+    ]
+  },
+  "documents": [
+    {
+      "document_id": "doc5",
+      "label": "Referral letter, Dr F. MacLeod (SI Units / DD/MM/YY)",
+      "path": "data/synthetic/05_international_referral.jpg",
+      "illegible_count": 1,
+      "lines": [
+        {
+          "text": "ROYAL CRESCENT MEDICAL PRACTICE",
+          "raw": "ROYAL CRESCENT MEDICAL PRACTICE",
+          "confidence": 99.990234375,
+          "bbox": {
+            "left": 0.0727156475186348,
+            "top": 0.058964040130376816,
+            "width": 0.5090834498405457,
+            "height": 0.013409966602921486
+          },
+          "words": [
+            {
+              "text": "ROYAL",
+              "safe": "ROYAL",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.0727156475186348,
+                "top": 0.05898739770054817,
+                "width": 0.09321083873510361,
+                "height": 0.013179232366383076
+              }
+            },
+            {
+              "text": "CRESCENT",
+              "safe": "CRESCENT",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.17295117676258087,
+                "top": 0.058987148106098175,
+                "width": 0.1390269696712494,
+                "height": 0.013315819203853607
+              }
+            },
+            {
+              "text": "MEDICAL",
+              "safe": "MEDICAL",
+              "confidence": 99.970703125,
+              "state": "high",
+              "bbox": {
+                "left": 0.31792151927948,
+                "top": 0.05902175232768059,
+                "width": 0.12366189807653427,
+                "height": 0.013075990602374077
+              }
+            },
+            {
+              "text": "PRACTICE",
+              "safe": "PRACTICE",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.4476507008075714,
+                "top": 0.058964040130376816,
+                "width": 0.13414838910102844,
+                "height": 0.013409667648375034
+              }
+            }
+          ]
+        },
+        {
+          "text": "Department of Community Health",
+          "raw": "Department of Community Health",
+          "confidence": 99.95809936523438,
+          "bbox": {
+            "left": 0.07244883477687836,
+            "top": 0.08190421760082245,
+            "width": 0.2460438758134842,
+            "height": 0.012779474258422852
+          },
+          "words": [
+            {
+              "text": "Department",
+              "safe": "Department",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.07244883477687836,
+                "top": 0.082290880382061,
+                "width": 0.08487468957901001,
+                "height": 0.012392805889248848
+              }
+            },
+            {
+              "text": "of",
+              "safe": "of",
+              "confidence": 99.95037078857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.1615629494190216,
+                "top": 0.0819043219089508,
+                "width": 0.0171838216483593,
+                "height": 0.010096336714923382
+              }
+            },
+            {
+              "text": "Community",
+              "safe": "Community",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.1812310516834259,
+                "top": 0.08201553672552109,
+                "width": 0.08469700813293457,
+                "height": 0.012564782984554768
+              }
+            },
+            {
+              "text": "Health",
+              "safe": "Health",
+              "confidence": 99.88201141357422,
+              "state": "high",
+              "bbox": {
+                "left": 0.2700308561325073,
+                "top": 0.08197365701198578,
+                "width": 0.04846184700727463,
+                "height": 0.009922272525727749
+              }
+            }
+          ]
+        },
+        {
+          "text": "\u27eaILLEGIBLE\u27eb",
+          "raw": "-",
+          "confidence": 52.84449005126953,
+          "bbox": {
+            "left": 0.3287650942802429,
+            "top": 0.08661205321550369,
+            "width": 0.003993663936853409,
+            "height": 0.0018225651001557708
+          },
+          "words": [
+            {
+              "text": "-",
+              "safe": "\u27eaILLEGIBLE\u27eb",
+              "confidence": 52.84449005126953,
+              "state": "unreadable",
+              "bbox": {
+                "left": 0.3287650942802429,
+                "top": 0.08661205321550369,
+                "width": 0.003993663936853409,
+                "height": 0.0018225651001557708
+              }
+            }
+          ]
+        },
+        {
+          "text": "Tel +44 131 496 0199",
+          "raw": "Tel +44 131 496 0199",
+          "confidence": 96.22030639648438,
+          "bbox": {
+            "left": 0.3426717519760132,
+            "top": 0.08208020031452179,
+            "width": 0.1592193990945816,
+            "height": 0.01008994784206152
+          },
+          "words": [
+            {
+              "text": "Tel",
+              "safe": "Tel",
+              "confidence": 99.30105590820312,
+              "state": "high",
+              "bbox": {
+                "left": 0.3426717519760132,
+                "top": 0.08208030462265015,
+                "width": 0.02412695623934269,
+                "height": 0.009886948391795158
+              }
+            },
+            {
+              "text": "+44 131 496 0199",
+              "safe": "+44 131 496 0199",
+              "confidence": 93.1395492553711,
+              "state": "medium",
+              "bbox": {
+                "left": 0.36994701623916626,
+                "top": 0.082379549741745,
+                "width": 0.13194413483142853,
+                "height": 0.009790577925741673
+              }
+            }
+          ]
+        },
+        {
+          "text": "Cardiology Outpatients Clinic",
+          "raw": "Cardiology Outpatients Clinic",
+          "confidence": 99.98345947265625,
+          "bbox": {
+            "left": 0.07302620261907578,
+            "top": 0.12920498847961426,
+            "width": 0.23575274646282196,
+            "height": 0.01348746195435524
+          },
+          "words": [
+            {
+              "text": "Cardiology",
+              "safe": "Cardiology",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.07302621006965637,
+                "top": 0.1292160451412201,
+                "width": 0.0878303200006485,
+                "height": 0.013415481895208359
+              }
+            },
+            {
+              "text": "Outpatients",
+              "safe": "Outpatients",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.1658141165971756,
+                "top": 0.1294836699962616,
+                "width": 0.09037327021360397,
+                "height": 0.01320870965719223
+              }
+            },
+            {
+              "text": "Clinic",
+              "safe": "Clinic",
+              "confidence": 99.95037078857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.26094314455986023,
+                "top": 0.12920498847961426,
+                "width": 0.047835804522037506,
+                "height": 0.010561762377619743
+              }
+            }
+          ]
+        },
+        {
+          "text": "Date: 14/09/2026",
+          "raw": "Date: 14/09/2026",
+          "confidence": 99.98007202148438,
+          "bbox": {
+            "left": 0.07244288176298141,
+            "top": 0.14881286025047302,
+            "width": 0.13687294721603394,
+            "height": 0.010557678528130054
+          },
+          "words": [
+            {
+              "text": "Date:",
+              "safe": "Date:",
+              "confidence": 99.96014404296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.07244288176298141,
+                "top": 0.1488129198551178,
+                "width": 0.04204064607620239,
+                "height": 0.010557612404227257
+              }
+            },
+            {
+              "text": "14/09/2026",
+              "safe": "14/09/2026",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.12163033336400986,
+                "top": 0.1488294154405594,
+                "width": 0.0876854956150055,
+                "height": 0.010513165034353733
+              }
+            }
+          ]
+        },
+        {
+          "text": "RE: Tariq Al-Mansoor DOB: 14/05/1965 CHI/NHS: 492 881 9021",
+          "raw": "RE: Tariq Al-Mansoor DOB: 14/05/1965 CHI/NHS: 492 881 9021",
+          "confidence": 98.01392364501953,
+          "bbox": {
+            "left": 0.07283126562833786,
+            "top": 0.18561285734176636,
+            "width": 0.5977551341056824,
+            "height": 0.01362797524780035
+          },
+          "words": [
+            {
+              "text": "RE:",
+              "safe": "RE:",
+              "confidence": 99.93083953857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.07283127307891846,
+                "top": 0.18565146625041962,
+                "width": 0.033698342740535736,
+                "height": 0.010842175222933292
+              }
+            },
+            {
+              "text": "Tariq",
+              "safe": "Tariq",
+              "confidence": 99.951171875,
+              "state": "high",
+              "bbox": {
+                "left": 0.1123957633972168,
+                "top": 0.18561318516731262,
+                "width": 0.050002798438072205,
+                "height": 0.013627621345221996
+              }
+            },
+            {
+              "text": "Al-Mansoor",
+              "safe": "Al-Mansoor",
+              "confidence": 99.294677734375,
+              "state": "high",
+              "bbox": {
+                "left": 0.16708531975746155,
+                "top": 0.18567733466625214,
+                "width": 0.1063232421875,
+                "height": 0.010870269499719143
+              }
+            },
+            {
+              "text": "DOB:",
+              "safe": "DOB:",
+              "confidence": 99.921875,
+              "state": "high",
+              "bbox": {
+                "left": 0.2921270430088043,
+                "top": 0.18563583493232727,
+                "width": 0.04927721992135048,
+                "height": 0.01090364158153534
+              }
+            },
+            {
+              "text": "14/05/1965",
+              "safe": "14/05/1965",
+              "confidence": 99.951171875,
+              "state": "high",
+              "bbox": {
+                "left": 0.3478105962276459,
+                "top": 0.18562963604927063,
+                "width": 0.09404628723859787,
+                "height": 0.010911992751061916
+              }
+            },
+            {
+              "text": "CHI/NHS:",
+              "safe": "CHI/NHS:",
+              "confidence": 99.48262023925781,
+              "state": "high",
+              "bbox": {
+                "left": 0.46174103021621704,
+                "top": 0.18561601638793945,
+                "width": 0.0899449810385704,
+                "height": 0.010791817680001259
+              }
+            },
+            {
+              "text": "492",
+              "safe": "492",
+              "confidence": 93.12420654296875,
+              "state": "medium",
+              "bbox": {
+                "left": 0.5573536157608032,
+                "top": 0.18569909036159515,
+                "width": 0.030996546149253845,
+                "height": 0.010734070092439651
+              }
+            },
+            {
+              "text": "881",
+              "safe": "881",
+              "confidence": 95.029296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.5941775441169739,
+                "top": 0.18567411601543427,
+                "width": 0.029988154768943787,
+                "height": 0.010843781754374504
+              }
+            },
+            {
+              "text": "9021",
+              "safe": "9021",
+              "confidence": 95.439453125,
+              "state": "high",
+              "bbox": {
+                "left": 0.629771888256073,
+                "top": 0.18580350279808044,
+                "width": 0.040814563632011414,
+                "height": 0.010687630623579025
+              }
+            }
+          ]
+        },
+        {
+          "text": "Dear Dr Hale,",
+          "raw": "Dear Dr Hale,",
+          "confidence": 99.73480224609375,
+          "bbox": {
+            "left": 0.07268452644348145,
+            "top": 0.2218596190214157,
+            "width": 0.11193331331014633,
+            "height": 0.012974662706255913
+          },
+          "words": [
+            {
+              "text": "Dear",
+              "safe": "Dear",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.07268452644348145,
+                "top": 0.22220072150230408,
+                "width": 0.03971680626273155,
+                "height": 0.010597375221550465
+              }
+            },
+            {
+              "text": "Dr",
+              "safe": "Dr",
+              "confidence": 99.2833251953125,
+              "state": "high",
+              "bbox": {
+                "left": 0.11634267121553421,
+                "top": 0.22216470539569855,
+                "width": 0.021647948771715164,
+                "height": 0.010567020624876022
+              }
+            },
+            {
+              "text": "Hale,",
+              "safe": "Hale,",
+              "confidence": 99.92107391357422,
+              "state": "high",
+              "bbox": {
+                "left": 0.14209426939487457,
+                "top": 0.2218596190214157,
+                "width": 0.042523570358753204,
+                "height": 0.01297462172806263
+              }
+            }
+          ]
+        },
+        {
+          "text": "REASON FOR REFERRAL: Assessment of exertional dyspnoea (NYHA II) and advice regarding",
+          "raw": "REASON FOR REFERRAL: Assessment of exertional dyspnoea (NYHA II) and advice regarding",
+          "confidence": 99.89795684814453,
+          "bbox": {
+            "left": 0.07237853854894638,
+            "top": 0.24992559850215912,
+            "width": 0.8001889586448669,
+            "height": 0.014339283108711243
+          },
+          "words": [
+            {
+              "text": "REASON",
+              "safe": "REASON",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.07237854599952698,
+                "top": 0.25064805150032043,
+                "width": 0.08110708743333817,
+                "height": 0.010791617445647717
+              }
+            },
+            {
+              "text": "FOR",
+              "safe": "FOR",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.15813100337982178,
+                "top": 0.25072482228279114,
+                "width": 0.040169067680835724,
+                "height": 0.01066630333662033
+              }
+            },
+            {
+              "text": "REFERRAL:",
+              "safe": "REFERRAL:",
+              "confidence": 99.7608413696289,
+              "state": "high",
+              "bbox": {
+                "left": 0.20235972106456757,
+                "top": 0.25062623620033264,
+                "width": 0.10793719440698624,
+                "height": 0.0108040114864707
+              }
+            },
+            {
+              "text": "Assessment",
+              "safe": "Assessment",
+              "confidence": 99.96014404296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.3162456750869751,
+                "top": 0.25095275044441223,
+                "width": 0.09701523184776306,
+                "height": 0.010467927902936935
+              }
+            },
+            {
+              "text": "of",
+              "safe": "of",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.4172939658164978,
+                "top": 0.250023752450943,
+                "width": 0.019775139167904854,
+                "height": 0.011218210682272911
+              }
+            },
+            {
+              "text": "exertional",
+              "safe": "exertional",
+              "confidence": 99.96014404296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.43937018513679504,
+                "top": 0.25003185868263245,
+                "width": 0.08105582743883133,
+                "height": 0.011201219633221626
+              }
+            },
+            {
+              "text": "dyspnoea",
+              "safe": "dyspnoea",
+              "confidence": 99.84056091308594,
+              "state": "high",
+              "bbox": {
+                "left": 0.5253490209579468,
+                "top": 0.25007885694503784,
+                "width": 0.07816745340824127,
+                "height": 0.01406445074826479
+              }
+            },
+            {
+              "text": "(NYHA",
+              "safe": "(NYHA",
+              "confidence": 99.80229949951172,
+              "state": "high",
+              "bbox": {
+                "left": 0.6088487505912781,
+                "top": 0.25056177377700806,
+                "width": 0.06421870738267899,
+                "height": 0.013386783190071583
+              }
+            },
+            {
+              "text": "II)",
+              "safe": "II)",
+              "confidence": 99.48082733154297,
+              "state": "high",
+              "bbox": {
+                "left": 0.6772659420967102,
+                "top": 0.25055521726608276,
+                "width": 0.019664140418171883,
+                "height": 0.013423127122223377
+              }
+            },
+            {
+              "text": "and",
+              "safe": "and",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.7019467353820801,
+                "top": 0.2501979470252991,
+                "width": 0.030222786590456963,
+                "height": 0.011108196340501308
+              }
+            },
+            {
+              "text": "advice",
+              "safe": "advice",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.7363712787628174,
+                "top": 0.250153511762619,
+                "width": 0.053516797721385956,
+                "height": 0.011148198507726192
+              }
+            },
+            {
+              "text": "regarding",
+              "safe": "regarding",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.7939959168434143,
+                "top": 0.24992559850215912,
+                "width": 0.07857158035039902,
+                "height": 0.014338890090584755
+              }
+            }
+          ]
+        },
+        {
+          "text": "further cardiac workup or echocardiography.",
+          "raw": "further cardiac workup or echocardiography.",
+          "confidence": 99.7510757446289,
+          "bbox": {
+            "left": 0.07305344939231873,
+            "top": 0.26936468482017517,
+            "width": 0.3630395531654358,
+            "height": 0.014450051821768284
+          },
+          "words": [
+            {
+              "text": "further",
+              "safe": "further",
+              "confidence": 99.96014404296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.07305344939231873,
+                "top": 0.2693672478199005,
+                "width": 0.05559496581554413,
+                "height": 0.01113604661077261
+              }
+            },
+            {
+              "text": "cardiac",
+              "safe": "cardiac",
+              "confidence": 99.3223876953125,
+              "state": "high",
+              "bbox": {
+                "left": 0.13275693356990814,
+                "top": 0.26937204599380493,
+                "width": 0.057984087616205215,
+                "height": 0.010985670611262321
+              }
+            },
+            {
+              "text": "workup",
+              "safe": "workup",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.1952478289604187,
+                "top": 0.2695869207382202,
+                "width": 0.06287369877099991,
+                "height": 0.01397605612874031
+              }
+            },
+            {
+              "text": "or",
+              "safe": "or",
+              "confidence": 99.951171875,
+              "state": "high",
+              "bbox": {
+                "left": 0.2633226811885834,
+                "top": 0.2727958858013153,
+                "width": 0.01771964691579342,
+                "height": 0.007636660244315863
+              }
+            },
+            {
+              "text": "echocardiography.",
+              "safe": "echocardiography.",
+              "confidence": 99.52168273925781,
+              "state": "high",
+              "bbox": {
+                "left": 0.28533974289894104,
+                "top": 0.26936468482017517,
+                "width": 0.15075328946113586,
+                "height": 0.014449940994381905
+              }
+            }
+          ]
+        },
+        {
+          "text": "PRESENTING SYMPTOMS: Gradual onset shortness of breath climbing stairs over 4 months. No chest",
+          "raw": "PRESENTING SYMPTOMS: Gradual onset shortness of breath climbing stairs over 4 months. No chest",
+          "confidence": 99.81527709960938,
+          "bbox": {
+            "left": 0.07246968895196915,
+            "top": 0.2978076934814453,
+            "width": 0.850027322769165,
+            "height": 0.014258595183491707
+          },
+          "words": [
+            {
+              "text": "PRESENTING",
+              "safe": "PRESENTING",
+              "confidence": 99.92028045654297,
+              "state": "high",
+              "bbox": {
+                "left": 0.07246968895196915,
+                "top": 0.2983523905277252,
+                "width": 0.12276457250118256,
+                "height": 0.0107653783634305
+              }
+            },
+            {
+              "text": "SYMPTOMS:",
+              "safe": "SYMPTOMS:",
+              "confidence": 99.69168090820312,
+              "state": "high",
+              "bbox": {
+                "left": 0.200842022895813,
+                "top": 0.2984316647052765,
+                "width": 0.1145140528678894,
+                "height": 0.010873868130147457
+              }
+            },
+            {
+              "text": "Gradual",
+              "safe": "Gradual",
+              "confidence": 99.96014404296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.3213725686073303,
+                "top": 0.298082560300827,
+                "width": 0.06527426838874817,
+                "height": 0.011177769862115383
+              }
+            },
+            {
+              "text": "onset",
+              "safe": "onset",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.3915707468986511,
+                "top": 0.29944315552711487,
+                "width": 0.043997377157211304,
+                "height": 0.009715794585645199
+              }
+            },
+            {
+              "text": "shortness",
+              "safe": "shortness",
+              "confidence": 99.96014404296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.4399554431438446,
+                "top": 0.29810020327568054,
+                "width": 0.07633386552333832,
+                "height": 0.011125307530164719
+              }
+            },
+            {
+              "text": "of",
+              "safe": "of",
+              "confidence": 99.9609375,
+              "state": "high",
+              "bbox": {
+                "left": 0.5212849974632263,
+                "top": 0.297973096370697,
+                "width": 0.019361210986971855,
+                "height": 0.011170472949743271
+              }
+            },
+            {
+              "text": "breath",
+              "safe": "breath",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.5430946946144104,
+                "top": 0.297996461391449,
+                "width": 0.05100021883845329,
+                "height": 0.011201477609574795
+              }
+            },
+            {
+              "text": "climbing",
+              "safe": "climbing",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.598778247833252,
+                "top": 0.29780781269073486,
+                "width": 0.07233712077140808,
+                "height": 0.014258215203881264
+              }
+            },
+            {
+              "text": "stairs",
+              "safe": "stairs",
+              "confidence": 99.68112182617188,
+              "state": "high",
+              "bbox": {
+                "left": 0.6760589480400085,
+                "top": 0.29793301224708557,
+                "width": 0.042935874313116074,
+                "height": 0.011264147236943245
+              }
+            },
+            {
+              "text": "over",
+              "safe": "over",
+              "confidence": 99.912109375,
+              "state": "high",
+              "bbox": {
+                "left": 0.7239869832992554,
+                "top": 0.3013131618499756,
+                "width": 0.03658547252416611,
+                "height": 0.007826614193618298
+              }
+            },
+            {
+              "text": "4",
+              "safe": "4",
+              "confidence": 99.33374786376953,
+              "state": "high",
+              "bbox": {
+                "left": 0.7643983960151672,
+                "top": 0.29858535528182983,
+                "width": 0.010496321134269238,
+                "height": 0.010526412166655064
+              }
+            },
+            {
+              "text": "months.",
+              "safe": "months.",
+              "confidence": 99.12308502197266,
+              "state": "high",
+              "bbox": {
+                "left": 0.7798429727554321,
+                "top": 0.29808980226516724,
+                "width": 0.06464852392673492,
+                "height": 0.011091254651546478
+              }
+            },
+            {
+              "text": "No",
+              "safe": "No",
+              "confidence": 99.95037078857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.8495625853538513,
+                "top": 0.29839950799942017,
+                "width": 0.025161687284708023,
+                "height": 0.01080461498349905
+              }
+            },
+            {
+              "text": "chest",
+              "safe": "chest",
+              "confidence": 99.92028045654297,
+              "state": "high",
+              "bbox": {
+                "left": 0.8805919289588928,
+                "top": 0.2980741262435913,
+                "width": 0.04190507531166077,
+                "height": 0.011081182397902012
+              }
+            }
+          ]
+        },
+        {
+          "text": "pain, no syncope, no ankle swelling.",
+          "raw": "pain, no syncope, no ankle swelling.",
+          "confidence": 99.93721771240234,
+          "bbox": {
+            "left": 0.0722358226776123,
+            "top": 0.31731370091438293,
+            "width": 0.29726481437683105,
+            "height": 0.0142876161262393
+          },
+          "words": [
+            {
+              "text": "pain,",
+              "safe": "pain,",
+              "confidence": 99.96014404296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.0722358226776123,
+                "top": 0.31742194294929504,
+                "width": 0.040743403136730194,
+                "height": 0.013889806345105171
+              }
+            },
+            {
+              "text": "no",
+              "safe": "no",
+              "confidence": 99.951171875,
+              "state": "high",
+              "bbox": {
+                "left": 0.1176571473479271,
+                "top": 0.32088929414749146,
+                "width": 0.021011950448155403,
+                "height": 0.00781677570194006
+              }
+            },
+            {
+              "text": "syncope,",
+              "safe": "syncope,",
+              "confidence": 99.96014404296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.14408093690872192,
+                "top": 0.3205460011959076,
+                "width": 0.07207217067480087,
+                "height": 0.01105530560016632
+              }
+            },
+            {
+              "text": "no",
+              "safe": "no",
+              "confidence": 99.951171875,
+              "state": "high",
+              "bbox": {
+                "left": 0.22105003893375397,
+                "top": 0.3208049535751343,
+                "width": 0.02103370428085327,
+                "height": 0.007858557626605034
+              }
+            },
+            {
+              "text": "ankle",
+              "safe": "ankle",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.24713395535945892,
+                "top": 0.31739532947540283,
+                "width": 0.0445341132581234,
+                "height": 0.011353544890880585
+              }
+            },
+            {
+              "text": "swelling.",
+              "safe": "swelling.",
+              "confidence": 99.80069732666016,
+              "state": "high",
+              "bbox": {
+                "left": 0.2964456379413605,
+                "top": 0.31731370091438293,
+                "width": 0.07305499911308289,
+                "height": 0.013903717510402203
+              }
+            }
+          ]
+        },
+        {
+          "text": "PAST MEDICAL HISTORY: Essential hypertension diagnosed 2018. Hypercholesterolaemia.",
+          "raw": "PAST MEDICAL HISTORY: Essential hypertension diagnosed 2018. Hypercholesterolaemia.",
+          "confidence": 99.79255676269531,
+          "bbox": {
+            "left": 0.07276773452758789,
+            "top": 0.34585559368133545,
+            "width": 0.7690533995628357,
+            "height": 0.013922106474637985
+          },
+          "words": [
+            {
+              "text": "PAST",
+              "safe": "PAST",
+              "confidence": 99.970703125,
+              "state": "high",
+              "bbox": {
+                "left": 0.07276774197816849,
+                "top": 0.3463291823863983,
+                "width": 0.049679990857839584,
+                "height": 0.010829523205757141
+              }
+            },
+            {
+              "text": "MEDICAL",
+              "safe": "MEDICAL",
+              "confidence": 99.951171875,
+              "state": "high",
+              "bbox": {
+                "left": 0.12655742466449738,
+                "top": 0.3462601900100708,
+                "width": 0.09167114645242691,
+                "height": 0.010809800587594509
+              }
+            },
+            {
+              "text": "HISTORY:",
+              "safe": "HISTORY:",
+              "confidence": 99.87145233154297,
+              "state": "high",
+              "bbox": {
+                "left": 0.22285620868206024,
+                "top": 0.3462880253791809,
+                "width": 0.09157194942235947,
+                "height": 0.010893085971474648
+              }
+            },
+            {
+              "text": "Essential",
+              "safe": "Essential",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.3203622102737427,
+                "top": 0.34611424803733826,
+                "width": 0.07329650968313217,
+                "height": 0.010943391360342503
+              }
+            },
+            {
+              "text": "hypertension",
+              "safe": "hypertension",
+              "confidence": 99.96014404296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.39839255809783936,
+                "top": 0.3458557426929474,
+                "width": 0.10651836544275284,
+                "height": 0.01382798794656992
+              }
+            },
+            {
+              "text": "diagnosed",
+              "safe": "diagnosed",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.5098534822463989,
+                "top": 0.34587541222572327,
+                "width": 0.08396778255701065,
+                "height": 0.013798106461763382
+              }
+            },
+            {
+              "text": "2018.",
+              "safe": "2018.",
+              "confidence": 99.91131591796875,
+              "state": "high",
+              "bbox": {
+                "left": 0.5987467765808105,
+                "top": 0.3463888466358185,
+                "width": 0.04615115746855736,
+                "height": 0.010925591923296452
+              }
+            },
+            {
+              "text": "Hypercholesterolaemia.",
+              "safe": "Hypercholesterolaemia.",
+              "confidence": 98.69519805908203,
+              "state": "high",
+              "bbox": {
+                "left": 0.6503567099571228,
+                "top": 0.34589704871177673,
+                "width": 0.19146443903446198,
+                "height": 0.013880395330488682
+              }
+            }
+          ]
+        },
+        {
+          "text": "INVESTIGATIONS (Checked 28/08/2026):",
+          "raw": "INVESTIGATIONS (Checked 28/08/2026):",
+          "confidence": 99.75048065185547,
+          "bbox": {
+            "left": 0.07298380881547928,
+            "top": 0.3744034171104431,
+            "width": 0.35904282331466675,
+            "height": 0.013801255263388157
+          },
+          "words": [
+            {
+              "text": "INVESTIGATIONS",
+              "safe": "INVESTIGATIONS",
+              "confidence": 99.89098358154297,
+              "state": "high",
+              "bbox": {
+                "left": 0.07298381626605988,
+                "top": 0.37477022409439087,
+                "width": 0.16451969742774963,
+                "height": 0.010874087922275066
+              }
+            },
+            {
+              "text": "(Checked",
+              "safe": "(Checked",
+              "confidence": 99.75505828857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.24339057505130768,
+                "top": 0.3744320571422577,
+                "width": 0.07774069160223007,
+                "height": 0.013539664447307587
+              }
+            },
+            {
+              "text": "28/08/2026):",
+              "safe": "28/08/2026):",
+              "confidence": 99.60538482666016,
+              "state": "high",
+              "bbox": {
+                "left": 0.32608968019485474,
+                "top": 0.3744034171104431,
+                "width": 0.1059369370341301,
+                "height": 0.013801158405840397
+              }
+            }
+          ]
+        },
+        {
+          "text": "Serum Creatinine: 88 \u00b5mol/L (eGFR > 60 mL/min/1.73m2)",
+          "raw": "Serum Creatinine: 88 \u00b5mol/L (eGFR > 60 mL/min/1.73m2)",
+          "confidence": 98.1591796875,
+          "bbox": {
+            "left": 0.07334484905004501,
+            "top": 0.39358511567115784,
+            "width": 0.4836777448654175,
+            "height": 0.013885611668229103
+          },
+          "words": [
+            {
+              "text": "Serum",
+              "safe": "Serum",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.07334485650062561,
+                "top": 0.39431801438331604,
+                "width": 0.05264107882976532,
+                "height": 0.01054713036864996
+              }
+            },
+            {
+              "text": "Creatinine:",
+              "safe": "Creatinine:",
+              "confidence": 99.67135620117188,
+              "state": "high",
+              "bbox": {
+                "left": 0.13027481734752655,
+                "top": 0.393839567899704,
+                "width": 0.08889324963092804,
+                "height": 0.011240608990192413
+              }
+            },
+            {
+              "text": "88",
+              "safe": "88",
+              "confidence": 99.95037078857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.22590851783752441,
+                "top": 0.3940865397453308,
+                "width": 0.0195664893835783,
+                "height": 0.010887080803513527
+              }
+            },
+            {
+              "text": "\u00b5mol/L",
+              "safe": "\u00b5mol/L",
+              "confidence": 93.3751220703125,
+              "state": "medium",
+              "bbox": {
+                "left": 0.2509726285934448,
+                "top": 0.3939525783061981,
+                "width": 0.06029853969812393,
+                "height": 0.013518094085156918
+              }
+            },
+            {
+              "text": "(eGFR",
+              "safe": "(eGFR",
+              "confidence": 99.40110778808594,
+              "state": "high",
+              "bbox": {
+                "left": 0.3166472017765045,
+                "top": 0.39371931552886963,
+                "width": 0.05466875433921814,
+                "height": 0.013609524816274643
+              }
+            },
+            {
+              "text": ">",
+              "safe": ">",
+              "confidence": 95.96041870117188,
+              "state": "high",
+              "bbox": {
+                "left": 0.3756102919578552,
+                "top": 0.3954874575138092,
+                "width": 0.012177899479866028,
+                "height": 0.008383861742913723
+              }
+            },
+            {
+              "text": "60",
+              "safe": "60",
+              "confidence": 98.99333953857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.39259278774261475,
+                "top": 0.3941951394081116,
+                "width": 0.020109407603740692,
+                "height": 0.010596007108688354
+              }
+            },
+            {
+              "text": "mL/min/1.73m2)",
+              "safe": "mL/min/1.73m2)",
+              "confidence": 97.93148040771484,
+              "state": "high",
+              "bbox": {
+                "left": 0.4174770414829254,
+                "top": 0.39358511567115784,
+                "width": 0.13954554498195648,
+                "height": 0.01376794371753931
+              }
+            }
+          ]
+        },
+        {
+          "text": "Serum Potassium: 4.2 mmol/L",
+          "raw": "Serum Potassium: 4.2 mmol/L",
+          "confidence": 99.37295532226562,
+          "bbox": {
+            "left": 0.07350554317235947,
+            "top": 0.4134191870689392,
+            "width": 0.24618113040924072,
+            "height": 0.011052741669118404
+          },
+          "words": [
+            {
+              "text": "Serum",
+              "safe": "Serum",
+              "confidence": 99.95037078857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.07350554317235947,
+                "top": 0.41359326243400574,
+                "width": 0.05254550650715828,
+                "height": 0.010722638107836246
+              }
+            },
+            {
+              "text": "Potassium:",
+              "safe": "Potassium:",
+              "confidence": 99.44196319580078,
+              "state": "high",
+              "bbox": {
+                "left": 0.12981164455413818,
+                "top": 0.41342711448669434,
+                "width": 0.08877459168434143,
+                "height": 0.01104478444904089
+              }
+            },
+            {
+              "text": "4.2",
+              "safe": "4.2",
+              "confidence": 99.49955749511719,
+              "state": "high",
+              "bbox": {
+                "left": 0.22418932616710663,
+                "top": 0.4136836528778076,
+                "width": 0.02543899603188038,
+                "height": 0.010722003877162933
+              }
+            },
+            {
+              "text": "mmol/L",
+              "safe": "mmol/L",
+              "confidence": 98.59992980957031,
+              "state": "high",
+              "bbox": {
+                "left": 0.25450295209884644,
+                "top": 0.4134191870689392,
+                "width": 0.06518370658159256,
+                "height": 0.010987920686602592
+              }
+            }
+          ]
+        },
+        {
+          "text": "Fasting Blood Glucose: 5.4 mmol/L",
+          "raw": "Fasting Blood Glucose: 5.4 mmol/L",
+          "confidence": 99.64576721191406,
+          "bbox": {
+            "left": 0.07256133109331131,
+            "top": 0.4324755072593689,
+            "width": 0.29388710856437683,
+            "height": 0.014046606607735157
+          },
+          "words": [
+            {
+              "text": "Fasting",
+              "safe": "Fasting",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.07256133109331131,
+                "top": 0.43247556686401367,
+                "width": 0.06067323312163353,
+                "height": 0.014046530239284039
+              }
+            },
+            {
+              "text": "Blood",
+              "safe": "Blood",
+              "confidence": 99.970703125,
+              "state": "high",
+              "bbox": {
+                "left": 0.13807307183742523,
+                "top": 0.4325949251651764,
+                "width": 0.051175814121961594,
+                "height": 0.011168538592755795
+              }
+            },
+            {
+              "text": "Glucose:",
+              "safe": "Glucose:",
+              "confidence": 99.92028045654297,
+              "state": "high",
+              "bbox": {
+                "left": 0.1944354772567749,
+                "top": 0.4327699840068817,
+                "width": 0.07107435166835785,
+                "height": 0.011106674559414387
+              }
+            },
+            {
+              "text": "5.4",
+              "safe": "5.4",
+              "confidence": 99.60778045654297,
+              "state": "high",
+              "bbox": {
+                "left": 0.27169695496559143,
+                "top": 0.4329650104045868,
+                "width": 0.024907492101192474,
+                "height": 0.010842673480510712
+              }
+            },
+            {
+              "text": "mmol/L",
+              "safe": "mmol/L",
+              "confidence": 98.73007202148438,
+              "state": "high",
+              "bbox": {
+                "left": 0.3013092279434204,
+                "top": 0.4327816963195801,
+                "width": 0.06513920426368713,
+                "height": 0.011020361445844173
+              }
+            }
+          ]
+        },
+        {
+          "text": "12-Lead ECG: Normal sinus rhythm, rate 68 bpm, no ischaemic changes.",
+          "raw": "12-Lead ECG: Normal sinus rhythm, rate 68 bpm, no ischaemic changes.",
+          "confidence": 99.84541320800781,
+          "bbox": {
+            "left": 0.07498612254858017,
+            "top": 0.4518910050392151,
+            "width": 0.5915188193321228,
+            "height": 0.014283367432653904
+          },
+          "words": [
+            {
+              "text": "12-Lead",
+              "safe": "12-Lead",
+              "confidence": 99.5703125,
+              "state": "high",
+              "bbox": {
+                "left": 0.07498612254858017,
+                "top": 0.45209845900535583,
+                "width": 0.06569342315196991,
+                "height": 0.01139334961771965
+              }
+            },
+            {
+              "text": "ECG:",
+              "safe": "ECG:",
+              "confidence": 99.87145233154297,
+              "state": "high",
+              "bbox": {
+                "left": 0.1454409807920456,
+                "top": 0.4523588716983795,
+                "width": 0.04488044232130051,
+                "height": 0.010745910927653313
+              }
+            },
+            {
+              "text": "Normal",
+              "safe": "Normal",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.19587589800357819,
+                "top": 0.4521034061908722,
+                "width": 0.061732806265354156,
+                "height": 0.011143150739371777
+              }
+            },
+            {
+              "text": "sinus",
+              "safe": "sinus",
+              "confidence": 99.84056091308594,
+              "state": "high",
+              "bbox": {
+                "left": 0.2625513970851898,
+                "top": 0.4521320164203644,
+                "width": 0.04237779602408409,
+                "height": 0.01092163659632206
+              }
+            },
+            {
+              "text": "rhythm,",
+              "safe": "rhythm,",
+              "confidence": 99.80149841308594,
+              "state": "high",
+              "bbox": {
+                "left": 0.3097797930240631,
+                "top": 0.45201656222343445,
+                "width": 0.0637788400053978,
+                "height": 0.013914461247622967
+              }
+            },
+            {
+              "text": "rate",
+              "safe": "rate",
+              "confidence": 99.93083953857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.37802854180336,
+                "top": 0.4533136785030365,
+                "width": 0.03034147247672081,
+                "height": 0.00995450560003519
+              }
+            },
+            {
+              "text": "68",
+              "safe": "68",
+              "confidence": 99.93083953857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.41350293159484863,
+                "top": 0.45237815380096436,
+                "width": 0.01996600441634655,
+                "height": 0.010697023943066597
+              }
+            },
+            {
+              "text": "bpm,",
+              "safe": "bpm,",
+              "confidence": 99.95037078857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.4386458396911621,
+                "top": 0.4520207345485687,
+                "width": 0.04119950532913208,
+                "height": 0.014153549447655678
+              }
+            },
+            {
+              "text": "no",
+              "safe": "no",
+              "confidence": 99.921875,
+              "state": "high",
+              "bbox": {
+                "left": 0.4844491183757782,
+                "top": 0.45530030131340027,
+                "width": 0.02094389498233795,
+                "height": 0.00790339708328247
+              }
+            },
+            {
+              "text": "ischaemic",
+              "safe": "ischaemic",
+              "confidence": 99.64126586914062,
+              "state": "high",
+              "bbox": {
+                "left": 0.5104246735572815,
+                "top": 0.45199304819107056,
+                "width": 0.08084838837385178,
+                "height": 0.011175228282809258
+              }
+            },
+            {
+              "text": "changes.",
+              "safe": "changes.",
+              "confidence": 99.84056091308594,
+              "state": "high",
+              "bbox": {
+                "left": 0.5961616635322571,
+                "top": 0.4518910050392151,
+                "width": 0.07034322619438171,
+                "height": 0.014102587476372719
+              }
+            }
+          ]
+        },
+        {
+          "text": "CURRENT MEDICATIONS: Amlodipine 5 mg once daily mane. Atorvastatin 20 mg once daily nocte.",
+          "raw": "CURRENT MEDICATIONS: Amlodipine 5 mg once daily mane. Atorvastatin 20 mg once daily nocte.",
+          "confidence": 99.87378692626953,
+          "bbox": {
+            "left": 0.0733388215303421,
+            "top": 0.48038479685783386,
+            "width": 0.8387224674224854,
+            "height": 0.014128318056464195
+          },
+          "words": [
+            {
+              "text": "CURRENT",
+              "safe": "CURRENT",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.0733388289809227,
+                "top": 0.48099300265312195,
+                "width": 0.09441793709993362,
+                "height": 0.010639194399118423
+              }
+            },
+            {
+              "text": "MEDICATIONS:",
+              "safe": "MEDICATIONS:",
+              "confidence": 99.75186920166016,
+              "state": "high",
+              "bbox": {
+                "left": 0.17223358154296875,
+                "top": 0.4809286296367645,
+                "width": 0.14246298372745514,
+                "height": 0.010959913022816181
+              }
+            },
+            {
+              "text": "Amlodipine",
+              "safe": "Amlodipine",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.3201724588871002,
+                "top": 0.4803907573223114,
+                "width": 0.09805230796337128,
+                "height": 0.01403763797134161
+              }
+            },
+            {
+              "text": "5",
+              "safe": "5",
+              "confidence": 99.85271453857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.4233490824699402,
+                "top": 0.4809475839138031,
+                "width": 0.008929658681154251,
+                "height": 0.010711911134421825
+              }
+            },
+            {
+              "text": "mg",
+              "safe": "mg",
+              "confidence": 99.9609375,
+              "state": "high",
+              "bbox": {
+                "left": 0.437703937292099,
+                "top": 0.483712375164032,
+                "width": 0.026387894526124,
+                "height": 0.01080062985420227
+              }
+            },
+            {
+              "text": "once",
+              "safe": "once",
+              "confidence": 99.990234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.46911290287971497,
+                "top": 0.4835224151611328,
+                "width": 0.03891391307115555,
+                "height": 0.00803813710808754
+              }
+            },
+            {
+              "text": "daily",
+              "safe": "daily",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.5125582218170166,
+                "top": 0.48041409254074097,
+                "width": 0.04053695872426033,
+                "height": 0.013865348882973194
+              }
+            },
+            {
+              "text": "mane.",
+              "safe": "mane.",
+              "confidence": 99.83079528808594,
+              "state": "high",
+              "bbox": {
+                "left": 0.5581815242767334,
+                "top": 0.4834373891353607,
+                "width": 0.048099737614393234,
+                "height": 0.008393941447138786
+              }
+            },
+            {
+              "text": "Atorvastatin",
+              "safe": "Atorvastatin",
+              "confidence": 99.44196319580078,
+              "state": "high",
+              "bbox": {
+                "left": 0.6114134788513184,
+                "top": 0.4807716906070709,
+                "width": 0.10114823281764984,
+                "height": 0.010983236134052277
+              }
+            },
+            {
+              "text": "20",
+              "safe": "20",
+              "confidence": 99.92107391357422,
+              "state": "high",
+              "bbox": {
+                "left": 0.7171287536621094,
+                "top": 0.48098257184028625,
+                "width": 0.020497573539614677,
+                "height": 0.010678945109248161
+              }
+            },
+            {
+              "text": "mg",
+              "safe": "mg",
+              "confidence": 99.951171875,
+              "state": "high",
+              "bbox": {
+                "left": 0.7428417801856995,
+                "top": 0.48369061946868896,
+                "width": 0.025686558336019516,
+                "height": 0.010794296860694885
+              }
+            },
+            {
+              "text": "once",
+              "safe": "once",
+              "confidence": 99.970703125,
+              "state": "high",
+              "bbox": {
+                "left": 0.773911714553833,
+                "top": 0.48356547951698303,
+                "width": 0.038525354117155075,
+                "height": 0.008021775633096695
+              }
+            },
+            {
+              "text": "daily",
+              "safe": "daily",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.8174417614936829,
+                "top": 0.48038479685783386,
+                "width": 0.04052800312638283,
+                "height": 0.013925588689744473
+              }
+            },
+            {
+              "text": "nocte.",
+              "safe": "nocte.",
+              "confidence": 99.56153869628906,
+              "state": "high",
+              "bbox": {
+                "left": 0.8628095984458923,
+                "top": 0.4821007549762726,
+                "width": 0.049251679331064224,
+                "height": 0.009549541398882866
+              }
+            }
+          ]
+        },
+        {
+          "text": "ALLERGIES: NKDA (No Known Drug Allergies).",
+          "raw": "ALLERGIES: NKDA (No Known Drug Allergies).",
+          "confidence": 99.7993392944336,
+          "bbox": {
+            "left": 0.072993203997612,
+            "top": 0.5088114142417908,
+            "width": 0.4159279465675354,
+            "height": 0.013995731249451637
+          },
+          "words": [
+            {
+              "text": "ALLERGIES:",
+              "safe": "ALLERGIES:",
+              "confidence": 99.84056091308594,
+              "state": "high",
+              "bbox": {
+                "left": 0.0729932114481926,
+                "top": 0.5093234181404114,
+                "width": 0.11312912404537201,
+                "height": 0.010820548050105572
+              }
+            },
+            {
+              "text": "NKDA",
+              "safe": "NKDA",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.1917235255241394,
+                "top": 0.5092703104019165,
+                "width": 0.058792609721422195,
+                "height": 0.010898702777922153
+              }
+            },
+            {
+              "text": "(No",
+              "safe": "(No",
+              "confidence": 99.7120132446289,
+              "state": "high",
+              "bbox": {
+                "left": 0.2554703652858734,
+                "top": 0.5092787146568298,
+                "width": 0.030679674819111824,
+                "height": 0.013153411448001862
+              }
+            },
+            {
+              "text": "Known",
+              "safe": "Known",
+              "confidence": 99.93083953857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.29121264815330505,
+                "top": 0.5092465281486511,
+                "width": 0.0608668327331543,
+                "height": 0.010736106894910336
+              }
+            },
+            {
+              "text": "Drug",
+              "safe": "Drug",
+              "confidence": 99.95037078857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.35660520195961,
+                "top": 0.5092305541038513,
+                "width": 0.042268287390470505,
+                "height": 0.013570843264460564
+              }
+            },
+            {
+              "text": "Allergies).",
+              "safe": "Allergies).",
+              "confidence": 99.36224365234375,
+              "state": "high",
+              "bbox": {
+                "left": 0.403438001871109,
+                "top": 0.5088114142417908,
+                "width": 0.08548316359519958,
+                "height": 0.013995662331581116
+              }
+            }
+          ]
+        },
+        {
+          "text": "Thank you for seeing this pleasant gentleman.",
+          "raw": "Thank you for seeing this pleasant gentleman.",
+          "confidence": 99.92028045654297,
+          "bbox": {
+            "left": 0.07300222665071487,
+            "top": 0.537402331829071,
+            "width": 0.37404534220695496,
+            "height": 0.014155435375869274
+          },
+          "words": [
+            {
+              "text": "Thank",
+              "safe": "Thank",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.07300222665071487,
+                "top": 0.5375744104385376,
+                "width": 0.052435386925935745,
+                "height": 0.011043178848922253
+              }
+            },
+            {
+              "text": "you",
+              "safe": "you",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.12985126674175262,
+                "top": 0.5407708287239075,
+                "width": 0.0318608283996582,
+                "height": 0.010751647874712944
+              }
+            },
+            {
+              "text": "for",
+              "safe": "for",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.16670450568199158,
+                "top": 0.5375308394432068,
+                "width": 0.023893412202596664,
+                "height": 0.011011351831257343
+              }
+            },
+            {
+              "text": "seeing",
+              "safe": "seeing",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.1947886049747467,
+                "top": 0.537402331829071,
+                "width": 0.0522792786359787,
+                "height": 0.01393254566937685
+              }
+            },
+            {
+              "text": "this",
+              "safe": "this",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.251745343208313,
+                "top": 0.5374050736427307,
+                "width": 0.029668869450688362,
+                "height": 0.011255634017288685
+              }
+            },
+            {
+              "text": "pleasant",
+              "safe": "pleasant",
+              "confidence": 99.96014404296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.286003053188324,
+                "top": 0.5375348329544067,
+                "width": 0.06796004623174667,
+                "height": 0.014022866263985634
+              }
+            },
+            {
+              "text": "gentleman.",
+              "safe": "gentleman.",
+              "confidence": 99.48181915283203,
+              "state": "high",
+              "bbox": {
+                "left": 0.3586806058883667,
+                "top": 0.5375381708145142,
+                "width": 0.08836694061756134,
+                "height": 0.013848992995917797
+              }
+            }
+          ]
+        },
+        {
+          "text": "Yours sincerely,",
+          "raw": "Yours sincerely,",
+          "confidence": 99.9353256225586,
+          "bbox": {
+            "left": 0.07272984087467194,
+            "top": 0.566002607345581,
+            "width": 0.13304834067821503,
+            "height": 0.01378606166690588
+          },
+          "words": [
+            {
+              "text": "Yours",
+              "safe": "Yours",
+              "confidence": 99.95037078857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.07272984087467194,
+                "top": 0.5664799213409424,
+                "width": 0.04975423961877823,
+                "height": 0.01053712796419859
+              }
+            },
+            {
+              "text": "sincerely,",
+              "safe": "sincerely,",
+              "confidence": 99.92028045654297,
+              "state": "high",
+              "bbox": {
+                "left": 0.1279325932264328,
+                "top": 0.566002607345581,
+                "width": 0.07784558832645416,
+                "height": 0.013786054216325283
+              }
+            }
+          ]
+        },
+        {
+          "text": "Dr F. MacLeod",
+          "raw": "Dr F. MacLeod",
+          "confidence": 98.50977325439453,
+          "bbox": {
+            "left": 0.07283952832221985,
+            "top": 0.5856582522392273,
+            "width": 0.12456405907869339,
+            "height": 0.01104271225631237
+          },
+          "words": [
+            {
+              "text": "Dr",
+              "safe": "Dr",
+              "confidence": 97.13249206542969,
+              "state": "high",
+              "bbox": {
+                "left": 0.07283952832221985,
+                "top": 0.5860633254051208,
+                "width": 0.021553130820393562,
+                "height": 0.010402546264231205
+              }
+            },
+            {
+              "text": "F.",
+              "safe": "F.",
+              "confidence": 98.54412841796875,
+              "state": "high",
+              "bbox": {
+                "left": 0.09825808554887772,
+                "top": 0.585869312286377,
+                "width": 0.01605135202407837,
+                "height": 0.010830451734364033
+              }
+            },
+            {
+              "text": "MacLeod",
+              "safe": "MacLeod",
+              "confidence": 99.85271453857422,
+              "state": "high",
+              "bbox": {
+                "left": 0.11943382024765015,
+                "top": 0.5856582522392273,
+                "width": 0.07796976715326309,
+                "height": 0.011042707599699497
+              }
+            }
+          ]
+        },
+        {
+          "text": "Consultant Physician in General Practice",
+          "raw": "Consultant Physician in General Practice",
+          "confidence": 99.91246795654297,
+          "bbox": {
+            "left": 0.07318289577960968,
+            "top": 0.604738712310791,
+            "width": 0.3331330716609955,
+            "height": 0.013670530170202255
+          },
+          "words": [
+            {
+              "text": "Consultant",
+              "safe": "Consultant",
+              "confidence": 99.7510757446289,
+              "state": "high",
+              "bbox": {
+                "left": 0.07318290323019028,
+                "top": 0.6050195693969727,
+                "width": 0.08975354582071304,
+                "height": 0.010890963487327099
+              }
+            },
+            {
+              "text": "Physician",
+              "safe": "Physician",
+              "confidence": 99.96014404296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.1669890284538269,
+                "top": 0.6048029065132141,
+                "width": 0.08015613257884979,
+                "height": 0.013606303371489048
+              }
+            },
+            {
+              "text": "in",
+              "safe": "in",
+              "confidence": 99.89098358154297,
+              "state": "high",
+              "bbox": {
+                "left": 0.25199374556541443,
+                "top": 0.604738712310791,
+                "width": 0.015949154272675514,
+                "height": 0.010984478518366814
+              }
+            },
+            {
+              "text": "General",
+              "safe": "General",
+              "confidence": 100.0,
+              "state": "high",
+              "bbox": {
+                "left": 0.27312836050987244,
+                "top": 0.6048581004142761,
+                "width": 0.06334110349416733,
+                "height": 0.01091665867716074
+              }
+            },
+            {
+              "text": "Practice",
+              "safe": "Practice",
+              "confidence": 99.96014404296875,
+              "state": "high",
+              "bbox": {
+                "left": 0.34111547470092773,
+                "top": 0.6048800349235535,
+                "width": 0.06520049273967743,
+                "height": 0.01095099002122879
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "computed_at": "2026-09-13T13:16:06.938441"
+}
