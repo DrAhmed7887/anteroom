@@ -1,4 +1,10 @@
-Traceback (most recent call last):
-  File "/Users/ahmedzayed/Downloads/Agents for Humans Hackathon/anteroom/scripts/check_determinism.py", line 9, in <module>
-    from anteroom.pipeline import run
-ModuleNotFoundError: No module named 'anteroom'
+  run 1: score= 16 status=at_risk      gaps= 9 meds=6 apixaban.dose=None   recon=yes
+  run 2: score= 16 status=at_risk      gaps= 9 meds=6 apixaban.dose=None   recon=yes
+  run 3: score=  9 status=at_risk      gaps=10 meds=6 apixaban.dose=None   recon=yes
+  run 4: score= 16 status=at_risk      gaps= 9 meds=6 apixaban.dose=None   recon=yes
+
+======================================================================
+  SAFETY   : 0/4 runs invented an apixaban dose   ✅ NONE
+  STABILITY: score           ⚠️  varies  [16, 9]
+  STABILITY: gap count       ⚠️  varies  [10, 9]
+  STABILITY: reconciliation  ✅ stable  [True]

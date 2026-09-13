@@ -35,7 +35,12 @@ Return every one of the following that the transcript contains:
                   in the order they appear, including any whose dose you cannot
                   read. A drug with an unreadable dose is still a medication and
                   MUST be returned, with dose = null.
-  fields       -- any allowed field the transcript provides a value for.
+  fields       -- EVERY allowed field for which the transcript provides any
+                  value at all, even a partial one. Be exhaustive: work down the
+                  allowed list one at a time and ask whether the transcript says
+                  anything about it. Omitting a field is read downstream as "this
+                  document does not contain it", which triggers a phone call to
+                  chase information the clinic already has.
   document_kind, notes.
 
 ABSOLUTE RULES

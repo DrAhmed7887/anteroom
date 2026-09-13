@@ -110,6 +110,26 @@ def is_real_medication(name: str | None, stoplist: set[str]) -> bool:
     return name.strip().lower() not in stoplist
 
 
+def load_vague_referral_phrases(policy: dict) -> list[str]:
+    return [p.lower() for p in policy["_global"].get("vague_referral_phrases", [])]
+
+
+def is_real_referral_question(value: str | None, vague: list[str]) -> bool:
+    """A referral question names what is being asked. A courtesy does not.
+
+    Rejecting these is the difference between reporting "referral question
+    present" and reporting the truth, which is that the consultant still does
+    not know why this patient is coming.
+    """
+    if not value:
+        return False
+    stripped = value.strip().lower().rstrip(".")
+    for phrase in vague:
+        if phrase in stripped and len(stripped) <= len(phrase) + 25:
+            return False
+    return True
+
+
 def sanitise_dose(dose: str | None) -> tuple[str | None, str | None]:
     """Return (dose, note). Anything that is not dose-shaped becomes a note."""
     if dose is None:
