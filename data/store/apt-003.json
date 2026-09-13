@@ -9,7 +9,7 @@
         "label": "Referral letter, Dr F. MacLeod (SI Units / DD/MM/YY)",
         "kind": "referral_letter",
         "capture_quality": "degraded",
-        "received_at": "2026-09-13T13:51:28.902553"
+        "received_at": "2026-09-13T14:21:47.747160"
       }
     ],
     "facts": {
@@ -283,7 +283,7 @@
     "appointment_at": "2026-09-14T11:30:00",
     "visit_type": "cardiology_new_consult",
     "status": "needs_action",
-    "score": 90,
+    "score": 88,
     "gaps": [
       {
         "field": "anticoagulant_status",
@@ -328,12 +328,12 @@
     "patient_ref": "SYN-0003",
     "appointment": "Mon 14 Sep, 11:30",
     "narrative": {
-      "headline": "Adult with exertional dyspnoea and hypertension",
+      "headline": "Adult with essential hypertension and hypercholesterolaemia presenting with exertional dyspnoea",
       "background": [
-        "Gradual onset shortness of breath climbing stairs",
+        "Gradual onset shortness of breath climbing stairs over 4 months",
         "No chest pain, no syncope, no ankle swelling",
-        "Essential hypertension diagnosed 2018",
-        "Hypercholesterolaemia"
+        "Normal sinus rhythm, rate 68 bpm, no ischaemic changes",
+        "Amlodipine 5 mg once daily mane, Atorvastatin 20 mg once daily nocte"
       ]
     },
     "medications": [
@@ -2362,5 +2362,5 @@
       ]
     }
   ],
-  "computed_at": "2026-09-13T13:51:30.294006"
+  "computed_at": "2026-09-13T14:21:49.384449"
 }

@@ -74,10 +74,19 @@ referral_question:
   - advice sought
   - purpose of referral
 
+# A BP diary is a SERIES of home readings. A single clinic measurement is not
+# one, and the distinction is the entire reason diaries are requested -- a
+# one-off reading in clinic cannot distinguish hypertension from white-coat
+# effect. Aliasing bare "blood pressure" here let one clinic reading satisfy
+# the field, and inconsistently at that.
 bp_diary:
-  - blood pressure
-  - bp readings
+  - bp diary
+  - blood pressure diary
   - home bp
+  - home blood pressure
+  - bp readings at home
+  - ambulatory blood pressure
+  - abpm
 
 family_history:
   - family history

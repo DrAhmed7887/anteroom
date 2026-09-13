@@ -126,9 +126,12 @@ def is_real_referral_question(value: str | None, vague: list[str]) -> bool:
     present" and reporting the truth, which is that the consultant still does
     not know why this patient is coming.
     """
-    if not value:
+    if not value or not value.strip():
         return False
     stripped = value.strip().lower().rstrip(".")
+    if len(stripped) < 8:
+        # Shorter than any real clinical question. "?" and "n/a" were passing.
+        return False
     for phrase in vague:
         if phrase in stripped and len(stripped) <= len(phrase) + 25:
             return False

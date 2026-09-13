@@ -24,6 +24,14 @@ EVIDENCE_PATH = Path(__file__).resolve().parent.parent / "config" / "field_evide
 # Bounded so a stray mid-sentence colon in prose cannot create a heading.
 _HEADING = re.compile(r"^\s*([A-Za-z][A-Za-z /&'()-]{2,44})\s*[:–—-]\s+(.{3,})$")
 
+# A label sitting alone on its line, with its value on the next one. This is
+# how every two-column layout survives OCR -- EHR screens, discharge
+# summaries, lab reports -- because Textract reads the label cell and the
+# value cell as separate lines. Without it, 'ECG on admission' and 'Atrial
+# fibrillation, rate 148' never connect, and the field is found only when a
+# model happens to link them -- exactly the discretion we are removing.
+_BARE_LABEL = re.compile(r"^\s*([A-Za-z][A-Za-z /&'()-]{2,44})\s*:?\s*$")
+
 
 def load_evidence(path: Path | None = None) -> dict:
     return yaml.safe_load((path or EVIDENCE_PATH).read_text()) or {}
@@ -49,9 +57,35 @@ def heading_match(line: str, aliases: dict[str, str], allowed: set[str]) -> tupl
     return None
 
 
+def bare_label_match(line: str, aliases: dict[str, str], allowed: set[str]) -> str | None:
+    """Is this line nothing but a recognised label?"""
+    m = _BARE_LABEL.match(line)
+    if not m:
+        return None
+    label = m.group(1).strip().lower()
+    direct = label.replace(" ", "_")
+    if direct in allowed:
+        return direct
+    for alias, canonical in aliases.items():
+        if (label == alias or label.startswith(alias)) and canonical in allowed:
+            return canonical
+    return None
+
+
 def keyword_match(line: str, field: str, rules: dict) -> bool:
     """Supplementary: prose documents with no headings at all."""
     lowered = line.lower()
+
+    # Instruction language means the result does not exist yet.
+    for phrase in rules.get("excludes") or []:
+        if phrase in lowered:
+            return False
+
+    # Measurement fields must contain a measurement, not just their own name.
+    pattern = rules.get("requires_pattern")
+    if pattern and not re.search(pattern, lowered):
+        return False
+
     all_of = rules.get("all_of") or []
     if all_of and not all(t in lowered for t in all_of):
         return False
@@ -82,6 +116,21 @@ def scan(lines: list[str], aliases: dict[str, str], allowed: set[str],
             claimed.add(i)
             if field not in found or found[field][2] == "keyword":
                 found[field] = (i, value, "heading")
+
+    # Pass two: a bare label whose value is on the following line.
+    for i, line in enumerate(lines, 1):
+        if i in claimed or i >= len(lines):
+            continue
+        field = bare_label_match(line, aliases, allowed)
+        if field is None:
+            continue
+        value = lines[i].strip()
+        # The next line must be a value, not another label, and not empty.
+        if not value or bare_label_match(value, aliases, allowed) is not None:
+            continue
+        claimed.update({i, i + 1})
+        if field not in found or found[field][2] == "keyword":
+            found[field] = (i + 1, value, "label+value")
 
     for i, line in enumerate(lines, 1):
         # A line explicitly labelled for one field must not also be harvested

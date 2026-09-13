@@ -9,21 +9,21 @@
         "label": "Referral letter, Dr A. Okafor",
         "kind": "referral_letter",
         "capture_quality": "good",
-        "received_at": "2026-09-13T13:51:02.369431"
+        "received_at": "2026-09-13T14:21:21.034836"
       },
       {
         "document_id": "doc2",
         "label": "Medication list (handwritten)",
         "kind": "medication_list",
         "capture_quality": "degraded",
-        "received_at": "2026-09-13T13:51:08.697151"
+        "received_at": "2026-09-13T14:21:27.533506"
       },
       {
         "document_id": "doc3",
         "label": "Discharge summary (photo of screen)",
         "kind": "discharge_summary",
         "capture_quality": "degraded",
-        "received_at": "2026-09-13T13:51:13.074525"
+        "received_at": "2026-09-13T14:21:31.963457"
       }
     ],
     "facts": {
@@ -165,37 +165,20 @@
       },
       "previous_echo": {
         "field": "previous_echo",
-        "value": "Echocardiogram",
-        "confidence": "high",
+        "value": "LV function mildly impaired. EF 48%. Left atrium dilated.",
+        "confidence": "medium",
         "source": {
           "document_id": "doc3",
           "document_label": "Discharge summary (photo of screen)",
-          "location": "line 9",
+          "location": "line 10",
           "bbox": {
-            "left": 0.09501302987337112,
-            "top": 0.4380617141723633,
-            "width": 0.10545478761196136,
-            "height": 0.021898308768868446
+            "left": 0.3073274791240692,
+            "top": 0.43712207674980164,
+            "width": 0.4680896997451782,
+            "height": 0.02221888117492199
           }
         },
-        "note": "Located deterministically by keyword scan, not by model extraction."
-      },
-      "renal_function": {
-        "field": "renal_function",
-        "value": "Cardiology outpatients. 6 weeks. GP to check renal function.",
-        "confidence": "high",
-        "source": {
-          "document_id": "doc3",
-          "document_label": "Discharge summary (photo of screen)",
-          "location": "line 14",
-          "bbox": {
-            "left": 0.2954098582267761,
-            "top": 0.7627264857292175,
-            "width": 0.4944407641887665,
-            "height": 0.026605283841490746
-          }
-        },
-        "note": "Located deterministically by keyword scan, not by model extraction."
+        "note": "Located deterministically by label+value scan, not by model extraction."
       }
     },
     "medications": [
@@ -448,7 +431,7 @@
       },
       {
         "field": "patient_sex",
-        "value": "female",
+        "value": "Female",
         "confidence": "high",
         "source": {
           "document_id": "doc3",
@@ -499,8 +482,8 @@
       },
       {
         "field": "recent_ecg",
-        "value": "Atrial fibrillation. rate 148 bpm. No acute ischaemic change.",
-        "confidence": "low",
+        "value": null,
+        "confidence": "unreadable",
         "source": {
           "document_id": "doc3",
           "document_label": "Discharge summary (photo of screen)",
@@ -516,8 +499,8 @@
       },
       {
         "field": "previous_echo",
-        "value": "LV function mildly impaired. EF 48%. Left atrium dilated.",
-        "confidence": "low",
+        "value": null,
+        "confidence": "unreadable",
         "source": {
           "document_id": "doc3",
           "document_label": "Discharge summary (photo of screen)",
@@ -555,7 +538,7 @@
     "appointment_at": "2026-09-14T14:30:00",
     "visit_type": "cardiology_new_consult",
     "status": "at_risk",
-    "score": 40,
+    "score": 33,
     "gaps": [
       {
         "field": "referral_question",
@@ -614,6 +597,15 @@
         }
       },
       {
+        "field": "renal_function",
+        "severity": "important",
+        "reason": "missing",
+        "owner": "reception",
+        "action": "Request renal function from the hospital laboratory before the appointment.",
+        "call_script": "Hello, calling from the clinic. We have a discharge summary where the creatinine and eGFR are not legible. Could you confirm the most recent results?",
+        "source": null
+      },
+      {
         "field": "family_history",
         "severity": "minor",
         "reason": "missing",
@@ -668,7 +660,8 @@
       "referral question \u2014 not documented",
       "Apixaban \u2014 documents disagree or a change is unresolved",
       "allergies \u2014 not documented",
-      "Metformin \u2014 present in a document but not legible"
+      "Metformin \u2014 present in a document but not legible",
+      "renal function \u2014 not documented"
     ],
     "before_you_start": [
       "Request referral question from the referring practice before the appointment.",
@@ -4493,5 +4486,5 @@
       ]
     }
   ],
-  "computed_at": "2026-09-13T13:51:15.784064"
+  "computed_at": "2026-09-13T14:21:33.444929"
 }

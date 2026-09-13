@@ -192,8 +192,41 @@ billing alarm first: the upload path calls both services per document.
 
 ## Testing
 
+### One command
+
 ```bash
-.venv/bin/python -m pytest tests/ -q          # 30 tests, no AWS calls needed
+PYTHONPATH=. .venv/bin/python scripts/run_all_verifications.py
+```
+
+Runs the full suite, validates the AgentCore package, replays every cached case
+against the live policy engine, and prints a clinical safety scorecard. Exits non-zero
+if any invariant fails, so it works as a release gate.
+
+```
+CLINICAL SAFETY INVARIANTS  (these gate the build)
+   Test suite passes                        93 passed          [PASS]
+   No model invoked during tests            none               [PASS]
+   No invented dose in any brief            0 found            [PASS]
+   Blank page treated as unsafe             0/100 at risk      [PASS]
+   Cached verdicts reproduce exactly        yes                [PASS]
+   AgentCore package valid                  yes                [PASS]
+   Dose refusals across benchmark           20/20              [PASS]
+   Verdict stable across benchmark          20/20 AT RISK      [PASS]
+
+STABILITY  (reported, not gating)
+   Readiness score across runs              [26, 33]           [VARIES]
+   33/100 in 19 of 20 runs; others [26]
+```
+
+Safety invariants gate the exit code. Stability is reported separately and on purpose:
+a readiness score that moves by one field between runs is a quality concern, not a
+safety one, and folding the two together would bury a real safety failure in the noise
+the day one happens.
+
+### Individually
+
+```bash
+.venv/bin/python -m pytest tests/ -q          # 88 tests, no AWS calls needed
 PYTHONPATH=. .venv/bin/python scripts/check_determinism.py 4   # live, costs ~$0.05
 ```
 

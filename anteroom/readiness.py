@@ -328,6 +328,26 @@ def audit(record: IntakeRecord, policy: dict | None = None) -> ReadinessReport:
     penalty = sum(WEIGHTS[g.severity] for g in gaps)
     score = max(0, 100 - penalty)
 
+    # A blank page must not score 18/100. The penalty model alone leaves a
+    # residue for requirements that were never met, which reads as partial
+    # readiness where there is none, so the score is also capped by how much of
+    # the policy was actually satisfied.
+    # Weighted by the same severities as the penalty. An unweighted count would
+    # drag a well-documented patient from 90 to 60 for a missing family history,
+    # which discards the tiering that is the whole point of the policy.
+    tier_weight = {"blocking": WEIGHTS[Severity.BLOCKING],
+                   "important": WEIGHTS[Severity.IMPORTANT],
+                   "minor": WEIGHTS[Severity.MINOR]}
+    total = satisfied = 0
+    for tier, weight in tier_weight.items():
+        for field in rules.get(tier) or []:
+            total += weight
+            fx = record.facts.get(field)
+            if fx is not None and fx.is_usable:
+                satisfied += weight
+    if total:
+        score = min(score, round(100 * satisfied / total))
+
     if any(g.severity == Severity.BLOCKING for g in gaps):
         status = ReadinessStatus.AT_RISK
     elif any(g.severity == Severity.IMPORTANT for g in gaps):
