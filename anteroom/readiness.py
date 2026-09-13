@@ -142,8 +142,11 @@ def _medication_gaps(meds: list[Medication], high_risk_map: dict[str, str]) -> l
 
     Three different situations that a flat "dose is empty" check would merge:
       - high-risk drug, dose unreadable -> BLOCKING, and it is a NURSE task.
-        Confirming an anticoagulant dose is medicines reconciliation, which is
-        clinical work. Reception should not be the last line of defence on it.
+        Confirming an anticoagulant dose is clinical work, not administrative
+        chasing, so reception should not be the last line of defence on it.
+        Anteroom does not perform medicines reconciliation -- that is a regulated
+        process carried out by pharmacists and prescribers. It reports that the
+        intake packet is incomplete and routes it to the right human.
       - ordinary drug, dose unreadable  -> IMPORTANT, reception can phone.
       - ordinary drug, dose simply not written ("paracetamol when needed")
         -> MINOR. The patient did not omit it by accident and nobody should
@@ -161,7 +164,7 @@ def _medication_gaps(meds: list[Medication], high_risk_map: dict[str, str]) -> l
         if risk_class:
             severity, owner, reason = Severity.BLOCKING, Role.NURSE, ("unreadable" if unreadable else "missing")
             action = (
-                f"Medicines reconciliation: confirm the current dose of {name}. Policy "
+                f"Documented dose gap: confirm the current dose of {name}. Policy "
                 f"classifies this as high-risk ({risk_class}); it must be confirmed against "
                 f"a dispensing record or the prescriber, not estimated."
             )
@@ -211,6 +214,7 @@ def _reconciliation_gaps(record: IntakeRecord, high_risk_map: dict[str, str]) ->
     shows that the current dose of a high-risk drug is unknown to anyone here.
     """
     gaps: list[Gap] = []
+    already: set[str] = set()   # one drug, one finding, however many documents say it
     for fact_obj in (record.all_facts or list(record.facts.values())):
         if not fact_obj.value:
             continue
@@ -223,6 +227,9 @@ def _reconciliation_gaps(record: IntakeRecord, high_risk_map: dict[str, str]) ->
                 continue
             if med.dose is not None and med.confidence != Confidence.UNREADABLE:
                 continue  # change is documented AND the current value is known
+            if med.name in already:
+                continue
+            already.add(med.name)
             risk_class = classify_medication(med.name, high_risk_map)
             gaps.append(
                 Gap(
@@ -232,8 +239,9 @@ def _reconciliation_gaps(record: IntakeRecord, high_risk_map: dict[str, str]) ->
                     owner=Role.NURSE,
                     action=(
                         f"{med.name} was changed according to '{fact_obj.source.document_label}', "
-                        f"but no document states the current dose. Two independent sources were "
-                        f"checked and neither resolves it. Reconcile before the consultation."
+                        f"but no document states the current dose. Two independent sources "
+                        f"were checked and neither resolves it. The intake packet is "
+                        f"incomplete for clinical review -- clarify before the consultation."
                     ),
                     call_script=None,
                     source=fact_obj.source,

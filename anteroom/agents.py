@@ -65,7 +65,7 @@ def allowed_fields(policy_path=None) -> list[str]:
     """Field vocabulary comes from the clinical policy, so adding a new visit
     type extends extraction without touching this module."""
     policy = yaml.safe_load((policy_path or POLICY_PATH).read_text())
-    fields: set[str] = set()
+    fields: set[str] = set(policy.get("_global", {}).get("demographic_fields", []))
     for key, rules in policy.items():
         if key.startswith("_") or not isinstance(rules, dict):
             continue
