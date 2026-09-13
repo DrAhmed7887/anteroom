@@ -26,6 +26,7 @@ from .mapping import (
     split_dose_frequency,
     strip_markers,
 )
+from .evidence import load_evidence, scan
 from .ocr import OcrDocument, OcrLine, read_document, state_for
 from .readiness import CHANGE_LANGUAGE, audit, load_policy
 from .schemas import (
@@ -238,45 +239,29 @@ def build_record(
                     source=best.source,
                 )
 
-    # Deterministic fallback: if explicit clinical investigation lines are
-    # printed in the transcript, do not let stochastic model recall drop them.
+    # Deterministic fallback. Model recall is not stable across runs, so every
+    # required field also has a route that does not involve a model: an explicit
+    # heading in the transcript, or failing that a configured keyword. Evidence
+    # only ever FILLS a gap -- it never overrides something the interpreter read
+    # with equal or better confidence.
+    evidence_rules = load_evidence()
     for d in ocr_docs:
-        for i, ln in enumerate(d.lines, 1):
-            lowered = ln.safe_text.lower()
-            if "presenting_symptoms" not in record.facts:
-                if any(k in lowered for k in ("palpitations", "light-headedness", "chest pain", "breathlessness", "shortness of breath", "syncope", "dizziness")):
-                    record.facts["presenting_symptoms"] = ExtractedFact(
-                        field="presenting_symptoms",
-                        value=ln.safe_text,
-                        confidence=state_for(ln.confidence),
-                        source=_source(d, i),
-                    )
-            if "ecg" in lowered and any(k in lowered for k in ("sinus", "atrial", "rhythm", "performed", "rate", "normal")):
-                curr_ecg = record.facts.get("recent_ecg")
-                ln_conf = state_for(ln.confidence)
-                if curr_ecg is None or _RANK[ln_conf] > _RANK[curr_ecg.confidence]:
-                    record.facts["recent_ecg"] = ExtractedFact(
-                        field="recent_ecg",
-                        value=ln.safe_text,
-                        confidence=ln_conf,
-                        source=_source(d, i),
-                    )
-            if "anticoagulant_status" not in record.facts:
-                if "anticoagulated" in lowered or "anticoagulation" in lowered:
-                    record.facts["anticoagulant_status"] = ExtractedFact(
-                        field="anticoagulant_status",
-                        value=ln.safe_text,
-                        confidence=state_for(ln.confidence),
-                        source=_source(d, i),
-                    )
-            if "previous_echo" not in record.facts:
-                if "echocardiogram" in lowered or ("echo" in lowered and any(k in lowered for k in ("ef", "lv function", "dilated"))):
-                    record.facts["previous_echo"] = ExtractedFact(
-                        field="previous_echo",
-                        value=ln.safe_text,
-                        confidence=state_for(ln.confidence),
-                        source=_source(d, i),
-                    )
+        lines = [ln.safe_text for ln in d.lines]
+        for field, (line_no, value, how) in scan(lines, aliases, allowed, evidence_rules).items():
+            if field == "referral_question" and not is_real_referral_question(value, vague):
+                continue
+            ln = d.lines[line_no - 1]
+            conf = state_for(ln.confidence)
+            existing = record.facts.get(field)
+            if existing is not None and _RANK[existing.confidence] >= _RANK[conf]:
+                continue
+            record.facts[field] = ExtractedFact(
+                field=field,
+                value=value,
+                confidence=conf,
+                source=_source(d, line_no),
+                note=f"Located deterministically by {how} scan, not by model extraction.",
+            )
 
     return record, ocr_docs
 
