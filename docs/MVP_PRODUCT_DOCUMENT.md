@@ -124,26 +124,24 @@ The system is deliberately engineered to showcase deep, authentic implementation
      - `Gap`: Concrete task with designated role owner (`RECEPTION`, `NURSE`, `DOCTOR`) and call script.
      - `ReadinessReport`: Score (0-100), readiness tier, and role-filtered gap lists.
 
-3. **Tool Registry:**
-   - `extract_document_text(document_path)`: Invokes AWS Textract + Confidence Gate.
-   - `interpret_clinical_entities(annotated_text)`: Strands agent extracting structured facts with evidence spans.
-   - `audit_readiness_policy(intake_record, visit_type)`: Deterministic policy evaluation tool.
-   - `compose_evidence_brief(usable_facts)`: Pre-visit clinical brief generator citing visual bounding boxes.
+3. **Tool & Pipeline Modules:**
+   - `read_document(path)`: Invokes AWS Textract + Hardware Confidence Gate (`anteroom/ocr.py`).
+   - `interpret(doc)`: Strands agent extracting structured facts with evidence spans (`anteroom/agents.py`).
+   - `audit(record)`: Deterministic policy evaluation engine (`anteroom/readiness.py`).
+   - `compose(facts)`: Pre-visit clinical brief generator citing visual bounding boxes (`anteroom/brief.py`).
 
 ### 2.2 Amazon Bedrock & AgentCore Integration
 
 1. **Foundation Models (Amazon Bedrock):**
-   - **Primary Extraction & Synthesis:** `anthropic.claude-3-5-sonnet-20241022` via Bedrock.
-   - **Fallback / Secondary:** `amazon.nova-pro-v1:0` for fast categorization.
+   - **Primary Extraction & Synthesis:** `us.amazon.nova-lite-v1:0` / `us.amazon.nova-pro-v1:0` via Bedrock. Swappable via `ANTEROOM_MODEL_ID`.
    - **Zero Hallucination Constraint:** The model is passed annotated Textract tokens, *never raw pixels*, completely neutralizing visual dosage guessing.
 
-2. **Amazon Bedrock AgentCore Runtime:**
-   - Serverless packaging for multi-agent execution.
-   - Provides isolated execution environments for running intake audits in under 1.5 seconds.
+2. **Amazon Bedrock AgentCore Action Group:**
+   - Packaged and dry-run validated under `agentcore/` with OpenAPI 3.0 specification (`agentcore/openapi.json`) and AWS Lambda handler (`agentcore/handler.py`).
+   - Exposes three action group operations: `/audit`, `/brief`, and `/reconcile`.
 
-3. **AgentCore Observability:**
-   - Every step of the multi-agent workflow is emitted via OpenTelemetry-compatible traces.
-   - Judges can inspect the exact execution graph: what Textract scored, which YAML rule triggered a gap, and what phone script was dispatched.
+3. **Auditability & Provenance:**
+   - Every extracted fact preserves exact source document ID, line number, and normalized bounding box coordinates for real-time visual inspection in the console.
 
 ---
 
@@ -249,9 +247,9 @@ To prove Anteroom is neither a toy demo nor a hard-coded "pessimism machine", th
 
 | Scenario | Patient | Documents | Readiness | What It Proves |
 |---|---|---|---|---|
-| **Case 1 (Hero)** | Marta Ruiz Delgado | 1. Angled referral letter<br>2. Handwritten meds (smudged Apixaban)<br>3. Monitor screen photo (glare on renal labs) | **28 / 100<br>(AT RISK)** | Interlocking document defects, refusal to guess high-risk drug, role-based task delegation. |
-| **Case 2 (Control)** | Carlos Vega | 1. Printed GP referral letter<br>2. Complete pharmacy dispensing record<br>3. Normal ECG trace (within 60 days) | **100 / 100<br>(READY)** | The agent accurately validates complete records and approves visits without false alarms. |
-| **Case 3 (Generalization)** | Kwame Mensah | 1. Non-Western district hospital referral (different date order DD/MM/YY, mmol/L units, local trade names) | **Audited live** | **Zero prompt tuning against this format.** Proves model generalizes across regional healthcare conventions. |
+| **Case 1 (Hero)** | Marta Ruiz Delgado | 1. Angled referral letter<br>2. Handwritten meds (smudged Apixaban)<br>3. Monitor screen photo (glare on renal labs) | **33 / 100<br>(AT RISK)** | Interlocking document defects, refusal to guess high-risk drug, role-based task delegation. |
+| **Case 2 (Control)** | Thomas Whitfield | 1. Printed GP referral letter<br>2. Complete pharmacy dispensing record<br>3. Normal ECG trace | **100 / 100<br>(READY)** | The agent accurately validates complete records and approves visits without false alarms. |
+| **Case 3 (Generalization)** | Tariq Al-Mansoor | 1. International cardiology referral (SI units 88 µmol/L creatinine, DD/MM/YY date conventions) | **88 / 100<br>(NEEDS ACTION)** | **Zero prompt tuning against this format.** Proves model generalizes across regional healthcare conventions. |
 
 ---
 

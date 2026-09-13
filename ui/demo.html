@@ -29,7 +29,7 @@
         <div class="font-bold tracking-tight text-white flex items-center gap-2">
           Anteroom <span class="text-xs px-2 py-0.5 rounded font-mono font-medium bg-indigo-950 text-indigo-300 border border-indigo-800">Strands Agents + AWS</span>
         </div>
-        <div class="text-xs text-slate-400">Ambient Pre-Visit Intake Coordinator · Riverside Practice</div>
+        <div class="text-xs text-slate-400">Ambient Pre-Visit Intake Coordinator · Northgate Specialist Clinic</div>
       </div>
     </div>
 
@@ -78,7 +78,7 @@
           </div>
           <div class="text-xs text-slate-400 mt-1">15:00 · SI Units (88 µmol/L)</div>
           <div class="flex items-center gap-2 mt-2.5 text-[11px] font-mono text-amber-300">
-            <span>4 Gaps (No Biopsy)</span>
+            <span>4 Gaps (Anticoagulant & Echo)</span>
           </div>
         </div>
 
@@ -351,13 +351,13 @@
         document.getElementById('patient-status-badge').innerText = 'AT RISK · 33/100';
         document.getElementById('patient-status-badge').className = 'text-xs font-mono px-2.5 py-0.5 rounded-full badge-red';
         document.getElementById('patient-score').innerHTML = '33<span class="text-base font-normal text-slate-500">/100</span>';
-        document.getElementById('patient-gaps-count').innerText = '6';
+        document.getElementById('patient-gaps-count').innerText = '7';
       } else if (id === 'tariq') {
         document.getElementById('patient-title').innerText = 'Tariq Al-Mansoor';
         document.getElementById('patient-status-badge').innerText = 'NEEDS ACTION · 88/100';
         document.getElementById('patient-status-badge').className = 'text-xs font-mono px-2.5 py-0.5 rounded-full badge-amber';
         document.getElementById('patient-score').innerHTML = '88<span class="text-base font-normal text-slate-500">/100</span>';
-        document.getElementById('patient-gaps-count').innerText = '1';
+        document.getElementById('patient-gaps-count').innerText = '4';
       } else if (id === 'thomas') {
         document.getElementById('patient-title').innerText = 'Thomas Whitfield';
         document.getElementById('patient-status-badge').innerText = 'READY · 100/100';

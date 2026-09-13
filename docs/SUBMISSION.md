@@ -116,7 +116,7 @@ Anteroom enforces strict practice and role scoping:
 2. **100% Stable Cross-Document Reconciliation:** Reliably flags altered high-risk medications without false negatives.
 3. **Control Case Accuracy:** Tested against clean, well-formatted flatbed-scanned referrals (`apt-002`), achieving **100/100 READY** with zero false positive gaps.
 4. **Interactive Streamlit Clinic Console:** A fluid, multi-role UI featuring clickable bounding-box evidence highlights, confidence gate inspection, and role switching.
-5. **Comprehensive Automated Test Suite:** 30 unit and integration tests passing in under 1 second.
+5. **Comprehensive Automated Test Suite:** 93 unit and integration tests passing in under 1 second.
 
 ---
 

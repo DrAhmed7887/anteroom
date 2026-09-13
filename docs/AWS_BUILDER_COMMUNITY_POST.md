@@ -54,22 +54,22 @@ Because the low-confidence pixels are deleted *before* the language model receiv
 
 ## Orchestration with Strands Agents SDK
 
-We used the **Strands Agents SDK** (`strands-agents`) with strict Pydantic contracts. Two agents, deliberately narrow -- a document interpreter and a brief composer -- wrapped in deterministic code that makes every safety-critical decision itself:
+We used the **Strands Agents SDK** (`strands-agents`) with strict Pydantic contracts. Two agents, deliberately narrow — a document interpreter and a brief composer — wrapped in deterministic code that makes every safety-critical decision itself:
 
-1. **IntakeCoordinator (Supervisor):** Manages the lifecycle of an appointment intake bundle (`INGESTED` → `OCR_GATED` → `INTERPRETED` → `AUDITED` → `ROUTED`).
-2. **Document Interpreter:** A Strands agent on Amazon Bedrock (Amazon Nova Lite by default, set by `ANTEROOM_MODEL_ID`) extracts structured entities -- allergies, medications, past history, referral questions -- and each fact is bound to its bounding box by the pipeline, not by the model. We kept the model swappable on purpose: the safety guarantee is enforced by the confidence gate and the policy layer around it, so changing the model changes cost and latency, not safety.
-3. **Deterministic Readiness Auditor:** Evaluates extracted facts against clinic policy defined in `visit_requirements.yaml`.
+1. **Document Interpreter (`anteroom/agents.py`):** A Strands agent on Amazon Bedrock (Amazon Nova Lite by default, configured via `ANTEROOM_MODEL_ID`) extracts structured entities — allergies, medications, past history, referral questions — where each fact is bound to its Textract bounding box by the pipeline, not by the model. We kept the model swappable on purpose: the safety guarantee is enforced by the confidence gate and the policy layer around it, so changing the model changes cost and latency, not safety.
+2. **Deterministic Readiness Auditor (`anteroom/readiness.py`):** Evaluates extracted facts against clinic policy defined in `visit_requirements.yaml`. No model involved.
+3. **Brief Composer (`anteroom/brief.py`):** A Strands agent that synthesizes a 30-second pre-visit briefing narrative for the clinician, citing source lines and bounding boxes. Doses are rendered by code, never by the model.
 
 ```python
 from strands import Agent
-from anteroom.schemas import IntakeRecord, ReadinessReport
+from anteroom.schemas import DocumentExtraction
 
-class IntakeCoordinator:
-    def __init__(self, model_id: str = "anthropic.claude-3-5-sonnet-20241022"):
-        self.interpreter = Agent(
-            model=model_id,
-            system_prompt="You are a clinical document interpreter. Extract structured entities with strict evidence spans...",
-        )
+# Document Interpreter Strands Agent
+interpreter = Agent(
+    model="us.amazon.nova-lite-v1:0",
+    system_prompt="You are a clinical document interpreter. Extract structured entities with strict evidence spans...",
+    response_model=DocumentExtraction,
+)
 ```
 
 ### Separating Policy from Prediction
@@ -106,5 +106,5 @@ Clinics don't want a wall of AI text. Anteroom routes tasks to three distinct ro
 
 Building AI for healthcare doesn't mean trusting an LLM with patient outcomes. It means using agents for what they do best—understanding human language across messy forms—and wrapping them in rigorous engineering boundaries, hardware confidence gates, and zero-trust authorization.
 
-The complete code, test suite (30 passing unit tests), and Streamlit console are open source on GitHub:
+The complete code, test suite (93 passing unit tests), and Streamlit console are open source on GitHub:
 👉 [https://github.com/DrAhmed7887/anteroom](https://github.com/DrAhmed7887/anteroom)

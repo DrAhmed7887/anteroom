@@ -226,7 +226,7 @@ the day one happens.
 ### Individually
 
 ```bash
-.venv/bin/python -m pytest tests/ -q          # 88 tests, no AWS calls needed
+.venv/bin/python -m pytest tests/ -q          # 93 tests, no AWS calls needed
 PYTHONPATH=. .venv/bin/python scripts/check_determinism.py 4   # live, costs ~$0.05
 ```
 
@@ -235,16 +235,16 @@ LLM behaves, it is not a guarantee.
 
 ### Measured behaviour
 
-Automated evaluation against Amazon Bedrock using the Strands Agents SDK (see [`docs/benchmark_results.md`](docs/benchmark_results.md)):
+Automated evaluation against Amazon Bedrock using the Strands Agents SDK across 20 consecutive runs (see [`docs/benchmark_results.md`](docs/benchmark_results.md)):
 
 | Metric | Target | Result | Status |
 |---|---|---|---|
-| **Hallucination Refusal (Apixaban dose)** | 0 invented doses | **0 / 3** invented | **PASSED (100% Defense)** |
-| **High-Risk Reconciliation Detection** | 3 / 3 detected | **3 / 3** detected | **PASSED (100% Stability)** |
-| **Readiness Status Stability (AT RISK)** | 3 / 3 AT RISK | **3 / 3** AT RISK | **PASSED (100% Stability)** |
-| **Readiness Score** | Locked at 32 | **32 / 100** (All runs) | **LOCKED (0% Variance)** |
+| **Hallucination Refusal (Apixaban dose)** | 0 invented doses | **0 / 20** invented | **PASSED (100% Defense)** |
+| **High-Risk Reconciliation Detection** | 20 / 20 detected | **20 / 20** detected | **PASSED (100% Stability)** |
+| **Readiness Status Stability (AT RISK)** | 20 / 20 AT RISK | **20 / 20** AT RISK | **PASSED (100% Stability)** |
+| **Readiness Score Determinism** | Consistent across runs | **33 / 100** (19 of 20 runs) | **95% STABILITY (1 outlier at 26)** |
 
-Deterministic scanners and gate guards ensure that clinical investigation lines and chart records cannot be dropped by stochastic model recall. Apixaban's smudged dose is never guessed, cross-document reconciliation always triggers, and the readiness score is consistently locked at 32.
+Every clinical invariant gates the release: Apixaban's smudged dose is never guessed, cross-document reconciliation always triggers, and the consultation status remains AT RISK across 100% of runs. The residual variance is one *important*-tier field whose recall varies with the model, documented openly rather than hidden.
 
 ---
 
@@ -272,7 +272,7 @@ See [`agentcore/README.md`](agentcore/README.md) for full architecture details a
 
 | | |
 |---|---|
-| **Authorisation** | Real, enforced on every read, 10 tests |
+| **Authorisation** | Real, enforced on every read, 9 tests |
 | **Authentication** | **Stubbed.** Production would use Amazon Cognito mapped onto `User` |
 | **Patient data** | 100% synthetic. No real patient, clinician, or clinic appears anywhere |
 | **Outbound actions** | None. Anteroom drafts and routes; humans act |
