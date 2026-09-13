@@ -1,0 +1,82 @@
+# Anteroom -- what a consultation actually needs before it can happen.
+#
+# This file is the clinical opinion at the center of the product. Anteroom does
+# not decide what is "urgent" and it does not diagnose. It answers one narrow,
+# answerable question: for THIS kind of appointment, is the information needed
+# to run it actually present and legible?
+#
+# blocking  = the consultation cannot usefully proceed; the slot gets wasted
+# important = the consultation is degraded; chase it if there is time
+# minor     = worth noting, not worth a phone call
+
+_global:
+  # An unreadable dose on any of these is escalated from IMPORTANT to BLOCKING.
+  # Rationale: guessing wrong on these classes causes harm rather than delay.
+  high_risk_medication_classes:
+    - anticoagulant        # warfarin, apixaban, rivaroxaban, edoxaban, dabigatran
+    - antiplatelet         # clopidogrel, ticagrelor, prasugrel
+    - insulin
+    - opioid
+    - immunosuppressant
+    - chemotherapy
+    - antiarrhythmic       # amiodarone, flecainide, sotalol
+    - digoxin
+
+  # Never chase these by phone; they are the clinician's job in the room.
+  never_delegate_to_reception:
+    - clinical_examination_findings
+    - diagnosis
+    - treatment_decision
+
+
+cardiology_new_consult:
+  label: "Cardiology - new consultation"
+  blocking:
+    - referral_question      # without this the consultant is guessing why the patient came
+    - current_medications
+  important:
+    - anticoagulant_status   # bleeding risk governs everything that follows
+    - recent_ecg
+    - renal_function         # drives dosing and contrast safety
+    - allergies
+    - presenting_symptoms
+  minor:
+    - previous_echo
+    - bp_diary
+    - family_history
+  freshness_days:
+    recent_ecg: 180
+    renal_function: 90
+
+
+dermatology_lesion_review:
+  label: "Dermatology - lesion review"
+  blocking:
+    - referral_question
+    - lesion_site
+  important:
+    - lesion_duration
+    - immunosuppression_status   # transplant/biologic patients are a different risk tier
+    - previous_biopsy_result
+    - current_medications
+    - allergies
+  minor:
+    - sun_exposure_history
+    - family_history_skin_cancer
+  freshness_days:
+    previous_biopsy_result: 730
+
+
+general_new_patient:
+  label: "General practice - new patient"
+  blocking:
+    - referral_question
+  important:
+    - current_medications
+    - allergies
+    - presenting_symptoms
+    - past_medical_history
+  minor:
+    - social_history
+    - family_history
+  freshness_days: {}
