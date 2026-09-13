@@ -13,6 +13,11 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
+# Add repo root to sys.path
+REPO_ROOT = Path(__file__).resolve().parent.parent
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
 from anteroom.brief import compose
 from anteroom.pipeline import run
 from anteroom.schemas import Role
@@ -58,6 +63,17 @@ CASES = [
         "clinician": "Dr Amara Hale",
         "documents": [
             ("doc4", "data/synthetic/04_clean_referral.jpg", "Referral letter, Dr S. Ellery"),
+        ],
+    },
+    {
+        "appointment_id": "apt-003",
+        "patient_ref": "SYN-0003",
+        "patient_display": "Tariq Al-Mansoor",
+        "appointment_at": datetime(2026, 9, 14, 11, 30),
+        "visit_type": "cardiology_new_consult",
+        "clinician": "Dr Amara Hale",
+        "documents": [
+            ("doc5", "data/synthetic/05_international_referral.jpg", "Referral letter, Dr F. MacLeod (SI Units / DD/MM/YY)"),
         ],
     },
 ]

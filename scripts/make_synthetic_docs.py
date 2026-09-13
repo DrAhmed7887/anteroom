@@ -365,8 +365,68 @@ def clean_referral() -> Path:
     return p
 
 
+# ---------------------------------------------------------------- document 5
+def international_referral() -> Path:
+    """The generalization test case.
+
+    Exercises non-Western/Commonwealth formatting: DD/MM/YYYY dates, SI units
+    (88 µmol/L creatinine, 4.2 mmol/L potassium), 'nocte' dosing frequency,
+    and 'NKDA' allergy notation -- all with zero prompt tuning.
+    """
+    W, H = 1240, 1754
+    img = paper(W, H, tint=(253, 253, 250))
+    d = ImageDraw.Draw(img)
+
+    d.text((90, 96), "ROYAL CRESCENT MEDICAL PRACTICE", font=font(SERIF_BOLD, 32), fill=(20, 20, 28))
+    d.text((90, 140), "Department of Community Health  ·  Tel +44 131 496 0199", font=font(SERIF, 22), fill=(85, 85, 95))
+    d.line([(90, 182), (W - 90, 182)], fill=(120, 120, 130), width=2)
+
+    d.text((90, 222), "Cardiology Outpatients Clinic", font=font(SERIF, 24), fill=(30, 30, 38))
+    d.text((90, 256), "Date: 14/09/2026", font=font(SERIF, 24), fill=(30, 30, 38))
+    d.text((90, 320), "RE: Tariq Al-Mansoor    DOB: 14/05/1965    CHI/NHS: 492 881 9021", font=font(SERIF_BOLD, 25), fill=(20, 20, 28))
+
+    y, f = 384, font(SERIF, 25)
+    for para in [
+        "Dear Dr Hale,",
+        "",
+        "REASON FOR REFERRAL: Assessment of exertional dyspnoea (NYHA II) and "
+        "advice regarding further cardiac workup or echocardiography.",
+        "",
+        "PRESENTING SYMPTOMS: Gradual onset shortness of breath climbing stairs over 4 months. "
+        "No chest pain, no syncope, no ankle swelling.",
+        "",
+        "PAST MEDICAL HISTORY: Essential hypertension diagnosed 2018. Hypercholesterolaemia.",
+        "",
+        "INVESTIGATIONS (Checked 28/08/2026):",
+        "  Serum Creatinine: 88 µmol/L (eGFR > 60 mL/min/1.73m2)",
+        "  Serum Potassium: 4.2 mmol/L",
+        "  Fasting Blood Glucose: 5.4 mmol/L",
+        "  12-Lead ECG: Normal sinus rhythm, rate 68 bpm, no ischaemic changes.",
+        "",
+        "CURRENT MEDICATIONS: Amlodipine 5 mg once daily mane. "
+        "Atorvastatin 20 mg once daily nocte.",
+        "",
+        "ALLERGIES: NKDA (No Known Drug Allergies).",
+        "",
+        "Thank you for seeing this pleasant gentleman.",
+        "",
+        "Yours sincerely,",
+        "Dr F. MacLeod",
+        "Consultant Physician in General Practice",
+    ]:
+        if not para:
+            y += 16
+            continue
+        y = wrap(d, para, f, 90, y, W - 180, 34)
+
+    img = lighting(img, 0.5, 0.5, power=2.6)
+    p = OUT / "05_international_referral.jpg"
+    camera(img, blur=0.25, quality=92, path=p)
+    return p
+
+
 if __name__ == "__main__":
-    for fn in (referral_letter, medication_list, screen_photo, clean_referral):
+    for fn in (referral_letter, medication_list, screen_photo, clean_referral, international_referral):
         path = fn()
         size_kb = path.stat().st_size // 1024
         print(f"  {path.name:28s} {size_kb:>5d} KB")

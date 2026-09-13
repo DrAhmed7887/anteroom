@@ -138,6 +138,8 @@ with st.sidebar:
     st.caption(f"Practice: `{me.practice_id}`  ·  Role: `{me.role.value}`")
 
     st.markdown("---")
+    if st.button("＋  New intake", width='stretch', key="newintake"):
+        st.session_state.selected = "__upload__"
     st.markdown("**Tomorrow's list**")
     for a in appointments:
         case = load_case(a.appointment_id)
@@ -146,7 +148,7 @@ with st.sidebar:
         rep = get_report(case)
         cls, colour, label = STATUS_STYLE[rep.status.value]
         if st.button(f"{a.appointment_at:%H:%M}  {a.patient_display}",
-                     key=f"b-{a.appointment_id}", use_container_width=True):
+                     key=f"b-{a.appointment_id}", width='stretch'):
             st.session_state.selected = a.appointment_id
         st.markdown(
             f'<div style="margin:-8px 0 12px 4px"><span class="pill {cls}">{label}</span>'
@@ -166,9 +168,82 @@ with st.sidebar:
                "authentication is stubbed for the demo.")
 
 
+def render_gap(g: Gap) -> None:
+    st.markdown(
+        f'<div class="gap {SEV_CLASS[g.severity]}">'
+        f'<div class="gap-title">{g.field.split(":",1)[-1].replace("_"," ")}'
+        f'<span class="muted" style="margin-left:10px">{g.severity.value} · {g.reason}</span></div>'
+        f'<div class="muted" style="margin-top:6px;color:#334155">{g.action}</div>'
+        + (f'<div class="script">☎ {g.call_script}</div>' if g.call_script else "")
+        + (f'<div class="muted" style="margin-top:8px">Source: {g.source.document_label}'
+           f' · {g.source.location}</div>' if g.source else "")
+        + '</div>', unsafe_allow_html=True)
+
+
 # ------------------------------------------------------------------- main pane
 
 selected_id = st.session_state.get("selected", appointments[0].appointment_id)
+
+# ------------------------------------------------------- bring your own document
+if selected_id == "__upload__":
+    st.markdown("### New intake")
+    st.markdown('<div class="muted">Upload any clinical document. Anteroom runs the same '
+                'pipeline it runs on the demo cases — Textract, the confidence gate, the '
+                'interpreter, and the policy auditor. Nothing here is tuned to our sample '
+                'files.</div>', unsafe_allow_html=True)
+    st.markdown("")
+
+    up = st.file_uploader("Document (JPG or PNG)", type=["jpg", "jpeg", "png"])
+    c1, c2 = st.columns(2)
+    with c1:
+        visit = st.selectbox("Visit type", ["cardiology_new_consult",
+                                            "dermatology_lesion_review",
+                                            "general_new_patient"],
+                             format_func=lambda k: k.replace("_", " "))
+    with c2:
+        ref = st.text_input("Patient reference", value="SYN-NEW-001")
+
+    if up and st.button("Run intake check", type="primary"):
+        tmp = Path(STORE_DIR) / f"upload_{up.name}"
+        tmp.write_bytes(up.getbuffer())
+        with st.spinner("Textract → confidence gate → interpreter → policy audit…"):
+            from anteroom.brief import compose as compose_brief
+            from anteroom.pipeline import run as run_pipeline
+            rec, rep, ocr = run_pipeline(ref, datetime.now(), visit,
+                                         [("upload", str(tmp), up.name)])
+        cls_, colour_, label_ = STATUS_STYLE[rep.status.value]
+        a, b = st.columns([1, 2])
+        with a:
+            st.markdown(f'<div class="card" style="text-align:center">'
+                        f'<span class="pill {cls_}">{label_}</span>'
+                        f'<div class="score" style="color:{colour_};margin-top:8px">{rep.score}'
+                        f'<span style="font-size:1rem;color:#94a3b8">/100</span></div>'
+                        f'<div class="muted">{len(rep.gaps)} gaps · '
+                        f'{len(rep.blocking_gaps)} blocking</div>'
+                        f'<div class="muted" style="margin-top:8px">'
+                        f'{sum(d.illegible_count for d in ocr)} token(s) deleted by the gate'
+                        f'</div></div>', unsafe_allow_html=True)
+            if rec.medications:
+                st.markdown("**Medications found**")
+                for m in rec.medications:
+                    miss = m.dose is None
+                    st.markdown(f'<div class="med {"med-missing" if miss else ""}">{m.name} — '
+                                f'{m.dose or "DOSE NOT DOCUMENTED"}</div>',
+                                unsafe_allow_html=True)
+        with b:
+            if rep.gaps:
+                st.markdown("**What is missing**")
+                for g in rep.gaps:
+                    render_gap(g)
+            else:
+                st.markdown('<div class="card"><span class="pill p-green">complete</span>'
+                            '<div style="margin-top:10px">Every field this visit type '
+                            'requires was present and legible.</div></div>',
+                            unsafe_allow_html=True)
+        st.caption("Processed live. Uploaded files are written to the local demo store and "
+                   "are not sent anywhere except Amazon Textract and Amazon Bedrock.")
+    st.stop()
+
 appointment: Appointment = next(a for a in appointments if a.appointment_id == selected_id)
 
 try:
@@ -214,18 +289,6 @@ if can_view_clinical_brief(me):
     tab_names.insert(1, "Clinician brief")
 tabs = st.tabs(tab_names)
 T = dict(zip(tab_names, tabs))
-
-
-def render_gap(g: Gap) -> None:
-    st.markdown(
-        f'<div class="gap {SEV_CLASS[g.severity]}">'
-        f'<div class="gap-title">{g.field.split(":",1)[-1].replace("_"," ")}'
-        f'<span class="muted" style="margin-left:10px">{g.severity.value} · {g.reason}</span></div>'
-        f'<div class="muted" style="margin-top:6px;color:#334155">{g.action}</div>'
-        + (f'<div class="script">☎ {g.call_script}</div>' if g.call_script else "")
-        + (f'<div class="muted" style="margin-top:8px">Source: {g.source.document_label}'
-           f' · {g.source.location}</div>' if g.source else "")
-        + '</div>', unsafe_allow_html=True)
 
 
 with T["My queue"]:
@@ -286,7 +349,7 @@ with T["Source documents"]:
             if f["source"]["document_id"] != doc_id:
                 continue
             if st.button(f"{key.replace('_',' ')}", key=f"f-{doc_id}-{key}",
-                         use_container_width=True):
+                         width='stretch'):
                 st.session_state[f"sel-{doc_id}"] = key
             st.markdown(f'<div class="muted" style="margin:-6px 0 10px 4px">'
                         f'{(f["value"] or "—")[:70]} · <span class="conf">'
@@ -302,7 +365,7 @@ with T["Source documents"]:
         st.image(highlight(doc["path"], boxes, colour=colour),
                  caption=f"{doc['label']}" + (f" — highlighting “{picked.replace('_',' ')}”"
                                               if picked else " — select a fact to locate it"),
-                 use_container_width=True)
+                 width='stretch')
 
 
 with T["Confidence gate"]:
@@ -320,7 +383,7 @@ with T["Confidence gate"]:
     low = [w for w in words if w["state"] in ("low", "unreadable")]
     gl, gr = st.columns([3, 2])
     with gl:
-        st.image(highlight_words(d["path"], words), use_container_width=True)
+        st.image(highlight_words(d["path"], words), width='stretch')
     with gr:
         st.markdown(f"**{len(words)} words · {len([w for w in words if w['state']=='unreadable'])} "
                     f"deleted**")
