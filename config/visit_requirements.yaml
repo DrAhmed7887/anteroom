@@ -22,6 +22,31 @@ _global:
     - antiarrhythmic       # amiodarone, flecainide, sotalol
     - digoxin
 
+  # Drug -> class lookup. This lives in policy, NOT in the model. The reader is
+  # allowed to report what a document says; it is never allowed to decide how
+  # dangerous a drug is. Anyone can audit this list; nobody can audit a prompt.
+  high_risk_medications:
+    warfarin: anticoagulant
+    apixaban: anticoagulant
+    rivaroxaban: anticoagulant
+    edoxaban: anticoagulant
+    dabigatran: anticoagulant
+    clopidogrel: antiplatelet
+    ticagrelor: antiplatelet
+    prasugrel: antiplatelet
+    insulin: insulin
+    morphine: opioid
+    oxycodone: opioid
+    fentanyl: opioid
+    methotrexate: immunosuppressant
+    azathioprine: immunosuppressant
+    tacrolimus: immunosuppressant
+    ciclosporin: immunosuppressant
+    amiodarone: antiarrhythmic
+    flecainide: antiarrhythmic
+    sotalol: antiarrhythmic
+    digoxin: digoxin
+
   # Never chase these by phone; they are the clinician's job in the room.
   never_delegate_to_reception:
     - clinical_examination_findings
