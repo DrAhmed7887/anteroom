@@ -1,0 +1,32 @@
+[
+  {
+    "user_id": "u-admin",
+    "name": "Priya Raman",
+    "role": "admin",
+    "practice_id": "northgate"
+  },
+  {
+    "user_id": "u-recep",
+    "name": "Jo Adeyemi",
+    "role": "reception",
+    "practice_id": "northgate"
+  },
+  {
+    "user_id": "u-nurse",
+    "name": "Sister Claire Boateng",
+    "role": "nurse",
+    "practice_id": "northgate"
+  },
+  {
+    "user_id": "u-doc",
+    "name": "Dr Amara Hale",
+    "role": "doctor",
+    "practice_id": "northgate"
+  },
+  {
+    "user_id": "u-outsider",
+    "name": "Dr Mark Ferris",
+    "role": "doctor",
+    "practice_id": "riverside"
+  }
+]

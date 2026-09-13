@@ -1,0 +1,28 @@
+[
+  {
+    "appointment_id": "apt-001",
+    "practice_id": "northgate",
+    "patient_ref": "SYN-0001",
+    "patient_display": "Marta Ruiz Delgado",
+    "appointment_at": "2026-09-14T14:30:00",
+    "visit_type": "cardiology_new_consult",
+    "clinician": "Dr Amara Hale",
+    "document_ids": [
+      "doc1",
+      "doc2",
+      "doc3"
+    ]
+  },
+  {
+    "appointment_id": "apt-002",
+    "practice_id": "northgate",
+    "patient_ref": "SYN-0002",
+    "patient_display": "Thomas Whitfield",
+    "appointment_at": "2026-09-14T10:00:00",
+    "visit_type": "general_new_patient",
+    "clinician": "Dr Amara Hale",
+    "document_ids": [
+      "doc4"
+    ]
+  }
+]

@@ -101,6 +101,8 @@ def visible_gaps(user: User, report: ReadinessReport) -> list[Gap]:
     unaware that an anticoagulant dose is unconfirmed is the failure this whole
     system exists to prevent.
     """
+    if user.role == Role.ADMIN:
+        return list(report.gaps)
     if user.role == Role.DOCTOR:
         own = report.gaps_for(Role.DOCTOR)
         blocking = [g for g in report.gaps if g.severity == Severity.BLOCKING]
@@ -116,7 +118,7 @@ def visible_gaps(user: User, report: ReadinessReport) -> list[Gap]:
 def can_view_clinical_brief(user: User) -> bool:
     """Reception coordinates appointments. They do not need the consultant's
     clinical summary, and least privilege says they should not have it."""
-    return user.role in (Role.DOCTOR, Role.NURSE)
+    return user.role in (Role.DOCTOR, Role.NURSE, Role.ADMIN)
 
 
 # ---------------------------------------------------------------- persistence
@@ -144,3 +146,10 @@ def load_users() -> list[User]:
 
 def load_appointments() -> list[Appointment]:
     return [Appointment.model_validate(a) for a in json.loads(_p("appointments.json").read_text())]
+
+
+def load_appointment_detail(appointment_id: str) -> dict | None:
+    path = _p(f"{appointment_id}.json")
+    if not path.exists():
+        return None
+    return json.loads(path.read_text())

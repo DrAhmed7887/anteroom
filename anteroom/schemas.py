@@ -34,6 +34,7 @@ class Role(str, Enum):
     RECEPTION = "reception"
     NURSE = "nurse"
     DOCTOR = "doctor"
+    ADMIN = "admin"       # practice manager: sees everything, owns no clinical task
 
 
 class ReadinessStatus(str, Enum):

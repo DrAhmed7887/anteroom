@@ -298,8 +298,75 @@ def screen_photo() -> Path:
     return p
 
 
+# ---------------------------------------------------------------- document 4
+def clean_referral() -> Path:
+    """The control case.
+
+    A system that flags everything is not a safety feature, it is noise, and a
+    judge is right to suspect one. This referral is what a good one looks like:
+    it asks an actual question, lists doses, states allergies, and was scanned
+    flat on a machine rather than photographed on a desk. It must come back
+    READY, and if it does not, the scoring is wrong.
+    """
+    W, H = 1240, 1754
+    img = paper(W, H, tint=(254, 254, 252))
+    d = ImageDraw.Draw(img)
+
+    d.text((90, 96), "NORTHGATE MEDICAL CENTRE", font=font(SERIF_BOLD, 34), fill=(20, 20, 28))
+    d.text((90, 140), "8 Northgate Road  ·  Tel 0161 555 0447", font=font(SERIF, 22), fill=(85, 85, 95))
+    d.line([(90, 182), (W - 90, 182)], fill=(120, 120, 130), width=2)
+
+    d.text((90, 222), "General Medicine Clinic", font=font(SERIF, 24), fill=(30, 30, 38))
+    d.text((90, 256), "Date: 12 September 2026", font=font(SERIF, 24), fill=(30, 30, 38))
+    d.text((90, 320), "RE: Thomas Whitfield    DOB 02/11/1971", font=font(SERIF_BOLD, 26), fill=(20, 20, 28))
+
+    y, f = 384, font(SERIF, 25)
+    for para in [
+        "Dear Colleague,",
+        "",
+        "REASON FOR REFERRAL: I would be grateful for your assessment of whether "
+        "this gentleman's persistent fatigue and unintentional weight loss of 6 kg "
+        "over three months warrants further investigation for an underlying cause.",
+        "",
+        "PRESENTING COMPLAINT: Six months of progressive fatigue, worse in the "
+        "afternoons. Unintentional weight loss as above. No night sweats, no fever.",
+        "",
+        "PAST MEDICAL HISTORY: Hypothyroidism diagnosed 2016, well controlled. "
+        "Appendicectomy 1998. No other significant history.",
+        "",
+        "CURRENT MEDICATIONS: Levothyroxine 100 micrograms once daily. "
+        "Vitamin D 1000 units once daily. No other regular medication.",
+        "",
+        "ALLERGIES: Penicillin - widespread rash, documented 2004. No other known "
+        "drug allergies.",
+        "",
+        "SOCIAL HISTORY: Non-smoker. Alcohol approximately 6 units per week. "
+        "Works as a secondary school teacher. Lives with his wife and two children.",
+        "",
+        "FAMILY HISTORY: Father had bowel cancer diagnosed aged 71. Mother alive "
+        "and well.",
+        "",
+        "Thyroid function checked last month and was within normal limits.",
+        "",
+        "Kind regards,",
+        "",
+        "Dr S. Ellery",
+        "General Practitioner",
+    ]:
+        if not para:
+            y += 16
+            continue
+        y = wrap(d, para, f, 90, y, W - 180, 34)
+
+    # A flatbed scan: no perspective, even light, minimal noise.
+    img = lighting(img, 0.5, 0.5, power=2.6)
+    p = OUT / "04_clean_referral.jpg"
+    camera(img, blur=0.25, quality=92, path=p)
+    return p
+
+
 if __name__ == "__main__":
-    for fn in (referral_letter, medication_list, screen_photo):
+    for fn in (referral_letter, medication_list, screen_photo, clean_referral):
         path = fn()
         size_kb = path.stat().st_size // 1024
         print(f"  {path.name:28s} {size_kb:>5d} KB")
