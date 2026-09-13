@@ -42,12 +42,24 @@ class ReadinessStatus(str, Enum):
     AT_RISK = "at_risk"          # red: slot will be wasted unless someone acts
 
 
+class BBox(BaseModel):
+    """Normalised 0-1 rectangle, straight from Textract Geometry. Lets the UI
+    outline the exact pixels a fact came from instead of asking anyone to
+    take a citation on trust."""
+
+    left: float
+    top: float
+    width: float
+    height: float
+
+
 class SourceRef(BaseModel):
     """Provenance. Every clinical statement must be traceable to a document."""
 
     document_id: str
     document_label: str = Field(description="Human phrase, e.g. 'Referral letter, Dr Okafor'")
     location: str = Field(description="Where in the document, e.g. 'page 1, line 3'")
+    bbox: BBox | None = Field(default=None, description="Region to highlight in the source image")
 
 
 class ExtractedFact(BaseModel):
