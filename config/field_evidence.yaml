@@ -47,8 +47,15 @@ presenting_symptoms:
            pain, fever]
 
 renal_function:
-  all_of: []
   any_of: [creatinine, egfr, gfr, urea and electrolytes, renal function]
+  # A RESULT, not a request for one. "GP to check renal function" names the
+  # field and proves only that nobody has the number. Accepting it would have
+  # marked renal function documented for a patient whose creatinine row was
+  # destroyed by glare -- hiding the exact gap this system exists to surface.
+  requires_pattern: '\d+\s*(umol/l|micromol|mmol/l|ml/min|mg/dl|umol|ml\/min)'
+  excludes: [to check, please check, please repeat, arrange, to arrange,
+             should be checked, needs checking, recheck, to be done, awaited,
+             pending, will be checked]
 
 allergies:
   any_of: [allergy, allergies, allergic to, adverse drug reaction,

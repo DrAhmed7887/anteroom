@@ -9,7 +9,7 @@
         "label": "Referral letter, Dr S. Ellery",
         "kind": "referral_letter",
         "capture_quality": "good",
-        "received_at": "2026-09-13T13:51:21.549683"
+        "received_at": "2026-09-13T14:21:39.932007"
       }
     ],
     "facts": {
@@ -2711,5 +2711,5 @@
       ]
     }
   ],
-  "computed_at": "2026-09-13T13:51:23.158810"
+  "computed_at": "2026-09-13T14:21:41.637570"
 }
