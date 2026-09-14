@@ -2,6 +2,12 @@
 
 **The room before the room.**
 
+### ▶ [Open the live console](https://drahmed7887.github.io/anteroom/)
+
+Three real cases, pre-computed from actual Amazon Textract output — explore the confidence
+gate, the bounding boxes, the role scoping and the clinician brief with no sign-up and no
+AWS credentials. All patient data is synthetic.
+
 An intake coordinator agent for small specialist clinics. It reads the documents a clinic
 already receives — photographed referral letters, handwritten medication lists, photos of a
 computer screen — and answers one narrow question about every appointment on tomorrow's

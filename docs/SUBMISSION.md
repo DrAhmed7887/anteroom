@@ -8,6 +8,18 @@
 
 ---
 
+## 🔗 Links
+
+| | |
+|---|---|
+| **Live demo** | https://drahmed7887.github.io/anteroom/ |
+| **Source** | https://github.com/DrAhmed7887/anteroom (MIT) |
+| **Architecture** | [`docs/architecture.png`](architecture.png) |
+| **Reliability benchmark** | [`docs/benchmark_results.md`](benchmark_results.md) — 20 runs |
+
+The live console needs no sign-up and makes no AWS calls: all three cases are pre-computed
+from real Textract output. All patient data is synthetic.
+
 ## 💡 Inspiration
 
 In specialist outpatient clinics, doctors don't lose time simply because electronic health records are long. They lose entire 30-minute consultation slots because intake is fragmented, illegible, or incomplete.
