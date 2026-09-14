@@ -20,7 +20,7 @@ The Action Group defines three deterministic clinical operations in [`openapi.js
 
 ```
 agentcore/
-├── agent_definition.json    # Bedrock Agent configuration (Claude 3.5 Sonnet v2)
+├── agent_definition.json    # Bedrock Agent configuration (Amazon Nova Pro)
 ├── openapi.json             # OpenAPI 3.0.0 Action Group schema
 ├── handler.py               # Lambda entry point bridging Bedrock events to Anteroom
 ├── trust_policy.json        # IAM assume-role trust policy for bedrock.amazonaws.com

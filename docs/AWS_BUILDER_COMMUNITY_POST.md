@@ -33,7 +33,7 @@ Instead of relying on prompt engineering, we implemented a **structural defense*
           [ Amazon Textract OCR ]
           Detects word-level bounding boxes & confidence
           Word: "Apixaban"  Confidence: 99.2%
-          Word: [Smudge]    Confidence: 43.1% (<60%)
+          Word: [Smudge]    Confidence: 43.08% (<60%)
                        │
                        ▼
      [ Textract Confidence Gate (Threshold: 60%) ]

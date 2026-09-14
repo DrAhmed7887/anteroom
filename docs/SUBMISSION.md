@@ -14,8 +14,8 @@
 |---|---|
 | **Live demo** | https://drahmed7887.github.io/anteroom/ |
 | **Source** | https://github.com/DrAhmed7887/anteroom (MIT) |
-| **Architecture** | [`docs/architecture.png`](architecture.png) |
-| **Reliability benchmark** | [`docs/benchmark_results.md`](benchmark_results.md) — 20 runs |
+| **Architecture** | [Architecture Diagram](https://github.com/DrAhmed7887/anteroom/blob/main/docs/architecture.png) |
+| **Reliability benchmark** | [Benchmark Results (20 runs)](https://github.com/DrAhmed7887/anteroom/blob/main/docs/benchmark_results.md) |
 
 The live console needs no sign-up and makes no AWS calls: all three cases are pre-computed
 from real Textract output. All patient data is synthetic.

@@ -168,7 +168,7 @@ Then open <http://localhost:8501> and sign in as any of the seeded users.
 
 | Do this | See |
 |---|---|
-| Open **Marta Ruiz Delgado** → *Confidence gate* | `51 words · 1 deleted`, the deleted one at **43.1%** |
+| Open **Marta Ruiz Delgado** → *Confidence gate* | `51 words · 1 deleted`, the deleted one at **43.08%** |
 | Open the *Clinician brief* | `Apixaban — DOSE NOT DOCUMENTED` |
 | Switch user to **Jo Adeyemi (reception)** | The clinical brief tab disappears entirely |
 | Switch user to **Dr Mark Ferris** *(other practice)* | Access refused and logged, not an empty page |
