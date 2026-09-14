@@ -123,6 +123,14 @@ Anteroom enforces strict practice and role scoping:
 
 ---
 
+## 🚧 Challenges We Ran Into
+
+1. **The LLM Completion Reflex:** Multimodal models reflexively infer smudged numbers based on statistical training priors. Prompt engineering alone ("do not guess") proved unreliable. We resolved this structurally: Amazon Textract performs word-level confidence scoring, and our OCR confidence gate replaces low-confidence words with `⟪ILLEGIBLE⟫` before any language model sees the text.
+2. **The "Silent Absence" Problem:** Window glare across an intake monitor scan obliterated the creatinine/eGFR row, yet Textract returned the surrounding lines with 95%+ confidence. A generic summarizer would report the document as complete. We solved this with inspectable clinical schemas (`config/visit_requirements.yaml`) that audit what *must* be present rather than summarizing what was observed.
+3. **Multi-Role Scoping & Privacy:** Creating an operational interface where receptionists receive actionable telephone scripts without exposing sensitive clinician briefs required strict role-based access contracts (`AccessDenied` boundaries across practice and role domains).
+
+---
+
 ## 🏆 Accomplishments We're Proud Of
 
 1. **Zero Hallucination Guarantee:** In multi-run automated reliability benchmarks against live Amazon Bedrock inference, the model refused to guess the smudged Apixaban dose **100% of the time** (`dose=None`, `confidence=UNREADABLE`).
