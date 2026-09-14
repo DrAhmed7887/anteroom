@@ -12,7 +12,8 @@
 
 | | |
 |---|---|
-| **Live demo** | https://drahmed7887.github.io/anteroom/ |
+| **Live demo (Primary)** | https://drahmed7887.github.io/anteroom/ |
+| **Live demo (Vercel)** | https://anteroom-pi.vercel.app |
 | **Source** | https://github.com/DrAhmed7887/anteroom (MIT) |
 | **Architecture** | [Architecture Diagram](https://github.com/DrAhmed7887/anteroom/blob/main/docs/architecture.png) |
 | **Reliability benchmark** | [Benchmark Results (20 runs)](https://github.com/DrAhmed7887/anteroom/blob/main/docs/benchmark_results.md) |
