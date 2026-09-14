@@ -5,3 +5,7 @@ agentcore/dist
 tests
 .git
 .github
+app.py
+anteroom/
+scripts/
+agentcore/
