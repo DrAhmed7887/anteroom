@@ -3,7 +3,7 @@
 **Project Name:** Anteroom — Ambient Clinical Intake Coordinator  
 **Tagline:** Checks tomorrow’s clinic list tonight, verifies whether scheduled consultations can actually proceed, and hands reception the exact three calls to make in the morning.  
 **Track:** Professional Agents (AWS × Strands Agents SDK Hackathon — "Agents for Humans")  
-**Authors:** Dr. Ahmed Zayed (MBBCh, MSc Candidate in Applied Health Informatics at RWTH Aachen; Founder of doctorIQ) & Gerhard  
+**Authors:** Dr. Ahmed Zayed (MBBCh, MSc Candidate in Applied Health Informatics at RWTH Aachen; former founder of doctorIQ) & Gerhard  
 **Repository:** [https://github.com/DrAhmed7887/anteroom](https://github.com/DrAhmed7887/anteroom)  
 
 ---
