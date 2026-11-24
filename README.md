@@ -1,5 +1,7 @@
 # Anteroom
 
+[![CI](https://github.com/DrAhmed7887/anteroom/actions/workflows/ci.yml/badge.svg)](https://github.com/DrAhmed7887/anteroom/actions/workflows/ci.yml)
+
 **The room before the room.**
 
 ### ▶ [Open the live console](https://drahmed7887.github.io/anteroom/)
