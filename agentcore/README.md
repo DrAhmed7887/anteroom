@@ -6,7 +6,7 @@ Anteroom exposes its core autonomous multi-agent coordination capabilities to **
 
 ## 1. Action Group Endpoints
 
-The Action Group defines three deterministic clinical operations in [`openapi.json`](file:///Users/ahmedzayed/Downloads/Agents%20for%20Humans%20Hackathon/anteroom/agentcore/openapi.json):
+The Action Group defines three deterministic clinical operations in [`openapi.json`](./openapi.json):
 
 | Path | Method | Operation ID | Description |
 |---|---|---|---|
